@@ -145,14 +145,16 @@ header{
   width:72px;height:72px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-size:1.7rem;
-  border:2px solid rgba(255,255,255,.6);
-  box-shadow:0 4px 20px rgba(0,0,0,.13), inset 0 1px 0 rgba(255,255,255,.6);
+  border:2px solid rgba(255,255,255,.7);
+  box-shadow:0 4px 20px rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.7);
   transition:all .25s;
   position:relative;overflow:hidden;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
 }
 .icon-btn:hover .icon-circle{
   transform:scale(1.08);
-  box-shadow:0 8px 30px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.7);
+  box-shadow:0 8px 30px rgba(0,0,0,.15), inset 0 1px 0 rgba(255,255,255,.8);
 }
 
 /* Foto di sfondo */
@@ -184,16 +186,16 @@ header{
 }
 
 /* Fallback colore se non c'è foto */
-.ic-villa    { background:rgba(176,125,58,.6);  }
-.ic-foto     { background:rgba(90,127,168,.6);  }
-.ic-piscina  { background:rgba(0,174,239,.55);  }
-.ic-arrivo   { background:rgba(0,174,239,.55);  }
-.ic-trasporti{ background:rgba(74,74,74,.65);   }
-.ic-mangiare { background:rgba(232,25,44,.55);  }
-.ic-roma     { background:rgba(200,134,10,.6);  }
-.ic-castelli { background:rgba(46,189,107,.55); }
-.ic-casa     { background:rgba(224,168,0,.55);  }
-.ic-emergenze{ background:rgba(232,25,44,.6);   }
+.ic-villa    { background:rgba(176,125,58,.45);  }
+.ic-foto     { background:rgba(90,127,168,.45);  }
+.ic-piscina  { background:rgba(0,174,239,.45);   }
+.ic-arrivo   { background:rgba(0,174,239,.38);   }
+.ic-trasporti{ background:rgba(100,120,150,.38); }
+.ic-mangiare { background:rgba(220,80,80,.42);   }
+.ic-roma     { background:rgba(200,160,80,.45);  }
+.ic-castelli { background:rgba(100,180,130,.42); }
+.ic-casa     { background:rgba(200,160,80,.38);  }
+.ic-emergenze{ background:rgba(220,80,80,.45);   }
 
 .icon-label{
   font-size:.58rem;font-weight:700;letter-spacing:.08em;
@@ -491,7 +493,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 <!-- HEADER -->
 <header>
   <div class="h-brand" onclick="goHome()">
-    <img src= "WhatsApp Image 2026-04-10 at 21.15.39.jpeg" alt="B&B Miù" class="h-logo">
+    <img src="WhatsApp Image 2026-04-10 at 21.15.39.jpeg" alt="B&B Miù" class="h-logo">
   </div>
   <button class="h-back" id="h-back" onclick="goHome()">
     <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 2L4 7l5 5"/></svg>
@@ -523,7 +525,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- VILLA — foto suite -->
     <button class="icon-btn" onclick="showPage('villa')">
       <div class="icon-circle ic-villa">
-        <img class="ic-bg" src="WhatsApp Image 2026-04-10 at 21.15.40-3.jpeg" alt="">
+        <img class="ic-bg" src="WhatsApp Image 2026-04-10 at 21.15.33.jpeg" alt="">
         <div class="ic-glass"></div>
         <span class="ic-label">🏠</span>
       </div>
@@ -533,7 +535,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- FOTO — terrazza -->
     <button class="icon-btn" onclick="showPage('foto')">
       <div class="icon-circle ic-foto">
-        <img class="ic-bg" src="/mnt/user-data/uploads/WhatsApp_Image_2026-04-10_at_21_15_38-2_2.jpeg" alt="">
+        <img class="ic-bg" src="WhatsApp Image 2026-04-10 at 21.15.38-3.jpeg" alt="">
         <div class="ic-glass"></div>
         <span class="ic-label">🖼️</span>
       </div>
@@ -545,7 +547,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div class="icon-circle ic-piscina">
         <img class="ic-bg" src="WhatsApp Image 2026-04-10 at 21.15.41.jpeg" alt="">
         <div class="ic-glass"></div>
-        <span class="ic-label">🏊🏻‍♂️</span>
+        <span class="ic-label">🩵</span>
       </div>
       <span class="icon-label"><span data-it>Piscina</span><span data-en>Pool</span></span>
     </button>
@@ -553,7 +555,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- ARRIVO — sostituisci src con tua foto (es. mappa, ingresso villa) -->
     <button class="icon-btn" onclick="showPage('arrivo')">
       <div class="icon-circle ic-arrivo">
-        <!-- <img class="ic-bg" src="airport-terminal.jpg" alt=""> -->
+        <!-- <img class="ic-bg" src="foto-arrivo.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">✈️</span>
       </div>
@@ -563,7 +565,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- TRASPORTI — sostituisci src con tua foto -->
     <button class="icon-btn" onclick="showPage('trasporti')">
       <div class="icon-circle ic-trasporti">
-        <!-- <img class="ic-bg" src="Screenshot 2026-04-14 alle 16.00.12.png" alt=""> -->
+        <!-- <img class="ic-bg" src="foto-trasporti.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">🗺️</span>
       </div>
@@ -603,7 +605,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- INFO CASA — foto camera -->
     <button class="icon-btn" onclick="showPage('casa')">
       <div class="icon-circle ic-casa">
-        <img class="ic-bg" src="/mnt/user-data/uploads/WhatsApp_Image_2026-04-10_at_21_15_37-3.jpeg" alt="">
+        <img class="ic-bg" src="WhatsApp Image 2026-04-10 at 21.15.34.jpeg" alt="">
         <div class="ic-glass"></div>
         <span class="ic-label">🏡</span>
       </div>
@@ -657,11 +659,11 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </div>
   <div class="page-body">
     <div class="photo-strip">
-      <div class="p-item p-main" onclick="openLB(0)"><img src="WhatsApp Image 2026-04-10 at 21.15.41.jpeg" alt="Piscina"></div>
-      <div class="p-item" onclick="openLB(1)"><img src="WhatsApp Image 2026-04-10 at 21.15.38-3.jpeg" alt="Terrazza"></div>
-      <div class="p-item" onclick="openLB(2)"><img src="WhatsApp Image 2026-04-10 at 21.15.34.jpeg" alt="Camera Turchese"></div>
-      <div class="p-item" onclick="openLB(3)"><img src="WhatsApp Image 2026-04-10 at 21.15.33-3.jpeg" alt="Bagno"></div>
-      <div class="p-item p-more" data-label="+ foto" onclick="openLB(4)"><img src="WhatsApp Image 2026-04-10 at 21.15.33.jpeg" alt="Suite"></div>
+      <div class="p-item p-main" onclick="openLB(0,this)"><img src="WhatsApp Image 2026-04-10 at 21.15.41.jpeg" alt="Piscina"></div>
+      <div class="p-item" onclick="openLB(1,this)"><img src="WhatsApp Image 2026-04-10 at 21.15.38-3.jpeg" alt="Terrazza"></div>
+      <div class="p-item" onclick="openLB(2,this)"><img src="WhatsApp Image 2026-04-10 at 21.15.34.jpeg" alt="Camera Turchese"></div>
+      <div class="p-item" onclick="openLB(3,this)"><img src="WhatsApp Image 2026-04-10 at 21.15.33-3.jpeg" alt="Bagno"></div>
+      <div class="p-item p-more" data-label="+ foto" onclick="openLB(4,this)"><img src="WhatsApp Image 2026-04-10 at 21.15.33.jpeg" alt="Suite"></div>
     </div>
     <p style="font-size:.7rem;color:var(--faint);text-align:center;margin-top:.55rem;font-style:italic"><span data-it>Tocca per ingrandire</span><span data-en>Tap to enlarge</span></p>
     <p class="sub-h" style="margin-top:2rem">🎬 Video</p>
@@ -683,7 +685,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     </div>
   </div>
   <div class="page-body">
-    <div class="photo-hero" onclick="openLB(0)">
+    <div class="photo-hero" onclick="openLB(0,this)">
       <img src="WhatsApp Image 2026-04-10 at 21.15.41.jpeg" alt="Piscina B&B Miù">
       <div class="photo-hero-overlay"><span>B&B Miù — <span data-it>Piscina privata</span><span data-en>Private pool</span></span></div>
     </div>
@@ -803,7 +805,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <span class="delivery-chevron" id="gc1">▾</span>
     </div>
     <div class="delivery-panel" id="glovo-panel">
-      <a class="app-item" href="https://glovoapp.com/it/it?gad_source=1&gad_campaignid=22608852450&gbraid=0AAAAADMzK6VHNKUCOm2jNdlU1uAAH2wL7&gclid=Cj0KCQjwy_fOBhC6ARIsAHKFB78bSpNXHTlj4OdlhBxP-hz3CW8ydiNXs2QHWsyLlC_s0ijfiToB-akaAqGnEALw_wcB" target="_blank"><div class="app-logo"><!-- <img src="logo-glovo.png"> -->🛵</div><div><p class="app-name">Glovo</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_GLOVO" target="_blank"><div class="app-logo"><!-- <img src="logo-glovo.png"> -->🛵</div><div><p class="app-name">Glovo</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
     </div>
 
     <div class="delivery-toggle" onclick="toggleDelivery('deliveroo-panel','dc1')" style="margin-top:.4rem">
@@ -814,7 +816,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <span class="delivery-chevron" id="dc1">▾</span>
     </div>
     <div class="delivery-panel" id="deliveroo-panel">
-      <a class="app-item" href="https://deliveroo.it/it?utm_source=google&utm_medium=cpc&utm_term=deliveroo&utm_campaign=%2A%2A%5EAcquisition%5ESearch%5EBrand%5EItaly%5EAll%20Cities%5E%5EBroad%5EAPI%5E%5E%5E%5E%5EIT%5ELifecycle%5E£19640098550&utm_loc=9050638&utm_device=c&utm_adposition=&utm_network=g&utm_targetid=kwd-47300311509&gclsrc=aw.ds&gad_source=1&gad_campaignid=19640098550&gbraid=0AAAAADgqrWVkXFDNXeNENnfukO0OQVvaI&gclid=Cj0KCQjwy_fOBhC6ARIsAHKFB7_DGIhVNWCIKQKBJudMuzbqVDWRHNRx8er1uu4IXTY25zysMZQPGFoaAl-nEALw_wcB" target="_blank"><div class="app-logo">🛺</div><div><p class="app-name">Deliveroo</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_DELIVEROO" target="_blank"><div class="app-logo">🛺</div><div><p class="app-name">Deliveroo</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
     </div>
 
     <div class="delivery-toggle" onclick="toggleDelivery('justeat-panel','jc1')" style="margin-top:.4rem">
@@ -825,7 +827,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <span class="delivery-chevron" id="jc1">▾</span>
     </div>
     <div class="delivery-panel" id="justeat-panel">
-      <a class="app-item" href="Yhttps://www.justeat.it/domicilio/roma?utm_source=google&utm_medium=cpc&utm_campaign=CM_S_G_ITA_IT_[BRAND]_[ENGM]_Just+Eat_Root_Rome_1008736&utm_campaignid=10743133901&gad_source=1&gad_campaignid=10743133901&gbraid=0AAAAAD3ULIVA3NFI2YF4tj9q055XI-IyL&gclid=Cj0KCQjwy_fOBhC6ARIsAHKFB7-OHKpgukl2uUhSvK6pQOmS506QnKYvy9QRIjRuzwdlgtJH5ZRAWWYaAuVTEALw_wcB" target="_blank"><div class="app-logo">🍔</div><div><p class="app-name">JustEat</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_JUSTEAT" target="_blank"><div class="app-logo">🍔</div><div><p class="app-name">JustEat</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
     </div>
   </div>
 </div>
@@ -1099,19 +1101,44 @@ function closeModal(){document.getElementById('placeModal').classList.remove('op
 document.getElementById('placeModal').addEventListener('click',e=>{if(e.target===document.getElementById('placeModal'))closeModal();});
 
 /* ── LIGHTBOX ── */
-const PHOTOS=[
-  {src:'/mnt/user-data/uploads/WhatsApp_Image_2026-04-10_at_21_15_41.jpeg',cap:'Piscina'},
-  {src:'/mnt/user-data/uploads/WhatsApp_Image_2026-04-10_at_21_15_38-2_2.jpeg',cap:'Terrazza colazione'},
-  {src:'/mnt/user-data/uploads/WhatsApp_Image_2026-04-10_at_21_15_37-3.jpeg',cap:'Camera Turchese'},
-  {src:'/mnt/user-data/uploads/WhatsApp_Image_2026-04-10_at_21_15_34-3.jpeg',cap:'Bagno privato'},
-  {src:'/mnt/user-data/uploads/WhatsApp_Image_2026-04-10_at_21_15_33.jpeg',cap:'Suite Fiorita'},
-];
-let lbIdx=0;
-function openLB(i){lbIdx=i;updLB();buildDots();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+let lbImages = [];
+let lbIdx = 0;
+
+function openLB(i, el) {
+  // Trova il contenitore delle foto (strip o photo-hero)
+  const container = el
+    ? (el.closest('.photo-strip') || el.closest('.photo-hero') || el.closest('.page-body'))
+    : (document.querySelector('.view.active .photo-strip') || document.querySelector('.view.active .photo-hero'));
+
+  if (container) {
+    lbImages = Array.from(container.querySelectorAll('img:not(.ic-bg)'))
+      .filter(img => img.src && !img.src.endsWith('#'))
+      .map(img => ({ src: img.src, cap: img.alt || '' }));
+  }
+
+  lbIdx = Math.min(i, lbImages.length - 1);
+  updLB();
+  buildDots();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
 function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
-function lbNav(d){lbIdx=(lbIdx+d+PHOTOS.length)%PHOTOS.length;updLB();}
-function updLB(){document.getElementById('lb-img').src=PHOTOS[lbIdx].src;document.getElementById('lb-cap').textContent=PHOTOS[lbIdx].cap;document.querySelectorAll('.lb-dot').forEach((d,i)=>d.classList.toggle('on',i===lbIdx));}
-function buildDots(){const c=document.getElementById('lb-dots');c.innerHTML='';PHOTOS.forEach((_,i)=>{const d=document.createElement('span');d.className='lb-dot'+(i===lbIdx?' on':'');d.onclick=()=>{lbIdx=i;updLB();};c.appendChild(d);});}
+function lbNav(d){lbIdx=(lbIdx+d+lbImages.length)%lbImages.length;updLB();}
+function updLB(){
+  document.getElementById('lb-img').src=lbImages[lbIdx]?lbImages[lbIdx].src:'';
+  document.getElementById('lb-cap').textContent=lbImages[lbIdx]?lbImages[lbIdx].cap:'';
+  document.querySelectorAll('.lb-dot').forEach((d,i)=>d.classList.toggle('on',i===lbIdx));
+}
+function buildDots(){
+  const c=document.getElementById('lb-dots');c.innerHTML='';
+  lbImages.forEach((_,i)=>{
+    const d=document.createElement('span');
+    d.className='lb-dot'+(i===lbIdx?' on':'');
+    d.onclick=()=>{lbIdx=i;updLB();};
+    c.appendChild(d);
+  });
+}
 document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===document.getElementById('lightbox'))closeLB();});
 document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='ArrowRight')lbNav(1);if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='Escape')closeLB();});
 </script>
