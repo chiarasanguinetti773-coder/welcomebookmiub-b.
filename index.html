@@ -87,7 +87,7 @@ header{
 #view-home::after{content:'';position:absolute;bottom:-70px;left:-70px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(0,174,239,.07);pointer-events:none;}
 
 /* LOGO HERO */
-.home-logo-wrap{margin-bottom:1.8rem;position:relative;z-index:1;}
+.home-logo-wrap{margin-bottom:1.4rem;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
 .home-logo{height:150px;width:150px;object-fit:contain;border-radius:50%;background:#fff;padding:6px;box-shadow:0 4px 28px rgba(0,0,0,.12);}
 .home-logo-txt{font-family:'Playfair Display',serif;font-style:italic;font-size:3.5rem;color:var(--gold);line-height:1;}
 
@@ -110,28 +110,14 @@ header{
 
 /* ICONE GRIGLIA */
 .icon-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1rem;max-width:380px;width:100%;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:.9rem;max-width:440px;width:100%;
   position:relative;z-index:1;
 }
-@media(min-width:480px){.icon-grid{grid-template-columns:repeat(4,1fr);max-width:460px;}}
-@media(min-width:640px){.icon-grid{grid-template-columns:repeat(5,1fr);max-width:560px;gap:1.1rem;}}
-
-.icon-btn{
-  display:flex;flex-direction:column;align-items:center;gap:.5rem;
-  background:none;border:none;cursor:pointer;padding:.1rem;
-  transition:transform .25s;text-decoration:none;
+@media(max-width:380px){
+  .icon-grid{grid-template-columns:repeat(3,1fr);max-width:280px;gap:.7rem;}
 }
-.icon-btn:hover{transform:translateY(-5px);}
-
-/* ICONE GRIGLIA */
-.icon-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1rem;max-width:380px;width:100%;
-  position:relative;z-index:1;
-}
-@media(min-width:480px){.icon-grid{grid-template-columns:repeat(4,1fr);max-width:460px;}}
-@media(min-width:640px){.icon-grid{grid-template-columns:repeat(5,1fr);max-width:560px;gap:1.1rem;}}
 
 .icon-btn{
   display:flex;flex-direction:column;align-items:center;gap:.5rem;
@@ -171,31 +157,29 @@ header{
 /* Frosted glass overlay sopra la foto */
 .icon-circle .ic-glass{
   position:absolute;inset:0;border-radius:50%;
-  background:rgba(255,255,255,.18);
-  backdrop-filter:blur(2px);
-  -webkit-backdrop-filter:blur(2px);
+  background:rgba(255,255,255,.06);
   z-index:1;
 }
 
 /* Emoji/icona sopra tutto */
 .icon-circle .ic-label{
   position:relative;z-index:2;
-  font-size:1.7rem;
+  font-size:1.55rem;
   line-height:1;
-  filter:drop-shadow(0 1px 4px rgba(0,0,0,.3));
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.2));
 }
 
 /* Fallback colore se non c'è foto */
-.ic-villa    { background:rgba(176,125,58,.45);  }
-.ic-foto     { background:rgba(90,127,168,.45);  }
-.ic-piscina  { background:rgba(0,174,239,.45);   }
-.ic-arrivo   { background:rgba(0,174,239,.38);   }
-.ic-trasporti{ background:rgba(100,120,150,.38); }
-.ic-mangiare { background:rgba(220,80,80,.42);   }
-.ic-roma     { background:rgba(200,160,80,.45);  }
-.ic-castelli { background:rgba(100,180,130,.42); }
-.ic-casa     { background:rgba(200,160,80,.38);  }
-.ic-emergenze{ background:rgba(220,80,80,.45);   }
+.ic-villa    { background:linear-gradient(145deg,rgba(200,134,10,.08),rgba(200,134,10,.18)); }
+.ic-foto     { background:linear-gradient(145deg,rgba(100,149,210,.08),rgba(100,149,210,.2)); }
+.ic-piscina  { background:linear-gradient(145deg,rgba(0,174,239,.08),rgba(0,174,239,.2)); }
+.ic-arrivo   { background:linear-gradient(145deg,rgba(0,174,239,.06),rgba(0,174,239,.16)); }
+.ic-trasporti{ background:linear-gradient(145deg,rgba(90,110,150,.06),rgba(90,110,150,.15)); }
+.ic-mangiare { background:linear-gradient(145deg,rgba(232,25,44,.07),rgba(232,25,44,.17)); }
+.ic-roma     { background:linear-gradient(145deg,rgba(200,134,10,.07),rgba(200,134,10,.18)); }
+.ic-castelli { background:linear-gradient(145deg,rgba(60,180,90,.07),rgba(60,180,90,.18)); }
+.ic-casa     { background:linear-gradient(145deg,rgba(220,170,0,.07),rgba(220,170,0,.18)); }
+.ic-emergenze{ background:linear-gradient(145deg,rgba(232,25,44,.07),rgba(232,25,44,.17)); }
 
 .icon-label{
   font-size:.58rem;font-weight:700;letter-spacing:.08em;
@@ -206,7 +190,7 @@ header{
 /* Label sotto */
 .icon-label{
   font-size:.6rem;font-weight:700;letter-spacing:.07em;
-  text-transform:uppercase;color:var(--ink);line-height:1.25;
+  text-transform:uppercase;color:#3a3530;line-height:1.25;
   text-align:center;
 }
 
@@ -441,6 +425,40 @@ header{
 .lb-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:background .2s;}
 .lb-dot.on{background:var(--gold-l);}
 
+
+/* ── Modal Storia — testo curvo ── */
+.logo-ring{position:relative;display:inline-block;width:200px;height:200px;}
+.home-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.logo-ring-svg{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;
+}
+.ring-text{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:13px;fill:var(--gold);letter-spacing:2px;
+  animation:ringPulse 2.8s ease-in-out infinite;
+}
+@keyframes ringPulse{
+  0%,100%{opacity:.7;}
+  50%{opacity:1;}
+}
+.logo-ring:hover .ring-text{fill:var(--gold-l);animation:none;opacity:1;}
+/* indicatore tap — pallino animato */
+.logo-ring::after{
+  content:'';
+  position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:var(--gold);
+  animation:tapDot 2.8s ease-in-out infinite;
+}
+@keyframes tapDot{
+  0%,100%{transform:translateX(-50%) scale(1);opacity:.5;}
+  50%{transform:translateX(-50%) scale(1.4);opacity:1;}
+}
+.logo-ring:hover::after{animation:none;opacity:0;}
+.lang-it .lang-en-text{display:none;}
+.lang-en .lang-it-text{display:none;}
+
 /* ── Lang ── */
 [data-it],[data-en]{display:inline;}
 div[data-it],p[data-it],h1[data-it],h2[data-it],h3[data-it],li[data-it]{display:block;}
@@ -466,6 +484,21 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 </style>
 </head>
 <body class="lang-it">
+
+<!-- MODAL STORIA -->
+<div class="modal-overlay" id="storiaModal" onclick="if(event.target===this)closeStoria()">
+  <div class="modal-box" style="max-width:560px;">
+    <button class="modal-close" onclick="closeStoria()">✕</button>
+    <p class="modal-tag">Il nostro B&B</p>
+    <h2 class="modal-title" style="font-size:1.6rem">Chi <span style="font-style:italic;color:var(--gold)">siamo</span></h2>
+    <div class="modal-body" style="font-size:.86rem;line-height:1.85;">
+      <p style="margin-bottom:.9rem">Siamo <strong>Alessandro e Fabiana</strong>, insieme da oltre 25 anni e uniti da una passione autentica per l'ospitalità. Accogliere, ascoltare e far sentire ogni ospite a proprio agio è ciò che amiamo di più del nostro lavoro.</p>
+      <p style="margin-bottom:.9rem">Il nome <strong>Miù</strong> racchiude una storia personale a cui siamo molto legati. Tutto nasce oltre 20 anni fa, durante un soggiorno in un Bed and Breakfast. Ricordiamo ancora con affetto una colazione semplice ma curata, preparata con attenzione dalla signora che ci ospitava: sul tavolo c'erano tante cose buone, tra cui una scatola di muesli. Da quel momento abbiamo cominciato a chiamarci <em>"Miusli"</em>, un soprannome affettuoso che negli anni si è evoluto, passando da Miuslem fino a diventare Miù.</p>
+      <p style="margin-bottom:.9rem">Oggi rappresenta il nostro modo di accogliere: fatto di semplicità, cura e attenzione ai dettagli.</p>
+      <p>Gestiamo personalmente il nostro B&B con discrezione e dedizione, cercando di creare un ambiente elegante e rilassante, dove ogni ospite possa sentirsi davvero il benvenuto.<br><br><em>Ci auguriamo che possiate vivere qui un soggiorno piacevole e autentico.</em></p>
+    </div>
+  </div>
+</div>
 
 <!-- LIGHTBOX -->
 <div class="lb-overlay" id="lightbox">
@@ -509,7 +542,21 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 <!-- ════════════ HOME ════════════ -->
 <div class="view active" id="view-home" style="display:flex">
   <div class="home-logo-wrap">
-    <img src="WhatsApp Image 2026-04-10 at 21.15.39.jpeg" alt="B&B Miù" class="home-logo">
+    <div class="logo-ring" onclick="openStoria()" style="cursor:pointer;">
+      <img src="WhatsApp Image 2026-04-10 at 21.15.39.jpeg" alt="B&B Miù" class="home-logo">
+      <svg class="logo-ring-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="curve-it" d="M 12,100 a 88,88 0 1,1 176,0"/>
+          <path id="curve-en" d="M 18,100 a 82,82 0 1,1 164,0"/>
+        </defs>
+        <text class="ring-text lang-it-text">
+          <textPath href="#curve-it" startOffset="50%" text-anchor="middle">scopri la nostra storia</textPath>
+        </text>
+        <text class="ring-text lang-en-text">
+          <textPath href="#curve-en" startOffset="50%" text-anchor="middle">discover our story</textPath>
+        </text>
+      </svg>
+    </div>
   </div>
   <h1 class="home-h1">
     <span data-it>Benvenuti nel nostro<br><span class="accent">Welcome Book</span></span>
@@ -547,7 +594,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div class="icon-circle ic-piscina">
         <img class="ic-bg" src="WhatsApp Image 2026-04-10 at 21.15.41.jpeg" alt="">
         <div class="ic-glass"></div>
-        <span class="ic-label">🏊🏻‍♂️</span>
+        <span class="ic-label">🩵</span>
       </div>
       <span class="icon-label"><span data-it>Piscina</span><span data-en>Pool</span></span>
     </button>
@@ -555,7 +602,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- ARRIVO — sostituisci src con tua foto (es. mappa, ingresso villa) -->
     <button class="icon-btn" onclick="showPage('arrivo')">
       <div class="icon-circle ic-arrivo">
-        <img class="ic-bg" src="airport-terminal.jpg" alt=""> 
+        <!-- <img class="ic-bg" src="foto-arrivo.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">✈️</span>
       </div>
@@ -565,7 +612,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- TRASPORTI — sostituisci src con tua foto -->
     <button class="icon-btn" onclick="showPage('trasporti')">
       <div class="icon-circle ic-trasporti">
-        <img class="ic-bg" src="Screenshot 2026-04-14 alle 17.51.56.png" alt=""> 
+        <!-- <img class="ic-bg" src="foto-trasporti.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">🗺️</span>
       </div>
@@ -575,9 +622,9 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- MANGIARE — sostituisci src con tua foto (es. piatto tipico) -->
     <button class="icon-btn" onclick="showPage('mangiare')">
       <div class="icon-circle ic-mangiare">
-        <img class="ic-bg" src="Screenshot 2026-04-14 alle 19.35.25.png" alt=""> 
+        <!-- <img class="ic-bg" src="foto-mangiare.jpg" alt=""> -->
         <div class="ic-glass"></div>
-        <span class="ic-label">🍴</span>
+        <span class="ic-label">🍷</span>
       </div>
       <span class="icon-label"><span data-it>Mangiare</span><span data-en>Dining</span></span>
     </button>
@@ -585,19 +632,19 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- ROMA — sostituisci src con tua foto (es. Colosseo) -->
     <button class="icon-btn" onclick="showPage('roma')">
       <div class="icon-circle ic-roma">
-        <img class="ic-bg" src="Screenshot 2026-04-14 alle 20.03.10.png" alt="">
+        <!-- <img class="ic-bg" src="foto-roma.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">🏛️</span>
       </div>
-      <span class="icon-label">Roma</span>
+      <span class="icon-label"><span data-it>Itinerari</span><span data-en>Itineraries</span></span>
     </button>
 
     <!-- CASTELLI — sostituisci src con tua foto (es. panorama castelli) -->
     <button class="icon-btn" onclick="showPage('castelli')">
       <div class="icon-circle ic-castelli">
-        <img class="ic-bg" src="Screenshot 2026-04-14 alle 20.00.29.png" alt=""> 
+        <!-- <img class="ic-bg" src="foto-castelli.jpg" alt=""> -->
         <div class="ic-glass"></div>
-        <span class="ic-label">🏰</span>
+        <span class="ic-label">🌿</span>
       </div>
       <span class="icon-label">Castelli</span>
     </button>
@@ -766,11 +813,11 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 
     <p class="sub-h">🚲 Bike Sharing</p>
     <div class="app-list">
-      <a class="app-item" href="https://ridemovi.com/it" target="_blank"><div class="app-logo">🚲</div><div><p class="app-name">RideMovi</p><p class="app-desc"><span data-it>Bici e monopattini</span><span data-en>Bikes & scooters</span></p></div><span class="app-arrow">↗</span></a>
-      <a class="app-item" href="https://www.li.me/it-it" target="_blank"><div class="app-logo">🛴</div><div><p class="app-name">Lime</p><p class="app-desc"><span data-it>Monopattini elettrici</span><span data-en>Electric scooters</span></p></div><span class="app-arrow">↗</span></a>
-      <a class="app-item" href="https://ridedott.com/it/press-release/biciclette-roma/" target="_blank"><div class="app-logo">🛵</div><div><p class="app-name">Dott</p><p class="app-desc"><span data-it>Senza stazione</span><span data-en>Stationless</span></p></div><span class="app-arrow">↗</span></a>
-      <a class="app-item" href="https://moovitapp.com" target="_blank"><div class="app-logo">🗺️</div><div><p class="app-name">Moovit</p><p class="app-desc"><span data-it>Navigazione pubblica</span><span data-en>Public transport nav</span></p></div><span class="app-arrow">↗</span></a>
-      <a class="app-item" href="https://www.mycicero.it" target="_blank"><div class="app-logo">🎫</div><div><p class="app-name">MyCicero</p><p class="app-desc"><span data-it>Biglietti digitali</span><span data-en>Digital tickets</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_RIDEMOVI" target="_blank"><div class="app-logo">🚲</div><div><p class="app-name">RideMovi</p><p class="app-desc"><span data-it>Bici e monopattini</span><span data-en>Bikes & scooters</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_LIME" target="_blank"><div class="app-logo">🛴</div><div><p class="app-name">Lime</p><p class="app-desc"><span data-it>Monopattini elettrici</span><span data-en>Electric scooters</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_DOTT" target="_blank"><div class="app-logo">🛵</div><div><p class="app-name">Dott</p><p class="app-desc"><span data-it>Senza stazione</span><span data-en>Stationless</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_MOOVIT" target="_blank"><div class="app-logo">🗺️</div><div><p class="app-name">Moovit</p><p class="app-desc"><span data-it>Navigazione pubblica</span><span data-en>Public transport nav</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_MYCICERO" target="_blank"><div class="app-logo">🎫</div><div><p class="app-name">MyCicero</p><p class="app-desc"><span data-it>Biglietti digitali</span><span data-en>Digital tickets</span></p></div><span class="app-arrow">↗</span></a>
     </div>
   </div>
 </div>
@@ -805,7 +852,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <span class="delivery-chevron" id="gc1">▾</span>
     </div>
     <div class="delivery-panel" id="glovo-panel">
-      <a class="app-item" href="https://glovoapp.com/it" target="_blank"><div class="app-logo"><!-- <img src="logo-glovo.png"> -->🛵</div><div><p class="app-name">Glovo</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_GLOVO" target="_blank"><div class="app-logo"><!-- <img src="logo-glovo.png"> -->🛵</div><div><p class="app-name">Glovo</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
     </div>
 
     <div class="delivery-toggle" onclick="toggleDelivery('deliveroo-panel','dc1')" style="margin-top:.4rem">
@@ -816,7 +863,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <span class="delivery-chevron" id="dc1">▾</span>
     </div>
     <div class="delivery-panel" id="deliveroo-panel">
-      <a class="app-item" href="https://deliveroo.co.uk" target="_blank"><div class="app-logo">🛺</div><div><p class="app-name">Deliveroo</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_DELIVEROO" target="_blank"><div class="app-logo">🛺</div><div><p class="app-name">Deliveroo</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
     </div>
 
     <div class="delivery-toggle" onclick="toggleDelivery('justeat-panel','jc1')" style="margin-top:.4rem">
@@ -827,7 +874,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <span class="delivery-chevron" id="jc1">▾</span>
     </div>
     <div class="delivery-panel" id="justeat-panel">
-      <a class="app-item" href="https://www.justeat.it" target="_blank"><div class="app-logo">🍔</div><div><p class="app-name">JustEat</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="YOUR_AFFILIATE_LINK_JUSTEAT" target="_blank"><div class="app-logo">🍔</div><div><p class="app-name">JustEat</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
     </div>
   </div>
 </div>
@@ -838,8 +885,8 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <div class="ph-icon">🏛️</div>
     <div>
       <p class="ph-tag"><span data-it>Esplora</span><span data-en>Explore</span></p>
-      <h1 class="ph-title" data-it>Itinerari <span class="sc">Roma</span></h1>
-      <h1 class="ph-title" data-en>Rome <span class="sc">Itineraries</span></h1>
+      <h1 class="ph-title" data-it><span class="sc">Itinerari</span> Consigliati</h1>
+      <h1 class="ph-title" data-en>Recommended <span class="sc">Itineraries</span></h1>
     </div>
   </div>
   <div class="page-body">
@@ -954,7 +1001,7 @@ const PAGES={
   arrivo:{it:'Come Arrivare',en:'Arrival'},
   trasporti:{it:'Trasporti & Biglietti',en:'Transport & Tickets'},
   mangiare:{it:'Mangiare',en:'Dining'},
-  roma:{it:'Roma',en:'Rome'},
+  roma:{it:'Itinerari Consigliati',en:'Recommended Itineraries'},
   castelli:{it:'Castelli Romani',en:'Castelli Romani'},
   casa:{it:'Info Casa',en:'House'},
   emergenze:{it:'Emergenze',en:'Emergency'},
@@ -1085,6 +1132,15 @@ const PLACES={
     body_en:"<strong>Giolitti</strong> (near the Pantheon) · <strong>Fatamorgana</strong> (Trastevere, Prati, Monti) · <strong>Gelateria dei Gracchi</strong> (Prati, 2 min Vatican).<br><br>💡 Real artisan gelato has muted, natural colours.",
     links:[{l:"Giolitti Maps",u:"https://maps.google.com/?q=Giolitti+Roma",p:true},{l:"Fatamorgana",u:"https://maps.google.com/?q=Fatamorgana+Trastevere"}]},
 };
+
+function openStoria(){
+  document.getElementById('storiaModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeStoria(){
+  document.getElementById('storiaModal').classList.remove('open');
+  document.body.style.overflow='';
+}
 
 function openModal(key){
   const lang=document.body.classList.contains('lang-en')?'en':'it';
