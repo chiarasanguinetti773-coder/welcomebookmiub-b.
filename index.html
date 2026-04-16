@@ -476,21 +476,26 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 @media(max-width:560px){
   .photo-strip{grid-template-columns:1fr 1fr;grid-template-rows:130px 130px;}
   .p-main{grid-column:1/3;grid-row:1;}
-  .icon-circle{width:56px;height:56px;font-size:1.3rem;}
 
   /* Home respiro */
   #view-home{padding:3.2rem 1rem 2rem;}
   .home-welcome{margin-bottom:1.6rem;}
-  .home-h1 .accent{font-size:2.1rem;}
 
-  /* Icone */
-  .icon-grid{gap:.6rem;}
-  .icon-label{font-size:.52rem;}
+  /* Logo ring — scala fluida: 42vw su qualsiasi telefono */
+  .logo-ring{width:42vw;height:42vw;max-width:190px;max-height:190px;}
+  .home-logo{width:31vw;height:31vw;max-width:142px;max-height:142px;}
+  .ring-text{font-size:clamp(9px,2.8vw,13px) !important;letter-spacing:clamp(.5px,.6vw,2px) !important;}
+
+  /* Icone — scala fluida */
+  .icon-circle{width:clamp(44px,13vw,64px);height:clamp(44px,13vw,64px);font-size:clamp(1rem,4vw,1.5rem);}
+  .icon-circle .ic-label{font-size:clamp(.9rem,3.5vw,1.4rem);}
+  .icon-grid{gap:clamp(.4rem,2vw,.9rem);}
+  .icon-label{font-size:clamp(.45rem,1.8vw,.6rem);}
 
   /* Pagine interne */
   .page-hero{padding:1.2rem 1rem 1rem;}
   .page-body{padding:1.3rem 1rem 2.5rem;}
-  .ph-title{font-size:1.25rem;}
+  .ph-title{font-size:clamp(1.1rem,5vw,1.4rem);}
   .card-grid{grid-template-columns:1fr;}
   .arrival-grid{grid-template-columns:1fr;}
   .transport-grid{grid-template-columns:1fr;}
@@ -501,12 +506,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   .modal-box{padding:1.3rem 1.1rem 1rem;}
   .modal-body{font-size:.82rem;}
   .hbox p{font-size:.88rem;}
-}
-
-@media(max-width:390px){
-  .icon-circle{width:48px;height:48px;font-size:1.1rem;}
-  .icon-grid{gap:.45rem;max-width:300px;}
-  .icon-label{font-size:.48rem;}
 }
 
 /* ── Print ── */
