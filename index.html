@@ -473,9 +473,9 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   .icon-circle{width:56px;height:56px;font-size:1.3rem;}
 
   /* Logo ring mobile */
-  .logo-ring{width:164px;height:164px;}
-  .home-logo{height:122px;width:122px;}
-  .ring-text{font-size:11.5px;letter-spacing:1.2px;}
+  .logo-ring{width:148px;height:148px;}
+  .home-logo{height:110px;width:110px;}
+  .ring-text{font-size:10px;letter-spacing:.8px;}
 
   /* Home respiro */
   #view-home{padding:3.2rem 1rem 2rem;}
@@ -494,8 +494,21 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   .arrival-grid{grid-template-columns:1fr;}
   .transport-grid{grid-template-columns:1fr;}
   .info-block{grid-template-columns:1fr 1fr;}
+  .appliance-list{grid-template-columns:1fr;}
+  .castelli-grid{grid-template-columns:1fr;}
   .emergency-grid{grid-template-columns:repeat(3,1fr);}
   .modal-box{padding:1.3rem 1.1rem 1rem;}
+  .modal-body{font-size:.82rem;}
+  .hbox p{font-size:.88rem;}
+}
+
+@media(max-width:390px){
+  .icon-circle{width:48px;height:48px;font-size:1.1rem;}
+  .icon-grid{gap:.45rem;max-width:300px;}
+  .icon-label{font-size:.48rem;}
+  .logo-ring{width:134px;height:134px;}
+  .home-logo{height:98px;width:98px;}
+  .ring-text{font-size:9px;letter-spacing:.5px;}
 }
 
 /* ── Print ── */
@@ -572,12 +585,12 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <svg class="logo-ring-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <path id="curve-it" d="M 12,100 a 88,88 0 1,1 176,0"/>
-          <path id="curve-en" d="M 18,100 a 82,82 0 1,1 164,0"/>
+          <path id="curve-en" d="M 12,100 a 88,88 0 1,1 176,0"/>
         </defs>
         <text class="ring-text lang-it-text">
           <textPath href="#curve-it" startOffset="50%" text-anchor="middle">scopri la nostra storia</textPath>
         </text>
-        <text class="ring-text lang-en-text">
+        <text class="ring-text lang-en-text" style="font-size:13px;letter-spacing:2px;">
           <textPath href="#curve-en" startOffset="50%" text-anchor="middle">discover our story</textPath>
         </text>
       </svg>
@@ -597,6 +610,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- VILLA — foto suite -->
     <button class="icon-btn" onclick="showPage('villa')">
       <div class="icon-circle ic-villa">
+        <img class="ic-bg" src="WhatsApp Image 2026-04-10 at 21.15.33.jpeg" alt="">
         <div class="ic-glass"></div>
         <span class="ic-label">🏠</span>
       </div>
@@ -606,6 +620,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- FOTO — terrazza -->
     <button class="icon-btn" onclick="showPage('foto')">
       <div class="icon-circle ic-foto">
+        <img class="ic-bg" src="WhatsApp Image 2026-04-10 at 21.15.38-3.jpeg" alt="">
         <div class="ic-glass"></div>
         <span class="ic-label">📷</span>
       </div>
@@ -615,6 +630,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- PISCINA — foto piscina -->
     <button class="icon-btn" onclick="showPage('piscina')">
       <div class="icon-circle ic-piscina">
+        <img class="ic-bg" src="WhatsApp Image 2026-04-10 at 21.15.41.jpeg" alt="">
         <div class="ic-glass"></div>
         <span class="ic-label">🏊🏻‍♂️</span>
       </div>
@@ -634,6 +650,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- TRASPORTI — sostituisci src con tua foto -->
     <button class="icon-btn" onclick="showPage('trasporti')">
       <div class="icon-circle ic-trasporti">
+        <!-- <img class="ic-bg" src="foto-trasporti.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">🚌</span>
       </div>
@@ -643,6 +660,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- MANGIARE — sostituisci src con tua foto (es. piatto tipico) -->
     <button class="icon-btn" onclick="showPage('mangiare')">
       <div class="icon-circle ic-mangiare">
+        <!-- <img class="ic-bg" src="foto-mangiare.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">🍴</span>
       </div>
@@ -652,6 +670,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <!-- ROMA — sostituisci src con tua foto (es. Colosseo) -->
     <button class="icon-btn" onclick="showPage('roma')">
       <div class="icon-circle ic-roma">
+        <!-- <img class="ic-bg" src="foto-roma.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">🗺️</span>
       </div>
@@ -700,14 +719,23 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     </div>
   </div>
   <div class="page-body">
-    <p class="page-intro"><span data-it>Il B&B Miù è una villa privata immersa nel verde, a pochi minuti dai Castelli Romani e da Roma. Camere con stili unici — dalla Suite Fiorita con letto in ferro battuto, alla Camera Turchese con parete verde acqua — tutte con aria condizionata, bagno privato en suite e accesso al giardino con piscina.</span><span data-en>B&B Miù is a private villa surrounded by greenery, minutes from the Castelli Romani and Rome. Unique rooms — from the Floral Suite with wrought-iron bed to the Teal Room — all with air conditioning, private en-suite bathroom and pool garden access.</span></p>
+    <p class="page-intro"><span data-it>Il Miù B&B Ciampino è una villa esclusiva dove eleganza e comfort si uniscono per creare un soggiorno raffinato e rilassante. Ambienti ampi, luminosi e curati nei dettagli, con un design moderno ma accogliente. La vera protagonista è l'area esterna: un'oasi privata con piscina, perfetta per momenti di relax in totale tranquillità. Ogni camera è arredata con gusto e cura, con tessuti raffinati e dettagli eleganti. La vicinanza all'aeroporto di Ciampino rende il Miù B&B la scelta ideale sia per chi viaggia per lavoro sia per chi desidera una pausa di relax.</span><span data-en>Miù B&B Ciampino is an exclusive villa where elegance and comfort combine for a refined, relaxing stay. Spacious, bright rooms with modern yet welcoming design. The real star is the outdoor area: a private pool oasis perfect for total relaxation. Each room is tastefully furnished with refined fabrics and elegant details. Close to Ciampino Airport, Miù B&B is ideal for business travellers and those seeking a relaxing break.</span></p>
     <div class="info-block">
-      <div class="info-item"><p class="info-lbl">Check-in</p><p class="info-val"><span data-it>14:00 – 20:00<br><small style="font-size:.76rem;color:var(--muted)">Orari diversi previo accordo</small></span><span data-en>2:00 – 8:00 PM<br><small style="font-size:.76rem;color:var(--muted)">Different times on request</small></span></p></div>
-      <div class="info-item"><p class="info-lbl">Check-out</p><p class="info-val"><span data-it>entro le 11:00<br><small style="font-size:.76rem;color:var(--muted)">Late check-out su richiesta</small></span><span data-en>by 11:00 AM<br><small style="font-size:.76rem;color:var(--muted)">Late check-out on request</small></span></p></div>
-      <div class="info-item"><p class="info-lbl"><span data-it>Colazione</span><span data-en>Breakfast</span></p><p class="info-val">8:00 – 10:00<br><small style="font-size:.76rem;color:var(--muted)"><span data-it>In terrazza</span><span data-en>On the terrace</span></small></p></div>
-      <div class="info-item"><p class="info-lbl">Wi-Fi</p><p class="info-val"><strong>BBMiu_Guest</strong><br><small style="font-size:.76rem;color:var(--muted)">pw: <strong>miumiu2024</strong></small></p></div>
-      <div class="info-item"><p class="info-lbl"><span data-it>Parcheggio</span><span data-en>Parking</span></p><p class="info-val"><span data-it>Privato e gratuito<br><small style="font-size:.76rem;color:var(--muted)">Nel cortile</small></span><span data-en>Private & free<br><small style="font-size:.76rem;color:var(--muted)">In the courtyard</small></span></p></div>
-      <div class="info-item"><p class="info-lbl">WhatsApp Host</p><p class="info-val"><a href="https://wa.me/39320000000" style="color:var(--gold);text-decoration:none;font-weight:600">+39 320 000 0000</a></p></div>
+      <div class="info-item"><p class="info-lbl">Check-in</p><p class="info-val"><span data-it>dalle 14:00<br><small style="font-size:.76rem;color:var(--muted)">In sala colazioni — porta a vetro in reception</small></span><span data-en>from 2:00 PM<br><small style="font-size:.76rem;color:var(--muted)">Breakfast room — glass door at reception</small></span></p></div>
+      <div class="info-item"><p class="info-lbl">Check-out</p><p class="info-val"><span data-it>entro le 10:00</span><span data-en>by 10:00 AM</span></p></div>
+      <div class="info-item"><p class="info-lbl">Wi-Fi</p><p class="info-val"><strong>Ospitib&bmiu</strong><br><small style="font-size:.76rem;color:var(--muted)">pw: <strong>Miub&bciampino</strong></small></p></div>
+      <div class="info-item"><p class="info-lbl"><span data-it>Parcheggio</span><span data-en>Parking</span></p><p class="info-val"><span data-it>Privato e gratuito<br><small style="font-size:.76rem;color:var(--muted)">In cortile, all'interno della struttura</small></span><span data-en>Private & free<br><small style="font-size:.76rem;color:var(--muted)">In the courtyard, inside the property</small></span></p></div>
+      <div class="info-item"><p class="info-lbl">WhatsApp Host</p><p class="info-val"><a href="https://wa.me/393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
+    </div>
+    <p class="sub-h" style="margin-top:2rem"><span data-it>🛏️ Le Nostre Camere</span><span data-en>🛏️ Our Rooms</span></p>
+    <p style="font-size:.84rem;color:var(--muted);line-height:1.9;margin-bottom:1.2rem"><span data-it>Al B&B Miù ogni camera prende il nome da un luogo dei Castelli Romani, un omaggio al territorio e alla sua bellezza. Tutte le camere sono dotate di: aria condizionata, Wi-Fi gratuito, Smart TV, macchina da caffè Nespresso, bollitore con kit tisane, frigorifero, phon, set di cortesia e biancheria di qualità.</span><span data-en>At B&B Miù each room is named after a Castelli Romani village — a tribute to the area and its beauty. All rooms include: air conditioning, free Wi-Fi, Smart TV, Nespresso coffee machine, kettle with herbal teas, fridge, hairdryer, toiletries and quality linen.</span></p>
+    <div class="card-grid">
+      <div class="card"><span class="card-ico">🌊</span><p class="card-ttl">Marino — <span style="color:var(--gold);font-size:.8rem"><span data-it>Vista Piscina</span><span data-en>Pool View</span></span></p><p class="card-txt"><span data-it>Piano terra, ambiente luminoso e rilassante con vista sulla piscina. Bagno privato. Ideale per chi vuole comodità e accesso diretto agli spazi esterni.</span><span data-en>Ground floor, bright and relaxing with pool view. Private bathroom. Ideal for easy access to outdoor spaces.</span></p></div>
+      <div class="card"><span class="card-ico">💎</span><p class="card-ttl">Castel Gandolfo — <span style="color:var(--gold);font-size:.8rem"><span data-it>Comfort & Relax</span><span data-en>Comfort & Relax</span></span></p><p class="card-txt"><span data-it>Fino a 4 persone, vista piscina. Il tocco distintivo è la vasca idromassaggio. Perfetta per famiglie o piccoli gruppi. Bagno privato.</span><span data-en>Up to 4 guests, pool view. The standout feature is the jacuzzi. Perfect for families or small groups. Private bathroom.</span></p></div>
+      <div class="card"><span class="card-ico">🌿</span><p class="card-ttl">Nemi — <span style="color:var(--gold);font-size:.8rem"><span data-it>Intima & Accogliente</span><span data-en>Intimate & Cosy</span></span></p><p class="card-txt"><span data-it>Camera matrimoniale con letto alla francese, ideale per ambienti intimi e curati. Balcone privato. Bagno privato.</span><span data-en>Double room with French bed, perfect for intimate stays. Private balcony. Private bathroom.</span></p></div>
+      <div class="card"><span class="card-ico">🏡</span><p class="card-ttl">Genzano — <span style="color:var(--gold);font-size:.8rem"><span data-it>Spazio & Libertà</span><span data-en>Space & Freedom</span></span></p><p class="card-txt"><span data-it>Fino a 4 persone, ampia e versatile. Terrazzo privato con amaca matrimoniale — per rilassarsi, leggere o godersi il tempo. Bagno privato.</span><span data-en>Up to 4 guests, spacious and versatile. Private terrace with hammock. Private bathroom.</span></p></div>
+      <div class="card"><span class="card-ico">🤝</span><p class="card-ttl">Ariccia — <span style="color:var(--gold);font-size:.8rem"><span data-it>Essenziale & Condivisa</span><span data-en>Practical & Shared</span></span></p><p class="card-txt"><span data-it>Due letti singoli, terrazzo privato, bagno condiviso con un'altra camera. Soluzione pratica e confortevole per amici o viaggiatori.</span><span data-en>Two single beds, private terrace, shared bathroom with one other room. Practical and comfortable for friends or travellers.</span></p></div>
+      <div class="card"><span class="card-ico">🌅</span><p class="card-ttl">Frascati — <span style="color:var(--gold);font-size:.8rem"><span data-it>Relax con Terrazzo</span><span data-en>Relax with Terrace</span></span></p><p class="card-txt"><span data-it>Accogliente e luminosa con terrazzo privato, ideale per iniziare o concludere la giornata in tranquillità. Bagno condiviso.</span><span data-en>Welcoming and bright with private terrace, perfect for a calm start or end to the day. Shared bathroom.</span></p></div>
     </div>
   </div>
 </div>
@@ -754,18 +782,20 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <img src="WhatsApp Image 2026-04-10 at 21.15.41.jpeg" alt="Piscina B&B Miù">
       <div class="photo-hero-overlay"><span>B&B Miù — <span data-it>Piscina privata</span><span data-en>Private pool</span></span></div>
     </div>
-    <p class="page-intro"><span data-it>La piscina è riservata esclusivamente agli ospiti. Lettini, ombrelloni e tavolino bar a disposizione.</span><span data-en>The pool is exclusively for guests. Sun loungers, parasols and a bar table are provided.</span></p>
+    <p class="page-intro"><span data-it>La piscina è riservata esclusivamente agli ospiti del B&B. L'utilizzo è sotto la totale responsabilità degli ospiti — la struttura non dispone di bagnino. Lettini e ombrelloni a disposizione.</span><span data-en>The pool is exclusively for B&B guests. Use is entirely at guests' own responsibility — no lifeguard on duty. Sun loungers and parasols available.</span></p>
     <div class="rules-grid">
-      <div class="rule-item"><span class="rule-emoji">🕐</span><p class="rule-text"><strong>9:00 – 21:00</strong></p></div>
-      <div class="rule-item"><span class="rule-emoji">👙</span><p class="rule-text"><span data-it>Costume obbligatorio in tutto il perimetro piscina.</span><span data-en>Swimwear required in the entire pool area.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🚿</span><p class="rule-text"><span data-it>Doccia obbligatoria prima di entrare in acqua.</span><span data-en>Shower required before entering the pool.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🍸</span><p class="rule-text"><span data-it>Niente bicchieri di vetro in area piscina.</span><span data-en>No glassware in the pool area.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🔇</span><p class="rule-text"><span data-it>Silenzio dopo le 22:00 in giardino.</span><span data-en>Quiet after 10:00 PM in the garden.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">👶</span><p class="rule-text"><span data-it>Bambini sempre sorvegliati da un adulto.</span><span data-en>Children must be supervised at all times.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🛋️</span><p class="rule-text"><span data-it>Riportare lettini e attrezzatura al posto.</span><span data-en>Return sun loungers and equipment after use.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🐾</span><p class="rule-text"><span data-it>Animali non ammessi in area piscina.</span><span data-en>Pets not permitted in the pool area.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">🕐</span><p class="rule-text"><strong>8:30 – 21:00</strong></p></div>
+      <div class="rule-item"><span class="rule-emoji">📏</span><p class="rule-text"><span data-it>Profondità: <strong>1,45 m</strong>. Nessun bagnino presente.</span><span data-en>Depth: <strong>1.45 m</strong>. No lifeguard on duty.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">👶</span><p class="rule-text"><span data-it>I bambini devono essere sempre accompagnati e sorvegliati da un adulto responsabile.</span><span data-en>Children must always be accompanied and supervised by a responsible adult.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">🚿</span><p class="rule-text"><span data-it>È obbligatorio fare la doccia prima di entrare in acqua.</span><span data-en>Shower required before entering the pool.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">🏃</span><p class="rule-text"><span data-it>È vietato correre, spingere o tuffarsi in modo pericoloso.</span><span data-en>Running, pushing or dangerous diving is prohibited.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">🍷</span><p class="rule-text"><span data-it>Vietato l'uso della piscina in stato di ebbrezza o dopo assunzione di sostanze.</span><span data-en>Pool use is prohibited under the influence of alcohol or substances.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">🚫</span><p class="rule-text"><span data-it>Vietato introdurre vetro, cibo o oggetti pericolosi in piscina.</span><span data-en>Glass, food or dangerous objects are not permitted in the pool.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">🔇</span><p class="rule-text"><span data-it>Si prega di rispettare il silenzio e gli altri ospiti.</span><span data-en>Please respect the quiet and other guests.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">🚽</span><p class="rule-text"><span data-it>Utilizzare i servizi igienici a disposizione.</span><span data-en>Please use the available toilet facilities.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">🛋️</span><p class="rule-text"><span data-it>Riportare lettini e attrezzatura al proprio posto dopo l'uso.</span><span data-en>Return sun loungers and equipment after use.</span></p></div>
     </div>
-    <div class="hbox"><p>💡 <span data-it>Asciugamani piscina aggiuntivi su richiesta. Quelli in camera sono per il bagno.</span><span data-en>Extra pool towels on request. Room towels are for bathroom use only.</span></p></div>
+    <div class="hbox"><p>⚠️ <span data-it>La proprietà declina ogni responsabilità per incidenti dovuti a uso improprio della piscina. Asciugamani piscina aggiuntivi disponibili su richiesta.</span><span data-en>The property accepts no liability for accidents due to improper pool use. Extra pool towels available on request.</span></p></div>
   </div>
 </div>
 
@@ -980,7 +1010,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div class="appliance-item"><p class="appliance-name">🗑️ <span data-it>Raccolta Differenziata</span><span data-en>Recycling</span></p><p class="appliance-text">🟡 <span data-it>Plastica</span><span data-en>Plastic</span> · 🟢 <span data-it>Vetro</span><span data-en>Glass</span> · 🔵 <span data-it>Carta</span><span data-en>Paper</span> · ⬜ <span data-it>Indifferenziato</span><span data-en>General</span></p></div>
       <div class="appliance-item"><p class="appliance-name">💡 <span data-it>Luci</span><span data-en>Lights</span></p><p class="appliance-text"><span data-it>Interruttori all'ingresso. Luci esterne off alle 23:00. Spegnere tutto in assenza.</span><span data-en>Switches at entrance. Outdoor lights off at 11 PM. Switch off when out.</span></p></div>
     </div>
-    <div class="hbox"><p>🆘 <span data-it>Per qualsiasi necessità:</span><span data-en>For any need:</span> WhatsApp <a href="https://wa.me/39320000000" style="color:var(--gold);text-decoration:none;font-weight:600">+39 320 000 0000</a></p></div>
+    <div class="hbox"><p>🆘 <span data-it>Per qualsiasi necessità:</span><span data-en>For any need:</span> WhatsApp <a href="https://wa.me/393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
   </div>
 </div>
 
@@ -1005,7 +1035,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div class="emerg-card"><span class="emerg-icon">🏥</span><div><p class="emerg-num">116117</p><p class="emerg-label"><span data-it>Guardia Medica</span><span data-en>Medical Guard</span></p></div></div>
     </div>
     <div class="hbox" style="margin-top:1.5rem"><p>🏥 <span data-it>Pronto Soccorso: Ciampino (~2 km) · Frascati (~10 km)</span><span data-en>Nearest A&E: Frascati (~10 km) · Ciampino (~15 km)</span></p></div>
-    <div class="hbox"><p>📱 Host WhatsApp: <a href="https://wa.me/39320000000" style="color:var(--gold);text-decoration:none;font-weight:600">+39 320 000 0000</a></p></div>
+    <div class="hbox"><p>📱 Host WhatsApp: <a href="https://wa.me/393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
   </div>
 </div>
 
