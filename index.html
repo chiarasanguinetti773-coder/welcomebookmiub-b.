@@ -110,21 +110,23 @@ header{
 
 /* ICONE GRIGLIA */
 .icon-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:.9rem;max-width:440px;width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1.1rem;
+  max-width:420px;width:100%;
   position:relative;z-index:1;
 }
-@media(max-width:380px){
-  .icon-grid{grid-template-columns:repeat(3,1fr);max-width:280px;gap:.7rem;}
-}
-
 .icon-btn{
   display:flex;flex-direction:column;align-items:center;gap:.5rem;
   background:none;border:none;cursor:pointer;padding:.1rem;
   transition:transform .25s;text-decoration:none;
+  width:72px;
 }
-.icon-btn:hover{transform:translateY(-5px);}
+@media(max-width:560px){
+  .icon-grid{gap:.8rem;max-width:320px;}
+  .icon-btn{width:clamp(56px,16vw,72px);}
+}
 
 /* Cerchio base */
 .icon-circle{
@@ -426,6 +428,70 @@ header{
 .lb-dot.on{background:var(--gold-l);}
 
 
+
+
+/* ── Video hero autoplay ── */
+.villa-video-wrap{
+  width:100%;border-radius:var(--r);overflow:hidden;
+  margin-bottom:1.8rem;position:relative;
+  background:#18140f;aspect-ratio:16/9;
+}
+.villa-video-wrap video{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.villa-video-placeholder{
+  width:100%;aspect-ratio:16/9;
+  background:linear-gradient(135deg,rgba(200,134,10,.12),rgba(0,174,239,.07));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.8rem;cursor:pointer;
+}
+.villa-video-play{
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(200,134,10,.8);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:1.4rem;
+}
+.villa-video-lbl{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:.9rem;color:var(--muted);
+}
+.villa-video-add{
+  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
+  background:rgba(200,134,10,.12);color:var(--gold);
+  padding:.22rem .6rem;border-radius:9px;font-weight:600;
+}
+
+/* ── Camera cards ── */
+.camera-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem;margin-top:1rem;}
+.camera-card{
+  background:var(--ivory);border:1px solid var(--border);border-radius:10px;
+  overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;
+  position:relative;
+}
+.camera-card:hover{transform:translateY(-4px);box-shadow:var(--sh2);}
+.camera-img{
+  width:100%;height:160px;object-fit:cover;display:block;
+  transition:transform .35s;
+}
+.camera-card:hover .camera-img{transform:scale(1.04);}
+.camera-img-placeholder{
+  width:100%;height:160px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#fef8f0,#f5ede0);
+  position:relative;overflow:hidden;
+}
+.camera-num{
+  position:absolute;top:.6rem;right:.8rem;
+  font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;
+  color:rgba(200,134,10,.25);line-height:1;
+}
+.camera-body{padding:1rem 1.1rem 1.1rem;}
+.camera-tag{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.25rem;}
+.camera-name{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--ink);margin-bottom:.45rem;}
+.camera-desc{font-size:.78rem;color:var(--muted);line-height:1.7;}
+.camera-tap{display:inline-flex;align-items:center;gap:.3rem;margin-top:.6rem;font-size:.62rem;color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;}
+@media(max-width:560px){.camera-grid{grid-template-columns:1fr;}}
+
 /* ── Modal Storia — testo curvo ── */
 .logo-ring{
   position:relative;display:inline-block;
@@ -477,20 +543,21 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   .photo-strip{grid-template-columns:1fr 1fr;grid-template-rows:130px 130px;}
   .p-main{grid-column:1/3;grid-row:1;}
 
-  /* Home respiro */
-  #view-home{padding:3.2rem 1rem 2rem;}
-  .home-welcome{margin-bottom:1.6rem;}
-
-  /* Logo ring — scala fluida: 42vw su qualsiasi telefono */
+  /* Logo ring mobile — scala fluida */
   .logo-ring{width:42vw;height:42vw;max-width:190px;max-height:190px;}
   .home-logo{width:31vw;height:31vw;max-width:142px;max-height:142px;}
   .ring-text{font-size:clamp(9px,2.8vw,13px) !important;letter-spacing:clamp(.5px,.6vw,2px) !important;}
 
-  /* Icone — scala fluida */
-  .icon-circle{width:clamp(44px,13vw,64px);height:clamp(44px,13vw,64px);font-size:clamp(1rem,4vw,1.5rem);}
-  .icon-circle .ic-label{font-size:clamp(.9rem,3.5vw,1.4rem);}
-  .icon-grid{gap:clamp(.4rem,2vw,.9rem);}
-  .icon-label{font-size:clamp(.45rem,1.8vw,.6rem);}
+  /* Icone — 3 colonne su mobile, centrate */
+  .icon-grid{grid-template-columns:repeat(3,1fr);max-width:320px;gap:.9rem;}
+  .icon-circle{width:clamp(56px,16vw,72px);height:clamp(56px,16vw,72px);}
+  .icon-circle .ic-label{font-size:clamp(1.1rem,4.5vw,1.55rem);}
+  .icon-label{font-size:clamp(.5rem,2vw,.6rem);}
+
+  /* Home respiro */
+  #view-home{padding:3.2rem 1rem 2rem;}
+  .home-welcome{margin-bottom:1.6rem;}
+  .home-h1 .accent{font-size:clamp(1.8rem,7vw,2.5rem);}
 
   /* Pagine interne */
   .page-hero{padding:1.2rem 1rem 1rem;}
@@ -502,6 +569,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   .info-block{grid-template-columns:1fr 1fr;}
   .appliance-list{grid-template-columns:1fr;}
   .castelli-grid{grid-template-columns:1fr;}
+  .camera-grid{grid-template-columns:1fr;}
   .emergency-grid{grid-template-columns:repeat(3,1fr);}
   .modal-box{padding:1.3rem 1.1rem 1rem;}
   .modal-body{font-size:.82rem;}
@@ -613,14 +681,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <span class="icon-label"><span data-it>La Villa</span><span data-en>The Villa</span></span>
     </button>
 
-    <!-- FOTO — terrazza -->
-    <button class="icon-btn" onclick="showPage('foto')">
-      <div class="icon-circle ic-foto">
-        <div class="ic-glass"></div>
-        <span class="ic-label">📷</span>
-      </div>
-      <span class="icon-label"><span data-it>Foto</span><span data-en>Photos</span></span>
-    </button>
+
 
     <!-- PISCINA — foto piscina -->
     <button class="icon-btn" onclick="showPage('piscina')">
@@ -713,6 +774,19 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     </div>
   </div>
   <div class="page-body">
+    <!-- VIDEO AUTOPLAY — carica il tuo video sostituendo src="tour-villa.mp4" -->
+    <div class="villa-video-wrap">
+      <!-- Una volta caricato il video, sostituisci questo div con:
+      <video autoplay muted loop playsinline poster="video-cover.jpg">
+        <source src="tour-villa.mp4" type="video/mp4">
+      </video>
+      -->
+      <div class="villa-video-placeholder">
+        <span class="villa-video-add">+ carica video</span>
+        <div class="villa-video-play">▶</div>
+        <p class="villa-video-lbl"><span data-it>Tour Villa & Piscina</span><span data-en>Villa & Pool Tour</span></p>
+      </div>
+    </div>
     <p class="page-intro"><span data-it>Il Miù B&B Ciampino è una villa esclusiva dove eleganza e comfort si uniscono per creare un soggiorno raffinato e rilassante. Ambienti ampi, luminosi e curati nei dettagli, con un design moderno ma accogliente. La vera protagonista è l'area esterna: un'oasi privata con piscina, perfetta per momenti di relax in totale tranquillità. Ogni camera è arredata con gusto e cura, con tessuti raffinati e dettagli eleganti. La vicinanza all'aeroporto di Ciampino rende il Miù B&B la scelta ideale sia per chi viaggia per lavoro sia per chi desidera una pausa di relax.</span><span data-en>Miù B&B Ciampino is an exclusive villa where elegance and comfort combine for a refined, relaxing stay. Spacious, bright rooms with modern yet welcoming design. The real star is the outdoor area: a private pool oasis perfect for total relaxation. Each room is tastefully furnished with refined fabrics and elegant details. Close to Ciampino Airport, Miù B&B is ideal for business travellers and those seeking a relaxing break.</span></p>
     <div class="info-block">
       <div class="info-item"><p class="info-lbl">Check-in</p><p class="info-val"><span data-it>dalle 14:00<br><small style="font-size:.76rem;color:var(--muted)">In sala colazioni — porta a vetro in reception</small></span><span data-en>from 2:00 PM<br><small style="font-size:.76rem;color:var(--muted)">Breakfast room — glass door at reception</small></span></p></div>
@@ -723,40 +797,172 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     </div>
     <p class="sub-h" style="margin-top:2rem"><span data-it>🛏️ Le Nostre Camere</span><span data-en>🛏️ Our Rooms</span></p>
     <p style="font-size:.84rem;color:var(--muted);line-height:1.9;margin-bottom:1.2rem"><span data-it>Al B&B Miù ogni camera prende il nome da un luogo dei Castelli Romani, un omaggio al territorio e alla sua bellezza. Tutte le camere sono dotate di: aria condizionata, Wi-Fi gratuito, Smart TV, macchina da caffè Nespresso, bollitore con kit tisane, frigorifero, phon, set di cortesia e biancheria di qualità.</span><span data-en>At B&B Miù each room is named after a Castelli Romani village — a tribute to the area and its beauty. All rooms include: air conditioning, free Wi-Fi, Smart TV, Nespresso coffee machine, kettle with herbal teas, fridge, hairdryer, toiletries and quality linen.</span></p>
-    <div class="card-grid">
-      <div class="card"><span class="card-ico">🌊</span><p class="card-ttl">Marino — <span style="color:var(--gold);font-size:.8rem"><span data-it>Vista Piscina</span><span data-en>Pool View</span></span></p><p class="card-txt"><span data-it>Piano terra, ambiente luminoso e rilassante con vista sulla piscina. Bagno privato. Ideale per chi vuole comodità e accesso diretto agli spazi esterni.</span><span data-en>Ground floor, bright and relaxing with pool view. Private bathroom. Ideal for easy access to outdoor spaces.</span></p></div>
-      <div class="card"><span class="card-ico">💎</span><p class="card-ttl">Castel Gandolfo — <span style="color:var(--gold);font-size:.8rem"><span data-it>Comfort & Relax</span><span data-en>Comfort & Relax</span></span></p><p class="card-txt"><span data-it>Fino a 4 persone, vista piscina. Il tocco distintivo è la vasca idromassaggio. Perfetta per famiglie o piccoli gruppi. Bagno privato.</span><span data-en>Up to 4 guests, pool view. The standout feature is the jacuzzi. Perfect for families or small groups. Private bathroom.</span></p></div>
-      <div class="card"><span class="card-ico">🌿</span><p class="card-ttl">Nemi — <span style="color:var(--gold);font-size:.8rem"><span data-it>Intima & Accogliente</span><span data-en>Intimate & Cosy</span></span></p><p class="card-txt"><span data-it>Camera matrimoniale con letto alla francese, ideale per ambienti intimi e curati. Balcone privato. Bagno privato.</span><span data-en>Double room with French bed, perfect for intimate stays. Private balcony. Private bathroom.</span></p></div>
-      <div class="card"><span class="card-ico">🏡</span><p class="card-ttl">Genzano — <span style="color:var(--gold);font-size:.8rem"><span data-it>Spazio & Libertà</span><span data-en>Space & Freedom</span></span></p><p class="card-txt"><span data-it>Fino a 4 persone, ampia e versatile. Terrazzo privato con amaca matrimoniale — per rilassarsi, leggere o godersi il tempo. Bagno privato.</span><span data-en>Up to 4 guests, spacious and versatile. Private terrace with hammock. Private bathroom.</span></p></div>
-      <div class="card"><span class="card-ico">🤝</span><p class="card-ttl">Ariccia — <span style="color:var(--gold);font-size:.8rem"><span data-it>Essenziale & Condivisa</span><span data-en>Practical & Shared</span></span></p><p class="card-txt"><span data-it>Due letti singoli, terrazzo privato, bagno condiviso con un'altra camera. Soluzione pratica e confortevole per amici o viaggiatori.</span><span data-en>Two single beds, private terrace, shared bathroom with one other room. Practical and comfortable for friends or travellers.</span></p></div>
-      <div class="card"><span class="card-ico">🌅</span><p class="card-ttl">Frascati — <span style="color:var(--gold);font-size:.8rem"><span data-it>Relax con Terrazzo</span><span data-en>Relax with Terrace</span></span></p><p class="card-txt"><span data-it>Accogliente e luminosa con terrazzo privato, ideale per iniziare o concludere la giornata in tranquillità. Bagno condiviso.</span><span data-en>Welcoming and bright with private terrace, perfect for a calm start or end to the day. Shared bathroom.</span></p></div>
-    </div>
-  </div>
-</div>
+    <div class="camera-grid">
 
-<!-- ════════════ FOTO ════════════ -->
-<div class="view" id="view-foto">
-  <div class="page-hero">
-    <div class="ph-icon">📸</div>
-    <div>
-      <p class="ph-tag"><span data-it>Galleria</span><span data-en>Gallery</span></p>
-      <h1 class="ph-title" data-it><span class="sc">Foto</span> della Villa</h1>
-      <h1 class="ph-title" data-en>Villa <span class="sc">Photos</span></h1>
-    </div>
-  </div>
-  <div class="page-body">
-    <div class="photo-strip">
-      <div class="p-item p-main" onclick="openLB(0,this)"><img src="WhatsApp Image 2026-04-10 at 21.15.41.jpeg" alt="Piscina"></div>
-      <div class="p-item" onclick="openLB(1,this)"><img src="WhatsApp Image 2026-04-10 at 21.15.38-3.jpeg" alt="Terrazza"></div>
-      <div class="p-item" onclick="openLB(2,this)"><img src="WhatsApp Image 2026-04-10 at 21.15.34.jpeg" alt="Camera Turchese"></div>
-      <div class="p-item" onclick="openLB(3,this)"><img src="WhatsApp Image 2026-04-10 at 21.15.33-3.jpeg" alt="Bagno"></div>
-      <div class="p-item p-more" data-label="+ foto" onclick="openLB(4,this)"><img src="WhatsApp Image 2026-04-10 at 21.15.33.jpeg" alt="Suite"></div>
-    </div>
-    <p style="font-size:.7rem;color:var(--faint);text-align:center;margin-top:.55rem;font-style:italic"><span data-it>Tocca per ingrandire</span><span data-en>Tap to enlarge</span></p>
-    <p class="sub-h" style="margin-top:2rem">🎬 Video</p>
-    <div class="video-grid">
-      <div class="video-ph"><span class="video-add">+ link</span><div class="video-play">▶</div><p class="video-lbl"><span data-it>Tour Villa & Piscina</span><span data-en>Villa & Pool Tour</span></p></div>
-      <div class="video-ph"><span class="video-add">+ link</span><div class="video-play">▶</div><p class="video-lbl"><span data-it>I Castelli Romani</span><span data-en>The Castelli Romani</span></p></div>
+      <div class="camera-card" onclick="openCameraLB('marino')">
+        <div class="camera-img-placeholder">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4eaf7"/><stop offset="100%" stop-color="#f0d9b0"/></linearGradient></defs>
+          <rect width="280" height="160" fill="url(#sky1)"/>
+          <ellipse cx="220" cy="55" rx="35" ry="22" fill="rgba(255,255,255,.6)"/>
+          <ellipse cx="250" cy="48" rx="28" ry="18" fill="rgba(255,255,255,.5)"/>
+          <path d="M0 100 Q40 85 80 95 Q120 105 160 90 Q200 78 240 88 Q260 93 280 85 L280 160 L0 160Z" fill="#7ab57a" opacity=".7"/>
+          <path d="M0 110 Q50 100 100 108 Q150 116 200 105 Q240 97 280 103 L280 160 L0 160Z" fill="#5a9e5a" opacity=".8"/>
+          <rect x="100" y="72" width="18" height="20" rx="2" fill="#c9956a"/>
+          <rect x="118" y="72" width="18" height="20" rx="2" fill="#d4a574"/>
+          <rect x="136" y="72" width="18" height="20" rx="2" fill="#c9956a"/>
+          <polygon points="96,72 154,72 125,55" fill="#a0522d"/>
+          <rect x="108" y="80" width="8" height="12" fill="#7a5c3a"/>
+          <path d="M30 75 Q35 60 45 65 Q40 75 50 72 Q42 82 30 75Z" fill="#7ab57a" opacity=".9"/>
+          <path d="M220 80 Q228 65 238 70 Q232 80 242 77 Q235 88 220 80Z" fill="#7ab57a" opacity=".8"/>
+          <ellipse cx="50" cy="125" rx="40" ry="12" fill="#89cff0" opacity=".5"/>
+          <path d="M15 123 Q30 118 45 123 Q30 130 15 123Z" fill="rgba(255,255,255,.4)"/>
+        </svg>
+        <span class="camera-num">1</span>
+      </div>
+        <div class="camera-body">
+          <p class="camera-tag"><span data-it>Camera · Vista Piscina</span><span data-en>Room · Pool View</span></p>
+          <p class="camera-name">Marino</p>
+          <p class="camera-desc"><span data-it>Piano terra, ambiente luminoso con vista sulla piscina. Bagno privato. Ideale per chi vuole accesso diretto agli spazi esterni.</span><span data-en>Ground floor, bright room with pool view. Private bathroom. Ideal for easy access to outdoor spaces.</span></p>
+          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+        </div>
+      </div>
+
+      <div class="camera-card" onclick="openCameraLB('castelgandolfo')">
+        <div class="camera-img-placeholder">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs><linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c8dff5"/><stop offset="100%" stop-color="#e8d5b0"/></linearGradient></defs>
+          <rect width="280" height="160" fill="url(#sky2)"/>
+          <ellipse cx="80" cy="110" rx="120" ry="40" fill="#4a90d9" opacity=".35"/>
+          <ellipse cx="80" cy="118" rx="115" ry="32" fill="#5ba0e8" opacity=".25"/>
+          <path d="M0 95 Q30 85 60 90 Q90 95 130 82 Q170 70 220 78 Q250 83 280 75 L280 160 L0 160Z" fill="#8ab87a" opacity=".7"/>
+          <rect x="140" y="55" width="50" height="35" rx="2" fill="#d4b896"/>
+          <rect x="155" y="42" width="20" height="16" rx="1" fill="#c9a882"/>
+          <ellipse cx="165" cy="42" rx="10" ry="8" fill="#b8956e"/>
+          <rect x="148" y="68" width="8" height="22" fill="#7a5c3a"/>
+          <rect x="175" y="65" width="8" height="8" fill="#4a90d9" opacity=".6"/>
+          <rect x="148" y="65" width="8" height="8" fill="#4a90d9" opacity=".6"/>
+          <path d="M20 80 Q28 65 38 70 Q32 80 42 77 Q35 88 20 80Z" fill="#6a9e6a" opacity=".9"/>
+          <path d="M240 72 Q248 58 258 63 Q252 73 262 70 Q255 81 240 72Z" fill="#6a9e6a" opacity=".8"/>
+        </svg>
+        <span class="camera-num">2</span>
+      </div>
+        <div class="camera-body">
+          <p class="camera-tag"><span data-it>Camera · Comfort & Relax</span><span data-en>Room · Comfort & Relax</span></p>
+          <p class="camera-name">Castel Gandolfo</p>
+          <p class="camera-desc"><span data-it>Fino a 4 persone, vista piscina, vasca idromassaggio. Perfetta per famiglie o piccoli gruppi. Bagno privato.</span><span data-en>Up to 4 guests, pool view, jacuzzi. Perfect for families or small groups. Private bathroom.</span></p>
+          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+        </div>
+      </div>
+
+      <div class="camera-card" onclick="openCameraLB('nemi')">
+        <div class="camera-img-placeholder">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs><linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8d5f0"/><stop offset="100%" stop-color="#f5e8d0"/></linearGradient></defs>
+          <rect width="280" height="160" fill="url(#sky3)"/>
+          <ellipse cx="140" cy="105" rx="100" ry="35" fill="#4a90a4" opacity=".3"/>
+          <path d="M0 98 Q40 88 80 93 Q120 98 160 86 Q200 76 240 84 Q260 88 280 82 L280 160 L0 160Z" fill="#7a9e6a" opacity=".7"/>
+          <path d="M0 108 Q50 100 100 106 Q150 112 200 103 Q240 97 280 101 L280 160 L0 160Z" fill="#5a8e5a" opacity=".75"/>
+          <rect x="110" y="68" width="14" height="18" rx="1" fill="#d4a574"/>
+          <rect x="124" y="65" width="16" height="21" rx="1" fill="#c9956a"/>
+          <rect x="140" y="70" width="14" height="16" rx="1" fill="#d4a574"/>
+          <polygon points="107,68 157,68 132,50" fill="#9e7050"/>
+          <path d="M60 75 Q65 65 72 68 Q68 75 74 73 Q68 82 60 75Z" fill="#ff9eb5" opacity=".8"/>
+          <path d="M200 70 Q205 60 212 63 Q208 70 214 68 Q208 77 200 70Z" fill="#ff9eb5" opacity=".7"/>
+          <circle cx="62" cy="72" r="4" fill="#ffb3c6" opacity=".7"/>
+          <circle cx="210" cy="67" r="3" fill="#ffb3c6" opacity=".6"/>
+        </svg>
+        <span class="camera-num">3</span>
+      </div>
+        <div class="camera-body">
+          <p class="camera-tag"><span data-it>Camera · Intima & Accogliente</span><span data-en>Room · Intimate & Cosy</span></p>
+          <p class="camera-name">Nemi</p>
+          <p class="camera-desc"><span data-it>Matrimoniale con letto alla francese, balcone privato. Ideale per ambienti intimi e curati. Bagno privato.</span><span data-en>Double with French bed, private balcony. Perfect for intimate stays. Private bathroom.</span></p>
+          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+        </div>
+      </div>
+
+      <div class="camera-card" onclick="openCameraLB('genzano')">
+        <div class="camera-img-placeholder">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs><linearGradient id="sky4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4eac8"/><stop offset="100%" stop-color="#f0d8a8"/></linearGradient></defs>
+          <rect width="280" height="160" fill="url(#sky4)"/>
+          <ellipse cx="60" cy="115" rx="80" ry="28" fill="#4a90d9" opacity=".25"/>
+          <path d="M0 88 Q50 75 100 82 Q150 90 200 78 Q240 68 280 76 L280 160 L0 160Z" fill="#8ab870" opacity=".75"/>
+          <path d="M0 100 Q60 92 120 98 Q180 105 240 96 Q260 93 280 97 L280 160 L0 160Z" fill="#6a9e5a" opacity=".8"/>
+          <rect x="150" y="60" width="60" height="30" rx="2" fill="#d4a574"/>
+          <rect x="158" y="48" width="18" height="14" rx="1" fill="#c9956a"/>
+          <rect x="180" y="52" width="14" height="10" rx="1" fill="#c9956a"/>
+          <rect x="162" y="72" width="8" height="18" fill="#8a6040"/>
+          <path d="M25 80 Q35 62 48 68 Q40 80 52 76 Q43 89 25 80Z" fill="#e8c84a" opacity=".7"/>
+          <path d="M30 72 Q38 58 50 64 Q44 72 54 70 Q46 81 30 72Z" fill="#f0a030" opacity=".6"/>
+        </svg>
+        <span class="camera-num">4</span>
+      </div>
+        <div class="camera-body">
+          <p class="camera-tag"><span data-it>Camera · Spazio & Libertà</span><span data-en>Room · Space & Freedom</span></p>
+          <p class="camera-name">Genzano</p>
+          <p class="camera-desc"><span data-it>Fino a 4 persone, terrazzo privato con amaca matrimoniale. Ampia e versatile. Bagno privato.</span><span data-en>Up to 4 guests, private terrace with hammock. Spacious and versatile. Private bathroom.</span></p>
+          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+        </div>
+      </div>
+
+      <div class="camera-card" onclick="openCameraLB('ariccia')">
+        <div class="camera-img-placeholder">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs><linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f5e8c8"/><stop offset="100%" stop-color="#ead5b0"/></linearGradient></defs>
+          <rect width="280" height="160" fill="url(#sky5)"/>
+          <path d="M60 95 Q100 88 140 92 Q180 97 220 88" stroke="#c9956a" stroke-width="8" fill="none" opacity=".6"/>
+          <path d="M55 92 Q58 80 62 88" stroke="#c9956a" stroke-width="6" fill="none" opacity=".5"/>
+          <path d="M100 88 Q103 76 107 84" stroke="#c9956a" stroke-width="6" fill="none" opacity=".5"/>
+          <path d="M145 92 Q148 80 152 88" stroke="#c9956a" stroke-width="6" fill="none" opacity=".5"/>
+          <path d="M0 100 Q40 90 80 96 Q120 103 160 93 Q200 84 240 91 Q260 95 280 89 L280 160 L0 160Z" fill="#8ab870" opacity=".7"/>
+          <path d="M0 112 Q50 104 100 110 Q150 117 200 108 Q240 102 280 106 L280 160 L0 160Z" fill="#6a9e5a" opacity=".75"/>
+          <path d="M50 78 Q58 63 68 68 Q62 78 72 75 Q65 86 50 78Z" fill="#ff8c69" opacity=".8"/>
+          <path d="M200 72 Q208 57 218 62 Q212 72 222 69 Q215 80 200 72Z" fill="#ff8c69" opacity=".7"/>
+          <circle cx="52" cy="75" r="5" fill="#ffa07a" opacity=".7"/>
+          <circle cx="202" cy="69" r="4" fill="#ffa07a" opacity=".6"/>
+          <rect x="120" y="72" width="16" height="22" rx="1" fill="#d4a574"/>
+          <rect x="136" y="75" width="14" height="19" rx="1" fill="#c9956a"/>
+          <polygon points="117,72 153,72 135,58" fill="#a07040"/>
+        </svg>
+        <span class="camera-num">5</span>
+      </div>
+        <div class="camera-body">
+          <p class="camera-tag"><span data-it>Camera · Essenziale & Smart</span><span data-en>Room · Practical & Smart</span></p>
+          <p class="camera-name">Ariccia</p>
+          <p class="camera-desc"><span data-it>Due letti singoli, terrazzo privato, bagno condiviso. Soluzione pratica per amici o viaggiatori.</span><span data-en>Two single beds, private terrace, shared bathroom. Practical for friends or travellers.</span></p>
+          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+        </div>
+      </div>
+
+      <div class="camera-card" onclick="openCameraLB('frascati')">
+        <div class="camera-img-placeholder">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs><linearGradient id="sky6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0e8d0"/><stop offset="100%" stop-color="#e8d0a8"/></linearGradient></defs>
+          <rect width="280" height="160" fill="url(#sky6)"/>
+          <path d="M0 90 Q40 78 80 85 Q120 92 160 80 Q200 70 240 78 Q260 82 280 76 L280 160 L0 160Z" fill="#8aae70" opacity=".7"/>
+          <path d="M0 102 Q50 94 100 100 Q150 107 200 98 Q240 92 280 96 L280 160 L0 160Z" fill="#6a9e5a" opacity=".75"/>
+          <rect x="90" y="62" width="100" height="35" rx="2" fill="#d4b896" opacity=".9"/>
+          <rect x="110" y="48" width="16" height="16" rx="1" fill="#c9a882"/>
+          <rect x="155" y="52" width="18" height="12" rx="1" fill="#c9a882"/>
+          <rect x="95" y="75" width="10" height="22" fill="#8a6040"/>
+          <rect x="160" y="72" width="8" height="8" fill="#4a90d9" opacity=".5"/>
+          <rect x="110" y="72" width="8" height="8" fill="#4a90d9" opacity=".5"/>
+          <path d="M20 78 Q30 62 42 68 Q36 78 46 75 Q38 87 20 78Z" fill="#c8a040" opacity=".8"/>
+          <path d="M230 72 Q240 57 252 63 Q246 73 256 70 Q249 82 230 72Z" fill="#c8a040" opacity=".7"/>
+          <rect x="112" y="85" width="6" height="12" fill="#7a5c3a"/>
+        </svg>
+        <span class="camera-num">6</span>
+      </div>
+        <div class="camera-body">
+          <p class="camera-tag"><span data-it>Camera · Relax con Terrazzo</span><span data-en>Room · Relax with Terrace</span></p>
+          <p class="camera-name">Frascati</p>
+          <p class="camera-desc"><span data-it>Accogliente e luminosa con terrazzo privato. Ideale per iniziare o concludere la giornata in tranquillità. Bagno condiviso.</span><span data-en>Welcoming and bright with private terrace. Perfect for a calm start or end to the day. Shared bathroom.</span></p>
+          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -837,12 +1043,18 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div class="transport-card"><div class="transport-header"><span class="transport-icon">🚕</span><span class="transport-name">Taxi / Uber</span></div><p class="transport-detail"><strong>App:</strong> Uber · itTaxi · FREE NOW</p><p class="transport-detail">Ciampino ~€10 · Roma centro ~€25 · Fiumicino ~€60</p></div>
     </div>
 
-    <p class="sub-h">🎫 <span data-it>Come Comprare il Biglietto</span><span data-en>How to Buy a Ticket</span></p>
+    <p class="sub-h">🚉 <span data-it>Come raggiungere Roma</span><span data-en>Getting to Rome</span></p>
     <div class="ticket-steps">
-      <div class="ticket-step"><div class="step-num">1</div><div><p class="step-title"><span data-it>Dove comprare</span><span data-en>Where to buy</span></p><p class="step-desc"><span data-it>Edicola, tabaccheria, macchinette in stazione/metro o tramite app.</span><span data-en>Newsagent, tobacconist, vending machines at stations, or via app.</span></p><span class="step-tip">App: Moovit · MyCicero · T Mobility</span></div></div>
-      <div class="ticket-step"><div class="step-num">2</div><div><p class="step-title"><span data-it>Quale biglietto scegliere</span><span data-en>Which ticket</span></p><p class="step-desc"><span data-it><strong>BIT €2.20</strong> — 100 min, 1 metro + bus illimitati · <strong>Giornaliero €7</strong> — 24h illimitato · <strong>48h €12.50</strong> — ideale 2 giorni Roma</span><span data-en><strong>BIT €2.20</strong> — 100 min, 1 metro + unlimited bus · <strong>Daily €7</strong> — unlimited 24h · <strong>48h €12.50</strong> — best for 2 days</span></p></div></div>
-      <div class="ticket-step"><div class="step-num">3</div><div><p class="step-title"><span data-it>Come validare</span><span data-en>How to validate</span></p><p class="step-desc"><span data-it>Passare il biglietto sul lettore giallo/arancio salendo sul bus o ai tornelli metro. Obbligatorio ad ogni viaggio.</span><span data-en>Tap your ticket on the yellow/orange reader when boarding the bus or at metro turnstiles. Required every journey.</span></p><span class="step-tip">⚠️ <span data-it>Multa €54 senza biglietto valido</span><span data-en>€54 fine without valid ticket</span></span></div></div>
-      <div class="ticket-step"><div class="step-num">4</div><div><p class="step-title">Cotral (<span data-it>bus regionale</span><span data-en>regional bus</span>)</p><p class="step-desc"><span data-it>Biglietto dall'autista o in tabaccheria. ~€2.20 zone vicine. Validare subito salendo.</span><span data-en>Buy from driver or tobacconist. ~€2.20 nearby zones. Validate immediately on boarding.</span></p><span class="step-tip"><a href="https://www.cotralspa.it" target="_blank" style="color:inherit;text-decoration:none">cotralspa.it ↗</a></span></div></div>
+      <div class="ticket-step"><div class="step-num">1</div><div><p class="step-title"><span data-it>Treno da Acqua Acetosa</span><span data-en>Train from Acqua Acetosa</span></p><p class="step-desc"><span data-it>La stazione è a soli <strong>300 metri</strong> dalla struttura. Treni circa una volta all'ora. Roma Termini in ~15–18 min.</span><span data-en>The station is just <strong>300 metres</strong> from the property. Trains roughly once an hour. Roma Termini in ~15–18 min.</span></p><span class="step-tip"><span data-it>Biglietto: €1.50 a persona — acquistabile a bordo dal controllore</span><span data-en>Ticket: €1.50 per person — buy on board from the conductor</span></span></div></div>
+      <div class="ticket-step"><div class="step-num">2</div><div><p class="step-title"><span data-it>Treno da Ciampino</span><span data-en>Train from Ciampino</span></p><p class="step-desc"><span data-it>Stazione a ~15 min a piedi dalla struttura. Treni ogni ~10 min per Roma Termini. Opzione più veloce.</span><span data-en>Station ~15 min walk from the property. Trains every ~10 min to Roma Termini. Fastest option.</span></p></div></div>
+      <div class="ticket-step"><div class="step-num">3</div><div><p class="step-title"><span data-it>Bus + Metropolitana</span><span data-en>Bus + Metro</span></p><p class="step-desc"><span data-it>Fuori dalla stazione Ciampino: bus linea <strong>515</strong> → metro Anagnina (Linea A) → centro di Roma.</span><span data-en>Outside Ciampino station: bus line <strong>515</strong> → Anagnina metro (Line A) → central Rome.</span></p></div></div>
+    </div>
+
+    <p class="sub-h">🎫 <span data-it>Biglietti — Prezzi</span><span data-en>Tickets — Prices</span></p>
+    <div class="ticket-steps">
+      <div class="ticket-step"><div class="step-num">€</div><div><p class="step-title"><span data-it>Treno Ciampino</span><span data-en>Ciampino Train</span></p><p class="step-desc"><span data-it>Acquistabile a bordo dal controllore. <strong>€1.50</strong> a persona — valido per una sola corsa.</span><span data-en>Buy on board from the conductor. <strong>€1.50</strong> per person — valid for a single journey.</span></p></div></div>
+      <div class="ticket-step"><div class="step-num">€</div><div><p class="step-title"><span data-it>Solo Roma (metro + bus + tram)</span><span data-en>Rome only (metro + bus + tram)</span></p><p class="step-desc"><span data-it><strong>24h €8.50</strong> · <strong>48h €15.00</strong> · <strong>72h €22.00</strong><br>Validi solo dentro Roma, NON coprono il treno da/per Ciampino.</span><span data-en><strong>24h €8.50</strong> · <strong>48h €15.00</strong> · <strong>72h €22.00</strong><br>Valid inside Rome only, do NOT cover the train to/from Ciampino.</span></p></div></div>
+      <div class="ticket-step"><div class="step-num">★</div><div><p class="step-title">BIRG 3 Zone <span style="color:var(--gold)">(consigliato)</span></p><p class="step-desc"><span data-it>La soluzione completa: treno da/per Ciampino + tutta la rete Roma (metro, bus, tram). <strong>€9.50</strong> — valido tutto il giorno. Acquistabile in biglietteria a Roma Termini.</span><span data-en>The complete solution: train to/from Ciampino + all Rome transport (metro, bus, tram). <strong>€9.50</strong> — valid all day. Available at Roma Termini ticket office.</span></p><span class="step-tip">⚠️ <span data-it>Multa €54 senza biglietto valido</span><span data-en>€54 fine without valid ticket</span></span></div></div>
     </div>
 
     <p class="sub-h">🎟️ <span data-it>Attrazioni — Prenotazione Online</span><span data-en>Attractions — Online Booking</span></p>
@@ -918,6 +1130,13 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <div class="delivery-panel" id="justeat-panel">
       <a class="app-item" href="YOUR_AFFILIATE_LINK_JUSTEAT" target="_blank"><div class="app-logo">🍔</div><div><p class="app-name">JustEat</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
     </div>
+
+    <p class="sub-h">🛒 <span data-it>Supermercati vicini</span><span data-en>Nearby supermarkets</span></p>
+    <div class="rules-grid" style="margin-top:.4rem">
+      <div class="rule-item"><span class="rule-emoji">🛒</span><p class="rule-text"><strong>Iper Dem</strong> — Via Mura dei Francesi 1, Ciampino<br><span style="font-size:.72rem">☎ 06 7913215 · <span data-it>Lun–Dom 8:00–20:30</span><span data-en>Mon–Sun 8:00–20:30</span><br><span data-it>Esci a sinistra → verso stazione Acqua Acetosa → sottopassaggio → ~10 min a piedi</span><span data-en>Exit left → towards Acqua Acetosa station → underpass → ~10 min walk</span></span> <a href="https://maps.app.goo.gl/xvyx7bMjnZs1D4jX9" target="_blank" style="color:var(--gold);font-size:.7rem"> Maps →</a></p></div>
+      <div class="rule-item"><span class="rule-emoji">🛍️</span><p class="rule-text"><strong>Conad</strong> — Via San Paolo della Croce 1/A, Ciampino<br><span style="font-size:.72rem">☎ 06 87570137 · <span data-it>Tutti i giorni 8:00–22:00</span><span data-en>Every day 8:00–22:00</span><br><span data-it>Esci a destra → pista ciclabile (strada rossa) → ~13 min a piedi, vicino al Burger King</span><span data-en>Exit right → cycle path (red road) → ~13 min walk, near Burger King</span></span> <a href="https://maps.app.goo.gl/1SDjsEjhEC5Gtx4w5" target="_blank" style="color:var(--gold);font-size:.7rem"> Maps →</a></p></div>
+    </div>
+  </div>
   </div>
 </div>
 
@@ -962,25 +1181,69 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 
 <!-- ════════════ CASTELLI ════════════ -->
 <div class="view" id="view-castelli">
-  <div class="page-hero">
-    <div class="ph-icon">🌿</div>
-    <div>
-      <p class="ph-tag"><span data-it>Territorio</span><span data-en>The Area</span></p>
-      <h1 class="ph-title" data-it>I <span class="sc">Castelli Romani</span></h1>
-      <h1 class="ph-title" data-en>The <span class="sc">Castelli Romani</span></h1>
+  <div class="page-hero" style="position:relative;overflow:hidden;min-height:110px;">
+    <div style="position:absolute;inset:0;background-image:url('castelli-bg.png');background-size:cover;background-position:center 40%;filter:blur(6px) brightness(.75);transform:scale(1.05);z-index:0;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.35),rgba(0,0,0,.15));z-index:1;"></div>
+    <div class="ph-icon" style="position:relative;z-index:2;background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);">🏰</div>
+    <div style="position:relative;z-index:2;">
+      <p class="ph-tag" style="color:rgba(255,255,255,.8)"><span data-it>Territorio</span><span data-en>The Area</span></p>
+      <h1 class="ph-title" style="color:#fff" data-it>I <span class="sc" style="color:#F0B429">Castelli Romani</span></h1>
+      <h1 class="ph-title" style="color:#fff" data-en>The <span class="sc" style="color:#F0B429">Castelli Romani</span></h1>
     </div>
   </div>
   <div class="page-body">
-    <p class="page-intro"><span data-it>I borghi dei Colli Albani, a due passi dalla villa. Ognuno con storia, vino e atmosfera unici.</span><span data-en>The Alban Hills villages, right on our doorstep. Each with unique history, wine and atmosphere.</span></p>
-    <div class="castelli-grid">
-      <div class="castello-card" onclick="openModal('frascati')"><span class="badge badge-car">🚗 20 min</span><p class="castello-name">Frascati <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Vino DOC, Villa Aldobrandini, cantine storiche.</span><span data-en>DOC wine, Villa Aldobrandini, historic cellars.</span></p></div>
-      <div class="castello-card" onclick="openModal('castelgandolfo')"><span class="badge badge-car">🚗 20 min</span><p class="castello-name">Castel Gandolfo <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Residenza papale, Musei Vaticani aperti, vista lago.</span><span data-en>Papal residence, Vatican Museums open, lake views.</span></p></div>
-      <div class="castello-card" onclick="openModal('ariccia')"><span class="badge badge-bus">🚌 25 min</span><p class="castello-name">Ariccia <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Porchetta IGP, fraschette, Palazzo Chigi.</span><span data-en>IGP porchetta, fraschette taverns, Chigi Palace.</span></p></div>
-      <div class="castello-card" onclick="openModal('grottaferrata')"><span class="badge badge-car">🚗 25 min</span><p class="castello-name">Grottaferrata <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Abbazia Greca (1004), vini eccellenti.</span><span data-en>Greek Abbey (1004), excellent wines.</span></p></div>
-      <div class="castello-card" onclick="openModal('nemi')"><span class="badge badge-car">🚗 30 min</span><p class="castello-name">Nemi <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Lago vulcanico, fragoline, borgo medievale.</span><span data-en>Volcanic lake, wild strawberries, medieval village.</span></p></div>
-      <div class="castello-card" onclick="openModal('marino')"><span class="badge badge-bus">🚌 20 min</span><p class="castello-name">Marino <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Sagra dell'Uva (ottobre), vini bianchi DOC.</span><span data-en>Grape Festival (October), DOC white wines.</span></p></div>
+    <p class="page-intro"><span data-it>I Castelli Romani sono un insieme di pittoreschi paesi collinari a sud-est di Roma, nella zona dei Colli Albani. Famosi per il vino, le ville papali, le vedute mozzafiato e la cucina tipica — perfetti per una gita fuori porta o un weekend rilassante.</span><span data-en>The Castelli Romani are picturesque hilltop villages south-east of Rome in the Alban Hills. Famous for wine, papal villas, breathtaking views and local cuisine — perfect for a day trip or relaxing weekend.</span></p>
+
+    <p class="sub-h">🍷 Frascati <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— 20 min in auto</span><span data-en>— 20 min by car</span></span></p>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.8rem"><span data-it>Passeggiando tra vicoli e piazze si respira un'atmosfera vivace, con enoteche, trattorie e cantine storiche. Famosa per il vino bianco e le ville rinascimentali.<br><br>
+    <strong>Da vedere:</strong> Villa Aldobrandini, il Duomo di San Pietro, le vie del centro.<br>
+    <strong>Da fare:</strong> Degustazione di Frascati DOC nelle cantine locali — ti consigliamo <em>Santè</em> o <em>Enoteca Molinari</em> nel centro.</span>
+    <span data-en>Strolling through alleys and squares you breathe a lively atmosphere, with wine bars, trattorias and historic cellars. Famous for white wine and Renaissance villas.<br><br>
+    <strong>See:</strong> Villa Aldobrandini, San Pietro Cathedral, town centre streets.<br>
+    <strong>Do:</strong> Frascati DOC wine tasting in local cellars — we recommend <em>Santè</em> or <em>Enoteca Molinari</em> in the centre.</span></p>
+
+    <p class="sub-h">🌊 Castel Gandolfo <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— 20 min in auto</span><span data-en>— 20 min by car</span></span></p>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.8rem"><span data-it>Un gioiello vulcanico dei Castelli Romani. Il Lago Albano, all'interno del cratere di un antico vulcano, è famoso per le acque limpide e la vista spettacolare sulla residenza estiva papale.<br><br>
+    <strong>Cosa fare:</strong> Palazzo Pontificio e Giardini Barberini (tour guidati), centro storico con botteghe artigiane, noleggio canoe/kayak/SUP, balneazione agli stabilimenti come <em>La Perla del Lago</em>.<br>
+    <em>Curiosità: fa parte dell'associazione "I Borghi più belli d'Italia".</em></span>
+    <span data-en>A volcanic gem of the Castelli Romani. Lake Albano, inside an ancient volcanic crater, is famous for clear waters and spectacular views over the papal summer residence.<br><br>
+    <strong>What to do:</strong> Pontifical Palace & Barberini Gardens (guided tours), artisan shops in the historic centre, canoe/kayak/SUP hire, swimming at <em>La Perla del Lago</em>.<br>
+    <em>Fun fact: listed among "The most beautiful villages in Italy".</em></span></p>
+    <a href="https://maps.google.com/?q=Castel+Gandolfo+Roma" target="_blank" style="display:inline-block;margin-bottom:.8rem;font-size:.72rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Castel Gandolfo su Maps →</a>
+
+    <p class="sub-h">🍖 Ariccia <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— 25 min in auto</span><span data-en>— 25 min by car</span></span></p>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.5rem"><span data-it>Capitale della porchetta! Da vedere Piazza di Corte e Palazzo Chigi (progettati dal Bernini). Da fare: pranzo in una tipica fraschetta con porchetta, pane e vino — e ottimi primi piatti romani.</span>
+    <span data-en>Porchetta capital! See the Piazza di Corte and Palazzo Chigi (designed by Bernini). Do: lunch at a typical fraschetta with porchetta, bread and wine — plus excellent Roman pasta dishes.</span></p>
+    <p style="font-size:.75rem;color:var(--gold);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin:.8rem 0 .4rem"><span data-it>Le nostre fraschette consigliate</span><span data-en>Our recommended fraschette</span></p>
+    <div class="rules-grid" style="margin-top:.4rem">
+      <div class="rule-item"><p class="rule-text"><strong>L'Aricciarola</strong><br><span style="font-size:.72rem"><span data-it>Via Borgo S. Rocco — Esperienza classica: salumi, porchetta in bella vista. Un must.</span><span data-en>Via Borgo S. Rocco — Classic experience: cold cuts, porchetta on display. A must.</span></span><br><a href="https://maps.google.com/?q=L'Aricciarola+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Dar Vignarolo</strong><br><span style="font-size:.72rem"><span data-it>Str. Nuova — Antipasto misto e fagioli nella pagnotta. Prenotazione consigliata.</span><span data-en>Str. Nuova — Mixed antipasto and beans in toasted bread bowl. Booking recommended.</span></span><br><a href="https://maps.google.com/?q=Dar+Vignarolo+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>La Selvotta</strong><br><span style="font-size:.72rem"><span data-it>Via della Selvotta — All'aperto nel verde. Perfetta apr–ott. Prenotazione consigliata.</span><span data-en>Via della Selvotta — Outdoor in the greenery. Perfect Apr–Oct. Booking recommended.</span></span><br><a href="https://maps.google.com/?q=La+Selvotta+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Fraschetta e Che Cazzo</strong><br><span style="font-size:.72rem"><span data-it>Via dell'Ucceliera — Locale ironico e inimitabile. Vino e tanta originalità.</span><span data-en>Via dell'Ucceliera — Ironic and one-of-a-kind. Wine and lots of personality.</span></span><br><a href="https://maps.google.com/?q=Fraschetta+e+Che+Cazzo+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Dar Burino</strong><br><span style="font-size:.72rem"><span data-it>La più grande di Ariccia (~450 coperti). Accogliente e porzioni abbondanti.</span><span data-en>Ariccia's largest (~450 covers). Welcoming with generous portions.</span></span><br><a href="https://maps.google.com/?q=Dar+Burino+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Dal Brigante Gasperone</strong><br><span style="font-size:.72rem"><span data-it>Via Borgo San Rocco — Cibo gustoso e abbondante, ottimo rapporto qualità/prezzo.</span><span data-en>Via Borgo San Rocco — Tasty, generous food with great value for money.</span></span><br><a href="https://maps.google.com/?q=Dal+Brigante+Gasperone+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Cioli</strong><br><span style="font-size:.72rem"><span data-it>Bottega per tranci di porchetta da portare via. Sapore autentico.</span><span data-en>Deli for porchetta slices to take away. Authentic flavour.</span></span><br><a href="https://maps.google.com/?q=Cioli+Ariccia+porchetta" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
     </div>
+
+    <p class="sub-h">🏔️ Nemi <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— 30 min in auto</span><span data-en>— 30 min by car</span></span></p>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.5rem"><span data-it>Piccolo borgo medievale affacciato sul suo lago vulcanico, romantico e suggestivo in ogni stagione. Botteghe, terrazze panoramiche con vista sul Lago di Nemi e il Museo delle Navi Romane (reperti delle imbarcazioni di Caligola).</span>
+    <span data-en>A small medieval village overlooking its volcanic lake, romantic and evocative in every season. Artisan shops, panoramic terraces overlooking Lake Nemi, and the Roman Ships Museum (artefacts from Caligula's boats).</span></p>
+    <a href="https://maps.google.com/?q=Nemi+Roma" target="_blank" style="display:inline-block;margin-bottom:.8rem;font-size:.72rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Nemi su Maps →</a>
+
+    <p class="sub-h">⛰️ Rocca di Papa <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— 25 min in auto</span><span data-en>— 25 min by car</span></span></p>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.8rem"><span data-it>Borgo in altura con panorami spettacolari. Santuario della Madonna del Tufo, Monte Cavo. Perfetto per passeggiate e trekking.</span>
+    <span data-en>Hilltop village with spectacular panoramas. Madonna del Tufo Sanctuary, Monte Cavo. Perfect for walks and trekking.</span></p>
+
+    <p class="sub-h">🏖️ <span data-it>Mare — Torvajanica</span><span data-en>Sea — Torvajanica</span> <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— ~40 min in auto</span><span data-en>— ~40 min by car</span></span></p>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.5rem"><span data-it>Vi consigliamo Torvajanica: molto carina e pulita. Due lidi che consigliamo in particolare:</span><span data-en>We recommend Torvajanica: very pretty and clean. Two beaches we particularly recommend:</span></p>
+    <div class="rules-grid" style="margin-top:.4rem">
+      <div class="rule-item"><span class="rule-emoji">☀️</span><p class="rule-text"><strong>Sky Garden Luxury Beach</strong><br><span style="font-size:.72rem"><span data-it>Parcheggio privato ~60 posti, sdraio, lettini, bar, ristorante, docce calde, piscina per aperitivi al tramonto.</span><span data-en>Private parking ~60 spots, sun loungers, bar, restaurant, hot showers, pool for sunset aperitivos.</span></span></p></div>
+      <div class="rule-item"><span class="rule-emoji">🌊</span><p class="rule-text"><strong>Marine Village</strong><br><span style="font-size:.72rem"><span data-it>Molto bello anche questo. Sul lungomare ci sono molti altri lidi e spiagge attrezzate più semplici.</span><span data-en>Also very nice. Along the seafront there are many other simpler equipped beaches too.</span></span></p></div>
+    </div>
+    <div class="hbox"><p>🍕 <span data-it>Per mangiare: <strong>Vivarelli</strong> — bisteccheria/pizzeria eccezionale, pizza molto buona!</span><span data-en>For food: <strong>Vivarelli</strong> — exceptional steakhouse/pizzeria, great pizza!</span> <a href="https://share.google/GA4qbvtbMPmvGBKGB" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600"> Maps →</a></p></div>
+
   </div>
+</div>
 </div>
 
 <!-- ════════════ INFO CASA ════════════ -->
@@ -1038,7 +1301,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 /* ── PAGES ── */
 const PAGES={
   villa:{it:'La Villa',en:'The Villa'},
-  foto:{it:'Foto',en:'Photos'},
   piscina:{it:'Piscina',en:'Pool'},
   arrivo:{it:'Come Arrivare',en:'Arrival'},
   trasporti:{it:'Trasporti & Biglietti',en:'Transport & Tickets'},
@@ -1174,6 +1436,26 @@ const PLACES={
     body_en:"<strong>Giolitti</strong> (near the Pantheon) · <strong>Fatamorgana</strong> (Trastevere, Prati, Monti) · <strong>Gelateria dei Gracchi</strong> (Prati, 2 min Vatican).<br><br>💡 Real artisan gelato has muted, natural colours.",
     links:[{l:"Giolitti Maps",u:"https://maps.google.com/?q=Giolitti+Roma",p:true},{l:"Fatamorgana",u:"https://maps.google.com/?q=Fatamorgana+Trastevere"}]},
 };
+
+/* ── CAMERA LIGHTBOX ── */
+const CAMERA_PHOTOS = {
+  marino:       [{src:'camera-marino-1.jpg',cap:'Camera Marino'},{src:'camera-marino-2.jpg',cap:'Camera Marino — bagno'}],
+  castelgandolfo:[{src:'camera-castelgandolfo-1.jpg',cap:'Camera Castel Gandolfo'},{src:'camera-castelgandolfo-2.jpg',cap:'Vasca idromassaggio'}],
+  nemi:         [{src:'camera-nemi-1.jpg',cap:'Camera Nemi'},{src:'camera-nemi-2.jpg',cap:'Camera Nemi — balcone'}],
+  genzano:      [{src:'camera-genzano-1.jpg',cap:'Camera Genzano'},{src:'camera-genzano-2.jpg',cap:'Terrazzo con amaca'}],
+  ariccia:      [{src:'camera-ariccia-1.jpg',cap:'Camera Ariccia'},{src:'camera-ariccia-2.jpg',cap:'Camera Ariccia — terrazzo'}],
+  frascati:     [{src:'camera-frascati-1.jpg',cap:'Camera Frascati'},{src:'camera-frascati-2.jpg',cap:'Camera Frascati — terrazzo'}],
+};
+function openCameraLB(name){
+  const photos = CAMERA_PHOTOS[name];
+  if(!photos||!photos.length) return;
+  lbImages = photos;
+  lbIdx = 0;
+  updLB();
+  buildDots();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
 
 function openStoria(){
   document.getElementById('storiaModal').classList.add('open');
