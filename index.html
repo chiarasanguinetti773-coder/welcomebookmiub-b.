@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
@@ -671,6 +670,14 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <span data-it>Seleziona una sezione per scoprire tutto quello che ti serve durante il soggiorno.</span>
     <span data-en>Select a section to find everything you need during your stay.</span>
   </p>
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.8rem;position:relative;z-index:1;">
+    <a href="tel:+393514246166" style="display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;background:var(--gold);color:#fff;border-radius:24px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.05em;box-shadow:0 4px 16px rgba(200,134,10,.3);">
+      📞 <span data-it>Chiama il tuo Host</span><span data-en>Call your Host</span>
+    </a>
+    <button onclick="showPage('primaccesso')" style="display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;background:var(--ivory);color:var(--ink);border:1.5px solid var(--border2);border-radius:24px;font-size:.78rem;font-weight:700;letter-spacing:.05em;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.06);">
+      🗝️ <span data-it>Istruzioni Primo Accesso</span><span data-en>First Access Guide</span>
+    </button>
+  </div>
   <div class="icon-grid">
 
     <!-- VILLA — foto suite -->
@@ -747,9 +754,17 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <button class="icon-btn" onclick="showPage('casa')">
       <div class="icon-circle ic-casa">
         <div class="ic-glass"></div>
-        <span class="ic-label">🔑</span>
+        <span class="ic-label">🏠</span>
       </div>
-      <span class="icon-label"><span data-it>Info Casa</span><span data-en>House</span></span>
+      <span class="icon-label"><span data-it>Info Struttura</span><span data-en>Property</span></span>
+    </button>
+
+    <button class="icon-btn" onclick="showPage('wifi')">
+      <div class="icon-circle" style="background:linear-gradient(145deg,rgba(0,174,239,.08),rgba(0,174,239,.2));">
+        <div class="ic-glass"></div>
+        <span class="ic-label">📶</span>
+      </div>
+      <span class="icon-label">Wi-Fi</span>
     </button>
 
     <!-- EMERGENZE — colore solido, nessuna foto -->
@@ -983,16 +998,18 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     </div>
   </div>
   <div class="page-body">
-    <p class="page-intro">📍 <strong>Via Romana Vecchia 50M, 00043 Ciampino (RM)</strong></p>
+    <p class="page-intro">📍 <strong>Via Romana Vecchia 50M, 00043 Ciampino (RM)</strong> — <a href="https://maps.google.com/?q=Via+Romana+Vecchia+50M+Ciampino+RM" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600"><span data-it>Vedi su Google Maps →</span><span data-en>View on Google Maps →</span></a></p>
     <div class="arrival-grid">
-      <div class="arrival-card"><div class="arr-mode">✈️</div><p class="arr-title"><span data-it>Da Ciampino (CIA) 🎉</span><span data-en>From Ciampino Airport (CIA) 🎉</span></p><p class="arr-text"><span data-it>Siamo a 5 minuti! Auto: ~5 min · Taxi: ~€10 · Bus Cotral diretto da Ciampino</span><span data-en>Just 5 minutes away! Car: ~5 min · Taxi: ~€10 · Direct Cotral bus from Ciampino</span></p><span class="arr-badge">~5 min</div>
-      <div class="arrival-card"><div class="arr-mode">✈️</div><p class="arr-title"><span data-it>Da Fiumicino (FCO)</span><span data-en>From Fiumicino (FCO)</span></p><p class="arr-text"><span data-it>Auto ~35 min via GRA/A90 · Taxi ~€55–65 · Leonardo Express → Termini → treno Ciampino</span><span data-en>Car ~35 min via GRA/A90 · Taxi ~€55–65 · Leonardo Express → Termini → train to Ciampino</span></p><span class="arr-badge">~35 min</span></div>
+      <div class="arrival-card"><div class="arr-mode">✈️</div><p class="arr-title"><span data-it>Da Ciampino Aeroporto (CIA)</span><span data-en>From Ciampino Airport (CIA)</span></p><p class="arr-text"><span data-it>In auto o taxi: <strong>~5 minuti</strong><br><br>Trasporto pubblico diretto: <strong>AirLink</strong> per la stazione di Ciampino, a meno di 1 km da noi.<br><a href="https://www.atral-lazio.com/#ciampino" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">Orari AirLink →</a></span><span data-en>By car or taxi: <strong>~5 minutes</strong><br><br>Direct public transport: <strong>AirLink</strong> to Ciampino station, less than 1 km from us.<br><a href="https://www.atral-lazio.com/#ciampino" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">AirLink timetables →</a></span></p><span class="arr-badge">~5 min 🎉</span></div>
+
+      <div class="arrival-card"><div class="arr-mode">✈️</div><p class="arr-title"><span data-it>Da Fiumicino (FCO)</span><span data-en>From Fiumicino (FCO)</span></p><p class="arr-text"><span data-it>Auto ~35 min via GRA/A90<br><br>Treno: Leonardo Express → Termini → treno direzione Albano fino a <strong>Ciampino</strong> o <strong>Acqua Acetosa</strong><br><br>Bus: Autobus <strong>515 / Atac</strong> per Ciampino — biglietto €1.50</span><span data-en>Car ~35 min via GRA/A90<br><br>Train: Leonardo Express → Termini → train towards Albano to <strong>Ciampino</strong> or <strong>Acqua Acetosa</strong><br><br>Bus: <strong>515 / Atac</strong> bus to Ciampino — ticket €1.50</span></p><span class="arr-badge">~50 min</span></div>
+
       <div class="arrival-card"><div class="arr-mode">🚗</div><p class="arr-title"><span data-it>Da Roma Centro</span><span data-en>From Rome Centre</span></p><p class="arr-text"><span data-it>Via Appia Nuova direzione Ciampino. Parcheggio privato gratuito. Nessuna ZTL.</span><span data-en>Via Appia Nuova towards Ciampino. Free private parking. No ZTL zone.</span></p><span class="arr-badge">~25 min</span></div>
-      <div class="arrival-card"><div class="arr-mode">🚌</div><p class="arr-title">Bus Cotral</p><p class="arr-text"><span data-it>Da Anagnina (Metro A) → bus Cotral dir. Ciampino. ~€2.20</span><span data-en>From Anagnina (Metro A) → Cotral bus to Ciampino. ~€2.20</span></p><span class="arr-badge">~30 min</span></div>
-      <div class="arrival-card"><div class="arr-mode">🚆</div><p class="arr-title"><span data-it>Ferrovia da Termini</span><span data-en>Train from Termini</span></p><p class="arr-text"><span data-it>Ferrovia Laziale → stazione Ciampino (15 min). Da lì taxi 5 min fino a noi. ~€2.20</span><span data-en>Lazio rail → Ciampino station (15 min). Then 5 min taxi to us. ~€2.20</span></p><span class="arr-badge">~40 min</span></div>
-      <div class="arrival-card"><div class="arr-mode">🚕</div><p class="arr-title"><span data-it>Transfer Privato</span><span data-en>Private Transfer</span></p><p class="arr-text"><span data-it>Servizio riservato agli ospiti. Contattaci per tariffa dedicata.</span><span data-en>Exclusive guest service. Contact us for your dedicated rate.</span></p><span class="arr-badge" style="background:rgba(0,174,239,.1);color:#00AEEF"><span data-it>Su prenotazione</span><span data-en>On request</span></span></div>
+
+      <div class="arrival-card"><div class="arr-mode">🚆</div><p class="arr-title"><span data-it>Ferrovia da Roma Termini</span><span data-en>Train from Roma Termini</span></p><p class="arr-text"><span data-it>Treno direzione Albano — due opzioni:<br><br>1️⃣ <strong>Acqua Acetosa</strong> (a 300m da noi) — nessuna biglietteria, biglietto dal controllore €1.50<br><br>2️⃣ <strong>Stazione Ciampino</strong> — biglietteria presente, a meno di 1 km, ~15 min a piedi</span><span data-en>Train towards Albano — two options:<br><br>1️⃣ <strong>Acqua Acetosa</strong> (300m from us) — no ticket office, buy from conductor €1.50<br><br>2️⃣ <strong>Ciampino station</strong> — ticket office available, less than 1 km away, ~15 min walk</span></p><span class="arr-badge">~20 min</span></div>
+
+      <div class="arrival-card"><div class="arr-mode">🚕</div><p class="arr-title"><span data-it>Transfer Privato</span><span data-en>Private Transfer</span></p><p class="arr-text"><span data-it>Servizio esclusivo riservato ai nostri ospiti. Contattaci per conoscere la tariffa dedicata e prenotare il tuo trasferimento comodo e veloce da qualsiasi punto vi troviate.</span><span data-en>Exclusive service for our guests. Contact us for your dedicated rate and to book your comfortable, fast transfer from wherever you are.</span></p><span class="arr-badge" style="background:rgba(0,174,239,.1);color:#00AEEF"><span data-it>Su prenotazione</span><span data-en>On request</span></span></div>
     </div>
-    <div class="hbox"><p>🗺️ <a href="https://maps.google.com/?q=Via+Romana+Vecchia+50M+Ciampino+RM" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600"><span data-it>Apri in Google Maps →</span><span data-en>Open in Google Maps →</span></a></p></div>
   </div>
 </div>
 
@@ -1225,22 +1242,165 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <div class="ph-icon">🔑</div>
     <div>
       <p class="ph-tag"><span data-it>Info Pratiche</span><span data-en>Practical Info</span></p>
-      <h1 class="ph-title" data-it>Istruzioni <span class="sc">Casa</span></h1>
-      <h1 class="ph-title" data-en><span class="sc">House</span> Instructions</h1>
+      <h1 class="ph-title" data-it>Info <span class="sc">Struttura</span></h1>
+      <h1 class="ph-title" data-en><span class="sc">Property</span> Info</h1>
     </div>
   </div>
   <div class="page-body">
     <div class="appliance-list">
-      <div class="appliance-item"><p class="appliance-name">❄️ <span data-it>Aria Condizionata</span><span data-en>Air Conditioning</span></p><p class="appliance-text"><span data-it>Telecomando sul comodino. ❄️ raffredda · ☀️ riscalda. 22–24°C consigliati. Spegnere uscendo.</span><span data-en>Remote on bedside table. ❄️ cools · ☀️ heats. 22–24°C recommended. Switch off when leaving.</span></p></div>
-      <div class="appliance-item"><p class="appliance-name">📺 TV</p><p class="appliance-text"><span data-it>Smart TV con YouTube, RaiPlay, Netflix (proprio account). HDMI disponibile.</span><span data-en>Smart TV with YouTube, RaiPlay, Netflix (your account). HDMI available.</span></p></div>
-      <div class="appliance-item"><p class="appliance-name">☕ <span data-it>Caffè</span><span data-en>Coffee Machine</span></p><p class="appliance-text"><span data-it>Capsule in sala colazione. Svuotare il contenitore ogni ~10 capsule.</span><span data-en>Capsules in breakfast room. Empty used container every ~10 uses.</span></p></div>
-      <div class="appliance-item"><p class="appliance-name">🧺 <span data-it>Lavatrice</span><span data-en>Washing Machine</span></p><p class="appliance-text"><span data-it>Su richiesta. 40°C colori · 60°C bianco. ~1h30. Detersivo fornito.</span><span data-en>On request. 40°C colours · 60°C whites. ~1h30. Detergent provided.</span></p></div>
-      <div class="appliance-item"><p class="appliance-name">🔒 <span data-it>Cassaforte</span><span data-en>Safe</span></p><p class="appliance-text"><span data-it>Comodino sinistro. Codice 4 cifre. Tasto * per 3s per reset.</span><span data-en>Left bedside table. 4-digit code. Hold * for 3s to reset.</span></p></div>
-      <div class="appliance-item"><p class="appliance-name">♨️ <span data-it>Asciugacapelli</span><span data-en>Hair Dryer</span></p><p class="appliance-text"><span data-it>Nel cassetto sotto il lavandino. 220V.</span><span data-en>In the drawer under the sink. 220V.</span></p></div>
-      <div class="appliance-item"><p class="appliance-name">🗑️ <span data-it>Raccolta Differenziata</span><span data-en>Recycling</span></p><p class="appliance-text">🟡 <span data-it>Plastica</span><span data-en>Plastic</span> · 🟢 <span data-it>Vetro</span><span data-en>Glass</span> · 🔵 <span data-it>Carta</span><span data-en>Paper</span> · ⬜ <span data-it>Indifferenziato</span><span data-en>General</span></p></div>
-      <div class="appliance-item"><p class="appliance-name">💡 <span data-it>Luci</span><span data-en>Lights</span></p><p class="appliance-text"><span data-it>Interruttori all'ingresso. Luci esterne off alle 23:00. Spegnere tutto in assenza.</span><span data-en>Switches at entrance. Outdoor lights off at 11 PM. Switch off when out.</span></p></div>
+
+      <div class="appliance-item">
+        <p class="appliance-name">🗝️ <span data-it>Istruzioni Chiavi</span><span data-en>Key Guide</span></p>
+        <p class="appliance-text">
+          <span data-it>
+            <strong>Card Blu</strong> — Porte principale e camera privata:<br>
+            1. Premere un tastino a caso<br>
+            2. Poggiare la card sul tastierino<br>
+            3. Girare la maniglia<br><br>
+            <strong>Tag Grigio</strong> — Cancello automatico:<br>
+            Poggiare al centro del tastierino posizionato di fianco al cancello per aprire.<br><br>
+            <strong>Chiave Classica</strong> — Cancello pedonale esterno.<br><br>
+            ⚠️ Non perdere chiavi o card/tag. Non lasciare le chiavi inserite nelle serrature.
+          </span>
+          <span data-en>
+            <strong>Blue Card</strong> — Main door and private room:<br>
+            1. Press any button<br>
+            2. Place the card on the keypad<br>
+            3. Turn the handle<br><br>
+            <strong>Grey Tag</strong> — Automatic gate:<br>
+            Place it in the centre of the keypad next to the gate to open it.<br><br>
+            <strong>Classic Key</strong> — Small pedestrian gate.<br><br>
+            ⚠️ Do not lose keys or card/tag. Do not leave keys in the locks.
+          </span>
+        </p>
+      </div>
+
+      <div class="appliance-item">
+        <p class="appliance-name">❄️ <span data-it>Aria Condizionata</span><span data-en>Air Conditioning</span></p>
+        <p class="appliance-text"><span data-it>Telecomando sul comodino. ❄️ raffredda · ☀️ riscalda. 22–24°C consigliati. Spegnere uscendo.</span><span data-en>Remote on bedside table. ❄️ cools · ☀️ heats. 22–24°C recommended. Switch off when leaving.</span></p>
+      </div>
+
+      <div class="appliance-item">
+        <p class="appliance-name">📺 TV</p>
+        <p class="appliance-text"><span data-it>Smart TV con YouTube, RaiPlay, Netflix (proprio account). HDMI disponibile.</span><span data-en>Smart TV with YouTube, RaiPlay, Netflix (your account). HDMI available.</span></p>
+      </div>
+
+      <div class="appliance-item">
+        <p class="appliance-name">🧺 <span data-it>Lavatrice & Asciugatrice</span><span data-en>Washer & Dryer</span></p>
+        <p class="appliance-text">
+          <span data-it>Su richiesta. <strong>1 capsula = 1 lavaggio — €2.00</strong>, consegnata dalla reception.<br>
+          <a href="https://wa.me/393514246166" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">Richiedi alla reception →</a></span>
+          <span data-en>On request. <strong>1 capsule = 1 wash — €2.00</strong>, delivered by reception.<br>
+          <a href="https://wa.me/393514246166" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">Request at reception →</a></span>
+        </p>
+      </div>
+
+      <div class="appliance-item">
+        <p class="appliance-name">🔒 <span data-it>Cassaforte</span><span data-en>Safe</span></p>
+        <p class="appliance-text">
+          <span data-it>
+            <strong>Programmazione codice:</strong><br>
+            1. Aprire lo sportello e premere il pulsante di ripristino (tastino rosso dietro lo sportello batterie)<br>
+            2. Si sentiranno 2 segnali acustici e la spia si accenderà gialla<br>
+            3. Inserire il codice (3–8 cifre) e confermare con <strong>E</strong> entro 15 secondi<br>
+            4. 2 segnali acustici e la luce gialla si spegnerà<br><br>
+            <strong>Apertura:</strong><br>
+            1. Inserire il codice e premere <strong>E</strong><br>
+            2. Si accende la luce verde<br>
+            3. Ruotare la manopola entro 5 secondi in senso orario — altrimenti si richiude automaticamente
+          </span>
+          <span data-en>
+            <strong>Set code:</strong><br>
+            1. Open door and press reset button (red button behind battery cover)<br>
+            2. Two beeps and yellow light turns on<br>
+            3. Enter code (3–8 digits) and confirm with <strong>E</strong> within 15 seconds<br>
+            4. Two beeps and yellow light turns off<br><br>
+            <strong>Opening:</strong><br>
+            1. Enter code and press <strong>E</strong><br>
+            2. Green light turns on<br>
+            3. Turn handle clockwise within 5 seconds — otherwise it locks automatically
+          </span>
+        </p>
+      </div>
+
+      <div class="appliance-item">
+        <p class="appliance-name">💡 <span data-it>Luci</span><span data-en>Lights</span></p>
+        <p class="appliance-text"><span data-it>Interruttori all'ingresso. Luci esterne off alle 23:00. Spegnere tutto in assenza.</span><span data-en>Switches at entrance. Outdoor lights off at 11 PM. Switch off when out.</span></p>
+      </div>
+
     </div>
     <div class="hbox"><p>🆘 <span data-it>Per qualsiasi necessità:</span><span data-en>For any need:</span> WhatsApp <a href="https://wa.me/393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
+  </div>
+</div>
+
+<!-- ════════════ WIFI ════════════ -->
+<div class="view" id="view-wifi">
+  <div class="page-hero">
+    <div class="ph-icon">📶</div>
+    <div>
+      <p class="ph-tag">Wi-Fi</p>
+      <h1 class="ph-title" data-it><span class="sc">Wi-Fi</span> della Struttura</h1>
+      <h1 class="ph-title" data-en>Property <span class="sc">Wi-Fi</span></h1>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="info-block">
+      <div class="info-item"><p class="info-lbl">Network</p><p class="info-val"><strong>Ospitib&bmiu</strong></p></div>
+      <div class="info-item"><p class="info-lbl">Password</p><p class="info-val"><strong>Miub&bciampino</strong></p></div>
+    </div>
+    <div class="hbox" style="margin-top:1.5rem"><p>📶 <span data-it>Connessione disponibile in tutta la struttura. Per problemi di connessione contatta la reception.</span><span data-en>Connection available throughout the property. For connection issues contact reception.</span></p></div>
+  </div>
+</div>
+
+<!-- ════════════ PRIMO ACCESSO ════════════ -->
+<div class="view" id="view-primaccesso">
+  <div class="page-hero">
+    <div class="ph-icon">🗝️</div>
+    <div>
+      <p class="ph-tag"><span data-it>Benvenuti</span><span data-en>Welcome</span></p>
+      <h1 class="ph-title" data-it>Istruzioni <span class="sc">Primo Accesso</span></h1>
+      <h1 class="ph-title" data-en><span class="sc">First Access</span> Guide</h1>
+    </div>
+  </div>
+  <div class="page-body">
+
+    <p class="sub-h">💙 <span data-it>Card Blu — Porta principale e camera privata</span><span data-en>Blue Card — Main door and private room</span></p>
+    <!-- Foto card blu: carica "chiavi-card-blu.jpg" nella repo -->
+    <div style="width:100%;border-radius:var(--r);overflow:hidden;margin-bottom:1rem;background:linear-gradient(135deg,rgba(0,174,239,.06),rgba(0,174,239,.12));border:1.5px dashed rgba(0,174,239,.3);height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;">
+      <img src="chiavi-card-blu.jpg" alt="Card Blu" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.innerHTML='<span style=\'font-size:2rem\'>💙</span><span style=\'font-size:.72rem;color:#6B6055;letter-spacing:.1em;text-transform:uppercase\'>+ carica chiavi-card-blu.jpg</span>'">
+    </div>
+    <div class="ticket-steps">
+      <div class="ticket-step"><div class="step-num">1</div><div><p class="step-title"><span data-it>Premere un tastino a caso</span><span data-en>Press any button</span></p></div></div>
+      <div class="ticket-step"><div class="step-num">2</div><div><p class="step-title"><span data-it>Poggiare la card sul tastierino</span><span data-en>Place the card on the keypad</span></p></div></div>
+      <div class="ticket-step"><div class="step-num">3</div><div><p class="step-title"><span data-it>Girare la maniglia</span><span data-en>Turn the handle</span></p></div></div>
+    </div>
+
+    <p class="sub-h" style="margin-top:1.5rem">⬛ <span data-it>Tag Grigio — Cancello automatico</span><span data-en>Grey Tag — Automatic gate</span></p>
+    <!-- Foto tag grigio: carica "chiavi-tag-grigio.jpg" nella repo -->
+    <div style="width:100%;border-radius:var(--r);overflow:hidden;margin-bottom:1rem;background:linear-gradient(135deg,rgba(74,74,74,.06),rgba(74,74,74,.12));border:1.5px dashed rgba(74,74,74,.25);height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;">
+      <img src="chiavi-tag-grigio.jpg" alt="Tag Grigio" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.innerHTML='<span style=\'font-size:2rem\'>⬛</span><span style=\'font-size:.72rem;color:#6B6055;letter-spacing:.1em;text-transform:uppercase\'>+ carica chiavi-tag-grigio.jpg</span>'">
+    </div>
+    <div class="hbox"><p><span data-it>Poggiare al <strong>centro del tastierino</strong> posizionato di fianco al cancello automatico per aprire.</span><span data-en>Place it in the <strong>centre of the keypad</strong> next to the automatic gate to open it.</span></p></div>
+
+    <p class="sub-h" style="margin-top:1.5rem">🔑 <span data-it>Chiave Classica — Cancello pedonale</span><span data-en>Classic Key — Pedestrian gate</span></p>
+    <!-- Foto chiave classica: carica "chiavi-classica.jpg" nella repo -->
+    <div style="width:100%;border-radius:var(--r);overflow:hidden;margin-bottom:1rem;background:linear-gradient(135deg,rgba(200,134,10,.06),rgba(200,134,10,.12));border:1.5px dashed rgba(200,134,10,.3);height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;">
+      <img src="chiavi-classica.jpg" alt="Chiave Classica" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.innerHTML='<span style=\'font-size:2rem\'>🔑</span><span style=\'font-size:.72rem;color:#6B6055;letter-spacing:.1em;text-transform:uppercase\'>+ carica chiavi-classica.jpg</span>'">
+    </div>
+    <div class="hbox"><p><span data-it>Serve per aprire il piccolo <strong>cancello pedonale esterno</strong>.</span><span data-en>Used to open the small <strong>external pedestrian gate</strong>.</span></p></div>
+
+    <div class="rules-grid" style="margin-top:1.5rem">
+      <div class="rule-item"><span class="rule-emoji">⚠️</span><p class="rule-text"><span data-it><strong>Non perdere</strong> le chiavi o card/tag.</span><span data-en><strong>Do not lose</strong> keys or card/tag.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">🚫</span><p class="rule-text"><span data-it><strong>Non lasciare</strong> le chiavi inserite nelle serrature.</span><span data-en><strong>Do not leave</strong> keys in the locks.</span></p></div>
+    </div>
+
+    <p class="sub-h" style="margin-top:1.5rem">📶 Wi-Fi</p>
+    <div class="info-block" style="margin-top:.5rem">
+      <div class="info-item"><p class="info-lbl">Network</p><p class="info-val"><strong>Ospitib&bmiu</strong></p></div>
+      <div class="info-item"><p class="info-lbl">Password</p><p class="info-val"><strong>Miub&bciampino</strong></p></div>
+    </div>
+
+    <div class="hbox" style="margin-top:1.5rem"><p>📞 <span data-it>Per qualsiasi necessità al vostro arrivo:</span><span data-en>For any need on arrival:</span> <a href="tel:+393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
   </div>
 </div>
 
@@ -1280,7 +1440,9 @@ const PAGES={
   mangiare:{it:'Mangiare',en:'Dining'},
   roma:{it:'Itinerari Consigliati',en:'Recommended Itineraries'},
   castelli:{it:'Castelli Romani',en:'Castelli Romani'},
-  casa:{it:'Info Casa',en:'House'},
+  casa:{it:'Info Struttura',en:'Property Info'},
+  wifi:{it:'Wi-Fi',en:'Wi-Fi'},
+  primaccesso:{it:'Primo Accesso',en:'First Access'},
   emergenze:{it:'Emergenze',en:'Emergency'},
 };
 
@@ -1412,12 +1574,12 @@ const PLACES={
 
 /* ── CAMERA LIGHTBOX ── */
 const CAMERA_PHOTOS = {
-  marino:       [{src:'camera-marino-1.jpg',cap:'Camera Marino'},{src:'Screenshot 2026-04-23 alle 11.18.44.png',cap:'Camera Marino — bagno'}],
-  castelgandolfo:[{src:'',cap:'Camera Castel Gandolfo'},{src:'Screenshot 2026-04-22 alle 12.51.54.png',cap:'Vasca idromassaggio'}],
-  nemi:         [{src:'camera-nemi-1.jpg',cap:'Camera Nemi'},{src:'Screenshot 2026-04-23 alle 11.19.38.png',cap:'Camera Nemi — balcone'}],
-  genzano:      [{src:'camera-genzano-1.jpg',cap:'Camera Genzano'},{src:'Screenshot 2026-04-23 alle 11.20.52.png',cap:'Terrazzo con amaca'}],
-  ariccia:      [{src:'camera-ariccia-1.jpg',cap:'Camera Ariccia'},{src:'Screenshot 2026-04-23 alle 11.21.49.png',cap:'Camera Ariccia — terrazzo'}],
-  frascati:     [{src:'camera-frascati-1.jpg',cap:'Camera Frascati'},{src:'Screenshot 2026-04-23 alle 11.23.38.png',cap:'Camera Frascati — terrazzo'}],
+  marino:       [{src:'camera-marino-1.jpg',cap:'Camera Marino'},{src:'camera-marino-2.jpg',cap:'Camera Marino — bagno'}],
+  castelgandolfo:[{src:'camera-castelgandolfo-1.jpg',cap:'Camera Castel Gandolfo'},{src:'camera-castelgandolfo-2.jpg',cap:'Vasca idromassaggio'}],
+  nemi:         [{src:'camera-nemi-1.jpg',cap:'Camera Nemi'},{src:'camera-nemi-2.jpg',cap:'Camera Nemi — balcone'}],
+  genzano:      [{src:'camera-genzano-1.jpg',cap:'Camera Genzano'},{src:'camera-genzano-2.jpg',cap:'Terrazzo con amaca'}],
+  ariccia:      [{src:'camera-ariccia-1.jpg',cap:'Camera Ariccia'},{src:'camera-ariccia-2.jpg',cap:'Camera Ariccia — terrazzo'}],
+  frascati:     [{src:'camera-frascati-1.jpg',cap:'Camera Frascati'},{src:'camera-frascati-2.jpg',cap:'Camera Frascati — terrazzo'}],
 };
 function openCameraLB(name){
   const photos = CAMERA_PHOTOS[name];
