@@ -3,14 +3,11 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="color-scheme" content="light only">
-<meta name="supported-color-schemes" content="light">
 <title>B&B Miù — Welcome Book</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════ TOKENS ═══════════════════════ */
 :root{
-  color-scheme: light only;
   --gold:#C8860A; --gold-l:#F0B429; --gold-pale:rgba(200,134,10,.08);
   --cream:#FDFAF4; --ivory:#FFFEF9; --stone:#F5F0E8;
   --teal:#00AEEF; --teal-l:#4DC9BC;
@@ -24,7 +21,7 @@
 
 /* ═══════════════════════ RESET ═══════════════════════ */
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;color-scheme:light;}
 body{
 font-family:‘Plus Jakarta Sans’,sans-serif;
 background:var(–cream);color:var(–ink);
@@ -64,8 +61,8 @@ font-size:.95rem;color:var(–ink);flex:1;text-align:center;
 white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .lang-row{display:flex;border:1px solid var(–border2);border-radius:16px;overflow:hidden;flex-shrink:0;}
-.lang-btn{padding:.25rem .6rem;background:none;border:none;cursor:pointer;font-size:.67rem;font-weight:700;letter-spacing:.09em;color:var(–muted);transition:all .2s;-webkit-appearance:none;appearance:none;}
-.lang-btn.on{background:var(–gold)!important;color:#fff!important;-webkit-appearance:none;}
+.lang-btn{padding:.25rem .6rem;background:none;border:none;cursor:pointer;font-size:.67rem;font-weight:700;letter-spacing:.09em;color:var(–muted);transition:all .2s;}
+.lang-btn.on{background:var(–gold);color:#fff;}
 
 /* ═══════════════════════ VIEWS ═══════════════════════ */
 .view{display:none;padding-top:56px;min-height:100vh;}
@@ -114,16 +111,17 @@ line-height:1.1;margin-top:.08em;
 /* ICONE GRIGLIA */
 .icon-grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:1.8rem;
-max-width:480px;width:100%;
+grid-template-columns:repeat(5,1fr);
+gap:.9rem;max-width:440px;width:100%;
 position:relative;z-index:1;
+}
+@media(max-width:480px){
+.icon-grid{grid-template-columns:repeat(3,1fr);max-width:320px;gap:.8rem;}
 }
 .icon-btn{
 display:flex;flex-direction:column;align-items:center;gap:.5rem;
 background:none;border:none;cursor:pointer;padding:.1rem;
 transition:transform .25s;text-decoration:none;
-width:100%;
 }
 .icon-btn:hover{transform:translateY(-5px);}
 
@@ -786,7 +784,6 @@ body{font-size:10pt;background:#fff;}
   <span class="icon-label"><span data-it>Emergenze</span><span data-en>Emergency</span></span>
 </button>
 
-
   </div>
 </div>
 
@@ -966,7 +963,6 @@ body{font-size:10pt;background:#fff;}
 
 </div>
 
-
   </div>
 </div>
 
@@ -1028,7 +1024,7 @@ body{font-size:10pt;background:#fff;}
 
   <div class="arrival-card"><div class="arr-mode">🚕</div><p class="arr-title"><span data-it>Transfer Privato</span><span data-en>Private Transfer</span></p><p class="arr-text"><span data-it>Servizio esclusivo riservato ai nostri ospiti. Contattaci per conoscere la tariffa dedicata e prenotare il tuo trasferimento comodo e veloce da qualsiasi punto vi troviate.</span><span data-en>Exclusive service for our guests. Contact us for your dedicated rate and to book your comfortable, fast transfer from wherever you are.</span></p><span class="arr-badge" style="background:rgba(0,174,239,.1);color:#00AEEF"><span data-it>Su prenotazione</span><span data-en>On request</span></span><br><a href="https://wa.me/393514246166" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.6rem;padding:.45rem .9rem;background:#25D366;color:#fff;border-radius:20px;font-size:.72rem;font-weight:700;text-decoration:none;">💬 <span data-it>Prenota su WhatsApp</span><span data-en>Book on WhatsApp</span></a></div>
 </div>
-
+```
 
   </div>
 </div>
@@ -1077,6 +1073,7 @@ body{font-size:10pt;background:#fff;}
   <a class="app-item" href="https://moovitapp.com" target="_blank"><div class="app-logo">🗺️</div><div><p class="app-name">Moovit</p><p class="app-desc"><span data-it>Navigazione pubblica</span><span data-en>Public transport nav</span></p></div><span class="app-arrow">↗</span></a>
   <a class="app-item" href="https://www.mycicero.it" target="_blank"><div class="app-logo">🎫</div><div><p class="app-name">MyCicero</p><p class="app-desc"><span data-it>Biglietti digitali</span><span data-en>Digital tickets</span></p></div><span class="app-arrow">↗</span></a>
 </div>
+
 
   </div>
 </div>
@@ -1157,7 +1154,7 @@ body{font-size:10pt;background:#fff;}
   <div class="rule-item"><p class="rule-text"><strong>Iper Dem</strong> — Via Mura dei Francesi 1, Ciampino<br><span style="font-size:.72rem">☎ 06 7913215 · <span data-it>Lun–Dom 8:00–20:30</span><span data-en>Mon–Sun 8:00–20:30</span><br><span data-it>Esci a sinistra → stazione Acqua Acetosa → sottopassaggio → ~10 min</span><span data-en>Exit left → Acqua Acetosa station → underpass → ~10 min</span></span> <a href="https://maps.app.goo.gl/xvyx7bMjnZs1D4jX9" target="_blank" style="color:var(--gold);font-size:.7rem;font-weight:600;text-decoration:none"> Maps →</a></p></div>
   <div class="rule-item"><p class="rule-text"><strong>Conad</strong> — Via San Paolo della Croce 1/A, Ciampino<br><span style="font-size:.72rem">☎ 06 87570137 · <span data-it>Tutti i giorni 8:00–22:00</span><span data-en>Every day 8:00–22:00</span><br><span data-it>Esci a destra → pista ciclabile → ~13 min, vicino al Burger King</span><span data-en>Exit right → cycle path → ~13 min, near Burger King</span></span> <a href="https://maps.app.goo.gl/1SDjsEjhEC5Gtx4w5" target="_blank" style="color:var(--gold);font-size:.7rem;font-weight:600;text-decoration:none"> Maps →</a></p></div>
 </div>
-
+```
 
 </div>
 </div>
@@ -1244,7 +1241,7 @@ body{font-size:10pt;background:#fff;}
 <div class="hbox"><p>🍕 <span data-it>Per mangiare: <strong>Vivarelli</strong> — bisteccheria/pizzeria eccezionale, pizza molto buona!</span><span data-en>For food: <strong>Vivarelli</strong> — exceptional steakhouse/pizzeria, great pizza!</span> <a href="https://share.google/GA4qbvtbMPmvGBKGB" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600"> Maps →</a></p></div>
 
 </div><!-- fine dcastelli -->
-```
+
 
   </div><!-- fine page-body -->
 </div><!-- fine view-roma -->
@@ -1649,3 +1646,4 @@ document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').
 
 </body>
 </html>
+  
