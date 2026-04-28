@@ -1410,8 +1410,13 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 function toggleHostMenu(){
   const m = document.getElementById('host-menu');
   const open = m.style.display === 'flex';
-  m.style.display = open ? 'none' : 'flex';
-  document.body.style.overflow = open ? '' : 'hidden';
+  if(open){
+    m.style.display = 'none';
+    document.body.style.overflow = '';
+  } else {
+    m.style.cssText = 'display:flex !important;position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;z-index:9999;background:rgba(18,12,6,.6);align-items:flex-end;justify-content:center;padding:1rem;';
+    document.body.style.overflow = 'hidden';
+  }
 }
 
 /* ── PAGES ── */
