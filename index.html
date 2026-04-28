@@ -671,9 +671,23 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <span data-en>Select a section to find everything you need during your stay.</span>
   </p>
   <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.8rem;position:relative;z-index:1;">
-    <a href="tel:+393514246166" style="display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;background:var(--gold);color:#fff;border-radius:24px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.05em;box-shadow:0 4px 16px rgba(200,134,10,.3);">
-      📞 <span data-it>Chiama il tuo Host</span><span data-en>Call your Host</span>
-    </a>
+    <button onclick="toggleHostMenu()" style="display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;background:var(--gold);color:#fff;border-radius:24px;border:none;font-size:.78rem;font-weight:700;letter-spacing:.05em;cursor:pointer;box-shadow:0 4px 16px rgba(200,134,10,.3);position:relative;">
+      📞 <span data-it>Contatta il tuo Host</span><span data-en>Contact your Host</span>
+    </button>
+    <div id="host-menu" style="display:none;position:fixed;inset:0;z-index:400;background:rgba(18,12,6,.5);align-items:flex-end;justify-content:center;padding:1rem;" onclick="if(event.target===this)toggleHostMenu()">
+      <div style="background:var(--ivory);border-radius:16px;width:100%;max-width:360px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.2);margin-bottom:1rem;">
+        <p style="text-align:center;padding:.9rem 1rem .5rem;font-family:'Playfair Display',serif;font-size:1rem;color:var(--ink);font-style:italic"><span data-it>Come vuoi contattarci?</span><span data-en>How would you like to contact us?</span></p>
+        <a href="tel:+393514246166" style="display:flex;align-items:center;gap:.8rem;padding:.9rem 1.3rem;text-decoration:none;border-top:1px solid var(--border);transition:background .2s;" onmouseenter="this.style.background='#f5f0e8'" onmouseleave="this.style.background=''">
+          <span style="font-size:1.4rem;">📞</span>
+          <div><p style="font-size:.88rem;font-weight:600;color:var(--ink)"><span data-it>Chiamata telefonica</span><span data-en>Phone call</span></p><p style="font-size:.72rem;color:var(--muted)">+39 351 424 6166</p></div>
+        </a>
+        <a href="https://wa.me/393514246166" target="_blank" style="display:flex;align-items:center;gap:.8rem;padding:.9rem 1.3rem;text-decoration:none;border-top:1px solid var(--border);transition:background .2s;" onmouseenter="this.style.background='#f5f0e8'" onmouseleave="this.style.background=''">
+          <span style="font-size:1.4rem;">💬</span>
+          <div><p style="font-size:.88rem;font-weight:600;color:#25D366">WhatsApp</p><p style="font-size:.72rem;color:var(--muted)">+39 351 424 6166</p></div>
+        </a>
+        <button onclick="toggleHostMenu()" style="width:100%;padding:.85rem;background:none;border:none;border-top:1px solid var(--border);font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer;"><span data-it>Annulla</span><span data-en>Cancel</span></button>
+      </div>
+    </div>
     <button onclick="showPage('primaccesso')" style="display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;background:var(--ivory);color:var(--ink);border:1.5px solid var(--border2);border-radius:24px;font-size:.78rem;font-weight:700;letter-spacing:.05em;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.06);">
       🗝️ <span data-it>Istruzioni Primo Accesso</span><span data-en>First Access Guide</span>
     </button>
@@ -737,18 +751,10 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
         <div class="ic-glass"></div>
         <span class="ic-label">🗺️</span>
       </div>
-      <span class="icon-label"><span data-it>Itinerari</span><span data-en>Itineraries</span></span>
+      <span class="icon-label"><span data-it>Esplora</span><span data-en>Explore</span></span>
     </button>
 
     <!-- CASTELLI — sostituisci src con tua foto (es. panorama castelli) -->
-    <button class="icon-btn" onclick="showPage('castelli')">
-      <div class="icon-circle ic-castelli">
-        <!-- <img class="ic-bg" src="foto-castelli.jpg" alt=""> -->
-        <div class="ic-glass"></div>
-        <span class="ic-label">🏰</span>
-      </div>
-      <span class="icon-label">Castelli</span>
-    </button>
 
     <!-- INFO CASA — foto camera -->
     <button class="icon-btn" onclick="showPage('casa')">
@@ -816,10 +822,26 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <div class="camera-grid">
 
       <div class="camera-card" onclick="openCameraLB('marino')">
-        <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
-  <img src="Screenshot 2026-04-23 alle 11.18.44.png" alt="Camera Marino" style="width:100%;height:100%;object-fit:cover;display:block;">
-  <span class="camera-num">1</span>
-</div>
+        <div class="camera-img-placeholder">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4eaf7"/><stop offset="100%" stop-color="#f0d9b0"/></linearGradient></defs>
+          <rect width="280" height="160" fill="url(#sky1)"/>
+          <ellipse cx="220" cy="55" rx="35" ry="22" fill="rgba(255,255,255,.6)"/>
+          <ellipse cx="250" cy="48" rx="28" ry="18" fill="rgba(255,255,255,.5)"/>
+          <path d="M0 100 Q40 85 80 95 Q120 105 160 90 Q200 78 240 88 Q260 93 280 85 L280 160 L0 160Z" fill="#7ab57a" opacity=".7"/>
+          <path d="M0 110 Q50 100 100 108 Q150 116 200 105 Q240 97 280 103 L280 160 L0 160Z" fill="#5a9e5a" opacity=".8"/>
+          <rect x="100" y="72" width="18" height="20" rx="2" fill="#c9956a"/>
+          <rect x="118" y="72" width="18" height="20" rx="2" fill="#d4a574"/>
+          <rect x="136" y="72" width="18" height="20" rx="2" fill="#c9956a"/>
+          <polygon points="96,72 154,72 125,55" fill="#a0522d"/>
+          <rect x="108" y="80" width="8" height="12" fill="#7a5c3a"/>
+          <path d="M30 75 Q35 60 45 65 Q40 75 50 72 Q42 82 30 75Z" fill="#7ab57a" opacity=".9"/>
+          <path d="M220 80 Q228 65 238 70 Q232 80 242 77 Q235 88 220 80Z" fill="#7ab57a" opacity=".8"/>
+          <ellipse cx="50" cy="125" rx="40" ry="12" fill="#89cff0" opacity=".5"/>
+          <path d="M15 123 Q30 118 45 123 Q30 130 15 123Z" fill="rgba(255,255,255,.4)"/>
+        </svg>
+        <span class="camera-num">1</span>
+      </div>
         <div class="camera-body">
           <p class="camera-tag"><span data-it>Camera · Vista Piscina</span><span data-en>Room · Pool View</span></p>
           <p class="camera-name">Marino</p>
@@ -830,7 +852,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 
       <div class="camera-card" onclick="openCameraLB('castelgandolfo')">
         <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
-          <img src="Screenshot 2026-04-23 alle 11.23.38.png" alt="Castel Gandolfo" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="camera-castelgandolfo-bg.png" alt="Castel Gandolfo" style="width:100%;height:100%;object-fit:cover;display:block;">
           <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">2</span>
         </div>
         <div class="camera-body">
@@ -843,7 +865,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 
       <div class="camera-card" onclick="openCameraLB('nemi')">
         <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
-          <img src="Screenshot 2026-04-23 alle 11.19.38.png" alt="Nemi" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="camera-nemi-bg.png" alt="Nemi" style="width:100%;height:100%;object-fit:cover;display:block;">
           <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">3</span>
         </div>
         <div class="camera-body">
@@ -855,10 +877,22 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       </div>
 
       <div class="camera-card" onclick="openCameraLB('genzano')">
-      <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
-  <img src="Screenshot 2026-04-27 alle 18.08.49.png" alt="Camera Marino" style="width:100%;height:100%;object-fit:cover;display:block;">
-  <span class="camera-num">1</span>
-</div>
+        <div class="camera-img-placeholder">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs><linearGradient id="sky4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4eac8"/><stop offset="100%" stop-color="#f0d8a8"/></linearGradient></defs>
+          <rect width="280" height="160" fill="url(#sky4)"/>
+          <ellipse cx="60" cy="115" rx="80" ry="28" fill="#4a90d9" opacity=".25"/>
+          <path d="M0 88 Q50 75 100 82 Q150 90 200 78 Q240 68 280 76 L280 160 L0 160Z" fill="#8ab870" opacity=".75"/>
+          <path d="M0 100 Q60 92 120 98 Q180 105 240 96 Q260 93 280 97 L280 160 L0 160Z" fill="#6a9e5a" opacity=".8"/>
+          <rect x="150" y="60" width="60" height="30" rx="2" fill="#d4a574"/>
+          <rect x="158" y="48" width="18" height="14" rx="1" fill="#c9956a"/>
+          <rect x="180" y="52" width="14" height="10" rx="1" fill="#c9956a"/>
+          <rect x="162" y="72" width="8" height="18" fill="#8a6040"/>
+          <path d="M25 80 Q35 62 48 68 Q40 80 52 76 Q43 89 25 80Z" fill="#e8c84a" opacity=".7"/>
+          <path d="M30 72 Q38 58 50 64 Q44 72 54 70 Q46 81 30 72Z" fill="#f0a030" opacity=".6"/>
+        </svg>
+        <span class="camera-num">4</span>
+      </div>
         <div class="camera-body">
           <p class="camera-tag"><span data-it>Camera · Spazio & Libertà</span><span data-en>Room · Space & Freedom</span></p>
           <p class="camera-name">Genzano</p>
@@ -868,10 +902,26 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       </div>
 
       <div class="camera-card" onclick="openCameraLB('ariccia')">
-        <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
-  <img src="Screenshot 2026-04-23 alle 11.21.49.png" alt="Camera Marino" style="width:100%;height:100%;object-fit:cover;display:block;">
-  <span class="camera-num">1</span>
-</div>
+        <div class="camera-img-placeholder">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs><linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f5e8c8"/><stop offset="100%" stop-color="#ead5b0"/></linearGradient></defs>
+          <rect width="280" height="160" fill="url(#sky5)"/>
+          <path d="M60 95 Q100 88 140 92 Q180 97 220 88" stroke="#c9956a" stroke-width="8" fill="none" opacity=".6"/>
+          <path d="M55 92 Q58 80 62 88" stroke="#c9956a" stroke-width="6" fill="none" opacity=".5"/>
+          <path d="M100 88 Q103 76 107 84" stroke="#c9956a" stroke-width="6" fill="none" opacity=".5"/>
+          <path d="M145 92 Q148 80 152 88" stroke="#c9956a" stroke-width="6" fill="none" opacity=".5"/>
+          <path d="M0 100 Q40 90 80 96 Q120 103 160 93 Q200 84 240 91 Q260 95 280 89 L280 160 L0 160Z" fill="#8ab870" opacity=".7"/>
+          <path d="M0 112 Q50 104 100 110 Q150 117 200 108 Q240 102 280 106 L280 160 L0 160Z" fill="#6a9e5a" opacity=".75"/>
+          <path d="M50 78 Q58 63 68 68 Q62 78 72 75 Q65 86 50 78Z" fill="#ff8c69" opacity=".8"/>
+          <path d="M200 72 Q208 57 218 62 Q212 72 222 69 Q215 80 200 72Z" fill="#ff8c69" opacity=".7"/>
+          <circle cx="52" cy="75" r="5" fill="#ffa07a" opacity=".7"/>
+          <circle cx="202" cy="69" r="4" fill="#ffa07a" opacity=".6"/>
+          <rect x="120" y="72" width="16" height="22" rx="1" fill="#d4a574"/>
+          <rect x="136" y="75" width="14" height="19" rx="1" fill="#c9956a"/>
+          <polygon points="117,72 153,72 135,58" fill="#a07040"/>
+        </svg>
+        <span class="camera-num">5</span>
+      </div>
         <div class="camera-body">
           <p class="camera-tag"><span data-it>Camera · Essenziale & Smart</span><span data-en>Room · Practical & Smart</span></p>
           <p class="camera-name">Ariccia</p>
@@ -881,10 +931,24 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       </div>
 
       <div class="camera-card" onclick="openCameraLB('frascati')">
-        <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
-  <img src="Screenshot 2026-04-27 alle 18.10.57.png" alt="Camera Marino" style="width:100%;height:100%;object-fit:cover;display:block;">
-  <span class="camera-num">1</span>
-</div>
+        <div class="camera-img-placeholder">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <defs><linearGradient id="sky6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0e8d0"/><stop offset="100%" stop-color="#e8d0a8"/></linearGradient></defs>
+          <rect width="280" height="160" fill="url(#sky6)"/>
+          <path d="M0 90 Q40 78 80 85 Q120 92 160 80 Q200 70 240 78 Q260 82 280 76 L280 160 L0 160Z" fill="#8aae70" opacity=".7"/>
+          <path d="M0 102 Q50 94 100 100 Q150 107 200 98 Q240 92 280 96 L280 160 L0 160Z" fill="#6a9e5a" opacity=".75"/>
+          <rect x="90" y="62" width="100" height="35" rx="2" fill="#d4b896" opacity=".9"/>
+          <rect x="110" y="48" width="16" height="16" rx="1" fill="#c9a882"/>
+          <rect x="155" y="52" width="18" height="12" rx="1" fill="#c9a882"/>
+          <rect x="95" y="75" width="10" height="22" fill="#8a6040"/>
+          <rect x="160" y="72" width="8" height="8" fill="#4a90d9" opacity=".5"/>
+          <rect x="110" y="72" width="8" height="8" fill="#4a90d9" opacity=".5"/>
+          <path d="M20 78 Q30 62 42 68 Q36 78 46 75 Q38 87 20 78Z" fill="#c8a040" opacity=".8"/>
+          <path d="M230 72 Q240 57 252 63 Q246 73 256 70 Q249 82 230 72Z" fill="#c8a040" opacity=".7"/>
+          <rect x="112" y="85" width="6" height="12" fill="#7a5c3a"/>
+        </svg>
+        <span class="camera-num">6</span>
+      </div>
         <div class="camera-body">
           <p class="camera-tag"><span data-it>Camera · Relax con Terrazzo</span><span data-en>Room · Relax with Terrace</span></p>
           <p class="camera-name">Frascati</p>
@@ -950,7 +1014,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 
       <div class="arrival-card"><div class="arr-mode">🚆</div><p class="arr-title"><span data-it>Ferrovia da Roma Termini</span><span data-en>Train from Roma Termini</span></p><p class="arr-text"><span data-it>Treno direzione Albano — due opzioni:<br><br>1️⃣ <strong>Acqua Acetosa</strong> (a 300m da noi) — nessuna biglietteria, biglietto dal controllore €1.50<br><br>2️⃣ <strong>Stazione Ciampino</strong> — biglietteria presente, a meno di 1 km, ~15 min a piedi</span><span data-en>Train towards Albano — two options:<br><br>1️⃣ <strong>Acqua Acetosa</strong> (300m from us) — no ticket office, buy from conductor €1.50<br><br>2️⃣ <strong>Ciampino station</strong> — ticket office available, less than 1 km away, ~15 min walk</span></p><span class="arr-badge">~20 min</span></div>
 
-      <div class="arrival-card"><div class="arr-mode">🚕</div><p class="arr-title"><span data-it>Transfer Privato</span><span data-en>Private Transfer</span></p><p class="arr-text"><span data-it>Servizio esclusivo riservato ai nostri ospiti. Contattaci per conoscere la tariffa dedicata e prenotare il tuo trasferimento comodo e veloce da qualsiasi punto vi troviate.</span><span data-en>Exclusive service for our guests. Contact us for your dedicated rate and to book your comfortable, fast transfer from wherever you are.</span></p><span class="arr-badge" style="background:rgba(0,174,239,.1);color:#00AEEF"><span data-it>Su prenotazione</span><span data-en>On request</span></span></div>
+      <div class="arrival-card"><div class="arr-mode">🚕</div><p class="arr-title"><span data-it>Transfer Privato</span><span data-en>Private Transfer</span></p><p class="arr-text"><span data-it>Servizio esclusivo riservato ai nostri ospiti. Contattaci per conoscere la tariffa dedicata e prenotare il tuo trasferimento comodo e veloce da qualsiasi punto vi troviate.</span><span data-en>Exclusive service for our guests. Contact us for your dedicated rate and to book your comfortable, fast transfer from wherever you are.</span></p><span class="arr-badge" style="background:rgba(0,174,239,.1);color:#00AEEF"><span data-it>Su prenotazione</span><span data-en>On request</span></span><br><a href="https://wa.me/393514246166" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.6rem;padding:.45rem .9rem;background:#25D366;color:#fff;border-radius:20px;font-size:.72rem;font-weight:700;text-decoration:none;">💬 <span data-it>Prenota su WhatsApp</span><span data-en>Book on WhatsApp</span></a></div>
     </div>
   </div>
 </div>
@@ -989,18 +1053,10 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div class="ticket-step"><div class="step-num">★</div><div><p class="step-title">BIRG 3 Zone <span style="color:var(--gold)">(consigliato)</span></p><p class="step-desc"><span data-it>La soluzione completa: treno da/per Ciampino + tutta la rete Roma (metro, bus, tram). <strong>€9.50</strong> — valido tutto il giorno. Acquistabile in biglietteria a Roma Termini.</span><span data-en>The complete solution: train to/from Ciampino + all Rome transport (metro, bus, tram). <strong>€9.50</strong> — valid all day. Available at Roma Termini ticket office.</span></p><span class="step-tip">⚠️ <span data-it>Multa €54 senza biglietto valido</span><span data-en>€54 fine without valid ticket</span></span></div></div>
     </div>
 
-    <p class="sub-h">🎟️ <span data-it>Attrazioni — Prenotazione Online</span><span data-en>Attractions — Online Booking</span></p>
-    <div class="card-grid">
-      <div class="card" onclick="openModal('colosseo')"><span class="card-ico">🏟️</span><p class="card-ttl"><span data-it>Colosseo & Foro Romano</span><span data-en>Colosseum & Roman Forum</span></p><p class="card-txt"><span data-it>Prenotazione obbligatoria — fila senza biglietto 2–3h.</span><span data-en>Booking mandatory — queue without ticket 2–3h.</span></p><span class="card-cta"><span data-it>Dettagli →</span><span data-en>Details →</span></span></div>
-      <div class="card" onclick="openModal('vaticano')"><span class="card-ico">🕍</span><p class="card-ttl"><span data-it>Musei Vaticani</span><span data-en>Vatican Museums</span></p><p class="card-txt"><span data-it>Prenotare su museivaticani.va. Include Cappella Sistina.</span><span data-en>Book at museivaticani.va. Includes Sistine Chapel.</span></p><span class="card-cta"><span data-it>Dettagli →</span><span data-en>Details →</span></span></div>
-      <div class="card" onclick="openModal('borghese')"><span class="card-ico">🖼️</span><p class="card-ttl"><span data-it>Galleria Borghese</span><span data-en>Borghese Gallery</span></p><p class="card-txt"><span data-it>Prenotazione obbligatoria, max 2h. Bernini e Caravaggio originali.</span><span data-en>Booking mandatory, max 2h. Original Bernini and Caravaggio.</span></p><span class="card-cta"><span data-it>Dettagli →</span><span data-en>Details →</span></span></div>
-      <div class="card" onclick="openModal('castelgandolfo')"><span class="card-ico">🏰</span><p class="card-ttl">Castel Gandolfo</p><p class="card-txt"><span data-it>Musei Vaticani aperti al pubblico. Vista Lago Albano.</span><span data-en>Vatican Museums open to public. Lake Albano views.</span></p><span class="card-cta"><span data-it>Dettagli →</span><span data-en>Details →</span></span></div>
-    </div>
-
     <p class="sub-h">🚲 Bike Sharing</p>
     <div class="app-list">
       <a class="app-item" href="https://ridemovi.com/it" target="_blank"><div class="app-logo">🚲</div><div><p class="app-name">RideMovi</p><p class="app-desc"><span data-it>Bici e monopattini</span><span data-en>Bikes & scooters</span></p></div><span class="app-arrow">↗</span></a>
-      <a class="app-item" href="https://www.li.me/it-it" target="_blank"><div class="app-logo">🛴</div><div><p class="app-name">Lime</p><p class="app-desc"><span data-it>Monopattini elettrici</span><span data-en>Electric scooters</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="https://www.li.me/it-it" target="_blank" style="border:2px solid var(--gold);background:#fff;"><div class="app-logo">🛴</div><div><p class="app-name">Lime ⭐</p><p class="app-desc"><span data-it>Disponibile a Ciampino!</span><span data-en>Available in Ciampino!</span></p></div><span class="app-arrow">↗</span></a>
       <a class="app-item" href="https://ridedott.com/it" target="_blank"><div class="app-logo">🛵</div><div><p class="app-name">Dott</p><p class="app-desc"><span data-it>Senza stazione</span><span data-en>Stationless</span></p></div><span class="app-arrow">↗</span></a>
       <a class="app-item" href="https://moovitapp.com" target="_blank"><div class="app-logo">🗺️</div><div><p class="app-name">Moovit</p><p class="app-desc"><span data-it>Navigazione pubblica</span><span data-en>Public transport nav</span></p></div><span class="app-arrow">↗</span></a>
       <a class="app-item" href="https://www.mycicero.it" target="_blank"><div class="app-logo">🎫</div><div><p class="app-name">MyCicero</p><p class="app-desc"><span data-it>Biglietti digitali</span><span data-en>Digital tickets</span></p></div><span class="app-arrow">↗</span></a>
@@ -1019,67 +1075,65 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     </div>
   </div>
   <div class="page-body">
-    <p class="sub-h">🍷 <span data-it>Ristoranti & Locali</span><span data-en>Restaurants & Places</span></p>
+    <!-- VICINO A NOI -->
+    <p class="sub-h">📍 <span data-it>Vicino a noi — Ciampino</span><span data-en>Near us — Ciampino</span></p>
+    <div class="card-grid">
+      <div class="card"><span class="card-ico">🍝</span><p class="card-ttl">Trattoria I Belloni</p><p class="card-txt"><span data-it>Cucina tipica romana. Ottimi primi piatti artigianali.</span><span data-en>Typical Roman cuisine. Excellent handmade pasta dishes.</span></p><a class="card-cta" href="https://www.tripadvisor.it/Restaurant_Review-g675714-d2071194-Reviews-Trattoria_I_Belloni-Ciampino_Province_of_Rome_Lazio.html" target="_blank">TripAdvisor →</a></div>
+      <div class="card"><span class="card-ico">🥩</span><p class="card-ttl">Locanda Baffolona</p><p class="card-txt"><span data-it>Antipasti e primi ottimi. Ricca selezione di carne locale e mondiale.</span><span data-en>Excellent antipasti and pasta. Rich selection of local and international meats.</span></p><a class="card-cta" href="https://www.tripadvisor.it/Restaurant_Review-g675714-d15691152-Reviews-Locanda_Baffolona-Ciampino_Province_of_Rome_Lazio.html" target="_blank">TripAdvisor →</a></div>
+      <div class="card"><span class="card-ico">🍕</span><p class="card-ttl">Ristorante Nyte</p><p class="card-txt"><span data-it>Pizzeria ristorante — pizza eccezionale.</span><span data-en>Restaurant pizzeria — exceptional pizza.</span></p><a class="card-cta" href="https://www.tripadvisor.it/Restaurant_Review-g675714-d15691152-Reviews-Locanda_Baffolona-Ciampino_Province_of_Rome_Lazio.html" target="_blank">TripAdvisor →</a></div>
+      <div class="card"><span class="card-ico">🥩</span><p class="card-ttl">Bistrot — Bisteccheria Macelleria</p><p class="card-txt"><span data-it>Bisteccheria e macelleria di qualità.</span><span data-en>Quality steakhouse and butcher.</span></p><a class="card-cta" href="https://maps.app.goo.gl/gXKoMy7XRVCAAt266" target="_blank">Maps →</a></div>
+    </div>
+
+    <!-- CASTELLI & ROMA -->
+    <p class="sub-h">🏰 <span data-it>Ristoranti Castelli & Roma</span><span data-en>Castelli & Rome Restaurants</span></p>
     <div class="card-grid">
       <div class="card" onclick="openModal('ariccia')"><span class="card-ico">🍖</span><p class="card-ttl"><span data-it>Fraschette di Ariccia</span><span data-en>Fraschette of Ariccia</span></p><p class="card-txt"><span data-it>Porchetta IGP, pane casereccio, vino dei Castelli. Autentico e a buon prezzo.</span><span data-en>IGP porchetta, rustic bread, Castelli wine. Authentic and affordable.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
       <div class="card" onclick="openModal('frascati_ristoranti')"><span class="card-ico">🍷</span><p class="card-ttl"><span data-it>Ristoranti Frascati</span><span data-en>Frascati Restaurants</span></p><p class="card-txt"><span data-it>Vino DOC e cucina laziale. Cantine storiche da visitare.</span><span data-en>DOC wine and Lazio cuisine. Historic wine cellars to visit.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
-      <div class="card" onclick="openModal('testaccio')"><span class="card-ico">🥩</span><p class="card-ttl"><span data-it>Testaccio, Roma</span><span data-en>Testaccio, Rome</span></p><p class="card-txt"><span data-it>Il quartiere più autentico di Roma per il cibo. Street food e trattorie storiche.</span><span data-en>Rome's most authentic food neighbourhood. Street food and historic trattorias.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
+      <div class="card" onclick="openModal('testaccio')"><span class="card-ico">🥩</span><p class="card-ttl"><span data-it>Testaccio, Roma</span><span data-en>Testaccio, Rome</span></p><p class="card-txt"><span data-it>Il quartiere più autentico di Roma per il cibo. Street food e trattorie storiche.</span><span data-en>Rome's most authentic food neighbourhood.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
       <div class="card" onclick="openModal('gelato')"><span class="card-ico">🍦</span><p class="card-ttl"><span data-it>Gelaterie Artigianali</span><span data-en>Artisan Gelato</span></p><p class="card-txt"><span data-it>Giolitti, Fatamorgana, Gelateria dei Gracchi — le migliori di Roma.</span><span data-en>Giolitti, Fatamorgana, Gelateria dei Gracchi — Rome's best.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
     </div>
 
-    <p class="sub-h">🛵 <span data-it>Cibo a Domicilio</span><span data-en>Food Delivery</span></p>
-
-    <!-- ACCORDION FOOD DELIVERY -->
-    <div class="delivery-toggle" onclick="toggleDelivery('glovo-panel','gc1')">
-      <div class="delivery-toggle-left">
-        <span class="delivery-toggle-icon">🟡</span>
-        <div><p class="delivery-toggle-text">Glovo</p><p class="delivery-toggle-sub"><span data-it>Ristoranti · supermercato · farmacia</span><span data-en>Restaurants · supermarket · pharmacy</span></p></div>
+    <!-- NON VUOI USCIRE -->
+    <div style="margin-top:2rem;border-radius:12px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 8px 32px rgba(200,134,10,.15);">
+      <div style="background:linear-gradient(135deg,var(--gold),#e0a000);padding:1rem 1.3rem;display:flex;align-items:center;gap:.7rem;">
+        <span style="font-size:1.6rem;">🛵</span>
+        <div>
+          <p style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#fff;font-weight:600"><span data-it>Non vuoi uscire?</span><span data-en>Don't feel like going out?</span></p>
+          <p style="font-size:.72rem;color:rgba(255,255,255,.85)"><span data-it>Ordinalo direttamente a casa!</span><span data-en>Order it straight to your door!</span></p>
+        </div>
       </div>
-      <span class="delivery-chevron" id="gc1">▾</span>
-    </div>
-    <div class="delivery-panel" id="glovo-panel">
-      <a class="app-item" href="https://glovoapp.com/it" target="_blank"><div class="app-logo"><!-- <img src="logo-glovo.png"> -->🛵</div><div><p class="app-name">Glovo</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
-    </div>
-
-    <div class="delivery-toggle" onclick="toggleDelivery('deliveroo-panel','dc1')" style="margin-top:.4rem">
-      <div class="delivery-toggle-left">
-        <span class="delivery-toggle-icon">🔵</span>
-        <div><p class="delivery-toggle-text">Deliveroo</p><p class="delivery-toggle-sub"><span data-it>Ristoranti selezionati</span><span data-en>Curated restaurants</span></p></div>
+      <div style="background:var(--ivory);padding:1.1rem 1.2rem;">
+        <p style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem">📱 App delivery</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.6rem;margin-bottom:1.1rem;">
+          <a class="app-item" href="https://glovoapp.com/it" target="_blank" style="border:1.5px solid rgba(200,134,10,.2);"><div class="app-logo">🟡</div><div><p class="app-name">Glovo</p><p class="app-desc"><span data-it>Ristoranti · super</span><span data-en>Restaurants · super</span></p></div><span class="app-arrow">↗</span></a>
+          <a class="app-item" href="https://deliveroo.it" target="_blank" style="border:1.5px solid rgba(200,134,10,.2);"><div class="app-logo">🔵</div><div><p class="app-name">Deliveroo</p><p class="app-desc"><span data-it>Ristoranti selezionati</span><span data-en>Curated restaurants</span></p></div><span class="app-arrow">↗</span></a>
+          <a class="app-item" href="https://www.justeat.it" target="_blank" style="border:1.5px solid rgba(200,134,10,.2);"><div class="app-logo">🔴</div><div><p class="app-name">JustEat</p><p class="app-desc"><span data-it>Pizza · sushi · etnico</span><span data-en>Pizza · sushi · world</span></p></div><span class="app-arrow">↗</span></a>
+        </div>
+        <p style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">📞 <span data-it>Chiama direttamente</span><span data-en>Call directly</span></p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.6rem;">
+          <div class="rule-item"><p class="rule-text"><strong><span data-it>Pizzeria (placeholder)</span><span data-en>Pizzeria (placeholder)</span></strong><br><a href="tel:+390000000000" style="font-size:.72rem;color:var(--gold);font-weight:600;text-decoration:none">📞 aggiungi numero</a></p></div>
+          <div class="rule-item"><p class="rule-text"><strong><span data-it>Fast food (placeholder)</span><span data-en>Fast food (placeholder)</span></strong><br><a href="tel:+390000000000" style="font-size:.72rem;color:var(--gold);font-weight:600;text-decoration:none">📞 aggiungi numero</a></p></div>
+        </div>
       </div>
-      <span class="delivery-chevron" id="dc1">▾</span>
-    </div>
-    <div class="delivery-panel" id="deliveroo-panel">
-      <a class="app-item" href="https://deliveroo.it" target="_blank"><div class="app-logo">🛺</div><div><p class="app-name">Deliveroo</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
     </div>
 
-    <div class="delivery-toggle" onclick="toggleDelivery('justeat-panel','jc1')" style="margin-top:.4rem">
-      <div class="delivery-toggle-left">
-        <span class="delivery-toggle-icon">🔴</span>
-        <div><p class="delivery-toggle-text">JustEat</p><p class="delivery-toggle-sub"><span data-it>Pizza · sushi · etnico</span><span data-en>Pizza · sushi · world food</span></p></div>
-      </div>
-      <span class="delivery-chevron" id="jc1">▾</span>
-    </div>
-    <div class="delivery-panel" id="justeat-panel">
-      <a class="app-item" href="https://www.justeat.it" target="_blank"><div class="app-logo">🍔</div><div><p class="app-name">JustEat</p><p class="app-desc"><span data-it>Apri l'app e ordina</span><span data-en>Open app and order</span></p></div><span class="app-arrow">↗</span></a>
-    </div>
-
-    <p class="sub-h">🛒 <span data-it>Supermercati vicini</span><span data-en>Nearby supermarkets</span></p>
+    <!-- SUPERMERCATI -->
+    <p class="sub-h" style="margin-top:2rem">🛒 <span data-it>Supermercati vicini</span><span data-en>Nearby supermarkets</span></p>
     <div class="rules-grid" style="margin-top:.4rem">
-      <div class="rule-item"><span class="rule-emoji">🛒</span><p class="rule-text"><strong>Iper Dem</strong> — Via Mura dei Francesi 1, Ciampino<br><span style="font-size:.72rem">☎ 06 7913215 · <span data-it>Lun–Dom 8:00–20:30</span><span data-en>Mon–Sun 8:00–20:30</span><br><span data-it>Esci a sinistra → verso stazione Acqua Acetosa → sottopassaggio → ~10 min a piedi</span><span data-en>Exit left → towards Acqua Acetosa station → underpass → ~10 min walk</span></span> <a href="https://maps.app.goo.gl/xvyx7bMjnZs1D4jX9" target="_blank" style="color:var(--gold);font-size:.7rem"> Maps →</a></p></div>
-      <div class="rule-item"><span class="rule-emoji">🛍️</span><p class="rule-text"><strong>Conad</strong> — Via San Paolo della Croce 1/A, Ciampino<br><span style="font-size:.72rem">☎ 06 87570137 · <span data-it>Tutti i giorni 8:00–22:00</span><span data-en>Every day 8:00–22:00</span><br><span data-it>Esci a destra → pista ciclabile (strada rossa) → ~13 min a piedi, vicino al Burger King</span><span data-en>Exit right → cycle path (red road) → ~13 min walk, near Burger King</span></span> <a href="https://maps.app.goo.gl/1SDjsEjhEC5Gtx4w5" target="_blank" style="color:var(--gold);font-size:.7rem"> Maps →</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Iper Dem</strong> — Via Mura dei Francesi 1, Ciampino<br><span style="font-size:.72rem">☎ 06 7913215 · <span data-it>Lun–Dom 8:00–20:30</span><span data-en>Mon–Sun 8:00–20:30</span><br><span data-it>Esci a sinistra → stazione Acqua Acetosa → sottopassaggio → ~10 min</span><span data-en>Exit left → Acqua Acetosa station → underpass → ~10 min</span></span> <a href="https://maps.app.goo.gl/xvyx7bMjnZs1D4jX9" target="_blank" style="color:var(--gold);font-size:.7rem;font-weight:600;text-decoration:none"> Maps →</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Conad</strong> — Via San Paolo della Croce 1/A, Ciampino<br><span style="font-size:.72rem">☎ 06 87570137 · <span data-it>Tutti i giorni 8:00–22:00</span><span data-en>Every day 8:00–22:00</span><br><span data-it>Esci a destra → pista ciclabile → ~13 min, vicino al Burger King</span><span data-en>Exit right → cycle path → ~13 min, near Burger King</span></span> <a href="https://maps.app.goo.gl/1SDjsEjhEC5Gtx4w5" target="_blank" style="color:var(--gold);font-size:.7rem;font-weight:600;text-decoration:none"> Maps →</a></p></div>
     </div>
-  </div>
-  </div>
+</div>
 </div>
 
 <!-- ════════════ ROMA ════════════ -->
 <div class="view" id="view-roma">
   <div class="page-hero">
-    <div class="ph-icon">🏛️</div>
+    <div class="ph-icon">🗺️</div>
     <div>
-      <p class="ph-tag"><span data-it>Esplora</span><span data-en>Explore</span></p>
-      <h1 class="ph-title" data-it><span class="sc">Itinerari</span> Consigliati</h1>
-      <h1 class="ph-title" data-en>Recommended <span class="sc">Itineraries</span></h1>
+      <p class="ph-tag"><span data-it>Roma & Castelli Romani</span><span data-en>Rome & Castelli Romani</span></p>
+      <h1 class="ph-title" data-it><span class="sc">Esplora</span> — Roma & Castelli</h1>
+      <h1 class="ph-title" data-en><span class="sc">Explore</span> — Rome & Castelli</h1>
     </div>
   </div>
   <div class="page-body">
@@ -1088,6 +1142,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <button class="itab on" onclick="showItab('d1',this)">1 <span data-it>Giorno</span><span data-en>Day</span></button>
       <button class="itab" onclick="showItab('d2',this)">2 <span data-it>Giorni</span><span data-en>Days</span></button>
       <button class="itab" onclick="showItab('d3',this)">3 <span data-it>Giorni</span><span data-en>Days</span></button>
+      <button class="itab" onclick="showItab('dcastelli',this)">🏰 <span data-it>Castelli</span><span data-en>Castelli</span></button>
     </div>
     <div id="d1" class="itab-pane on"><div class="timeline">
       <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">9:00</p><p class="tl-title" onclick="openModal('colosseo')"><span data-it>Colosseo & Foro Romano</span><span data-en>Colosseum & Roman Forum</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Prenotare su coopculture.it. Arriva all'apertura per evitare le file. ~2.5h.</span><span data-en>Book at coopculture.it. Arrive at opening to avoid queues. ~2.5h.</span></p></div>
@@ -1108,6 +1163,23 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 2</span><span data-en>Day 2</span></p><p class="tl-title"><span data-it>Vaticano & Barocco</span><span data-en>Vatican & Baroque</span></p><p class="tl-desc"><span data-it>Musei Vaticani · Cappella Sistina · San Pietro · cupola → pranzo a Prati → Castel Sant'Angelo → Piazza Navona → Campo de' Fiori.</span><span data-en>Vatican Museums · Sistine Chapel · St. Peter's · dome → lunch in Prati → Castel Sant'Angelo → Piazza Navona → Campo de' Fiori.</span></p></div>
       <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 3</span><span data-en>Day 3</span></p><p class="tl-title" onclick="openModal('borghese')"><span data-it>Villa Borghese & Centro Storico</span><span data-en>Villa Borghese & Historic Centre</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Galleria Borghese (prenotare!) · passeggiata nel parco → Fontana di Trevi · Pantheon · gelateria Giolitti → aperitivo a Piazza del Popolo.</span><span data-en>Borghese Gallery (book ahead!) · park walk → Trevi Fountain · Pantheon · Giolitti gelato → aperitivo at Piazza del Popolo.</span></p></div>
     </div></div>
+
+    <div id="dcastelli" class="itab-pane">
+      <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:1.2rem">
+        <span data-it>I Castelli Romani sono un insieme di pittoreschi paesi collinari a sud-est di Roma, nei Colli Albani. Famosi per il vino, le ville papali e la cucina tipica — perfetti per una gita.</span>
+        <span data-en>The Castelli Romani are picturesque hilltop villages south-east of Rome. Famous for wine, papal villas and local cuisine — perfect for a day trip.</span>
+      </p>
+      <div class="castelli-grid">
+        <div class="castello-card" onclick="openModal('frascati')"><span class="badge badge-car">🚗 20 min</span><p class="castello-name">Frascati <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Vino DOC, Villa Aldobrandini, cantine storiche. Degustazione da Santè o Enoteca Molinari.</span><span data-en>DOC wine, Villa Aldobrandini, historic cellars. Tasting at Santè or Enoteca Molinari.</span></p><a href="https://maps.google.com/?q=Frascati+Roma" target="_blank" style="display:inline-block;margin-top:.5rem;font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></div>
+        <div class="castello-card" onclick="openModal('castelgandolfo')"><span class="badge badge-car">🚗 20 min</span><p class="castello-name">Castel Gandolfo <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Lago vulcanico, residenza papale, kayak e SUP sul lago. Tra i borghi più belli d'Italia.</span><span data-en>Volcanic lake, papal residence, kayak and SUP on the lake. Among Italy's most beautiful villages.</span></p><a href="https://maps.google.com/?q=Castel+Gandolfo+Roma" target="_blank" style="display:inline-block;margin-top:.5rem;font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></div>
+        <div class="castello-card" onclick="openModal('ariccia')"><span class="badge badge-bus">🚌 25 min</span><p class="castello-name">Ariccia <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Capitale della porchetta! Piazza Chigi del Bernini, fraschette storiche.</span><span data-en>Porchetta capital! Bernini's Piazza Chigi, historic fraschette taverns.</span></p><a href="https://maps.google.com/?q=Ariccia+Roma" target="_blank" style="display:inline-block;margin-top:.5rem;font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></div>
+        <div class="castello-card" onclick="openModal('nemi')"><span class="badge badge-car">🚗 30 min</span><p class="castello-name">Nemi <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Borgo medievale sul lago vulcanico. Museo delle Navi Romane di Caligola.</span><span data-en>Medieval village on a volcanic lake. Museum of Caligula's Roman Ships.</span></p><a href="https://maps.google.com/?q=Nemi+Roma" target="_blank" style="display:inline-block;margin-top:.5rem;font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></div>
+        <div class="castello-card" onclick="openModal('grottaferrata')"><span class="badge badge-car">🚗 25 min</span><p class="castello-name">Grottaferrata <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Abbazia Greca (1004), ancora abitata da monaci. Vini eccellenti.</span><span data-en>Greek Abbey (1004), still inhabited by monks. Excellent wines.</span></p><a href="https://maps.google.com/?q=Grottaferrata+Roma" target="_blank" style="display:inline-block;margin-top:.5rem;font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></div>
+        <div class="castello-card" onclick="openModal('marino')"><span class="badge badge-bus">🚌 20 min</span><p class="castello-name">Marino <span class="pop-hint">info</span></p><p class="castello-info"><span data-it>Sagra dell'Uva a ottobre — fontane di vino. Vini bianchi DOC eccellenti.</span><span data-en>Grape Festival in October — wine fountains. Excellent DOC white wines.</span></p><a href="https://maps.google.com/?q=Marino+Roma" target="_blank" style="display:inline-block;margin-top:.5rem;font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></div>
+        <div class="castello-card"><span class="badge badge-car">🚗 25 min</span><p class="castello-name">Rocca di Papa</p><p class="castello-info"><span data-it>Borgo in altura, panorami spettacolari. Santuario della Madonna del Tufo, Monte Cavo. Perfetto per trekking.</span><span data-en>Hilltop village, spectacular views. Madonna del Tufo Sanctuary, Monte Cavo. Perfect for trekking.</span></p><a href="https://maps.google.com/?q=Rocca+di+Papa+Roma" target="_blank" style="display:inline-block;margin-top:.5rem;font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -1335,6 +1407,13 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 
 <!-- ════════════════ JS ════════════════ -->
 <script>
+function toggleHostMenu(){
+  const m = document.getElementById('host-menu');
+  const open = m.style.display === 'flex';
+  m.style.display = open ? 'none' : 'flex';
+  document.body.style.overflow = open ? '' : 'hidden';
+}
+
 /* ── PAGES ── */
 const PAGES={
   villa:{it:'La Villa',en:'The Villa'},
@@ -1342,8 +1421,7 @@ const PAGES={
   arrivo:{it:'Come Arrivare',en:'Arrival'},
   trasporti:{it:'Trasporti & Biglietti',en:'Transport & Tickets'},
   mangiare:{it:'Mangiare',en:'Dining'},
-  roma:{it:'Itinerari Consigliati',en:'Recommended Itineraries'},
-  castelli:{it:'Castelli Romani',en:'Castelli Romani'},
+  roma:{it:'Esplora — Roma & Castelli',en:'Explore — Rome & Castelli'},
   casa:{it:'Info Struttura',en:'Property Info'},
   wifi:{it:'Wi-Fi',en:'Wi-Fi'},
   primaccesso:{it:'Primo Accesso',en:'First Access'},
@@ -1478,12 +1556,12 @@ const PLACES={
 
 /* ── CAMERA LIGHTBOX ── */
 const CAMERA_PHOTOS = {
-  marino:       [{src:'Screenshot 2026-04-27 alle 15.57.00.png',cap:'Camera Marino'},{src:'Screenshot 2026-04-27 alle 15.57.34.png',cap:'Camera Marino — bagno'}],
-  castelgandolfo:[{src:'Screenshot 2026-04-27 alle 17.06.38.png',cap:'Camera Castel Gandolfo'},{src:'Screenshot 2026-04-27 alle 17.09.13.png',cap:'Vasca idromassaggio'}],
-  nemi:         [{src:'Screenshot 2026-04-27 alle 17.10.58.png',cap:'Camera Nemi'},{src:'Screenshot 2026-04-27 alle 17.12.04.png',cap:'Camera Nemi — balcone'}],
-  genzano:      [{src:'Screenshot 2026-04-27 alle 17.12.41.png',cap:'Camera Genzano'},{src:'Screenshot 2026-04-27 alle 17.14.00.png',cap:'Terrazzo con amaca'}],
-  ariccia:      [{src:'Screenshot 2026-04-27 alle 17.17.54.png',cap:'Camera Ariccia'},{src:'Screenshot 2026-04-27 alle 17.18.26.png',cap:'Camera Ariccia — terrazzo'}],
-  frascati:     [{src:'Screenshot 2026-04-27 alle 17.14.48.png',cap:'Camera Frascati'},{src:'Screenshot 2026-04-27 alle 17.16.47.png',cap:'Camera Frascati — terrazzo'}],
+  marino:       [{src:'camera-marino-1.jpg',cap:'Camera Marino'},{src:'camera-marino-2.jpg',cap:'Camera Marino — bagno'}],
+  castelgandolfo:[{src:'camera-castelgandolfo-1.jpg',cap:'Camera Castel Gandolfo'},{src:'camera-castelgandolfo-2.jpg',cap:'Vasca idromassaggio'}],
+  nemi:         [{src:'camera-nemi-1.jpg',cap:'Camera Nemi'},{src:'camera-nemi-2.jpg',cap:'Camera Nemi — balcone'}],
+  genzano:      [{src:'camera-genzano-1.jpg',cap:'Camera Genzano'},{src:'camera-genzano-2.jpg',cap:'Terrazzo con amaca'}],
+  ariccia:      [{src:'camera-ariccia-1.jpg',cap:'Camera Ariccia'},{src:'camera-ariccia-2.jpg',cap:'Camera Ariccia — terrazzo'}],
+  frascati:     [{src:'camera-frascati-1.jpg',cap:'Camera Frascati'},{src:'camera-frascati-2.jpg',cap:'Camera Frascati — terrazzo'}],
 };
 function openCameraLB(name){
   const photos = CAMERA_PHOTOS[name];
