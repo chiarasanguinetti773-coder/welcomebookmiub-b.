@@ -107,15 +107,15 @@ header{
 }
 .home-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--muted);margin-bottom:1.3rem;position:relative;z-index:1;}
 .home-div{width:40px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:0 auto 1.3rem;position:relative;z-index:1;}
-.home-welcome{font-size:.84rem;color:var(--muted);max-width:360px;line-height:1.95;margin-bottom:2.2rem;position:relative;z-index:1;}
+.home-welcome{font-size:.84rem;color:var(--muted);max-width:360px;line-height:1.95;margin-bottom:1.4rem;position:relative;z-index:1;}
 
 /* ICONE GRIGLIA */
 .icon-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:1.4rem;
-  width:90vw;
-  max-width:420px;
+  gap:1.6rem;
+  width:min(560px,88vw);
+  max-width:560px;
   position:relative;z-index:1;
 }
 /* Cerchio base */
@@ -128,7 +128,7 @@ header{
 
 /* Cerchio base */
 .icon-circle{
-  width:clamp(72px,22vw,96px);height:clamp(72px,22vw,96px);border-radius:50%;
+  width:clamp(80px,10vw,110px);height:clamp(80px,10vw,110px);border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-size:1.7rem;
   border:2px solid rgba(255,255,255,.7);
@@ -164,7 +164,7 @@ header{
 /* Emoji/icona sopra tutto */
 .icon-circle .ic-label{
   position:relative;z-index:2;
-  font-size:1.55rem;
+  font-size:1.9rem;
   line-height:1;
   filter:drop-shadow(0 1px 3px rgba(0,0,0,.2));
 }
@@ -541,35 +541,34 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   .photo-strip{grid-template-columns:1fr 1fr;grid-template-rows:130px 130px;}
   .p-main{grid-column:1/3;grid-row:1;}
 
-  /* Logo ring mobile — scala fluida */
-  .logo-ring{width:42vw;height:42vw;max-width:190px;max-height:190px;}
-  .home-logo{width:31vw;height:31vw;max-width:142px;max-height:142px;}
-  .ring-text{font-size:clamp(9px,2.8vw,13px) !important;letter-spacing:clamp(.5px,.6vw,2px) !important;}
+  /* Logo ring mobile */
+  .logo-ring{width:36vw;height:36vw;max-width:160px;max-height:160px;}
+  .home-logo{width:27vw;height:27vw;max-width:120px;max-height:120px;}
+  .ring-text{font-size:clamp(9px,2.5vw,12px) !important;letter-spacing:clamp(.5px,.5vw,1.5px) !important;}
 
-  /* ── FIX ICONE MOBILE ── */
+  /* Icone */
   .icon-grid{
     grid-template-columns:repeat(3,1fr);
-    width:min(420px,94vw);
-    max-width:min(420px,94vw);
-    gap:1.3rem;
+    width:min(340px,88vw);
+    max-width:min(340px,88vw);
+    gap:.85rem;
   }
   .icon-circle{
-    width:clamp(80px,24vw,100px);
-    height:clamp(80px,24vw,100px);
+    width:clamp(64px,19vw,80px);
+    height:clamp(64px,19vw,80px);
   }
-  .icon-circle .ic-label{font-size:clamp(1.6rem,6vw,1.9rem);}
-  .icon-label{font-size:clamp(.58rem,2.5vw,.68rem);}
+  .icon-circle .ic-label{font-size:clamp(1.25rem,4.8vw,1.55rem);}
+  .icon-label{font-size:clamp(.5rem,2vw,.6rem);}
 
-  /* Home respiro */
-  #view-home{padding:3.5rem 1rem 2rem;}
-  .home-logo-wrap{margin-bottom:.8rem;}
-  .home-welcome{margin-bottom:.9rem;font-size:.78rem;}
-  .home-h1{margin-bottom:.1rem;}
+  /* Home */
+  #view-home{padding:4rem 1rem 1.5rem;}
+  .home-logo-wrap{margin-bottom:1rem;}
+  .home-h1{margin-bottom:.15rem;}
+  .home-h1 .accent{font-size:clamp(1.7rem,6.5vw,2.2rem);}
   .home-div{margin-bottom:.9rem;}
-  .home-h1 .accent{font-size:clamp(1.8rem,7vw,2.5rem);}
-  /* Bottoni affiancati e compatti */
-  .home-cta-row{flex-direction:row!important;flex-wrap:nowrap!important;gap:.5rem!important;margin-bottom:1.2rem!important;}
-  .home-cta-row button{font-size:.68rem!important;padding:.52rem .85rem!important;white-space:nowrap;}
+  .home-welcome{margin-bottom:1rem;font-size:.78rem;line-height:1.7;}
+  .home-cta-row{flex-direction:row!important;flex-wrap:nowrap!important;gap:.45rem!important;margin-bottom:1rem!important;}
+  .home-cta-row button{font-size:.66rem!important;padding:.5rem .8rem!important;white-space:nowrap;}
 
   /* Pagine interne */
   .page-hero{padding:1.2rem 1rem 1rem;}
