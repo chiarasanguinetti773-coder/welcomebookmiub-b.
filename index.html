@@ -562,9 +562,14 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 
   /* Home respiro */
   #view-home{padding:3.5rem 1rem 2rem;}
-  .home-logo-wrap{margin-bottom:1rem;}
-  .home-welcome{margin-bottom:1.4rem;font-size:.8rem;}
+  .home-logo-wrap{margin-bottom:.8rem;}
+  .home-welcome{margin-bottom:.9rem;font-size:.78rem;}
+  .home-h1{margin-bottom:.1rem;}
+  .home-div{margin-bottom:.9rem;}
   .home-h1 .accent{font-size:clamp(1.8rem,7vw,2.5rem);}
+  /* Bottoni affiancati e compatti */
+  .home-cta-row{flex-direction:row!important;flex-wrap:nowrap!important;gap:.5rem!important;margin-bottom:1.2rem!important;}
+  .home-cta-row button{font-size:.68rem!important;padding:.52rem .85rem!important;white-space:nowrap;}
 
   /* Pagine interne */
   .page-hero{padding:1.2rem 1rem 1rem;}
@@ -693,7 +698,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <span data-it>Seleziona una sezione per scoprire tutto quello che ti serve durante il soggiorno.</span>
     <span data-en>Select a section to find everything you need during your stay.</span>
   </p>
-  <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.8rem;position:relative;z-index:1;">
+  <div class="home-cta-row" style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.8rem;position:relative;z-index:1;">
     <button onclick="toggleHostMenu()" style="display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;background:var(--gold);color:#fff;border-radius:24px;border:none;font-size:.78rem;font-weight:700;letter-spacing:.05em;cursor:pointer;box-shadow:0 4px 16px rgba(200,134,10,.3);position:relative;">
       📞 <span data-it>Contatta il tuo Host</span><span data-en>Contact your Host</span>
     </button>
