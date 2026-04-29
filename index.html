@@ -545,11 +545,19 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   .home-logo{width:31vw;height:31vw;max-width:142px;max-height:142px;}
   .ring-text{font-size:clamp(9px,2.8vw,13px) !important;letter-spacing:clamp(.5px,.6vw,2px) !important;}
 
-  /* Icone — 3 colonne su mobile, centrate */
-  .icon-grid{grid-template-columns:repeat(3,1fr);max-width:320px;gap:.9rem;}
-  .icon-circle{width:clamp(56px,16vw,72px);height:clamp(56px,16vw,72px);}
-  .icon-circle .ic-label{font-size:clamp(1.1rem,4.5vw,1.55rem);}
-  .icon-label{font-size:clamp(.5rem,2vw,.6rem);}
+  /* ── FIX ICONE MOBILE ── */
+  .icon-grid{
+    grid-template-columns:repeat(3,1fr);
+    width:min(380px,90vw);
+    max-width:min(380px,90vw);
+    gap:1rem;
+  }
+  .icon-circle{
+    width:clamp(68px,20vw,88px);
+    height:clamp(68px,20vw,88px);
+  }
+  .icon-circle .ic-label{font-size:clamp(1.3rem,5vw,1.55rem);}
+  .icon-label{font-size:clamp(.52rem,2.2vw,.62rem);}
 
   /* Home respiro */
   #view-home{padding:4.5rem 1rem 2rem;}
@@ -606,7 +614,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   <div class="modal-box" style="max-width:560px;">
     <button class="modal-close" onclick="closeStoria()">✕</button>
     <p class="modal-tag">Il nostro B&B</p>
-    <h2 class="modal-title" style="font-size:1.6rem">Chi <span style="font-style:italic;color:var(--gold)">siamo</span></h2>
+    <h2 class="modal-title">Chi <span style="font-style:italic;color:var(--gold)">siamo</span></h2>
     <div class="modal-body" style="font-size:.86rem;line-height:1.85;">
       <p style="margin-bottom:.9rem">Siamo <strong>Alessandro e Fabiana</strong>, insieme da oltre 25 anni e uniti da una passione autentica per l'ospitalità. Accogliere, ascoltare e far sentire ogni ospite a proprio agio è ciò che amiamo di più del nostro lavoro.</p>
       <p style="margin-bottom:.9rem">Il nome <strong>Miù</strong> racchiude una storia personale a cui siamo molto legati. Tutto nasce oltre 20 anni fa, durante un soggiorno in un Bed and Breakfast. Ricordiamo ancora con affetto una colazione semplice ma curata, preparata con attenzione dalla signora che ci ospitava: sul tavolo c'erano tante cose buone, tra cui una scatola di muesli. Da quel momento abbiamo cominciato a chiamarci <em>"Miusli"</em>, un soprannome affettuoso che negli anni si è evoluto, passando da Miuslem fino a diventare Miù.</p>
@@ -693,7 +701,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </div>
   <div class="icon-grid">
 
-    <!-- VILLA — foto suite -->
     <button class="icon-btn" onclick="showPage('villa')">
       <div class="icon-circle ic-villa">
         <div class="ic-glass"></div>
@@ -702,9 +709,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <span class="icon-label"><span data-it>La Villa</span><span data-en>The Villa</span></span>
     </button>
 
-
-
-    <!-- PISCINA — foto piscina -->
     <button class="icon-btn" onclick="showPage('piscina')">
       <div class="icon-circle ic-piscina">
         <div class="ic-glass"></div>
@@ -713,49 +717,38 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <span class="icon-label"><span data-it>Piscina</span><span data-en>Pool</span></span>
     </button>
 
-    <!-- ARRIVO — sostituisci src con tua foto (es. mappa, ingresso villa) -->
     <button class="icon-btn" onclick="showPage('arrivo')">
       <div class="icon-circle ic-arrivo">
-        <!-- <img class="ic-bg" src="foto-arrivo.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">✈️</span>
       </div>
       <span class="icon-label"><span data-it>Arrivo</span><span data-en>Arrival</span></span>
     </button>
 
-    <!-- TRASPORTI — sostituisci src con tua foto -->
     <button class="icon-btn" onclick="showPage('trasporti')">
       <div class="icon-circle ic-trasporti">
-        <!-- <img class="ic-bg" src="foto-trasporti.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">🚌</span>
       </div>
       <span class="icon-label"><span data-it>Muoversi</span><span data-en>Transport</span></span>
     </button>
 
-    <!-- MANGIARE — sostituisci src con tua foto (es. piatto tipico) -->
     <button class="icon-btn" onclick="showPage('mangiare')">
       <div class="icon-circle ic-mangiare">
-        <!-- <img class="ic-bg" src="foto-mangiare.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">🍴</span>
       </div>
       <span class="icon-label"><span data-it>Mangiare</span><span data-en>Dining</span></span>
     </button>
 
-    <!-- ROMA — sostituisci src con tua foto (es. Colosseo) -->
     <button class="icon-btn" onclick="showPage('roma')">
       <div class="icon-circle ic-roma">
-        <!-- <img class="ic-bg" src="foto-roma.jpg" alt=""> -->
         <div class="ic-glass"></div>
         <span class="ic-label">🗺️</span>
       </div>
       <span class="icon-label"><span data-it>Esplora</span><span data-en>Explore</span></span>
     </button>
 
-    <!-- CASTELLI — sostituisci src con tua foto (es. panorama castelli) -->
-
-    <!-- INFO CASA — foto camera -->
     <button class="icon-btn" onclick="showPage('casa')">
       <div class="icon-circle ic-casa">
         <div class="ic-glass"></div>
@@ -772,7 +765,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <span class="icon-label">Wi-Fi</span>
     </button>
 
-    <!-- EMERGENZE — colore solido, nessuna foto -->
     <button class="icon-btn" onclick="showPage('emergenze')">
       <div class="icon-circle ic-emergenze">
         <div class="ic-glass"></div>
@@ -795,13 +787,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     </div>
   </div>
   <div class="page-body">
-    <!-- VIDEO AUTOPLAY — carica il tuo video sostituendo src="tour-villa.mp4" -->
     <div class="villa-video-wrap">
-      <!-- Una volta caricato il video, sostituisci questo div con:
-      <video autoplay muted loop playsinline poster="video-cover.jpg">
-        <source src="tour-villa.mp4" type="video/mp4">
-      </video>
-      -->
       <div class="villa-video-placeholder">
         <span class="villa-video-add">+ carica video</span>
         <div class="villa-video-play">▶</div>
@@ -1018,7 +1004,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </div>
 </div>
 
-<!-- ════════════ TRASPORTI (accorpa bus + metro + bike + biglietti) ════════════ -->
+<!-- ════════════ TRASPORTI ════════════ -->
 <div class="view" id="view-trasporti">
   <div class="page-hero">
     <div class="ph-icon">🚌</div>
@@ -1063,7 +1049,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </div>
 </div>
 
-<!-- ════════════ MANGIARE (con food delivery accordion) ════════════ -->
+<!-- ════════════ MANGIARE ════════════ -->
 <div class="view" id="view-mangiare">
   <div class="page-hero">
     <div class="ph-icon">🍽️</div>
@@ -1074,7 +1060,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     </div>
   </div>
   <div class="page-body">
-    <!-- VICINO A NOI -->
     <p class="sub-h">📍 <span data-it>Vicino a noi — Ciampino</span><span data-en>Near us — Ciampino</span></p>
     <div class="card-grid">
       <div class="card"><span class="card-ico">🍝</span><p class="card-ttl"><span data-it>Cucina Romana Tipica</span><span data-en>Traditional Roman Cuisine</span></p><p class="card-txt"><span data-it>Cucina tipica romana autentica. Ottimi primi piatti artigianali.</span><span data-en>Authentic traditional Roman cuisine. Excellent handmade pasta.</span></p><a class="card-cta" href="https://share.google/XQZKDW3v0aXHjC5VQ" target="_blank">Maps →</a></div>
@@ -1083,7 +1068,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div class="card"><span class="card-ico">🥩</span><p class="card-ttl"><span data-it>Carne & Primi — Eccezionale</span><span data-en>Meat & Pasta — Exceptional</span></p><p class="card-txt"><span data-it>Carne e primi piatti eccezionali. Da non perdere.</span><span data-en>Exceptional meat and pasta dishes. Not to be missed.</span></p><a class="card-cta" href="https://share.google/M4MJdTZZy3bAdd8xf" target="_blank">Maps →</a></div>
     </div>
 
-    <!-- CASTELLI & ROMA -->
     <p class="sub-h">🏰 <span data-it>Ristoranti Castelli & Roma</span><span data-en>Castelli & Rome Restaurants</span></p>
     <div class="card-grid">
       <div class="card" onclick="openModal('ariccia')"><span class="card-ico">🍖</span><p class="card-ttl"><span data-it>Fraschette di Ariccia</span><span data-en>Fraschette of Ariccia</span></p><p class="card-txt"><span data-it>Porchetta IGP, pane casereccio, vino dei Castelli. Autentico e a buon prezzo.</span><span data-en>IGP porchetta, rustic bread, Castelli wine. Authentic and affordable.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
@@ -1107,7 +1091,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div class="card" onclick="openModal('gelato')"><span class="card-ico">🍦</span><p class="card-ttl"><span data-it>Gelaterie Artigianali</span><span data-en>Artisan Gelato</span></p><p class="card-txt"><span data-it>Giolitti, Fatamorgana, Gelateria dei Gracchi — le migliori di Roma.</span><span data-en>Giolitti, Fatamorgana, Gelateria dei Gracchi — Rome's best.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
     </div>
 
-    <!-- NON VUOI USCIRE -->
     <div style="margin-top:2rem;border-radius:12px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 8px 32px rgba(200,134,10,.15);">
       <div style="background:linear-gradient(135deg,var(--gold),#e0a000);padding:1rem 1.3rem;display:flex;align-items:center;gap:.7rem;">
         <span style="font-size:1.6rem;">🛵</span>
@@ -1131,13 +1114,12 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       </div>
     </div>
 
-    <!-- SUPERMERCATI -->
     <p class="sub-h" style="margin-top:2rem">🛒 <span data-it>Supermercati vicini</span><span data-en>Nearby supermarkets</span></p>
     <div class="rules-grid" style="margin-top:.4rem">
       <div class="rule-item"><p class="rule-text"><strong>Iper Dem</strong> — Via Mura dei Francesi 1, Ciampino<br><span style="font-size:.72rem">☎ 06 7913215 · <span data-it>Lun–Dom 8:00–20:30</span><span data-en>Mon–Sun 8:00–20:30</span><br><span data-it>Esci a sinistra → stazione Acqua Acetosa → sottopassaggio → ~10 min</span><span data-en>Exit left → Acqua Acetosa station → underpass → ~10 min</span></span> <a href="https://maps.app.goo.gl/xvyx7bMjnZs1D4jX9" target="_blank" style="color:var(--gold);font-size:.7rem;font-weight:600;text-decoration:none"> Maps →</a></p></div>
       <div class="rule-item"><p class="rule-text"><strong>Conad</strong> — Via San Paolo della Croce 1/A, Ciampino<br><span style="font-size:.72rem">☎ 06 87570137 · <span data-it>Tutti i giorni 8:00–22:00</span><span data-en>Every day 8:00–22:00</span><br><span data-it>Esci a destra → pista ciclabile → ~13 min, vicino al Burger King</span><span data-en>Exit right → cycle path → ~13 min, near Burger King</span></span> <a href="https://maps.app.goo.gl/1SDjsEjhEC5Gtx4w5" target="_blank" style="color:var(--gold);font-size:.7rem;font-weight:600;text-decoration:none"> Maps →</a></p></div>
     </div>
-</div>
+  </div>
 </div>
 
 <!-- ════════════ ROMA ════════════ -->
@@ -1218,11 +1200,9 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div class="rule-item"><span class="rule-emoji">🌊</span><p class="rule-text"><strong>Marine Village</strong><br><span style="font-size:.72rem"><span data-it>Molto bello anche questo. Sul lungomare ci sono molti altri lidi e spiagge attrezzate più semplici.</span><span data-en>Also very nice. Along the seafront there are many other simpler equipped beaches too.</span></span></p></div>
     </div>
     <div class="hbox"><p>🍕 <span data-it>Per mangiare: <strong>Vivarelli</strong> — bisteccheria/pizzeria eccezionale, pizza molto buona!</span><span data-en>For food: <strong>Vivarelli</strong> — exceptional steakhouse/pizzeria, great pizza!</span> <a href="https://share.google/GA4qbvtbMPmvGBKGB" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600"> Maps →</a></p></div>
-
-    </div><!-- fine dcastelli -->
-
-  </div><!-- fine page-body -->
-</div><!-- fine view-roma -->
+    </div>
+  </div>
+</div>
 
 <!-- ════════════ INFO CASA ════════════ -->
 <div class="view" id="view-casa">
@@ -1236,7 +1216,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </div>
   <div class="page-body">
     <div class="appliance-list">
-
       <div class="appliance-item">
         <p class="appliance-name">🗝️ <span data-it>Istruzioni Chiavi</span><span data-en>Key Guide</span></p>
         <p class="appliance-text">
@@ -1262,17 +1241,14 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
           </span>
         </p>
       </div>
-
       <div class="appliance-item">
         <p class="appliance-name">❄️ <span data-it>Aria Condizionata</span><span data-en>Air Conditioning</span></p>
         <p class="appliance-text"><span data-it>Telecomando sul comodino. ❄️ raffredda · ☀️ riscalda. 22–24°C consigliati. Spegnere uscendo.</span><span data-en>Remote on bedside table. ❄️ cools · ☀️ heats. 22–24°C recommended. Switch off when leaving.</span></p>
       </div>
-
       <div class="appliance-item">
         <p class="appliance-name">📺 TV</p>
         <p class="appliance-text"><span data-it>Smart TV con YouTube, RaiPlay, Netflix (proprio account). HDMI disponibile.</span><span data-en>Smart TV with YouTube, RaiPlay, Netflix (your account). HDMI available.</span></p>
       </div>
-
       <div class="appliance-item">
         <p class="appliance-name">🧺 <span data-it>Lavatrice & Asciugatrice</span><span data-en>Washer & Dryer</span></p>
         <p class="appliance-text">
@@ -1282,7 +1258,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
           <a href="tel:+393514246166" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">Request at reception →</a></span>
         </p>
       </div>
-
       <div class="appliance-item">
         <p class="appliance-name">🔒 <span data-it>Cassaforte</span><span data-en>Safe</span></p>
         <p class="appliance-text">
@@ -1310,12 +1285,10 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
           </span>
         </p>
       </div>
-
       <div class="appliance-item">
         <p class="appliance-name">💡 <span data-it>Luci</span><span data-en>Lights</span></p>
         <p class="appliance-text"><span data-it>Interruttori all'ingresso. Luci esterne off alle 23:00. Spegnere tutto in assenza.</span><span data-en>Switches at entrance. Outdoor lights off at 11 PM. Switch off when out.</span></p>
       </div>
-
     </div>
     <div class="hbox"><p>🆘 <span data-it>Per qualsiasi necessità:</span><span data-en>For any need:</span> WhatsApp <a href="tel:+393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
   </div>
@@ -1403,22 +1376,17 @@ const PAGES={
 };
 
 function showPage(id){
-  // Porta immediatamente in cima
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
-  // Nascondi tutte le view
   document.querySelectorAll('.view').forEach(v => {
     v.classList.remove('active');
     v.style.display = 'none';
   });
-  // Mostra solo quella target
   const target = document.getElementById('view-' + id);
   if(!target) return;
   target.style.display = 'block';
-  // Forza reflow prima di aggiungere active (innesca animazione pulita)
   target.offsetHeight;
   target.classList.add('active');
-  // Header
   const lang = document.body.classList.contains('lang-en') ? 'en' : 'it';
   const info = PAGES[id] || {};
   document.getElementById('h-title').textContent = info[lang] || '';
@@ -1576,7 +1544,6 @@ let lbImages = [];
 let lbIdx = 0;
 
 function openLB(i, el) {
-  // Trova il contenitore delle foto (strip o photo-hero)
   const container = el
     ? (el.closest('.photo-strip') || el.closest('.photo-hero') || el.closest('.page-body'))
     : (document.querySelector('.view.active .photo-strip') || document.querySelector('.view.active .photo-hero'));
