@@ -18,227 +18,72 @@
   --sh2:0 12px 48px rgba(30,26,22,.13);
   --r:6px;
 }
-
-/* ═══════════════════════ RESET ═══════════════════════ */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;color-scheme:light;}
-body{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  background:var(--cream);color:var(--ink);
-  font-weight:300;min-height:100vh;
-  -webkit-font-smoothing:antialiased;
-}
-
-/* ═══════════════════════ TYPOGRAPHY ═══════════════════════ */
-.script{
-  font-family:'Playfair Display',serif;
-  font-style:italic;color:var(--gold);
-}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--ink);font-weight:300;min-height:100vh;-webkit-font-smoothing:antialiased;}
+.script{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);}
 .serif{font-family:'Playfair Display',serif;}
-
-/* ═══════════════════════ HEADER ═══════════════════════ */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:300;
-  height:56px;padding:0 1.1rem;
-  background:rgba(253,250,244,.96);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;gap:.7rem;
-}
+header{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;padding:0 1.1rem;background:rgba(253,250,244,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:.7rem;}
 .h-brand{display:flex;align-items:center;gap:9px;cursor:pointer;flex-shrink:0;}
 .h-logo{height:38px;width:38px;object-fit:contain;border-radius:50%;background:#fff;padding:2px;box-shadow:0 2px 8px rgba(0,0,0,.1);}
 .h-logo-txt{font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;color:var(--gold);}
-.h-back{
-  display:none;align-items:center;gap:.35rem;
-  background:none;border:none;cursor:pointer;
-  font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--muted);padding:.28rem .65rem;border-radius:16px;transition:all .2s;
-}
+.h-back{display:none;align-items:center;gap:.35rem;background:none;border:none;cursor:pointer;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.28rem .65rem;border-radius:16px;transition:all .2s;}
 .h-back:hover{color:var(--gold);background:var(--gold-pale);}
 .h-back svg{width:13px;height:13px;}
-.h-title{
-  display:none;font-family:'Playfair Display',serif;font-style:italic;
-  font-size:.95rem;color:var(--ink);flex:1;text-align:center;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
+.h-title{display:none;font-family:'Playfair Display',serif;font-style:italic;font-size:.95rem;color:var(--ink);flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .lang-row{display:flex;border:1px solid var(--border2);border-radius:16px;overflow:hidden;flex-shrink:0;}
 .lang-btn{padding:.25rem .6rem;background:none;border:none;cursor:pointer;font-size:.67rem;font-weight:700;letter-spacing:.09em;color:var(--muted);transition:all .2s;}
 .lang-btn.on{background:var(--gold);color:#fff;}
-
-/* ═══════════════════════ VIEWS ═══════════════════════ */
 .view{display:none;padding-top:56px;min-height:100vh;}
 .view.active{display:block;animation:fadeUp .25s ease both;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
-/* ═══════════════════════════════════
-   HOME
-═══════════════════════════════════ */
-#view-home{
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:flex-start;text-align:center;
-  padding:4rem 1.2rem 3rem;
-  min-height:100dvh;
-  background:
-    radial-gradient(ellipse at 15% 80%, rgba(200,134,10,.18) 0%,transparent 45%),
-    radial-gradient(ellipse at 85% 15%, rgba(0,174,239,.12) 0%,transparent 42%),
-    radial-gradient(ellipse at 50% 50%, rgba(232,25,44,.06) 0%,transparent 60%),
-    linear-gradient(160deg, #fff8ee 0%, #fdf6f0 40%, #f0f9ff 100%);
-  position:relative;overflow:hidden;
-}
+#view-home{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:4rem 1.2rem 3rem;min-height:100dvh;background:radial-gradient(ellipse at 15% 80%, rgba(200,134,10,.18) 0%,transparent 45%),radial-gradient(ellipse at 85% 15%, rgba(0,174,239,.12) 0%,transparent 42%),radial-gradient(ellipse at 50% 50%, rgba(232,25,44,.06) 0%,transparent 60%),linear-gradient(160deg, #fff8ee 0%, #fdf6f0 40%, #f0f9ff 100%);position:relative;overflow:hidden;}
 #view-home::before{content:'';position:absolute;top:-100px;right:-100px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(200,134,10,.09);pointer-events:none;}
 #view-home::after{content:'';position:absolute;bottom:-70px;left:-70px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(0,174,239,.07);pointer-events:none;}
-
-/* LOGO HERO */
 .home-logo-wrap{margin-bottom:1.4rem;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
 .home-logo{height:150px;width:150px;object-fit:contain;border-radius:50%;background:#fff;padding:6px;box-shadow:0 4px 28px rgba(0,0,0,.12);}
-.home-logo-txt{font-family:'Playfair Display',serif;font-style:italic;font-size:3.5rem;color:var(--gold);line-height:1;}
-
 .home-eyebrow{display:none;}
-
-/* Titolo principale */
-.home-h1{
-  font-size:clamp(1rem,3vw,1.3rem);font-weight:400;line-height:1.4;
-  color:var(--ink);margin-bottom:.2rem;position:relative;z-index:1;
-  letter-spacing:.01em;
-}
-.home-h1 .accent{
-  display:block;font-family:'Playfair Display',serif;font-style:italic;
-  font-size:clamp(2rem,5.5vw,3rem);font-weight:400;color:var(--gold);
-  line-height:1.1;margin-top:.08em;
-}
+.home-h1{font-size:clamp(1rem,3vw,1.3rem);font-weight:400;line-height:1.4;color:var(--ink);margin-bottom:.2rem;position:relative;z-index:1;letter-spacing:.01em;}
+.home-h1 .accent{display:block;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(2rem,5.5vw,3rem);font-weight:400;color:var(--gold);line-height:1.1;margin-top:.08em;}
 .home-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--muted);margin-bottom:1.3rem;position:relative;z-index:1;}
 .home-div{width:40px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:0 auto 1.3rem;position:relative;z-index:1;}
 .home-welcome{font-size:.84rem;color:var(--muted);max-width:360px;line-height:1.95;margin-bottom:1.4rem;position:relative;z-index:1;}
-
-/* ICONE GRIGLIA */
-.icon-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1.6rem;
-  width:min(560px,88vw);
-  max-width:560px;
-  position:relative;z-index:1;
-}
-/* Cerchio base */
-.icon-btn{
-  display:flex;flex-direction:column;align-items:center;gap:.5rem;
-  background:none;border:none;cursor:pointer;padding:.1rem;
-  transition:transform .25s;text-decoration:none;
-}
+.icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;width:min(560px,88vw);max-width:560px;position:relative;z-index:1;}
+.icon-btn{display:flex;flex-direction:column;align-items:center;gap:.5rem;background:none;border:none;cursor:pointer;padding:.1rem;transition:transform .25s;text-decoration:none;}
 .icon-btn:hover{transform:translateY(-5px);}
-
-/* Cerchio base */
-.icon-circle{
-  width:clamp(80px,10vw,110px);height:clamp(80px,10vw,110px);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.7rem;
-  border:2px solid rgba(255,255,255,.7);
-  box-shadow:0 4px 20px rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.7);
-  transition:all .25s;
-  position:relative;overflow:hidden;
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-}
-.icon-btn:hover .icon-circle{
-  transform:scale(1.08);
-  box-shadow:0 8px 30px rgba(0,0,0,.15), inset 0 1px 0 rgba(255,255,255,.8);
-}
-
-/* Foto di sfondo */
-.icon-circle img.ic-bg{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  object-fit:cover;
-  border-radius:50%;
-  transition:transform .3s;
-  z-index:0;
-}
+.icon-circle{width:clamp(80px,10vw,110px);height:clamp(80px,10vw,110px);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;border:2px solid rgba(255,255,255,.7);box-shadow:0 4px 20px rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.7);transition:all .25s;position:relative;overflow:hidden;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.icon-btn:hover .icon-circle{transform:scale(1.08);box-shadow:0 8px 30px rgba(0,0,0,.15), inset 0 1px 0 rgba(255,255,255,.8);}
+.icon-circle img.ic-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;transition:transform .3s;z-index:0;}
 .icon-btn:hover .icon-circle img.ic-bg{transform:scale(1.12);}
-
-/* Frosted glass overlay sopra la foto */
-.icon-circle .ic-glass{
-  position:absolute;inset:0;border-radius:50%;
-  background:rgba(255,255,255,.06);
-  z-index:1;
-}
-
-/* Emoji/icona sopra tutto */
-.icon-circle .ic-label{
-  position:relative;z-index:2;
-  font-size:1.9rem;
-  line-height:1;
-  filter:drop-shadow(0 1px 3px rgba(0,0,0,.2));
-}
-
-/* Fallback colore se non c'è foto */
-.ic-villa    { background:linear-gradient(145deg,rgba(200,134,10,.08),rgba(200,134,10,.18)); }
-.ic-foto     { background:linear-gradient(145deg,rgba(100,149,210,.08),rgba(100,149,210,.2)); }
-.ic-piscina  { background:linear-gradient(145deg,rgba(0,174,239,.08),rgba(0,174,239,.2)); }
-.ic-arrivo   { background:linear-gradient(145deg,rgba(0,174,239,.06),rgba(0,174,239,.16)); }
-.ic-trasporti{ background:linear-gradient(145deg,rgba(90,110,150,.06),rgba(90,110,150,.15)); }
-.ic-mangiare { background:linear-gradient(145deg,rgba(232,25,44,.07),rgba(232,25,44,.17)); }
-.ic-roma     { background:linear-gradient(145deg,rgba(200,134,10,.07),rgba(200,134,10,.18)); }
-.ic-castelli { background:linear-gradient(145deg,rgba(60,180,90,.07),rgba(60,180,90,.18)); }
-.ic-casa     { background:linear-gradient(145deg,rgba(220,170,0,.07),rgba(220,170,0,.18)); }
-.ic-emergenze{ background:linear-gradient(145deg,rgba(232,25,44,.07),rgba(232,25,44,.17)); }
-
-.icon-label{
-  font-size:.58rem;font-weight:700;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--ink);line-height:1.25;
-  text-align:center;
-}
-
-/* Label sotto */
-.icon-label{
-  font-size:.6rem;font-weight:700;letter-spacing:.07em;
-  text-transform:uppercase;color:#3a3530;line-height:1.25;
-  text-align:center;
-}
-
-/* ═══════════════════════════════════
-   PAGE STRUCTURE
-═══════════════════════════════════ */
-/* Hero intestazione pagina — colorato, impatto */
-.page-hero{
-  padding:1.8rem 1.4rem 1.5rem;
-  background:linear-gradient(135deg,rgba(200,134,10,.07) 0%,rgba(0,174,239,.04) 100%);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;gap:1rem;
-}
-.ph-icon{
-  width:52px;height:52px;border-radius:50%;
-  background:var(--ivory);border:1.5px solid var(--border2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;flex-shrink:0;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
-}
+.icon-circle .ic-glass{position:absolute;inset:0;border-radius:50%;background:rgba(255,255,255,.06);z-index:1;}
+.icon-circle .ic-label{position:relative;z-index:2;font-size:1.9rem;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,.2));}
+.ic-villa{background:linear-gradient(145deg,rgba(200,134,10,.08),rgba(200,134,10,.18));}
+.ic-foto{background:linear-gradient(145deg,rgba(100,149,210,.08),rgba(100,149,210,.2));}
+.ic-piscina{background:linear-gradient(145deg,rgba(0,174,239,.08),rgba(0,174,239,.2));}
+.ic-arrivo{background:linear-gradient(145deg,rgba(0,174,239,.06),rgba(0,174,239,.16));}
+.ic-trasporti{background:linear-gradient(145deg,rgba(90,110,150,.06),rgba(90,110,150,.15));}
+.ic-mangiare{background:linear-gradient(145deg,rgba(232,25,44,.07),rgba(232,25,44,.17));}
+.ic-roma{background:linear-gradient(145deg,rgba(200,134,10,.07),rgba(200,134,10,.18));}
+.ic-castelli{background:linear-gradient(145deg,rgba(60,180,90,.07),rgba(60,180,90,.18));}
+.ic-casa{background:linear-gradient(145deg,rgba(220,170,0,.07),rgba(220,170,0,.18));}
+.ic-emergenze{background:linear-gradient(145deg,rgba(232,25,44,.07),rgba(232,25,44,.17));}
+.icon-label{font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);line-height:1.25;text-align:center;}
+.icon-label{font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#3a3530;line-height:1.25;text-align:center;}
+.page-hero{padding:1.8rem 1.4rem 1.5rem;background:linear-gradient(135deg,rgba(200,134,10,.07) 0%,rgba(0,174,239,.04) 100%);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem;}
+.ph-icon{width:52px;height:52px;border-radius:50%;background:var(--ivory);border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;box-shadow:0 3px 12px rgba(0,0,0,.08);}
 .ph-tag{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:#00AEEF;font-weight:600;margin-bottom:.25rem;}
 .ph-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:300;color:var(--ink);line-height:1.15;letter-spacing:-.01em;}
 .ph-title .sc{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);}
-
 .page-body{max-width:880px;margin:0 auto;padding:1.8rem 1.4rem 3rem;}
 .page-intro{color:var(--muted);line-height:1.9;font-size:.88rem;margin-bottom:1.8rem;}
-
-/* ── Subtitle ── */
-.sub-h{
-  font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--gold);margin:2rem 0 .8rem;
-  display:flex;align-items:center;gap:.5rem;
-}
+.sub-h{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin:2rem 0 .8rem;display:flex;align-items:center;gap:.5rem;}
 .sub-h::after{content:'';flex:1;height:1px;background:var(--border);}
-
-/* ── Info block ── */
 .info-block{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1rem;margin-top:1rem;}
 .info-item{padding:1.1rem;border-left:2px solid var(--gold-l);}
 .info-lbl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.25rem;}
 .info-val{font-size:.92rem;color:var(--ink);line-height:1.5;}
-
-/* ── Cards ── */
 .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem;margin-top:1rem;}
-.card{
-  background:var(--ivory);border:1px solid var(--border);border-radius:var(--r);
-  padding:1.3rem;cursor:pointer;transition:transform .2s,box-shadow .2s;
-  position:relative;overflow:hidden;
-}
+.card{background:var(--ivory);border:1px solid var(--border);border-radius:var(--r);padding:1.3rem;cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
 .card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform .25s;}
 .card:hover{transform:translateY(-3px);box-shadow:var(--sh2);}
 .card:hover::before{transform:scaleY(1);}
@@ -246,40 +91,21 @@ header{
 .card-ttl{font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:.38rem;}
 .card-txt{font-size:.8rem;color:var(--muted);line-height:1.75;}
 .card-cta{display:inline-block;margin-top:.65rem;font-size:.66rem;font-weight:700;color:var(--gold);letter-spacing:.07em;text-transform:uppercase;}
-
-/* ── Rules grid ── */
 .rules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.8rem;margin-top:1rem;}
 .rule-item{display:flex;align-items:flex-start;gap:.55rem;padding:.85rem;background:var(--stone);border-radius:var(--r);}
 .rule-emoji{font-size:1.1rem;flex-shrink:0;}
 .rule-text{font-size:.79rem;color:var(--muted);line-height:1.55;}
-
-/* ── Photo hero ── */
-.photo-hero{
-  width:100%;border-radius:var(--r);overflow:hidden;
-  cursor:pointer;margin-bottom:1.5rem;
-  position:relative;
-}
+.photo-hero{width:100%;border-radius:var(--r);overflow:hidden;cursor:pointer;margin-bottom:1.5rem;position:relative;}
 .photo-hero img{width:100%;height:280px;object-fit:cover;display:block;transition:transform .4s ease;}
 .photo-hero:hover img{transform:scale(1.03);}
-.photo-hero-overlay{
-  position:absolute;inset:0;display:flex;align-items:flex-end;
-  background:linear-gradient(to top,rgba(30,26,22,.35) 0%,transparent 50%);
-  padding:1rem;pointer-events:none;
-}
-.photo-hero-overlay span{
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:.9rem;color:rgba(255,255,255,.85);
-}
-
-/* ── Photo strip ── */
+.photo-hero-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;background:linear-gradient(to top,rgba(30,26,22,.35) 0%,transparent 50%);padding:1rem;pointer-events:none;}
+.photo-hero-overlay span{font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:rgba(255,255,255,.85);}
 .photo-strip{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:190px 190px;gap:4px;border-radius:var(--r);overflow:hidden;margin-top:1rem;}
 .p-item{position:relative;overflow:hidden;cursor:pointer;}
 .p-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .38s;}
 .p-item:hover img{transform:scale(1.06);}
 .p-main{grid-row:1/3;}
 .p-more::after{content:attr(data-label);position:absolute;inset:0;background:rgba(30,26,22,.48);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#fff;}
-
-/* ── Arrival cards ── */
 .arrival-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:1rem;margin-top:1rem;}
 .arrival-card{padding:1.2rem;border-radius:var(--r);border:1px solid var(--border);background:var(--ivory);position:relative;overflow:hidden;}
 .arrival-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold),var(--teal));}
@@ -287,8 +113,6 @@ header{
 .arr-title{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.38rem;}
 .arr-text{font-size:.78rem;color:var(--muted);line-height:1.65;}
 .arr-badge{display:inline-block;margin-top:.5rem;padding:.13rem .55rem;background:var(--gold-pale);color:var(--gold);border-radius:20px;font-size:.67rem;font-weight:600;}
-
-/* ── Transport cards ── */
 .transport-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1rem;}
 .transport-card{padding:1.15rem;border:1px solid var(--border);border-radius:var(--r);background:var(--ivory);}
 .transport-header{display:flex;align-items:center;gap:.55rem;margin-bottom:.75rem;padding-bottom:.6rem;border-bottom:1px solid var(--border);}
@@ -296,16 +120,12 @@ header{
 .transport-name{font-size:.9rem;font-weight:600;color:var(--ink);}
 .transport-detail{font-size:.78rem;color:var(--muted);margin-bottom:.28rem;line-height:1.6;}
 .transport-detail strong{color:var(--ink);font-weight:500;}
-
-/* ── Ticket steps ── */
 .ticket-steps{display:flex;flex-direction:column;gap:.75rem;margin-top:1rem;}
 .ticket-step{display:flex;gap:.85rem;align-items:flex-start;padding:.95rem 1.1rem;background:var(--stone);border-radius:var(--r);border:1px solid var(--border);}
 .step-num{width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .step-title{font-weight:600;font-size:.84rem;color:var(--ink);margin-bottom:.16rem;}
 .step-desc{font-size:.78rem;color:var(--muted);line-height:1.65;}
 .step-tip{display:inline-block;margin-top:.32rem;font-size:.68rem;background:rgba(0,174,239,.1);color:#00AEEF;padding:.12rem .48rem;border-radius:10px;font-weight:600;}
-
-/* ── Itinerary tabs ── */
 .itab-row{display:flex;border-bottom:1px solid var(--border);margin:1rem 0 1.4rem;}
 .itab{padding:.6rem 1.1rem;background:none;border:none;cursor:pointer;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;}
 .itab.on{color:var(--gold);border-bottom-color:var(--gold);}
@@ -320,8 +140,6 @@ header{
 .tl-title:hover{color:var(--gold);}
 .tl-pop{font-size:.58rem;color:#00AEEF;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border:1px solid rgba(0,174,239,.3);padding:.06rem .32rem;border-radius:7px;}
 .tl-desc{font-size:.8rem;color:var(--muted);line-height:1.65;}
-
-/* ── Castelli cards ── */
 .castelli-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;margin-top:1rem;}
 .castello-card{padding:1.15rem;border:1px solid var(--border);border-radius:var(--r);background:var(--ivory);cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
 .castello-card:hover{transform:translateY(-3px);box-shadow:var(--sh);}
@@ -333,8 +151,6 @@ header{
 .badge-car{background:rgba(200,134,10,.12);color:var(--gold);}
 .badge-bus{background:rgba(0,174,239,.12);color:#0086c3;}
 .badge-train{background:rgba(232,25,44,.1);color:var(--rose);}
-
-/* ── App list ── */
 .app-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:.8rem;margin-top:.6rem;}
 .app-item{display:flex;align-items:center;gap:.75rem;padding:.82rem .95rem;background:var(--stone);border:1px solid var(--border);border-radius:var(--r);text-decoration:none;transition:transform .2s,box-shadow .2s;}
 .app-item:hover{transform:translateY(-2px);box-shadow:var(--sh);}
@@ -343,14 +159,7 @@ header{
 .app-name{font-size:.84rem;font-weight:600;color:var(--ink);}
 .app-desc{font-size:.7rem;color:var(--muted);}
 .app-arrow{margin-left:auto;font-size:.7rem;color:var(--gold);flex-shrink:0;}
-
-/* ── Food delivery submenu ── */
-.delivery-toggle{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.85rem 1rem;background:var(--ivory);border:1px solid var(--border);
-  border-radius:var(--r);cursor:pointer;transition:background .2s;
-  margin-top:.6rem;
-}
+.delivery-toggle{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;background:var(--ivory);border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:background .2s;margin-top:.6rem;}
 .delivery-toggle:hover{background:#fff;}
 .delivery-toggle-left{display:flex;align-items:center;gap:.6rem;}
 .delivery-toggle-icon{font-size:1.2rem;}
@@ -358,33 +167,22 @@ header{
 .delivery-toggle-sub{font-size:.72rem;color:var(--muted);}
 .delivery-chevron{font-size:.8rem;color:var(--gold);transition:transform .25s;}
 .delivery-chevron.open{transform:rotate(180deg);}
-.delivery-panel{
-  display:none;margin-top:.4rem;
-  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;
-}
+.delivery-panel{display:none;margin-top:.4rem;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
 .delivery-panel.open{display:block;}
 .delivery-panel .app-item{border:none;border-bottom:1px solid var(--border);border-radius:0;}
 .delivery-panel .app-item:last-child{border-bottom:none;}
-
-/* ── Appliances ── */
 .appliance-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.9rem;margin-top:1rem;}
 .appliance-item{padding:1.1rem 1.2rem;border:1px solid var(--border);border-radius:var(--r);}
 .appliance-name{font-weight:600;font-size:.84rem;color:var(--ink);margin-bottom:.35rem;display:flex;align-items:center;gap:.4rem;}
 .appliance-text{font-size:.78rem;color:var(--muted);line-height:1.72;}
-
-/* ── Highlight box ── */
 .hbox{background:linear-gradient(135deg,rgba(200,134,10,.07),rgba(0,174,239,.05));border:1px solid rgba(200,134,10,.2);border-radius:var(--r);padding:1.1rem 1.4rem;margin-top:1.4rem;}
 .hbox p{font-family:'Playfair Display',serif;font-style:italic;font-size:.96rem;color:var(--ink);line-height:1.75;}
-
-/* ── Emergency pills ── */
 .emergency-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.75rem;margin-top:1rem;}
 .emerg-card{display:flex;align-items:center;gap:.65rem;padding:.78rem .9rem;border-radius:28px;background:rgba(217,58,82,.06);border:1px solid rgba(217,58,82,.15);transition:transform .18s;}
 .emerg-card:hover{transform:scale(1.03);}
 .emerg-icon{font-size:1.15rem;flex-shrink:0;}
 .emerg-num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;color:var(--rose);line-height:1;}
 .emerg-label{font-size:.63rem;color:var(--muted);margin-top:.05rem;}
-
-/* ── Video ── */
 .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem;margin-top:1rem;}
 .video-ph{position:relative;border-radius:var(--r);overflow:hidden;cursor:pointer;background:#18140f;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;}
 .video-ph::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,134,10,.12),rgba(0,174,239,.07));}
@@ -392,8 +190,6 @@ header{
 .video-ph:hover .video-play{transform:scale(1.1);background:var(--gold);}
 .video-lbl{position:absolute;bottom:.65rem;left:.8rem;right:.8rem;z-index:1;font-family:'Playfair Display',serif;font-style:italic;font-size:.83rem;color:rgba(255,255,255,.78);}
 .video-add{position:absolute;top:.48rem;right:.48rem;z-index:2;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(200,134,10,.16);color:var(--gold-l);padding:.14rem .4rem;border-radius:9px;font-weight:600;}
-
-/* ── Modal ── */
 .modal-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(18,12,6,.7);align-items:center;justify-content:center;padding:.8rem;}
 .modal-overlay.open{display:flex;}
 .modal-box{background:var(--ivory);border-radius:10px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;padding:1.7rem 1.7rem 1.3rem;position:relative;box-shadow:0 20px 80px rgba(0,0,0,.2);animation:mIn .22s ease;}
@@ -409,8 +205,6 @@ header{
 .modal-link-p:hover{background:#a86f08;}
 .modal-link-s{background:var(--gold-pale);color:var(--gold);border:1px solid rgba(200,134,10,.25);}
 .modal-link-s:hover{background:rgba(200,134,10,.15);}
-
-/* ── Lightbox ── */
 .lb-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(18,12,6,.94);align-items:center;justify-content:center;padding:1.5rem;}
 .lb-overlay.open{display:flex;}
 .lb-inner{position:relative;max-width:840px;width:100%;text-align:center;}
@@ -419,148 +213,56 @@ header{
 .lb-close:hover{opacity:1;}
 .lb-btn{position:fixed;top:50%;transform:translateY(-50%);background:rgba(200,134,10,.16);border:1px solid rgba(200,134,10,.3);color:#fff;font-size:1.3rem;padding:.4rem .82rem;cursor:pointer;border-radius:3px;transition:background .2s;}
 .lb-btn:hover{background:rgba(200,134,10,.4);}
-.lb-prev{left:.7rem;} .lb-next{right:.7rem;}
+.lb-prev{left:.7rem;}.lb-next{right:.7rem;}
 .lb-cap{color:rgba(255,255,255,.52);font-family:'Playfair Display',serif;font-style:italic;font-size:.88rem;margin-top:.6rem;}
 .lb-dots{display:flex;justify-content:center;gap:.4rem;margin-top:.55rem;}
 .lb-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:background .2s;}
 .lb-dot.on{background:var(--gold-l);}
-
-
-
-
-/* ── Video hero autoplay ── */
-.villa-video-wrap{
-  width:100%;border-radius:var(--r);overflow:hidden;
-  margin-bottom:1.8rem;position:relative;
-  background:#18140f;aspect-ratio:16/9;
-}
-.villa-video-wrap video{
-  width:100%;height:100%;object-fit:cover;display:block;
-}
-.villa-video-placeholder{
-  width:100%;aspect-ratio:16/9;
-  background:linear-gradient(135deg,rgba(200,134,10,.12),rgba(0,174,239,.07));
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:.8rem;cursor:pointer;
-}
-.villa-video-play{
-  width:64px;height:64px;border-radius:50%;
-  background:rgba(200,134,10,.8);
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;font-size:1.4rem;
-}
-.villa-video-lbl{
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:.9rem;color:var(--muted);
-}
-.villa-video-add{
-  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
-  background:rgba(200,134,10,.12);color:var(--gold);
-  padding:.22rem .6rem;border-radius:9px;font-weight:600;
-}
-
-/* ── Camera cards ── */
+.villa-video-wrap{width:100%;border-radius:var(--r);overflow:hidden;margin-bottom:1.8rem;position:relative;background:#18140f;aspect-ratio:16/9;}
+.villa-video-wrap video{width:100%;height:100%;object-fit:cover;display:block;}
+.villa-video-placeholder{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(200,134,10,.12),rgba(0,174,239,.07));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;cursor:pointer;}
+.villa-video-play{width:64px;height:64px;border-radius:50%;background:rgba(200,134,10,.8);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;}
+.villa-video-lbl{font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:var(--muted);}
+.villa-video-add{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(200,134,10,.12);color:var(--gold);padding:.22rem .6rem;border-radius:9px;font-weight:600;}
 .camera-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem;margin-top:1rem;}
-.camera-card{
-  background:var(--ivory);border:1px solid var(--border);border-radius:10px;
-  overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;
-  position:relative;
-}
+.camera-card{background:var(--ivory);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
 .camera-card:hover{transform:translateY(-4px);box-shadow:var(--sh2);}
-.camera-img{
-  width:100%;height:160px;object-fit:cover;display:block;
-  transition:transform .35s;
-}
+.camera-img{width:100%;height:160px;object-fit:cover;display:block;transition:transform .35s;}
 .camera-card:hover .camera-img{transform:scale(1.04);}
-.camera-img-placeholder{
-  width:100%;height:160px;
-  display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,#fef8f0,#f5ede0);
-  position:relative;overflow:hidden;
-}
-.camera-num{
-  position:absolute;top:.6rem;right:.8rem;
-  font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;
-  color:rgba(200,134,10,.25);line-height:1;
-}
+.camera-img-placeholder{width:100%;height:160px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fef8f0,#f5ede0);position:relative;overflow:hidden;}
+.camera-num{position:absolute;top:.6rem;right:.8rem;font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:rgba(200,134,10,.25);line-height:1;}
 .camera-body{padding:1rem 1.1rem 1.1rem;}
 .camera-tag{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.25rem;}
 .camera-name{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--ink);margin-bottom:.45rem;}
 .camera-desc{font-size:.78rem;color:var(--muted);line-height:1.7;}
 .camera-tap{display:inline-flex;align-items:center;gap:.3rem;margin-top:.6rem;font-size:.62rem;color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;}
 @media(max-width:560px){.camera-grid{grid-template-columns:1fr;}}
-
-/* ── Modal Storia — testo curvo ── */
-.logo-ring{
-  position:relative;display:inline-block;
-  width:min(200px,52vw);height:min(200px,52vw);
-}
-.home-logo{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  height:min(150px,39vw);width:min(150px,39vw);
-}
-.logo-ring-svg{
-  position:absolute;inset:0;width:100%;height:100%;
-  pointer-events:none;
-}
-.ring-text{
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:min(13px,3.3vw);fill:var(--gold);letter-spacing:min(2px,.4vw);
-  animation:ringPulse 2.8s ease-in-out infinite;
-}
-@keyframes ringPulse{
-  0%,100%{opacity:.7;}
-  50%{opacity:1;}
-}
+.logo-ring{position:relative;display:inline-block;width:min(200px,52vw);height:min(200px,52vw);}
+.home-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:min(150px,39vw);width:min(150px,39vw);}
+.logo-ring-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.ring-text{font-family:'Playfair Display',serif;font-style:italic;font-size:min(13px,3.3vw);fill:var(--gold);letter-spacing:min(2px,.4vw);animation:ringPulse 2.8s ease-in-out infinite;}
+@keyframes ringPulse{0%,100%{opacity:.7;}50%{opacity:1;}}
 .logo-ring:hover .ring-text{fill:var(--gold-l);animation:none;opacity:1;}
-/* indicatore tap — pallino animato */
-.logo-ring::after{
-  content:'';
-  position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
-  width:6px;height:6px;border-radius:50%;
-  background:var(--gold);
-  animation:tapDot 2.8s ease-in-out infinite;
-}
-@keyframes tapDot{
-  0%,100%{transform:translateX(-50%) scale(1);opacity:.5;}
-  50%{transform:translateX(-50%) scale(1.4);opacity:1;}
-}
+.logo-ring::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:var(--gold);animation:tapDot 2.8s ease-in-out infinite;}
+@keyframes tapDot{0%,100%{transform:translateX(-50%) scale(1);opacity:.5;}50%{transform:translateX(-50%) scale(1.4);opacity:1;}}
 .logo-ring:hover::after{animation:none;opacity:0;}
 .lang-it .lang-en-text{display:none;}
 .lang-en .lang-it-text{display:none;}
-
-/* ── Lang ── */
 [data-it],[data-en]{display:inline;}
 div[data-it],p[data-it],h1[data-it],h2[data-it],h3[data-it],li[data-it]{display:block;}
 div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:block;}
 .lang-en [data-it]{display:none!important;}
 .lang-it [data-en]{display:none!important;}
-
-/* ── Responsive ── */
 @media(max-width:560px){
   .photo-strip{grid-template-columns:1fr 1fr;grid-template-rows:130px 130px;}
   .p-main{grid-column:1/3;grid-row:1;}
-
-  /* Logo ring mobile */
   .logo-ring{width:36vw;height:36vw;max-width:160px;max-height:160px;}
   .home-logo{width:27vw;height:27vw;max-width:120px;max-height:120px;}
   .ring-text{font-size:clamp(9px,2.5vw,12px) !important;letter-spacing:clamp(.5px,.5vw,1.5px) !important;}
-
-  /* Icone */
-  .icon-grid{
-    grid-template-columns:repeat(3,1fr);
-    width:min(340px,88vw);
-    max-width:min(340px,88vw);
-    gap:.85rem;
-  }
-  .icon-circle{
-    width:clamp(64px,19vw,80px);
-    height:clamp(64px,19vw,80px);
-  }
+  .icon-grid{grid-template-columns:repeat(3,1fr);width:min(340px,88vw);max-width:min(340px,88vw);gap:.85rem;}
+  .icon-circle{width:clamp(64px,19vw,80px);height:clamp(64px,19vw,80px);}
   .icon-circle .ic-label{font-size:clamp(1.25rem,4.8vw,1.55rem);}
   .icon-label{font-size:clamp(.5rem,2vw,.6rem);}
-
-  /* Home */
   #view-home{padding:4rem 1rem 1.5rem;}
   .home-logo-wrap{margin-bottom:1rem;}
   .home-h1{margin-bottom:.15rem;}
@@ -569,8 +271,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   .home-welcome{margin-bottom:1rem;font-size:.78rem;line-height:1.7;}
   .home-cta-row{flex-direction:row!important;flex-wrap:nowrap!important;gap:.45rem!important;margin-bottom:1rem!important;}
   .home-cta-row button{font-size:.66rem!important;padding:.5rem .8rem!important;white-space:nowrap;}
-
-  /* Pagine interne */
   .page-hero{padding:1.2rem 1rem 1rem;}
   .page-body{padding:1.3rem 1rem 2.5rem;}
   .ph-title{font-size:clamp(1.1rem,5vw,1.4rem);}
@@ -586,8 +286,6 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   .modal-body{font-size:.82rem;}
   .hbox p{font-size:.88rem;}
 }
-
-/* ── Print ── */
 @media print{
   header,.modal-overlay,.lb-overlay{display:none!important;}
   .view{display:block!important;padding-top:0;}
@@ -603,42 +301,45 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
       <div style="background:var(--ivory);border-radius:16px;width:100%;max-width:360px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.2);margin-bottom:1rem;">
         <p style="text-align:center;padding:.9rem 1rem .5rem;font-family:'Playfair Display',serif;font-size:1rem;color:var(--ink);font-style:italic"><span data-it>Come vuoi contattarci?</span><span data-en>How would you like to contact us?</span></p>
         <a href="tel:+393514246166" style="display:flex;align-items:center;gap:.8rem;padding:.9rem 1.3rem;text-decoration:none;border-top:1px solid var(--border);transition:background .2s;" onmouseenter="this.style.background='#f5f0e8'" onmouseleave="this.style.background=''">
-          <span style="font-size:1.4rem;">📞</span>
+          <span style="font-size:1.4rem;">&#x1F4DE;</span>
           <div><p style="font-size:.88rem;font-weight:600;color:var(--ink)"><span data-it>Chiamata telefonica</span><span data-en>Phone call</span></p><p style="font-size:.72rem;color:var(--muted)">+39 351 424 6166</p></div>
         </a>
         <a href="https://wa.me/393514246166" target="_blank" style="display:flex;align-items:center;gap:.8rem;padding:.9rem 1.3rem;text-decoration:none;border-top:1px solid var(--border);transition:background .2s;" onmouseenter="this.style.background='#f5f0e8'" onmouseleave="this.style.background=''">
-          <span style="font-size:1.4rem;">💬</span>
+          <span style="font-size:1.4rem;">&#x1F4AC;</span>
           <div><p style="font-size:.88rem;font-weight:600;color:#25D366">WhatsApp</p><p style="font-size:.72rem;color:var(--muted)">+39 351 424 6166</p></div>
         </a>
         <button onclick="toggleHostMenu()" style="width:100%;padding:.85rem;background:none;border:none;border-top:1px solid var(--border);font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer;"><span data-it>Annulla</span><span data-en>Cancel</span></button>
       </div>
     </div>
 
-
 <!-- MODAL STORIA -->
 <div class="modal-overlay" id="storiaModal" onclick="if(event.target===this)closeStoria()">
   <div class="modal-box" style="max-width:560px;">
-    <button class="modal-close" onclick="closeStoria()">✕</button>
-    <p class="modal-tag">Il nostro B&B</p>
+    <button class="modal-close" onclick="closeStoria()">&#x2715;</button>
+    <p class="modal-tag">Il nostro B&amp;B</p>
     <h2 class="modal-title">Chi <span style="font-style:italic;color:var(--gold)">siamo</span></h2>
     <div class="modal-body" style="font-size:.86rem;line-height:1.85;">
-      <p style="margin-bottom:.9rem">Siamo <strong>Alessandro e Fabiana</strong>, insieme da oltre 25 anni e uniti da una passione autentica per l'ospitalità. Accogliere, ascoltare e far sentire ogni ospite a proprio agio è ciò che amiamo di più del nostro lavoro.</p>
-      <p style="margin-bottom:.9rem">Il nome <strong>Miù</strong> racchiude una storia personale a cui siamo molto legati. Tutto nasce oltre 20 anni fa, durante un soggiorno in un Bed and Breakfast. Ricordiamo ancora con affetto una colazione semplice ma curata, preparata con attenzione dalla signora che ci ospitava: sul tavolo c'erano tante cose buone, tra cui una scatola di muesli. Da quel momento abbiamo cominciato a chiamarci <em>"Miusli"</em>, un soprannome affettuoso che negli anni si è evoluto, passando da Miuslem fino a diventare Miù.</p>
-      <p style="margin-bottom:.9rem">Oggi rappresenta il nostro modo di accogliere: fatto di semplicità, cura e attenzione ai dettagli.</p>
-      <p>Gestiamo personalmente il nostro B&B con discrezione e dedizione, cercando di creare un ambiente elegante e rilassante, dove ogni ospite possa sentirsi davvero il benvenuto.<br><br><em>Ci auguriamo che possiate vivere qui un soggiorno piacevole e autentico.</em></p>
-    <div data-en>
-    <p style="margin-bottom:.9rem">We are <strong>Alessandro and Fabiana</strong>, together for over 25 years, united by a genuine passion for hospitality. Welcoming guests, listening to them and making them feel at ease is what we love most about our work.</p>
-    <p style="margin-bottom:.9rem">The name <strong>Miù</strong> holds a personal story we cherish deeply. It all began over 20 years ago during a stay at a Bed and Breakfast. We still fondly remember a simple but lovingly prepared breakfast — on the table among many good things was a box of muesli. From that moment we started calling ourselves <em>"Miusli"</em>, an affectionate nickname that evolved over the years into Miù.</p>
-    <p style="margin-bottom:.9rem">Today it represents our approach to hospitality: simplicity, care and attention to detail.</p>
-    <p>We personally manage our B&B with discretion and dedication, striving to create an elegant and relaxing environment where every guest truly feels welcome.<br><br><em>We hope you enjoy a pleasant and authentic stay with us.</em></p>
+      <div data-it>
+        <p style="margin-bottom:.9rem">Siamo <strong>Alessandro e Fabiana</strong>, insieme da oltre 25 anni e uniti da una passione autentica per l&#x27;ospitalit&#xe0;. Accogliere, ascoltare e far sentire ogni ospite a proprio agio &#xe8; ci&#xf2; che amiamo di pi&#xf9; del nostro lavoro.</p>
+        <p style="margin-bottom:.9rem">Il nome <strong>Mi&#xf9;</strong> racchiude una storia personale a cui siamo molto legati. Tutto nasce oltre 20 anni fa, durante un soggiorno in un Bed and Breakfast. Ricordiamo ancora con affetto una colazione semplice ma curata, preparata con attenzione dalla signora che ci ospitava: sul tavolo c&#x27;erano tante cose buone, tra cui una scatola di muesli. Da quel momento abbiamo cominciato a chiamarci <em>&#x22;Miusli&#x22;</em>, un soprannome affettuoso che negli anni si &#xe8; evoluto, passando da Miuslem fino a diventare Mi&#xf9;.</p>
+        <p style="margin-bottom:.9rem">Oggi rappresenta il nostro modo di accogliere: fatto di semplicit&#xe0;, cura e attenzione ai dettagli.</p>
+        <p>Gestiamo personalmente il nostro B&amp;B con discrezione e dedizione, cercando di creare un ambiente elegante e rilassante, dove ogni ospite possa sentirsi davvero il benvenuto.<br><br><em>Ci auguriamo che possiate vivere qui un soggiorno piacevole e autentico.</em></p>
+      </div>
+      <div data-en>
+        <p style="margin-bottom:.9rem">We are <strong>Alessandro and Fabiana</strong>, together for over 25 years, united by a genuine passion for hospitality. Welcoming guests, listening to them and making them feel at ease is what we love most about our work.</p>
+        <p style="margin-bottom:.9rem">The name <strong>Mi&#xf9;</strong> holds a personal story we cherish deeply. It all began over 20 years ago during a stay at a Bed and Breakfast. We still fondly remember a simple but lovingly prepared breakfast &#x2014; on the table among many good things was a box of muesli. From that moment we started calling ourselves <em>&#x22;Miusli&#x22;</em>, an affectionate nickname that evolved over the years into Mi&#xf9;.</p>
+        <p style="margin-bottom:.9rem">Today it represents our approach to hospitality: simplicity, care and attention to detail.</p>
+        <p>We personally manage our B&amp;B with discretion and dedication, striving to create an elegant and relaxing environment where every guest truly feels welcome.<br><br><em>We hope you enjoy a pleasant and authentic stay with us.</em></p>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- LIGHTBOX -->
 <div class="lb-overlay" id="lightbox">
-  <button class="lb-close" onclick="closeLB()">✕</button>
-  <button class="lb-btn lb-prev" onclick="lbNav(-1)">‹</button>
-  <button class="lb-btn lb-next" onclick="lbNav(1)">›</button>
+  <button class="lb-close" onclick="closeLB()">&#x2715;</button>
+  <button class="lb-btn lb-prev" onclick="lbNav(-1)">&#x2039;</button>
+  <button class="lb-btn lb-next" onclick="lbNav(1)">&#x203a;</button>
   <div class="lb-inner">
     <img id="lb-img" src="" alt="">
     <p class="lb-cap" id="lb-cap"></p>
@@ -646,10 +347,10 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </div>
 </div>
 
-<!-- MODAL -->
+<!-- MODAL PLACE -->
 <div class="modal-overlay" id="placeModal" onclick="if(event.target===this)closeModal()">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close" onclick="closeModal()">&#x2715;</button>
     <p class="modal-tag" id="m-tag"></p>
     <h2 class="modal-title" id="m-title"></h2>
     <div class="modal-body" id="m-body"></div>
@@ -660,7 +361,7 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
 <!-- HEADER -->
 <header>
   <div class="h-brand" onclick="goHome()">
-    <img src="WhatsApp Image 2026-04-10 at 21.15.39.jpeg" alt="B&B Miù" class="h-logo">
+    <img src="WhatsApp Image 2026-04-10 at 21.15.39.jpeg" alt="B&amp;B Mi&#xf9;" class="h-logo">
   </div>
   <button class="h-back" id="h-back" onclick="goHome()">
     <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 2L4 7l5 5"/></svg>
@@ -673,11 +374,11 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </div>
 </header>
 
-<!-- ════════════ HOME ════════════ -->
+<!-- HOME -->
 <div class="view active" id="view-home" style="display:flex">
   <div class="home-logo-wrap">
     <div class="logo-ring" onclick="openStoria()" style="cursor:pointer;">
-      <img src="WhatsApp Image 2026-04-10 at 21.15.39.jpeg" alt="B&B Miù" class="home-logo">
+      <img src="WhatsApp Image 2026-04-10 at 21.15.39.jpeg" alt="B&amp;B Mi&#xf9;" class="home-logo">
       <svg class="logo-ring-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <path id="curve-it" d="M 12,100 a 88,88 0 1,1 176,0"/>
@@ -703,93 +404,56 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </p>
   <div class="home-cta-row" style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.8rem;position:relative;z-index:1;">
     <button onclick="toggleHostMenu()" style="display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;background:var(--gold);color:#fff;border-radius:24px;border:none;font-size:.78rem;font-weight:700;letter-spacing:.05em;cursor:pointer;box-shadow:0 4px 16px rgba(200,134,10,.3);position:relative;">
-      📞 <span data-it>Contatta il tuo Host</span><span data-en>Contact your Host</span>
+      &#x1F4DE; <span data-it>Contatta il tuo Host</span><span data-en>Contact your Host</span>
     </button>
     <button onclick="showPage('primaccesso')" style="display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;background:var(--ivory);color:var(--ink);border:1.5px solid var(--border2);border-radius:24px;font-size:.78rem;font-weight:700;letter-spacing:.05em;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.06);">
-      🗝️ <span data-it>Istruzioni Primo Accesso</span><span data-en>First Access Guide</span>
+      &#x1F5DD;&#xFE0F; <span data-it>Istruzioni Primo Accesso</span><span data-en>First Access Guide</span>
     </button>
   </div>
   <div class="icon-grid">
-
     <button class="icon-btn" onclick="showPage('villa')">
-      <div class="icon-circle ic-villa">
-        <div class="ic-glass"></div>
-        <span class="ic-label">🏠</span>
-      </div>
+      <div class="icon-circle ic-villa"><div class="ic-glass"></div><span class="ic-label">&#x1F3E0;</span></div>
       <span class="icon-label"><span data-it>La Villa</span><span data-en>The Villa</span></span>
     </button>
-
     <button class="icon-btn" onclick="showPage('piscina')">
-      <div class="icon-circle ic-piscina">
-        <div class="ic-glass"></div>
-        <span class="ic-label">🏊🏻‍♂️</span>
-      </div>
+      <div class="icon-circle ic-piscina"><div class="ic-glass"></div><span class="ic-label">&#x1F3CA;&#x1F3FB;&#x200D;&#x2642;&#xFE0F;</span></div>
       <span class="icon-label"><span data-it>Piscina</span><span data-en>Pool</span></span>
     </button>
-
     <button class="icon-btn" onclick="showPage('arrivo')">
-      <div class="icon-circle ic-arrivo">
-        <div class="ic-glass"></div>
-        <span class="ic-label">✈️</span>
-      </div>
+      <div class="icon-circle ic-arrivo"><div class="ic-glass"></div><span class="ic-label">&#x2708;&#xFE0F;</span></div>
       <span class="icon-label"><span data-it>Arrivo</span><span data-en>Arrival</span></span>
     </button>
-
     <button class="icon-btn" onclick="showPage('trasporti')">
-      <div class="icon-circle ic-trasporti">
-        <div class="ic-glass"></div>
-        <span class="ic-label">🚌</span>
-      </div>
+      <div class="icon-circle ic-trasporti"><div class="ic-glass"></div><span class="ic-label">&#x1F68C;</span></div>
       <span class="icon-label"><span data-it>Muoversi</span><span data-en>Transport</span></span>
     </button>
-
     <button class="icon-btn" onclick="showPage('mangiare')">
-      <div class="icon-circle ic-mangiare">
-        <div class="ic-glass"></div>
-        <span class="ic-label">🍴</span>
-      </div>
+      <div class="icon-circle ic-mangiare"><div class="ic-glass"></div><span class="ic-label">&#x1F374;</span></div>
       <span class="icon-label"><span data-it>Mangiare</span><span data-en>Dining</span></span>
     </button>
-
     <button class="icon-btn" onclick="showPage('roma')">
-      <div class="icon-circle ic-roma">
-        <div class="ic-glass"></div>
-        <span class="ic-label">🗺️</span>
-      </div>
+      <div class="icon-circle ic-roma"><div class="ic-glass"></div><span class="ic-label">&#x1F5FA;&#xFE0F;</span></div>
       <span class="icon-label"><span data-it>Esplora</span><span data-en>Explore</span></span>
     </button>
-
     <button class="icon-btn" onclick="showPage('casa')">
-      <div class="icon-circle ic-casa">
-        <div class="ic-glass"></div>
-        <span class="ic-label">🔑</span>
-      </div>
+      <div class="icon-circle ic-casa"><div class="ic-glass"></div><span class="ic-label">&#x1F511;</span></div>
       <span class="icon-label"><span data-it>Info Struttura</span><span data-en>Property</span></span>
     </button>
-
     <button class="icon-btn" onclick="showPage('wifi')">
-      <div class="icon-circle" style="background:linear-gradient(145deg,rgba(0,174,239,.08),rgba(0,174,239,.2));">
-        <div class="ic-glass"></div>
-        <span class="ic-label">📶</span>
-      </div>
+      <div class="icon-circle" style="background:linear-gradient(145deg,rgba(0,174,239,.08),rgba(0,174,239,.2));"><div class="ic-glass"></div><span class="ic-label">&#x1F4F6;</span></div>
       <span class="icon-label">Wi-Fi</span>
     </button>
-
     <button class="icon-btn" onclick="showPage('emergenze')">
-      <div class="icon-circle ic-emergenze">
-        <div class="ic-glass"></div>
-        <span class="ic-label">🆘</span>
-      </div>
+      <div class="icon-circle ic-emergenze"><div class="ic-glass"></div><span class="ic-label">&#x1F198;</span></div>
       <span class="icon-label"><span data-it>Emergenze</span><span data-en>Emergency</span></span>
     </button>
-
   </div>
 </div>
 
-<!-- ════════════ LA VILLA ════════════ -->
+<!-- LA VILLA -->
 <div class="view" id="view-villa">
   <div class="page-hero">
-    <div class="ph-icon">🏡</div>
+    <div class="ph-icon">&#x1F3E1;</div>
     <div>
       <p class="ph-tag"><span data-it>La Struttura</span><span data-en>The Property</span></p>
       <h1 class="ph-title" data-it>La <span class="sc">Villa</span> e le Camere</h1>
@@ -800,108 +464,101 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     <div class="villa-video-wrap">
       <div class="villa-video-placeholder">
         <span class="villa-video-add">+ carica video</span>
-        <div class="villa-video-play">▶</div>
-        <p class="villa-video-lbl"><span data-it>Tour Villa & Piscina</span><span data-en>Villa & Pool Tour</span></p>
+        <div class="villa-video-play">&#x25B6;</div>
+        <p class="villa-video-lbl"><span data-it>Tour Villa &amp; Piscina</span><span data-en>Villa &amp; Pool Tour</span></p>
       </div>
     </div>
-    <p class="page-intro"><span data-it>Il Miù B&B Ciampino è una villa esclusiva dove eleganza e comfort si uniscono per creare un soggiorno raffinato e rilassante. Ambienti ampi, luminosi e curati nei dettagli, con un design moderno ma accogliente. La vera protagonista è l'area esterna: un'oasi privata con piscina, perfetta per momenti di relax in totale tranquillità. Ogni camera è arredata con gusto e cura, con tessuti raffinati e dettagli eleganti. La vicinanza all'aeroporto di Ciampino rende il Miù B&B la scelta ideale sia per chi viaggia per lavoro sia per chi desidera una pausa di relax.</span><span data-en>Miù B&B Ciampino is an exclusive villa where elegance and comfort combine for a refined, relaxing stay. Spacious, bright rooms with modern yet welcoming design. The real star is the outdoor area: a private pool oasis perfect for total relaxation. Each room is tastefully furnished with refined fabrics and elegant details. Close to Ciampino Airport, Miù B&B is ideal for business travellers and those seeking a relaxing break.</span></p>
+    <p class="page-intro"><span data-it>Il Mi&#xf9; B&amp;B Ciampino &#xe8; una villa esclusiva dove eleganza e comfort si uniscono per creare un soggiorno raffinato e rilassante. Ambienti ampi, luminosi e curati nei dettagli, con un design moderno ma accogliente. La vera protagonista &#xe8; l&#x27;area esterna: un&#x27;oasi privata con piscina, perfetta per momenti di relax in totale tranquillit&#xe0;. Ogni camera &#xe8; arredata con gusto e cura, con tessuti raffinati e dettagli eleganti. La vicinanza all&#x27;aeroporto di Ciampino rende il Mi&#xf9; B&amp;B la scelta ideale sia per chi viaggia per lavoro sia per chi desidera una pausa di relax.</span><span data-en>Mi&#xf9; B&amp;B Ciampino is an exclusive villa where elegance and comfort combine for a refined, relaxing stay. Spacious, bright rooms with modern yet welcoming design. The real star is the outdoor area: a private pool oasis perfect for total relaxation. Each room is tastefully furnished with refined fabrics and elegant details. Close to Ciampino Airport, Mi&#xf9; B&amp;B is ideal for business travellers and those seeking a relaxing break.</span></p>
     <div class="info-block">
-      <div class="info-item"><p class="info-lbl">Check-in</p><p class="info-val"><span data-it>dalle 14:00<br><small style="font-size:.76rem;color:var(--muted)">In sala colazioni — porta a vetro in reception</small></span><span data-en>from 2:00 PM<br><small style="font-size:.76rem;color:var(--muted)">Breakfast room — glass door at reception</small></span></p></div>
+      <div class="info-item"><p class="info-lbl">Check-in</p><p class="info-val"><span data-it>dalle 14:00<br><small style="font-size:.76rem;color:var(--muted)">In sala colazioni &#x2014; porta a vetro in reception</small></span><span data-en>from 2:00 PM<br><small style="font-size:.76rem;color:var(--muted)">Breakfast room &#x2014; glass door at reception</small></span></p></div>
       <div class="info-item"><p class="info-lbl">Check-out</p><p class="info-val"><span data-it>entro le 10:00</span><span data-en>by 10:00 AM</span></p></div>
-      <div class="info-item"><p class="info-lbl">Wi-Fi</p><p class="info-val"><strong>Ospitib&bmiu</strong><br><small style="font-size:.76rem;color:var(--muted)">pw: <strong>Miub&bciampino</strong></small></p></div>
-      <div class="info-item"><p class="info-lbl"><span data-it>Parcheggio</span><span data-en>Parking</span></p><p class="info-val"><span data-it>Privato e gratuito<br><small style="font-size:.76rem;color:var(--muted)">In cortile, all'interno della struttura</small></span><span data-en>Private & free<br><small style="font-size:.76rem;color:var(--muted)">In the courtyard, inside the property</small></span></p></div>
+      <div class="info-item"><p class="info-lbl">Wi-Fi</p><p class="info-val"><strong>Ospitib&amp;bmiu</strong><br><small style="font-size:.76rem;color:var(--muted)">pw: <strong>Miub&amp;bciampino</strong></small></p></div>
+      <div class="info-item"><p class="info-lbl"><span data-it>Parcheggio</span><span data-en>Parking</span></p><p class="info-val"><span data-it>Privato e gratuito<br><small style="font-size:.76rem;color:var(--muted)">In cortile, all&#x27;interno della struttura</small></span><span data-en>Private &amp; free<br><small style="font-size:.76rem;color:var(--muted)">In the courtyard, inside the property</small></span></p></div>
       <div class="info-item"><p class="info-lbl">WhatsApp Host</p><p class="info-val"><a href="tel:+393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
     </div>
-    <p class="sub-h" style="margin-top:2rem"><span data-it>🛏️ Le Nostre Camere</span><span data-en>🛏️ Our Rooms</span></p>
-    <p style="font-size:.84rem;color:var(--muted);line-height:1.9;margin-bottom:1.2rem"><span data-it>Al B&B Miù ogni camera prende il nome da un luogo dei Castelli Romani, un omaggio al territorio e alla sua bellezza. Tutte le camere sono dotate di: aria condizionata, Wi-Fi gratuito, Smart TV, macchina da caffè Nespresso, bollitore con kit tisane, frigorifero, phon, set di cortesia e biancheria di qualità.</span><span data-en>At B&B Miù each room is named after a Castelli Romani village — a tribute to the area and its beauty. All rooms include: air conditioning, free Wi-Fi, Smart TV, Nespresso coffee machine, kettle with herbal teas, fridge, hairdryer, toiletries and quality linen.</span></p>
+    <p class="sub-h" style="margin-top:2rem"><span data-it>&#x1F6CF;&#xFE0F; Le Nostre Camere</span><span data-en>&#x1F6CF;&#xFE0F; Our Rooms</span></p>
+    <p style="font-size:.84rem;color:var(--muted);line-height:1.9;margin-bottom:1.2rem"><span data-it>Al B&amp;B Mi&#xf9; ogni camera prende il nome da un luogo dei Castelli Romani, un omaggio al territorio e alla sua bellezza. Tutte le camere sono dotate di: aria condizionata, Wi-Fi gratuito, Smart TV, macchina da caff&#xe8; Nespresso, bollitore con kit tisane, frigorifero, phon, set di cortesia e biancheria di qualit&#xe0;.</span><span data-en>At B&amp;B Mi&#xf9; each room is named after a Castelli Romani village &#x2014; a tribute to the area and its beauty. All rooms include: air conditioning, free Wi-Fi, Smart TV, Nespresso coffee machine, kettle with herbal teas, fridge, hairdryer, toiletries and quality linen.</span></p>
     <div class="camera-grid">
-
       <div class="camera-card" onclick="openCameraLB('marino')">
         <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
-  <img src="Screenshot 2026-04-30 alle 12.57.59.png" alt="Marino" style="width:100%;height:100%;object-fit:cover;display:block;">
-  <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">1</span>
-</div>
+          <img src="Screenshot 2026-04-30 alle 12.57.59.png" alt="Marino" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">1</span>
+        </div>
         <div class="camera-body">
-          <p class="camera-tag"><span data-it>Camera · Vista Piscina</span><span data-en>Room · Pool View</span></p>
+          <p class="camera-tag"><span data-it>Camera &middot; Vista Piscina</span><span data-en>Room &middot; Pool View</span></p>
           <p class="camera-name">Marino</p>
           <p class="camera-desc"><span data-it>Piano terra, ambiente luminoso con vista sulla piscina. Bagno privato. Ideale per chi vuole accesso diretto agli spazi esterni.</span><span data-en>Ground floor, bright room with pool view. Private bathroom. Ideal for easy access to outdoor spaces.</span></p>
-          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+          <span class="camera-tap"><span data-it>&#x1F4F7; Vedi foto</span><span data-en>&#x1F4F7; See photos</span></span>
         </div>
       </div>
-
       <div class="camera-card" onclick="openCameraLB('castelgandolfo')">
         <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
           <img src="Screenshot 2026-04-30 alle 12.57.21.png" alt="Castel Gandolfo" style="width:100%;height:100%;object-fit:cover;display:block;">
           <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">2</span>
         </div>
         <div class="camera-body">
-          <p class="camera-tag"><span data-it>Camera · Comfort & Relax</span><span data-en>Room · Comfort & Relax</span></p>
+          <p class="camera-tag"><span data-it>Camera &middot; Comfort &amp; Relax</span><span data-en>Room &middot; Comfort &amp; Relax</span></p>
           <p class="camera-name">Castel Gandolfo</p>
           <p class="camera-desc"><span data-it>Fino a 4 persone, vista piscina, vasca idromassaggio. Perfetta per famiglie o piccoli gruppi. Bagno privato.</span><span data-en>Up to 4 guests, pool view, jacuzzi. Perfect for families or small groups. Private bathroom.</span></p>
-          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+          <span class="camera-tap"><span data-it>&#x1F4F7; Vedi foto</span><span data-en>&#x1F4F7; See photos</span></span>
         </div>
       </div>
-
       <div class="camera-card" onclick="openCameraLB('nemi')">
         <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
           <img src="Screenshot 2026-04-30 alle 12.56.23.png" alt="Nemi" style="width:100%;height:100%;object-fit:cover;display:block;">
           <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">3</span>
         </div>
         <div class="camera-body">
-          <p class="camera-tag"><span data-it>Camera · Intima & Accogliente</span><span data-en>Room · Intimate & Cosy</span></p>
+          <p class="camera-tag"><span data-it>Camera &middot; Intima &amp; Accogliente</span><span data-en>Room &middot; Intimate &amp; Cosy</span></p>
           <p class="camera-name">Nemi</p>
           <p class="camera-desc"><span data-it>Matrimoniale con letto alla francese, balcone privato. Ideale per ambienti intimi e curati. Bagno privato.</span><span data-en>Double with French bed, private balcony. Perfect for intimate stays. Private bathroom.</span></p>
-          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+          <span class="camera-tap"><span data-it>&#x1F4F7; Vedi foto</span><span data-en>&#x1F4F7; See photos</span></span>
         </div>
       </div>
-
       <div class="camera-card" onclick="openCameraLB('genzano')">
         <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
-  <img src="Screenshot 2026-04-30 alle 12.55.38.png" alt="Genzano" style="width:100%;height:100%;object-fit:cover;display:block;">
-  <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">4</span>
-</div>
+          <img src="Screenshot 2026-04-30 alle 12.55.38.png" alt="Genzano" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">4</span>
+        </div>
         <div class="camera-body">
-          <p class="camera-tag"><span data-it>Camera · Spazio & Libertà</span><span data-en>Room · Space & Freedom</span></p>
+          <p class="camera-tag"><span data-it>Camera &middot; Spazio &amp; Libert&#xe0;</span><span data-en>Room &middot; Space &amp; Freedom</span></p>
           <p class="camera-name">Genzano</p>
           <p class="camera-desc"><span data-it>Fino a 4 persone, terrazzo privato con amaca matrimoniale. Ampia e versatile. Bagno privato.</span><span data-en>Up to 4 guests, private terrace with hammock. Spacious and versatile. Private bathroom.</span></p>
-          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+          <span class="camera-tap"><span data-it>&#x1F4F7; Vedi foto</span><span data-en>&#x1F4F7; See photos</span></span>
         </div>
       </div>
-
       <div class="camera-card" onclick="openCameraLB('ariccia')">
         <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
-  <img src="Screenshot 2026-04-30 alle 12.36.57.png" alt="Ariccia" style="width:100%;height:100%;object-fit:cover;display:block;">
-  <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">5</span>
-</div>
+          <img src="Screenshot 2026-04-30 alle 12.36.57.png" alt="Ariccia" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">5</span>
+        </div>
         <div class="camera-body">
-          <p class="camera-tag"><span data-it>Camera · Essenziale & Smart</span><span data-en>Room · Practical & Smart</span></p>
+          <p class="camera-tag"><span data-it>Camera &middot; Essenziale &amp; Smart</span><span data-en>Room &middot; Practical &amp; Smart</span></p>
           <p class="camera-name">Ariccia</p>
           <p class="camera-desc"><span data-it>Due letti singoli, terrazzo privato, bagno condiviso. Soluzione pratica per amici o viaggiatori.</span><span data-en>Two single beds, private terrace, shared bathroom. Practical for friends or travellers.</span></p>
-          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+          <span class="camera-tap"><span data-it>&#x1F4F7; Vedi foto</span><span data-en>&#x1F4F7; See photos</span></span>
         </div>
       </div>
-
       <div class="camera-card" onclick="openCameraLB('frascati')">
         <div class="camera-img-placeholder" style="padding:0;overflow:hidden;">
-  <img src="Screenshot 2026-04-30 alle 12.30.51.png" alt="Frascati" style="width:100%;height:100%;object-fit:cover;display:block;">
-  <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">6</span>
-</div>
+          <img src="Screenshot 2026-04-30 alle 12.30.51.png" alt="Frascati" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <span class="camera-num" style="color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.5);">6</span>
+        </div>
         <div class="camera-body">
-          <p class="camera-tag"><span data-it>Camera · Relax con Terrazzo</span><span data-en>Room · Relax with Terrace</span></p>
+          <p class="camera-tag"><span data-it>Camera &middot; Relax con Terrazzo</span><span data-en>Room &middot; Relax with Terrace</span></p>
           <p class="camera-name">Frascati</p>
-          <p class="camera-desc"><span data-it>Accogliente e luminosa con terrazzo privato. Ideale per iniziare o concludere la giornata in tranquillità. Bagno condiviso.</span><span data-en>Welcoming and bright with private terrace. Perfect for a calm start or end to the day. Shared bathroom.</span></p>
-          <span class="camera-tap"><span data-it>📷 Vedi foto</span><span data-en>📷 See photos</span></span>
+          <p class="camera-desc"><span data-it>Accogliente e luminosa con terrazzo privato. Ideale per iniziare o concludere la giornata in tranquillit&#xe0;. Bagno condiviso.</span><span data-en>Welcoming and bright with private terrace. Perfect for a calm start or end to the day. Shared bathroom.</span></p>
+          <span class="camera-tap"><span data-it>&#x1F4F7; Vedi foto</span><span data-en>&#x1F4F7; See photos</span></span>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- ════════════ PISCINA ════════════ -->
+<!-- PISCINA -->
 <div class="view" id="view-piscina">
   <div class="page-hero">
-    <div class="ph-icon">🏊</div>
+    <div class="ph-icon">&#x1F3CA;</div>
     <div>
       <p class="ph-tag">Relax</p>
       <h1 class="ph-title" data-it>Uso della <span class="sc">Piscina</span></h1>
@@ -910,30 +567,30 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </div>
   <div class="page-body">
     <div class="photo-hero" onclick="openLB(0,this)">
-      <img src="WhatsApp Image 2026-04-10 at 21.15.41.jpeg" alt="Piscina B&B Miù">
-      <div class="photo-hero-overlay"><span>B&B Miù — <span data-it>Piscina privata</span><span data-en>Private pool</span></span></div>
+      <img src="WhatsApp Image 2026-04-10 at 21.15.41.jpeg" alt="Piscina B&amp;B Mi&#xf9;">
+      <div class="photo-hero-overlay"><span>B&amp;B Mi&#xf9; &#x2014; <span data-it>Piscina privata</span><span data-en>Private pool</span></span></div>
     </div>
-    <p class="page-intro"><span data-it>La piscina è riservata esclusivamente agli ospiti del B&B. L'utilizzo è sotto la totale responsabilità degli ospiti — la struttura non dispone di bagnino. Lettini e ombrelloni a disposizione.</span><span data-en>The pool is exclusively for B&B guests. Use is entirely at guests' own responsibility — no lifeguard on duty. Sun loungers and parasols available.</span></p>
+    <p class="page-intro"><span data-it>La piscina &#xe8; riservata esclusivamente agli ospiti del B&amp;B. L&#x27;utilizzo &#xe8; sotto la totale responsabilit&#xe0; degli ospiti &#x2014; la struttura non dispone di bagnino. Lettini e ombrelloni a disposizione.</span><span data-en>The pool is exclusively for B&amp;B guests. Use is entirely at guests&#x27; own responsibility &#x2014; no lifeguard on duty. Sun loungers and parasols available.</span></p>
     <div class="rules-grid">
-      <div class="rule-item"><span class="rule-emoji">🕐</span><p class="rule-text"><strong>8:30 – 21:00</strong></p></div>
-      <div class="rule-item"><span class="rule-emoji">📏</span><p class="rule-text"><span data-it>Profondità: <strong>1,45 m</strong>. Nessun bagnino presente.</span><span data-en>Depth: <strong>1.45 m</strong>. No lifeguard on duty.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">👶</span><p class="rule-text"><span data-it>I bambini devono essere sempre accompagnati e sorvegliati da un adulto responsabile.</span><span data-en>Children must always be accompanied and supervised by a responsible adult.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🚿</span><p class="rule-text"><span data-it>È obbligatorio fare la doccia prima di entrare in acqua.</span><span data-en>Shower required before entering the pool.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🏃</span><p class="rule-text"><span data-it>È vietato correre, spingere o tuffarsi in modo pericoloso.</span><span data-en>Running, pushing or dangerous diving is prohibited.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🍷</span><p class="rule-text"><span data-it>Vietato l'uso della piscina in stato di ebbrezza o dopo assunzione di sostanze.</span><span data-en>Pool use is prohibited under the influence of alcohol or substances.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🚫</span><p class="rule-text"><span data-it>Vietato introdurre vetro, cibo o oggetti pericolosi in piscina.</span><span data-en>Glass, food or dangerous objects are not permitted in the pool.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🔇</span><p class="rule-text"><span data-it>Si prega di rispettare il silenzio e gli altri ospiti.</span><span data-en>Please respect the quiet and other guests.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🚽</span><p class="rule-text"><span data-it>Utilizzare i servizi igienici a disposizione.</span><span data-en>Please use the available toilet facilities.</span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🛋️</span><p class="rule-text"><span data-it>Riportare lettini e attrezzatura al proprio posto dopo l'uso.</span><span data-en>Return sun loungers and equipment after use.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">&#x1F550;</span><p class="rule-text"><strong>8:30 &#x2013; 21:00</strong></p></div>
+      <div class="rule-item"><span class="rule-emoji">&#x1F4CF;</span><p class="rule-text"><span data-it>Profondit&#xe0;: <strong>1,45 m</strong>. Nessun bagnino presente.</span><span data-en>Depth: <strong>1.45 m</strong>. No lifeguard on duty.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">&#x1F476;</span><p class="rule-text"><span data-it>I bambini devono essere sempre accompagnati e sorvegliati da un adulto responsabile.</span><span data-en>Children must always be accompanied and supervised by a responsible adult.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">&#x1F6BF;</span><p class="rule-text"><span data-it>&#xc8; obbligatorio fare la doccia prima di entrare in acqua.</span><span data-en>Shower required before entering the pool.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">&#x1F3C3;</span><p class="rule-text"><span data-it>&#xc8; vietato correre, spingere o tuffarsi in modo pericoloso.</span><span data-en>Running, pushing or dangerous diving is prohibited.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">&#x1F377;</span><p class="rule-text"><span data-it>Vietato l&#x27;uso della piscina in stato di ebbrezza o dopo assunzione di sostanze.</span><span data-en>Pool use is prohibited under the influence of alcohol or substances.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">&#x1F6AB;</span><p class="rule-text"><span data-it>Vietato introdurre vetro, cibo o oggetti pericolosi in piscina.</span><span data-en>Glass, food or dangerous objects are not permitted in the pool.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">&#x1F507;</span><p class="rule-text"><span data-it>Si prega di rispettare il silenzio e gli altri ospiti.</span><span data-en>Please respect the quiet and other guests.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">&#x1F6BD;</span><p class="rule-text"><span data-it>Utilizzare i servizi igienici a disposizione.</span><span data-en>Please use the available toilet facilities.</span></p></div>
+      <div class="rule-item"><span class="rule-emoji">&#x1F6CB;&#xFE0F;</span><p class="rule-text"><span data-it>Riportare lettini e attrezzatura al proprio posto dopo l&#x27;uso.</span><span data-en>Return sun loungers and equipment after use.</span></p></div>
     </div>
-    <div class="hbox"><p>⚠️ <span data-it>La proprietà declina ogni responsabilità per incidenti dovuti a uso improprio della piscina. Asciugamani piscina aggiuntivi disponibili su richiesta.</span><span data-en>The property accepts no liability for accidents due to improper pool use. Extra pool towels available on request.</span></p></div>
+    <div class="hbox"><p>&#x26A0;&#xFE0F; <span data-it>La propriet&#xe0; declina ogni responsabilit&#xe0; per incidenti dovuti a uso improprio della piscina. Asciugamani piscina aggiuntivi disponibili su richiesta.</span><span data-en>The property accepts no liability for accidents due to improper pool use. Extra pool towels available on request.</span></p></div>
   </div>
 </div>
 
-<!-- ════════════ ARRIVO ════════════ -->
+<!-- ARRIVO -->
 <div class="view" id="view-arrivo">
   <div class="page-hero">
-    <div class="ph-icon">🗺️</div>
+    <div class="ph-icon">&#x1F5FA;&#xFE0F;</div>
     <div>
       <p class="ph-tag"><span data-it>Indicazioni</span><span data-en>Directions</span></p>
       <h1 class="ph-title" data-it>Come <span class="sc">Arrivare</span></h1>
@@ -941,225 +598,192 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     </div>
   </div>
   <div class="page-body">
-    <p class="page-intro">📍 <strong>Via Romana Vecchia 50M, 00043 Ciampino (RM)</strong> — <a href="https://maps.google.com/?q=Via+Romana+Vecchia+50M+Ciampino+RM" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600"><span data-it>Vedi su Google Maps →</span><span data-en>View on Google Maps →</span></a></p>
+    <p class="page-intro">&#x1F4CD; <strong>Via Romana Vecchia 50M, 00043 Ciampino (RM)</strong> &#x2014; <a href="https://maps.google.com/?q=Via+Romana+Vecchia+50M+Ciampino+RM" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600"><span data-it>Vedi su Google Maps &#x2192;</span><span data-en>View on Google Maps &#x2192;</span></a></p>
     <div class="arrival-grid">
-      <div class="arrival-card"><div class="arr-mode">✈️</div><p class="arr-title"><span data-it>Da Ciampino Aeroporto (CIA)</span><span data-en>From Ciampino Airport (CIA)</span></p><p class="arr-text"><span data-it>In auto o taxi: <strong>~5 minuti</strong><br><br>Trasporto pubblico diretto: <strong>AirLink</strong> per la stazione di Ciampino, a meno di 1 km da noi.<br><a href="https://www.atral-lazio.com/#ciampino" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">Orari AirLink →</a></span><span data-en>By car or taxi: <strong>~5 minutes</strong><br><br>Direct public transport: <strong>AirLink</strong> to Ciampino station, less than 1 km from us.<br><a href="https://www.atral-lazio.com/#ciampino" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">AirLink timetables →</a></span></p><span class="arr-badge">~5 min 🎉</span></div>
-
-      <div class="arrival-card"><div class="arr-mode">✈️</div><p class="arr-title"><span data-it>Da Fiumicino (FCO)</span><span data-en>From Fiumicino (FCO)</span></p><p class="arr-text"><span data-it>Auto ~35 min via GRA/A90<br><br>Treno: Leonardo Express → Termini → treno direzione Albano fino a <strong>Ciampino</strong> o <strong>Acqua Acetosa</strong><br><br>Bus: Autobus <strong>515 / Atac</strong> per Ciampino — biglietto €1.50</span><span data-en>Car ~35 min via GRA/A90<br><br>Train: Leonardo Express → Termini → train towards Albano to <strong>Ciampino</strong> or <strong>Acqua Acetosa</strong><br><br>Bus: <strong>515 / Atac</strong> bus to Ciampino — ticket €1.50</span></p><span class="arr-badge">~50 min</span></div>
-
-      <div class="arrival-card"><div class="arr-mode">🚗</div><p class="arr-title"><span data-it>Da Roma Centro</span><span data-en>From Rome Centre</span></p><p class="arr-text"><span data-it>Via Appia Nuova direzione Ciampino. Parcheggio privato gratuito. Nessuna ZTL.</span><span data-en>Via Appia Nuova towards Ciampino. Free private parking. No ZTL zone.</span></p><span class="arr-badge">~25 min</span></div>
-
-      <div class="arrival-card"><div class="arr-mode">🚆</div><p class="arr-title"><span data-it>Ferrovia da Roma Termini</span><span data-en>Train from Roma Termini</span></p><p class="arr-text"><span data-it>Treno direzione Albano — due opzioni:<br><br>1️⃣ <strong>Acqua Acetosa</strong> (a 300m da noi) — nessuna biglietteria, biglietto dal controllore €1.50<br><br>2️⃣ <strong>Stazione Ciampino</strong> — biglietteria presente, a meno di 1 km, ~15 min a piedi</span><span data-en>Train towards Albano — two options:<br><br>1️⃣ <strong>Acqua Acetosa</strong> (300m from us) — no ticket office, buy from conductor €1.50<br><br>2️⃣ <strong>Ciampino station</strong> — ticket office available, less than 1 km away, ~15 min walk</span></p><span class="arr-badge">~20 min</span></div>
-
-      <div class="arrival-card"><div class="arr-mode">🚕</div><p class="arr-title"><span data-it>Transfer Privato</span><span data-en>Private Transfer</span></p><p class="arr-text"><span data-it>Servizio esclusivo riservato ai nostri ospiti. Contattaci per conoscere la tariffa dedicata e prenotare il tuo trasferimento comodo e veloce da qualsiasi punto vi troviate.</span><span data-en>Exclusive service for our guests. Contact us for your dedicated rate and to book your comfortable, fast transfer from wherever you are.</span></p><span class="arr-badge" style="background:rgba(0,174,239,.1);color:#00AEEF"><span data-it>Su prenotazione</span><span data-en>On request</span></span><br><a href="https://wa.me/393514246166" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.6rem;padding:.45rem .9rem;background:#25D366;color:#fff;border-radius:20px;font-size:.72rem;font-weight:700;text-decoration:none;">💬 <span data-it>Prenota su WhatsApp</span><span data-en>Book on WhatsApp</span></a></div>
+      <div class="arrival-card"><div class="arr-mode">&#x2708;&#xFE0F;</div><p class="arr-title"><span data-it>Da Ciampino Aeroporto (CIA)</span><span data-en>From Ciampino Airport (CIA)</span></p><p class="arr-text"><span data-it>In auto o taxi: <strong>~5 minuti</strong><br><br>Trasporto pubblico diretto: <strong>AirLink</strong> per la stazione di Ciampino, a meno di 1 km da noi.<br><a href="https://www.atral-lazio.com/#ciampino" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">Orari AirLink &#x2192;</a></span><span data-en>By car or taxi: <strong>~5 minutes</strong><br><br>Direct public transport: <strong>AirLink</strong> to Ciampino station, less than 1 km from us.<br><a href="https://www.atral-lazio.com/#ciampino" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">AirLink timetables &#x2192;</a></span></p><span class="arr-badge">~5 min &#x1F389;</span></div>
+      <div class="arrival-card"><div class="arr-mode">&#x2708;&#xFE0F;</div><p class="arr-title"><span data-it>Da Fiumicino (FCO)</span><span data-en>From Fiumicino (FCO)</span></p><p class="arr-text"><span data-it>Auto ~35 min via GRA/A90<br><br>Treno: Leonardo Express &#x2192; Termini &#x2192; treno direzione Albano fino a <strong>Ciampino</strong> o <strong>Acqua Acetosa</strong><br><br>Bus: Autobus <strong>515 / Atac</strong> per Ciampino &#x2014; biglietto &#x20ac;1.50</span><span data-en>Car ~35 min via GRA/A90<br><br>Train: Leonardo Express &#x2192; Termini &#x2192; train towards Albano to <strong>Ciampino</strong> or <strong>Acqua Acetosa</strong><br><br>Bus: <strong>515 / Atac</strong> bus to Ciampino &#x2014; ticket &#x20ac;1.50</span></p><span class="arr-badge">~50 min</span></div>
+      <div class="arrival-card"><div class="arr-mode">&#x1F697;</div><p class="arr-title"><span data-it>Da Roma Centro</span><span data-en>From Rome Centre</span></p><p class="arr-text"><span data-it>Via Appia Nuova direzione Ciampino. Parcheggio privato gratuito. Nessuna ZTL.</span><span data-en>Via Appia Nuova towards Ciampino. Free private parking. No ZTL zone.</span></p><span class="arr-badge">~25 min</span></div>
+      <div class="arrival-card"><div class="arr-mode">&#x1F686;</div><p class="arr-title"><span data-it>Ferrovia da Roma Termini</span><span data-en>Train from Roma Termini</span></p><p class="arr-text"><span data-it>Treno direzione Albano &#x2014; due opzioni:<br><br>1&#xFE0F;&#x20E3; <strong>Acqua Acetosa</strong> (a 300m da noi) &#x2014; nessuna biglietteria, biglietto dal controllore &#x20ac;1.50<br><br>2&#xFE0F;&#x20E3; <strong>Stazione Ciampino</strong> &#x2014; biglietteria presente, a meno di 1 km, ~15 min a piedi</span><span data-en>Train towards Albano &#x2014; two options:<br><br>1&#xFE0F;&#x20E3; <strong>Acqua Acetosa</strong> (300m from us) &#x2014; no ticket office, buy from conductor &#x20ac;1.50<br><br>2&#xFE0F;&#x20E3; <strong>Ciampino station</strong> &#x2014; ticket office available, less than 1 km away, ~15 min walk</span></p><span class="arr-badge">~20 min</span></div>
+      <div class="arrival-card"><div class="arr-mode">&#x1F695;</div><p class="arr-title"><span data-it>Transfer Privato</span><span data-en>Private Transfer</span></p><p class="arr-text"><span data-it>Servizio esclusivo riservato ai nostri ospiti. Contattaci per conoscere la tariffa dedicata e prenotare il tuo trasferimento comodo e veloce da qualsiasi punto vi troviate.</span><span data-en>Exclusive service for our guests. Contact us for your dedicated rate and to book your comfortable, fast transfer from wherever you are.</span></p><span class="arr-badge" style="background:rgba(0,174,239,.1);color:#00AEEF"><span data-it>Su prenotazione</span><span data-en>On request</span></span><br><a href="https://wa.me/393514246166" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.6rem;padding:.45rem .9rem;background:#25D366;color:#fff;border-radius:20px;font-size:.72rem;font-weight:700;text-decoration:none;">&#x1F4AC; <span data-it>Prenota su WhatsApp</span><span data-en>Book on WhatsApp</span></a></div>
     </div>
   </div>
 </div>
 
-<!-- ════════════ TRASPORTI ════════════ -->
+<!-- TRASPORTI -->
 <div class="view" id="view-trasporti">
   <div class="page-hero">
-    <div class="ph-icon">🚌</div>
+    <div class="ph-icon">&#x1F68C;</div>
     <div>
-      <p class="ph-tag"><span data-it>Muoversi & Biglietti</span><span data-en>Transport & Tickets</span></p>
+      <p class="ph-tag"><span data-it>Muoversi &amp; Biglietti</span><span data-en>Transport &amp; Tickets</span></p>
       <h1 class="ph-title" data-it><span class="sc">Trasporti</span>, Biglietti &amp; Bici</h1>
       <h1 class="ph-title" data-en><span class="sc">Transport</span>, Tickets &amp; Bikes</h1>
     </div>
   </div>
   <div class="page-body">
-
-    <p class="sub-h">🚌 <span data-it>Bus, Metro & Treno</span><span data-en>Bus, Metro & Train</span></p>
+    <p class="sub-h">&#x1F68C; <span data-it>Bus, Metro &amp; Treno</span><span data-en>Bus, Metro &amp; Train</span></p>
     <div class="transport-grid">
-      <div class="transport-card"><div class="transport-header"><span class="transport-icon">🚌</span><span class="transport-name">Cotral</span></div><p class="transport-detail"><strong><span data-it>Fermata:</span><span data-en>Stop:</span></strong> <span data-it>200m dalla villa</span><span data-en>200m from villa</span></p><p class="transport-detail"><strong>Roma Anagnina:</strong> ~25 min</p><p class="transport-detail"><strong><span data-it>Frequenza:</span><span data-en>Frequency:</span></strong> <span data-it>ogni 30–60 min</span><span data-en>every 30–60 min</span></p></div>
-      <div class="transport-card"><div class="transport-header"><span class="transport-icon">🚆</span><span class="transport-name"><span data-it>Ferrovia Laziale</span><span data-en>Regional Train</span></span></div><p class="transport-detail"><strong><span data-it>Stazione:</span><span data-en>Station:</span></strong> Ciampino (5 min) · Frascati (15 min)</p><p class="transport-detail"><strong>Roma Termini:</strong> ~20 min</p><p class="transport-detail"><strong><span data-it>Biglietto:</span><span data-en>Ticket:</span></strong> ~€2.20</p></div>
-      <div class="transport-card"><div class="transport-header"><span class="transport-icon">🚇</span><span class="transport-name">Metro Roma</span></div><p class="transport-detail"><strong>Anagnina → Centro:</strong> Metro A ~25 min</p><p class="transport-detail"><strong>Termini → Colosseo:</strong> Metro B, 2 <span data-it>fermate</span><span data-en>stops</span></p></div>
-      <div class="transport-card"><div class="transport-header"><span class="transport-icon">🚕</span><span class="transport-name">Taxi / Uber</span></div><p class="transport-detail"><strong>App:</strong> Uber · itTaxi · FREE NOW</p><p class="transport-detail">Ciampino ~€10 · Roma centro ~€25 · Fiumicino ~€60</p></div>
+      <div class="transport-card"><div class="transport-header"><span class="transport-icon">&#x1F68C;</span><span class="transport-name">Cotral</span></div><p class="transport-detail"><strong><span data-it>Fermata:</span><span data-en>Stop:</span></strong> <span data-it>200m dalla villa</span><span data-en>200m from villa</span></p><p class="transport-detail"><strong>Roma Anagnina:</strong> ~25 min</p><p class="transport-detail"><strong><span data-it>Frequenza:</span><span data-en>Frequency:</span></strong> <span data-it>ogni 30&#x2013;60 min</span><span data-en>every 30&#x2013;60 min</span></p></div>
+      <div class="transport-card"><div class="transport-header"><span class="transport-icon">&#x1F686;</span><span class="transport-name"><span data-it>Ferrovia Laziale</span><span data-en>Regional Train</span></span></div><p class="transport-detail"><strong><span data-it>Stazione:</span><span data-en>Station:</span></strong> Ciampino (5 min) &middot; Frascati (15 min)</p><p class="transport-detail"><strong>Roma Termini:</strong> ~20 min</p><p class="transport-detail"><strong><span data-it>Biglietto:</span><span data-en>Ticket:</span></strong> ~&#x20ac;2.20</p></div>
+      <div class="transport-card"><div class="transport-header"><span class="transport-icon">&#x1F687;</span><span class="transport-name">Metro Roma</span></div><p class="transport-detail"><strong>Anagnina &#x2192; Centro:</strong> Metro A ~25 min</p><p class="transport-detail"><strong>Termini &#x2192; Colosseo:</strong> Metro B, 2 <span data-it>fermate</span><span data-en>stops</span></p></div>
+      <div class="transport-card"><div class="transport-header"><span class="transport-icon">&#x1F695;</span><span class="transport-name">Taxi / Uber</span></div><p class="transport-detail"><strong>App:</strong> Uber &middot; itTaxi &middot; FREE NOW</p><p class="transport-detail">Ciampino ~&#x20ac;10 &middot; Roma centro ~&#x20ac;25 &middot; Fiumicino ~&#x20ac;60</p></div>
     </div>
-
-    <p class="sub-h">🚉 <span data-it>Come raggiungere Roma</span><span data-en>Getting to Rome</span></p>
+    <p class="sub-h">&#x1F689; <span data-it>Come raggiungere Roma</span><span data-en>Getting to Rome</span></p>
     <div class="ticket-steps">
-      <div class="ticket-step"><div class="step-num">1</div><div><p class="step-title"><span data-it>Treno da Acqua Acetosa</span><span data-en>Train from Acqua Acetosa</span></p><p class="step-desc"><span data-it>La stazione è a soli <strong>300 metri</strong> dalla struttura. Treni circa una volta all'ora. Roma Termini in ~15–18 min.<br><strong>⚠️ Nessuna biglietteria</strong> — il biglietto si acquista a bordo direttamente dal controllore.</span><span data-en>The station is just <strong>300 metres</strong> from the property. Trains roughly once an hour. Roma Termini in ~15–18 min.<br><strong>⚠️ No ticket office</strong> — buy your ticket on board from the conductor.</span></p><span class="step-tip"><span data-it>Biglietto: €1.50 a persona — acquistabile a bordo dal controllore</span><span data-en>Ticket: €1.50 per person — buy on board from the conductor</span></span></div></div>
-      <div class="ticket-step"><div class="step-num">2</div><div><p class="step-title"><span data-it>Treno da Ciampino</span><span data-en>Train from Ciampino</span></p><p class="step-desc"><span data-it>Stazione a ~15 min a piedi dalla struttura. Treni ogni ~10 min per Roma Termini. Opzione più veloce.</span><span data-en>Station ~15 min walk from the property. Trains every ~10 min to Roma Termini. Fastest option.</span></p></div></div>
-      <div class="ticket-step"><div class="step-num">3</div><div><p class="step-title"><span data-it>Bus + Metropolitana</span><span data-en>Bus + Metro</span></p><p class="step-desc"><span data-it>Fuori dalla stazione Ciampino: bus linea <strong>515</strong> → metro Anagnina (Linea A) → centro di Roma.</span><span data-en>Outside Ciampino station: bus line <strong>515</strong> → Anagnina metro (Line A) → central Rome.</span></p></div></div>
+      <div class="ticket-step"><div class="step-num">1</div><div><p class="step-title"><span data-it>Treno da Acqua Acetosa</span><span data-en>Train from Acqua Acetosa</span></p><p class="step-desc"><span data-it>La stazione &#xe8; a soli <strong>300 metri</strong> dalla struttura. Treni circa una volta all&#x27;ora. Roma Termini in ~15&#x2013;18 min.<br><strong>&#x26A0;&#xFE0F; Nessuna biglietteria</strong> &#x2014; il biglietto si acquista a bordo direttamente dal controllore.</span><span data-en>The station is just <strong>300 metres</strong> from the property. Trains roughly once an hour. Roma Termini in ~15&#x2013;18 min.<br><strong>&#x26A0;&#xFE0F; No ticket office</strong> &#x2014; buy your ticket on board from the conductor.</span></p><span class="step-tip"><span data-it>Biglietto: &#x20ac;1.50 a persona &#x2014; acquistabile a bordo dal controllore</span><span data-en>Ticket: &#x20ac;1.50 per person &#x2014; buy on board from the conductor</span></span></div></div>
+      <div class="ticket-step"><div class="step-num">2</div><div><p class="step-title"><span data-it>Treno da Ciampino</span><span data-en>Train from Ciampino</span></p><p class="step-desc"><span data-it>Stazione a ~15 min a piedi dalla struttura. Treni ogni ~10 min per Roma Termini. Opzione pi&#xf9; veloce.</span><span data-en>Station ~15 min walk from the property. Trains every ~10 min to Roma Termini. Fastest option.</span></p></div></div>
+      <div class="ticket-step"><div class="step-num">3</div><div><p class="step-title"><span data-it>Bus + Metropolitana</span><span data-en>Bus + Metro</span></p><p class="step-desc"><span data-it>Fuori dalla stazione Ciampino: bus linea <strong>515</strong> &#x2192; metro Anagnina (Linea A) &#x2192; centro di Roma.</span><span data-en>Outside Ciampino station: bus line <strong>515</strong> &#x2192; Anagnina metro (Line A) &#x2192; central Rome.</span></p></div></div>
     </div>
-
-    <p class="sub-h">🎫 <span data-it>Biglietti — Prezzi</span><span data-en>Tickets — Prices</span></p>
+    <p class="sub-h">&#x1F3AB; <span data-it>Biglietti &#x2014; Prezzi</span><span data-en>Tickets &#x2014; Prices</span></p>
     <div class="ticket-steps">
-      <div class="ticket-step"><div class="step-num">€</div><div><p class="step-title"><span data-it>Treno Ciampino</span><span data-en>Ciampino Train</span></p><p class="step-desc"><span data-it>La stazione di Ciampino ha la biglietteria — acquista il biglietto <strong>prima di salire</strong>. <strong>€1.50</strong> a persona per una sola corsa.</span><span data-en>Ciampino station has a ticket office — buy your ticket <strong>before boarding</strong>. <strong>€1.50</strong> per person for a single journey.</span></p><span class="step-tip"><a href="https://www.thetrainline.com/it" target="_blank" style="color:inherit;text-decoration:none"><span data-it>🚆 Orari aggiornati su Trainline →</span><span data-en>🚆 Live timetables on Trainline →</span></a></span></div></div>
-      <div class="ticket-step"><div class="step-num">€</div><div><p class="step-title"><span data-it>Solo Roma (metro + bus + tram)</span><span data-en>Rome only (metro + bus + tram)</span></p><p class="step-desc"><span data-it><strong>24h €8.50</strong> · <strong>48h €15.00</strong> · <strong>72h €22.00</strong><br>Validi solo dentro Roma, NON coprono il treno da/per Ciampino.</span><span data-en><strong>24h €8.50</strong> · <strong>48h €15.00</strong> · <strong>72h €22.00</strong><br>Valid inside Rome only, do NOT cover the train to/from Ciampino.</span></p></div></div>
-      <div class="ticket-step"><div class="step-num">★</div><div><p class="step-title">BIRG 3 Zone <span style="color:var(--gold)">(consigliato)</span></p><p class="step-desc"><span data-it>La soluzione completa: treno da/per Ciampino + tutta la rete Roma (metro, bus, tram). <strong>€9.50</strong> — valido tutto il giorno. Acquistabile in biglietteria a Roma Termini.</span><span data-en>The complete solution: train to/from Ciampino + all Rome transport (metro, bus, tram). <strong>€9.50</strong> — valid all day. Available at Roma Termini ticket office.</span></p><span class="step-tip">⚠️ <span data-it>Multa €54 senza biglietto valido</span><span data-en>€54 fine without valid ticket</span></span></div></div>
+      <div class="ticket-step"><div class="step-num">&#x20ac;</div><div><p class="step-title"><span data-it>Treno Ciampino</span><span data-en>Ciampino Train</span></p><p class="step-desc"><span data-it>La stazione di Ciampino ha la biglietteria &#x2014; acquista il biglietto <strong>prima di salire</strong>. <strong>&#x20ac;1.50</strong> a persona per una sola corsa.</span><span data-en>Ciampino station has a ticket office &#x2014; buy your ticket <strong>before boarding</strong>. <strong>&#x20ac;1.50</strong> per person for a single journey.</span></p><span class="step-tip"><a href="https://www.thetrainline.com/it" target="_blank" style="color:inherit;text-decoration:none"><span data-it>&#x1F686; Orari aggiornati su Trainline &#x2192;</span><span data-en>&#x1F686; Live timetables on Trainline &#x2192;</span></a></span></div></div>
+      <div class="ticket-step"><div class="step-num">&#x20ac;</div><div><p class="step-title"><span data-it>Solo Roma (metro + bus + tram)</span><span data-en>Rome only (metro + bus + tram)</span></p><p class="step-desc"><span data-it><strong>24h &#x20ac;8.50</strong> &middot; <strong>48h &#x20ac;15.00</strong> &middot; <strong>72h &#x20ac;22.00</strong><br>Validi solo dentro Roma, NON coprono il treno da/per Ciampino.</span><span data-en><strong>24h &#x20ac;8.50</strong> &middot; <strong>48h &#x20ac;15.00</strong> &middot; <strong>72h &#x20ac;22.00</strong><br>Valid inside Rome only, do NOT cover the train to/from Ciampino.</span></p></div></div>
+      <div class="ticket-step"><div class="step-num">&#x2605;</div><div><p class="step-title">BIRG 3 Zone <span style="color:var(--gold)">(consigliato)</span></p><p class="step-desc"><span data-it>La soluzione completa: treno da/per Ciampino + tutta la rete Roma (metro, bus, tram). <strong>&#x20ac;9.50</strong> &#x2014; valido tutto il giorno. Acquistabile in biglietteria a Roma Termini.</span><span data-en>The complete solution: train to/from Ciampino + all Rome transport (metro, bus, tram). <strong>&#x20ac;9.50</strong> &#x2014; valid all day. Available at Roma Termini ticket office.</span></p><span class="step-tip">&#x26A0;&#xFE0F; <span data-it>Multa &#x20ac;54 senza biglietto valido</span><span data-en>&#x20ac;54 fine without valid ticket</span></span></div></div>
     </div>
-
-    <p class="sub-h">🚲 Bike Sharing</p>
+    <p class="sub-h">&#x1F6B2; Bike Sharing</p>
     <div class="app-list">
-      <a class="app-item" href="https://ridemovi.com/it" target="_blank"><div class="app-logo">🚲</div><div><p class="app-name">RideMovi</p><p class="app-desc"><span data-it>Bici e monopattini</span><span data-en>Bikes & scooters</span></p></div><span class="app-arrow">↗</span></a>
-      <a class="app-item" href="https://www.li.me/it-it" target="_blank" style="border:2px solid var(--gold);background:#fff;"><div class="app-logo">🛴</div><div><p class="app-name">Lime ⭐</p><p class="app-desc"><span data-it>Disponibile a Ciampino!</span><span data-en>Available in Ciampino!</span></p></div><span class="app-arrow">↗</span></a>
-      <a class="app-item" href="https://ridedott.com/it" target="_blank"><div class="app-logo">🛵</div><div><p class="app-name">Dott</p><p class="app-desc"><span data-it>Senza stazione</span><span data-en>Stationless</span></p></div><span class="app-arrow">↗</span></a>
-      <a class="app-item" href="https://moovitapp.com" target="_blank"><div class="app-logo">🗺️</div><div><p class="app-name">Moovit</p><p class="app-desc"><span data-it>Navigazione pubblica</span><span data-en>Public transport nav</span></p></div><span class="app-arrow">↗</span></a>
-      <a class="app-item" href="https://www.mycicero.it" target="_blank"><div class="app-logo">🎫</div><div><p class="app-name">MyCicero</p><p class="app-desc"><span data-it>Biglietti digitali</span><span data-en>Digital tickets</span></p></div><span class="app-arrow">↗</span></a>
+      <a class="app-item" href="https://ridemovi.com/it" target="_blank"><div class="app-logo">&#x1F6B2;</div><div><p class="app-name">RideMovi</p><p class="app-desc"><span data-it>Bici e monopattini</span><span data-en>Bikes &amp; scooters</span></p></div><span class="app-arrow">&#x2197;</span></a>
+      <a class="app-item" href="https://www.li.me/it-it" target="_blank" style="border:2px solid var(--gold);background:#fff;"><div class="app-logo">&#x1F6F4;</div><div><p class="app-name">Lime &#x2B50;</p><p class="app-desc"><span data-it>Disponibile a Ciampino!</span><span data-en>Available in Ciampino!</span></p></div><span class="app-arrow">&#x2197;</span></a>
+      <a class="app-item" href="https://ridedott.com/it" target="_blank"><div class="app-logo">&#x1F6F5;</div><div><p class="app-name">Dott</p><p class="app-desc"><span data-it>Senza stazione</span><span data-en>Stationless</span></p></div><span class="app-arrow">&#x2197;</span></a>
+      <a class="app-item" href="https://moovitapp.com" target="_blank"><div class="app-logo">&#x1F5FA;&#xFE0F;</div><div><p class="app-name">Moovit</p><p class="app-desc"><span data-it>Navigazione pubblica</span><span data-en>Public transport nav</span></p></div><span class="app-arrow">&#x2197;</span></a>
+      <a class="app-item" href="https://www.mycicero.it" target="_blank"><div class="app-logo">&#x1F3AB;</div><div><p class="app-name">MyCicero</p><p class="app-desc"><span data-it>Biglietti digitali</span><span data-en>Digital tickets</span></p></div><span class="app-arrow">&#x2197;</span></a>
     </div>
   </div>
 </div>
 
-<!-- ════════════ MANGIARE ════════════ -->
+<!-- MANGIARE -->
 <div class="view" id="view-mangiare">
   <div class="page-hero">
-    <div class="ph-icon">🍽️</div>
+    <div class="ph-icon">&#x1F37D;&#xFE0F;</div>
     <div>
-      <p class="ph-tag"><span data-it>Gastronomia</span><span data-en>Food & Dining</span></p>
+      <p class="ph-tag"><span data-it>Gastronomia</span><span data-en>Food &amp; Dining</span></p>
       <h1 class="ph-title" data-it>Dove <span class="sc">Mangiare</span></h1>
       <h1 class="ph-title" data-en>Where to <span class="sc">Eat</span></h1>
     </div>
   </div>
   <div class="page-body">
-    <p class="sub-h">📍 <span data-it>Vicino a noi — Ciampino</span><span data-en>Near us — Ciampino</span></p>
+    <p class="sub-h">&#x1F4CD; <span data-it>Vicino a noi &#x2014; Ciampino</span><span data-en>Near us &#x2014; Ciampino</span></p>
     <div class="card-grid">
-      <div class="card"><span class="card-ico">🍝</span><p class="card-ttl"><span data-it>Cucina Romana Tipica</span><span data-en>Traditional Roman Cuisine</span></p><p class="card-txt"><span data-it>Cucina tipica romana autentica. Ottimi primi piatti artigianali.</span><span data-en>Authentic traditional Roman cuisine. Excellent handmade pasta.</span></p><a class="card-cta" href="https://share.google/XQZKDW3v0aXHjC5VQ" target="_blank">Maps →</a></div>
-      <div class="card"><span class="card-ico">🍕</span><p class="card-ttl"><span data-it>Pizza — Locale 1</span><span data-en>Pizza — Place 1</span></p><p class="card-txt"><span data-it>Pizza eccezionale. Controlla orari di apertura e giorni di chiusura.</span><span data-en>Exceptional pizza. Check opening hours and closing days.</span></p><a class="card-cta" href="https://share.google/i3RYAgfWK461qkrfC" target="_blank">Maps →</a></div>
-      <div class="card"><span class="card-ico">🍕</span><p class="card-ttl"><span data-it>Pizza — Locale 2</span><span data-en>Pizza — Place 2</span></p><p class="card-txt"><span data-it>Ottima pizza. Controlla orari di apertura e giorni di chiusura.</span><span data-en>Great pizza. Check opening hours and closing days.</span></p><a class="card-cta" href="https://share.google/ryXXlTBLl1lt79Q0F" target="_blank">Maps →</a></div>
-      <div class="card"><span class="card-ico">🥩</span><p class="card-ttl"><span data-it>Carne & Primi — Eccezionale</span><span data-en>Meat & Pasta — Exceptional</span></p><p class="card-txt"><span data-it>Carne e primi piatti eccezionali. Da non perdere.</span><span data-en>Exceptional meat and pasta dishes. Not to be missed.</span></p><a class="card-cta" href="https://share.google/M4MJdTZZy3bAdd8xf" target="_blank">Maps →</a></div>
+      <div class="card"><span class="card-ico">&#x1F35D;</span><p class="card-ttl"><span data-it>Cucina Romana Tipica</span><span data-en>Traditional Roman Cuisine</span></p><p class="card-txt"><span data-it>Cucina tipica romana autentica. Ottimi primi piatti artigianali.</span><span data-en>Authentic traditional Roman cuisine. Excellent handmade pasta.</span></p><a class="card-cta" href="https://share.google/XQZKDW3v0aXHjC5VQ" target="_blank">Maps &#x2192;</a></div>
+      <div class="card"><span class="card-ico">&#x1F355;</span><p class="card-ttl"><span data-it>Pizza &#x2014; Locale 1</span><span data-en>Pizza &#x2014; Place 1</span></p><p class="card-txt"><span data-it>Pizza eccezionale. Controlla orari di apertura e giorni di chiusura.</span><span data-en>Exceptional pizza. Check opening hours and closing days.</span></p><a class="card-cta" href="https://share.google/i3RYAgfWK461qkrfC" target="_blank">Maps &#x2192;</a></div>
+      <div class="card"><span class="card-ico">&#x1F355;</span><p class="card-ttl"><span data-it>Pizza &#x2014; Locale 2</span><span data-en>Pizza &#x2014; Place 2</span></p><p class="card-txt"><span data-it>Ottima pizza. Controlla orari di apertura e giorni di chiusura.</span><span data-en>Great pizza. Check opening hours and closing days.</span></p><a class="card-cta" href="https://share.google/ryXXlTBLl1lt79Q0F" target="_blank">Maps &#x2192;</a></div>
+      <div class="card"><span class="card-ico">&#x1F969;</span><p class="card-ttl"><span data-it>Carne &amp; Primi &#x2014; Eccezionale</span><span data-en>Meat &amp; Pasta &#x2014; Exceptional</span></p><p class="card-txt"><span data-it>Carne e primi piatti eccezionali. Da non perdere.</span><span data-en>Exceptional meat and pasta dishes. Not to be missed.</span></p><a class="card-cta" href="https://share.google/M4MJdTZZy3bAdd8xf" target="_blank">Maps &#x2192;</a></div>
     </div>
-
-    <p class="sub-h">🏰 <span data-it>Ristoranti Castelli & Roma</span><span data-en>Castelli & Rome Restaurants</span></p>
+    <p class="sub-h">&#x1F3F0; <span data-it>Ristoranti Castelli &amp; Roma</span><span data-en>Castelli &amp; Rome Restaurants</span></p>
     <div class="card-grid">
-      <div class="card" onclick="openModal('ariccia')"><span class="card-ico">🍖</span><p class="card-ttl"><span data-it>Fraschette di Ariccia</span><span data-en>Fraschette of Ariccia</span></p><p class="card-txt"><span data-it>Porchetta IGP, pane casereccio, vino dei Castelli. Autentico e a buon prezzo.</span><span data-en>IGP porchetta, rustic bread, Castelli wine. Authentic and affordable.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
+      <div class="card" onclick="openModal('ariccia')"><span class="card-ico">&#x1F356;</span><p class="card-ttl"><span data-it>Fraschette di Ariccia</span><span data-en>Fraschette of Ariccia</span></p><p class="card-txt"><span data-it>Porchetta IGP, pane casereccio, vino dei Castelli. Autentico e a buon prezzo.</span><span data-en>IGP porchetta, rustic bread, Castelli wine. Authentic and affordable.</span></p><span class="card-cta"><span data-it>Scopri &#x2192;</span><span data-en>Discover &#x2192;</span></span></div>
     </div>
-
-    <p class="sub-h">🍖 <span data-it>Le Fraschette di Ariccia — consigliate da noi</span><span data-en>Fraschette of Ariccia — our recommendations</span></p>
+    <p class="sub-h">&#x1F356; <span data-it>Le Fraschette di Ariccia &#x2014; consigliate da noi</span><span data-en>Fraschette of Ariccia &#x2014; our recommendations</span></p>
     <div class="rules-grid" style="margin-top:.4rem">
-      <div class="rule-item"><p class="rule-text"><strong>L'Aricciarola</strong><br><span style="font-size:.72rem"><span data-it>Via Borgo S. Rocco — Esperienza classica: salumi, porchetta in bella vista. Un must.</span><span data-en>Via Borgo S. Rocco — Classic: cold cuts, porchetta on display. A must.</span></span><br><a href="https://maps.google.com/?q=L'Aricciarola+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
-      <div class="rule-item"><p class="rule-text"><strong>Dar Vignarolo</strong><br><span style="font-size:.72rem"><span data-it>Str. Nuova — Antipasto misto e fagioli nella pagnotta. Prenotazione consigliata.</span><span data-en>Str. Nuova — Antipasto and beans in toasted bread bowl. Booking recommended.</span></span><br><a href="https://maps.google.com/?q=Dar+Vignarolo+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
-      <div class="rule-item"><p class="rule-text"><strong>La Selvotta</strong><br><span style="font-size:.72rem"><span data-it>Via della Selvotta — All'aperto nel verde. Perfetta apr–ott. Prenotazione consigliata.</span><span data-en>Via della Selvotta — Outdoor. Perfect Apr–Oct. Booking recommended.</span></span><br><a href="https://maps.google.com/?q=La+Selvotta+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
-      <div class="rule-item"><p class="rule-text"><strong>Fraschetta e Che Cazzo</strong><br><span style="font-size:.72rem"><span data-it>Via dell'Ucceliera — Locale ironico e inimitabile.</span><span data-en>Via dell'Ucceliera — Ironic and one-of-a-kind.</span></span><br><a href="https://maps.google.com/?q=Fraschetta+e+Che+Cazzo+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
-      <div class="rule-item"><p class="rule-text"><strong>Dar Burino</strong><br><span style="font-size:.72rem"><span data-it>La più grande di Ariccia (~450 coperti). Porzioni abbondanti.</span><span data-en>Ariccia's largest (~450 covers). Generous portions.</span></span><br><a href="https://maps.google.com/?q=Dar+Burino+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
-      <div class="rule-item"><p class="rule-text"><strong>Dal Brigante Gasperone</strong><br><span style="font-size:.72rem"><span data-it>Via Borgo San Rocco — Ottimo rapporto qualità/prezzo.</span><span data-en>Via Borgo San Rocco — Great value for money.</span></span><br><a href="https://maps.google.com/?q=Dal+Brigante+Gasperone+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
-      <div class="rule-item"><p class="rule-text"><strong>Cioli</strong><br><span style="font-size:.72rem"><span data-it>Bottega per tranci di porchetta da portare via.</span><span data-en>Deli for porchetta slices to take away.</span></span><br><a href="https://maps.google.com/?q=Cioli+Ariccia+porchetta" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Maps →</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>L&#x27;Aricciarola</strong><br><span style="font-size:.72rem"><span data-it>Via Borgo S. Rocco &#x2014; Esperienza classica: salumi, porchetta in bella vista. Un must.</span><span data-en>Via Borgo S. Rocco &#x2014; Classic: cold cuts, porchetta on display. A must.</span></span><br><a href="https://maps.google.com/?q=L'Aricciarola+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">&#x1F4CD; Maps &#x2192;</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Dar Vignarolo</strong><br><span style="font-size:.72rem"><span data-it>Str. Nuova &#x2014; Antipasto misto e fagioli nella pagnotta. Prenotazione consigliata.</span><span data-en>Str. Nuova &#x2014; Antipasto and beans in toasted bread bowl. Booking recommended.</span></span><br><a href="https://maps.google.com/?q=Dar+Vignarolo+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">&#x1F4CD; Maps &#x2192;</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>La Selvotta</strong><br><span style="font-size:.72rem"><span data-it>Via della Selvotta &#x2014; All&#x27;aperto nel verde. Perfetta apr&#x2013;ott. Prenotazione consigliata.</span><span data-en>Via della Selvotta &#x2014; Outdoor. Perfect Apr&#x2013;Oct. Booking recommended.</span></span><br><a href="https://maps.google.com/?q=La+Selvotta+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">&#x1F4CD; Maps &#x2192;</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Fraschetta e Che Cazzo</strong><br><span style="font-size:.72rem"><span data-it>Via dell&#x27;Ucceliera &#x2014; Locale ironico e inimitabile.</span><span data-en>Via dell&#x27;Ucceliera &#x2014; Ironic and one-of-a-kind.</span></span><br><a href="https://maps.google.com/?q=Fraschetta+e+Che+Cazzo+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">&#x1F4CD; Maps &#x2192;</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Dar Burino</strong><br><span style="font-size:.72rem"><span data-it>La pi&#xf9; grande di Ariccia (~450 coperti). Porzioni abbondanti.</span><span data-en>Ariccia&#x27;s largest (~450 covers). Generous portions.</span></span><br><a href="https://maps.google.com/?q=Dar+Burino+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">&#x1F4CD; Maps &#x2192;</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Dal Brigante Gasperone</strong><br><span style="font-size:.72rem"><span data-it>Via Borgo San Rocco &#x2014; Ottimo rapporto qualit&#xe0;/prezzo.</span><span data-en>Via Borgo San Rocco &#x2014; Great value for money.</span></span><br><a href="https://maps.google.com/?q=Dal+Brigante+Gasperone+Ariccia" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">&#x1F4CD; Maps &#x2192;</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Cioli</strong><br><span style="font-size:.72rem"><span data-it>Bottega per tranci di porchetta da portare via.</span><span data-en>Deli for porchetta slices to take away.</span></span><br><a href="https://maps.google.com/?q=Cioli+Ariccia+porchetta" target="_blank" style="font-size:.68rem;color:var(--gold);text-decoration:none;font-weight:600">&#x1F4CD; Maps &#x2192;</a></p></div>
     </div>
-
-    <p class="sub-h">🍷 <span data-it>Ristoranti Castelli & Roma</span><span data-en>Castelli & Rome Restaurants</span></p>
+    <p class="sub-h">&#x1F377; <span data-it>Ristoranti Castelli &amp; Roma</span><span data-en>Castelli &amp; Rome Restaurants</span></p>
     <div class="card-grid">
-      <div class="card" onclick="openModal('frascati_ristoranti')"><span class="card-ico">🍷</span><p class="card-ttl"><span data-it>Ristoranti Frascati</span><span data-en>Frascati Restaurants</span></p><p class="card-txt"><span data-it>Vino DOC e cucina laziale. Cantine storiche da visitare.</span><span data-en>DOC wine and Lazio cuisine. Historic wine cellars to visit.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
-      <div class="card" onclick="openModal('testaccio')"><span class="card-ico">🥩</span><p class="card-ttl"><span data-it>Testaccio, Roma</span><span data-en>Testaccio, Rome</span></p><p class="card-txt"><span data-it>Il quartiere più autentico di Roma per il cibo. Street food e trattorie storiche.</span><span data-en>Rome's most authentic food neighbourhood.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
-      <div class="card" onclick="openModal('gelato')"><span class="card-ico">🍦</span><p class="card-ttl"><span data-it>Gelaterie Artigianali</span><span data-en>Artisan Gelato</span></p><p class="card-txt"><span data-it>Giolitti, Fatamorgana, Gelateria dei Gracchi — le migliori di Roma.</span><span data-en>Giolitti, Fatamorgana, Gelateria dei Gracchi — Rome's best.</span></p><span class="card-cta"><span data-it>Scopri →</span><span data-en>Discover →</span></span></div>
+      <div class="card" onclick="openModal('frascati_ristoranti')"><span class="card-ico">&#x1F377;</span><p class="card-ttl"><span data-it>Ristoranti Frascati</span><span data-en>Frascati Restaurants</span></p><p class="card-txt"><span data-it>Vino DOC e cucina laziale. Cantine storiche da visitare.</span><span data-en>DOC wine and Lazio cuisine. Historic wine cellars to visit.</span></p><span class="card-cta"><span data-it>Scopri &#x2192;</span><span data-en>Discover &#x2192;</span></span></div>
+      <div class="card" onclick="openModal('testaccio')"><span class="card-ico">&#x1F969;</span><p class="card-ttl"><span data-it>Testaccio, Roma</span><span data-en>Testaccio, Rome</span></p><p class="card-txt"><span data-it>Il quartiere pi&#xf9; autentico di Roma per il cibo. Street food e trattorie storiche.</span><span data-en>Rome&#x27;s most authentic food neighbourhood.</span></p><span class="card-cta"><span data-it>Scopri &#x2192;</span><span data-en>Discover &#x2192;</span></span></div>
+      <div class="card" onclick="openModal('gelato')"><span class="card-ico">&#x1F366;</span><p class="card-ttl"><span data-it>Gelaterie Artigianali</span><span data-en>Artisan Gelato</span></p><p class="card-txt"><span data-it>Giolitti, Fatamorgana, Gelateria dei Gracchi &#x2014; le migliori di Roma.</span><span data-en>Giolitti, Fatamorgana, Gelateria dei Gracchi &#x2014; Rome&#x27;s best.</span></p><span class="card-cta"><span data-it>Scopri &#x2192;</span><span data-en>Discover &#x2192;</span></span></div>
     </div>
-
     <div style="margin-top:2rem;border-radius:12px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 8px 32px rgba(200,134,10,.15);">
       <div style="background:linear-gradient(135deg,var(--gold),#e0a000);padding:1rem 1.3rem;display:flex;align-items:center;gap:.7rem;">
-        <span style="font-size:1.6rem;">🛵</span>
+        <span style="font-size:1.6rem;">&#x1F6F5;</span>
         <div>
-          <p style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#fff;font-weight:600"><span data-it>Non vuoi uscire?</span><span data-en>Don't feel like going out?</span></p>
+          <p style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#fff;font-weight:600"><span data-it>Non vuoi uscire?</span><span data-en>Don&#x27;t feel like going out?</span></p>
           <p style="font-size:.72rem;color:rgba(255,255,255,.85)"><span data-it>Ordinalo direttamente a casa!</span><span data-en>Order it straight to your door!</span></p>
         </div>
       </div>
       <div style="background:var(--ivory);padding:1.1rem 1.2rem;">
-        <p style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem">📱 App delivery</p>
+        <p style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem">&#x1F4F1; App delivery</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.6rem;margin-bottom:1.1rem;">
-          <a class="app-item" href="https://glovoapp.com/it" target="_blank" style="border:1.5px solid rgba(200,134,10,.2);"><div class="app-logo">🟡</div><div><p class="app-name">Glovo</p><p class="app-desc"><span data-it>Ristoranti · super</span><span data-en>Restaurants · super</span></p></div><span class="app-arrow">↗</span></a>
-          <a class="app-item" href="https://deliveroo.it" target="_blank" style="border:1.5px solid rgba(200,134,10,.2);"><div class="app-logo">🔵</div><div><p class="app-name">Deliveroo</p><p class="app-desc"><span data-it>Ristoranti selezionati</span><span data-en>Curated restaurants</span></p></div><span class="app-arrow">↗</span></a>
-          <a class="app-item" href="https://www.justeat.it" target="_blank" style="border:1.5px solid rgba(200,134,10,.2);"><div class="app-logo">🔴</div><div><p class="app-name">JustEat</p><p class="app-desc"><span data-it>Pizza · sushi · etnico</span><span data-en>Pizza · sushi · world</span></p></div><span class="app-arrow">↗</span></a>
+          <a class="app-item" href="https://glovoapp.com/it" target="_blank" style="border:1.5px solid rgba(200,134,10,.2);"><div class="app-logo">&#x1F7E1;</div><div><p class="app-name">Glovo</p><p class="app-desc"><span data-it>Ristoranti &middot; super</span><span data-en>Restaurants &middot; super</span></p></div><span class="app-arrow">&#x2197;</span></a>
+          <a class="app-item" href="https://deliveroo.it" target="_blank" style="border:1.5px solid rgba(200,134,10,.2);"><div class="app-logo">&#x1F535;</div><div><p class="app-name">Deliveroo</p><p class="app-desc"><span data-it>Ristoranti selezionati</span><span data-en>Curated restaurants</span></p></div><span class="app-arrow">&#x2197;</span></a>
+          <a class="app-item" href="https://www.justeat.it" target="_blank" style="border:1.5px solid rgba(200,134,10,.2);"><div class="app-logo">&#x1F534;</div><div><p class="app-name">JustEat</p><p class="app-desc"><span data-it>Pizza &middot; sushi &middot; etnico</span><span data-en>Pizza &middot; sushi &middot; world</span></p></div><span class="app-arrow">&#x2197;</span></a>
         </div>
-        <p style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">📞 <span data-it>Chiama direttamente</span><span data-en>Call directly</span></p>
+        <p style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">&#x1F4DE; <span data-it>Chiama direttamente</span><span data-en>Call directly</span></p>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.6rem;">
-          <div class="rule-item"><p class="rule-text"><strong><span data-it>Pizza vicino a noi</span><span data-en>Pizza near us</span></strong><br><a href="https://share.google/i3RYAgfWK461qkrfC" target="_blank" style="font-size:.72rem;color:var(--gold);font-weight:600;text-decoration:none">📍 Vedi su Maps →</a></p></div>
-          <div class="rule-item"><p class="rule-text"><strong>Vivarelli — <span data-it>Bisteccheria/Pizzeria</span><span data-en>Steakhouse/Pizzeria</span></strong><br><span style="font-size:.7rem;color:var(--muted)"><span data-it>Pizza eccezionale a Torvajanica</span><span data-en>Exceptional pizza at Torvajanica</span></span><br><a href="https://share.google/GA4qbvtbMPmvGBKGB" target="_blank" style="font-size:.72rem;color:var(--gold);font-weight:600;text-decoration:none">📍 Maps →</a></p></div>
+          <div class="rule-item"><p class="rule-text"><strong><span data-it>Pizza vicino a noi</span><span data-en>Pizza near us</span></strong><br><a href="https://share.google/i3RYAgfWK461qkrfC" target="_blank" style="font-size:.72rem;color:var(--gold);font-weight:600;text-decoration:none">&#x1F4CD; Vedi su Maps &#x2192;</a></p></div>
+          <div class="rule-item"><p class="rule-text"><strong>Vivarelli &#x2014; <span data-it>Bisteccheria/Pizzeria</span><span data-en>Steakhouse/Pizzeria</span></strong><br><span style="font-size:.7rem;color:var(--muted)"><span data-it>Pizza eccezionale a Torvajanica</span><span data-en>Exceptional pizza at Torvajanica</span></span><br><a href="https://share.google/GA4qbvtbMPmvGBKGB" target="_blank" style="font-size:.72rem;color:var(--gold);font-weight:600;text-decoration:none">&#x1F4CD; Maps &#x2192;</a></p></div>
         </div>
       </div>
     </div>
-
-    <p class="sub-h" style="margin-top:2rem">🛒 <span data-it>Supermercati vicini</span><span data-en>Nearby supermarkets</span></p>
+    <p class="sub-h" style="margin-top:2rem">&#x1F6D2; <span data-it>Supermercati vicini</span><span data-en>Nearby supermarkets</span></p>
     <div class="rules-grid" style="margin-top:.4rem">
-      <div class="rule-item"><p class="rule-text"><strong>Iper Dem</strong> — Via Mura dei Francesi 1, Ciampino<br><span style="font-size:.72rem">☎ 06 7913215 · <span data-it>Lun–Dom 8:00–20:30</span><span data-en>Mon–Sun 8:00–20:30</span><br><span data-it>Esci a sinistra → stazione Acqua Acetosa → sottopassaggio → ~10 min</span><span data-en>Exit left → Acqua Acetosa station → underpass → ~10 min</span></span> <a href="https://maps.app.goo.gl/xvyx7bMjnZs1D4jX9" target="_blank" style="color:var(--gold);font-size:.7rem;font-weight:600;text-decoration:none"> Maps →</a></p></div>
-      <div class="rule-item"><p class="rule-text"><strong>Conad</strong> — Via San Paolo della Croce 1/A, Ciampino<br><span style="font-size:.72rem">☎ 06 87570137 · <span data-it>Tutti i giorni 8:00–22:00</span><span data-en>Every day 8:00–22:00</span><br><span data-it>Esci a destra → pista ciclabile → ~13 min, vicino al Burger King</span><span data-en>Exit right → cycle path → ~13 min, near Burger King</span></span> <a href="https://maps.app.goo.gl/1SDjsEjhEC5Gtx4w5" target="_blank" style="color:var(--gold);font-size:.7rem;font-weight:600;text-decoration:none"> Maps →</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Iper Dem</strong> &#x2014; Via Mura dei Francesi 1, Ciampino<br><span style="font-size:.72rem">&#x260E; 06 7913215 &middot; <span data-it>Lun&#x2013;Dom 8:00&#x2013;20:30</span><span data-en>Mon&#x2013;Sun 8:00&#x2013;20:30</span><br><span data-it>Esci a sinistra &#x2192; stazione Acqua Acetosa &#x2192; sottopassaggio &#x2192; ~10 min</span><span data-en>Exit left &#x2192; Acqua Acetosa station &#x2192; underpass &#x2192; ~10 min</span></span> <a href="https://maps.app.goo.gl/xvyx7bMjnZs1D4jX9" target="_blank" style="color:var(--gold);font-size:.7rem;font-weight:600;text-decoration:none"> Maps &#x2192;</a></p></div>
+      <div class="rule-item"><p class="rule-text"><strong>Conad</strong> &#x2014; Via San Paolo della Croce 1/A, Ciampino<br><span style="font-size:.72rem">&#x260E; 06 87570137 &middot; <span data-it>Tutti i giorni 8:00&#x2013;22:00</span><span data-en>Every day 8:00&#x2013;22:00</span><br><span data-it>Esci a destra &#x2192; pista ciclabile &#x2192; ~13 min, vicino al Burger King</span><span data-en>Exit right &#x2192; cycle path &#x2192; ~13 min, near Burger King</span></span> <a href="https://maps.app.goo.gl/1SDjsEjhEC5Gtx4w5" target="_blank" style="color:var(--gold);font-size:.7rem;font-weight:600;text-decoration:none"> Maps &#x2192;</a></p></div>
     </div>
   </div>
 </div>
 
-<!-- ════════════ ROMA ════════════ -->
+<!-- ROMA -->
 <div class="view" id="view-roma">
   <div class="page-hero">
-    <div class="ph-icon">🗺️</div>
+    <div class="ph-icon">&#x1F5FA;&#xFE0F;</div>
     <div>
-      <p class="ph-tag"><span data-it>Roma & Castelli Romani</span><span data-en>Rome & Castelli Romani</span></p>
-      <h1 class="ph-title" data-it><span class="sc">Esplora</span> — Roma & Castelli</h1>
-      <h1 class="ph-title" data-en><span class="sc">Explore</span> — Rome & Castelli</h1>
+      <p class="ph-tag"><span data-it>Roma &amp; Castelli Romani</span><span data-en>Rome &amp; Castelli Romani</span></p>
+      <h1 class="ph-title" data-it><span class="sc">Esplora</span> &#x2014; Roma &amp; Castelli</h1>
+      <h1 class="ph-title" data-en><span class="sc">Explore</span> &#x2014; Rome &amp; Castelli</h1>
     </div>
   </div>
   <div class="page-body">
-    <p class="page-intro"><span data-it>Roma è a 25–40 minuti da noi. Ecco come viverla al meglio.</span><span data-en>Rome is 25–40 minutes away. Here's how to make the most of it.</span></p>
+    <p class="page-intro"><span data-it>Roma &#xe8; a 25&#x2013;40 minuti da noi. Ecco come viverla al meglio.</span><span data-en>Rome is 25&#x2013;40 minutes away. Here&#x27;s how to make the most of it.</span></p>
     <div class="itab-row">
       <button class="itab on" onclick="showItab('d1',this)">1 <span data-it>Giorno</span><span data-en>Day</span></button>
       <button class="itab" onclick="showItab('d2',this)">2 <span data-it>Giorni</span><span data-en>Days</span></button>
       <button class="itab" onclick="showItab('d3',this)">3 <span data-it>Giorni</span><span data-en>Days</span></button>
-      <button class="itab" onclick="showItab('dcastelli',this)">🏰 <span data-it>Castelli</span><span data-en>Castelli</span></button>
+      <button class="itab" onclick="showItab('dcastelli',this)">&#x1F3F0; <span data-it>Castelli</span><span data-en>Castelli</span></button>
     </div>
     <div id="d1" class="itab-pane on"><div class="timeline">
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">9:00</p><p class="tl-title" onclick="openModal('colosseo')"><span data-it>Colosseo & Foro Romano</span><span data-en>Colosseum & Roman Forum</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Prenotare su coopculture.it. Arriva all'apertura per evitare le file. ~2.5h.</span><span data-en>Book at coopculture.it. Arrive at opening to avoid queues. ~2.5h.</span></p></div>
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">12:30</p><p class="tl-title" onclick="openModal('testaccio')"><span data-it>Pranzo a Testaccio</span><span data-en>Lunch in Testaccio</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Il quartiere più autentico di Roma. Supplì, cacio e pepe, coda alla vaccinara.</span><span data-en>Rome's most authentic neighbourhood. Supplì, cacio e pepe, oxtail stew.</span></p></div>
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">14:30</p><p class="tl-title"><span data-it>Fontana di Trevi & Pantheon</span><span data-en>Trevi Fountain & Pantheon</span></p><p class="tl-desc"><span data-it>Fontana di Trevi €3 · Pantheon €5 (prenotazione consigliata). Gelato da Giolitti vicino al Pantheon.</span><span data-en>Trevi Fountain €3 · Pantheon €5 (booking recommended). Gelato at Giolitti near the Pantheon.</span></p></div>
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">17:30</p><p class="tl-title"><span data-it>Piazza Navona & aperitivo</span><span data-en>Piazza Navona & aperitivo</span></p><p class="tl-desc"><span data-it>La piazza barocca più bella di Roma. Aperitivo nei bar storici intorno alla piazza.</span><span data-en>Rome's most beautiful baroque square. Aperitivo at the historic bars around the square.</span></p></div>
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">20:00</p><p class="tl-title" onclick="openModal('trastevere')"><span data-it>Cena a Trastevere</span><span data-en>Dinner in Trastevere</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Il quartiere più romantico di Roma per una cena. Vicoli illuminati, trattorie storiche.</span><span data-en>Rome's most romantic neighbourhood for dinner. Lit alleyways and historic trattorias.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">9:00</p><p class="tl-title" onclick="openModal('colosseo')"><span data-it>Colosseo &amp; Foro Romano</span><span data-en>Colosseum &amp; Roman Forum</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Prenotare su coopculture.it. Arriva all&#x27;apertura per evitare le file. ~2.5h.</span><span data-en>Book at coopculture.it. Arrive at opening to avoid queues. ~2.5h.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">12:30</p><p class="tl-title" onclick="openModal('testaccio')"><span data-it>Pranzo a Testaccio</span><span data-en>Lunch in Testaccio</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Il quartiere pi&#xf9; autentico di Roma. Suppl&#xec;, cacio e pepe, coda alla vaccinara.</span><span data-en>Rome&#x27;s most authentic neighbourhood. Suppl&#xec;, cacio e pepe, oxtail stew.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">14:30</p><p class="tl-title"><span data-it>Fontana di Trevi &amp; Pantheon</span><span data-en>Trevi Fountain &amp; Pantheon</span></p><p class="tl-desc"><span data-it>Fontana di Trevi &#x20ac;3 &middot; Pantheon &#x20ac;5 (prenotazione consigliata). Gelato da Giolitti vicino al Pantheon.</span><span data-en>Trevi Fountain &#x20ac;3 &middot; Pantheon &#x20ac;5 (booking recommended). Gelato at Giolitti near the Pantheon.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">17:30</p><p class="tl-title"><span data-it>Piazza Navona &amp; aperitivo</span><span data-en>Piazza Navona &amp; aperitivo</span></p><p class="tl-desc"><span data-it>La piazza barocca pi&#xf9; bella di Roma. Aperitivo nei bar storici intorno alla piazza.</span><span data-en>Rome&#x27;s most beautiful baroque square. Aperitivo at the historic bars around the square.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time">20:00</p><p class="tl-title" onclick="openModal('trastevere')"><span data-it>Cena a Trastevere</span><span data-en>Dinner in Trastevere</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Il quartiere pi&#xf9; romantico di Roma per una cena. Vicoli illuminati, trattorie storiche.</span><span data-en>Rome&#x27;s most romantic neighbourhood for dinner. Lit alleyways and historic trattorias.</span></p></div>
     </div></div>
     <div id="d2" class="itab-pane"><div class="timeline">
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 1 — 9:00</span><span data-en>Day 1 — 9:00</span></p><p class="tl-title" onclick="openModal('vaticano')"><span data-it>Musei Vaticani & Cappella Sistina</span><span data-en>Vatican Museums & Sistine Chapel</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Prenotare su museivaticani.va almeno 5 giorni prima. Almeno 3h. Poi visita gratuita a San Pietro e salita alla cupola (€8).</span><span data-en>Book at museivaticani.va at least 5 days ahead. Allow 3h+. Then free entry to St. Peter's and dome climb (€8).</span></p></div>
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 1 — 14:00</span><span data-en>Day 1 — 14:00</span></p><p class="tl-title"><span data-it>Castel Sant'Angelo & Lungotevere</span><span data-en>Castel Sant'Angelo & Tiber Walk</span></p><p class="tl-desc"><span data-it>Il mausoleo di Adriano con vista su Roma. Passeggiata sul Lungotevere fino a Piazza Navona.</span><span data-en>Hadrian's Mausoleum with views over Rome. Walk along the Tiber to Piazza Navona.</span></p></div>
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 1 — 20:00</span><span data-en>Day 1 — 20:00</span></p><p class="tl-title" onclick="openModal('trastevere')"><span data-it>Cena a Trastevere</span><span data-en>Dinner in Trastevere</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Vicoli medievali, trattorie storiche, atmosfera romantica.</span><span data-en>Medieval alleyways, historic trattorias, romantic atmosphere.</span></p></div>
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 2 — 9:00</span><span data-en>Day 2 — 9:00</span></p><p class="tl-title" onclick="openModal('colosseo')"><span data-it>Colosseo, Foro Romano & Palatino</span><span data-en>Colosseum, Roman Forum & Palatine</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Biglietto combinato valido 2 giorni. Vista panoramica su Roma dal colle Palatino.</span><span data-en>Combined ticket valid 2 days. Panoramic view over Rome from Palatine Hill.</span></p></div>
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 2 — 14:00</span><span data-en>Day 2 — 14:00</span></p><p class="tl-title"><span data-it>Fontana di Trevi, Pantheon & Campo de' Fiori</span><span data-en>Trevi Fountain, Pantheon & Campo de' Fiori</span></p><p class="tl-desc"><span data-it>Il cuore barocco di Roma. Finire con aperitivo a Campo de' Fiori al tramonto.</span><span data-en>The baroque heart of Rome. End with aperitivo at Campo de' Fiori at sunset.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 1 &#x2014; 9:00</span><span data-en>Day 1 &#x2014; 9:00</span></p><p class="tl-title" onclick="openModal('vaticano')"><span data-it>Musei Vaticani &amp; Cappella Sistina</span><span data-en>Vatican Museums &amp; Sistine Chapel</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Prenotare su museivaticani.va almeno 5 giorni prima. Almeno 3h. Poi visita gratuita a San Pietro e salita alla cupola (&#x20ac;8).</span><span data-en>Book at museivaticani.va at least 5 days ahead. Allow 3h+. Then free entry to St. Peter&#x27;s and dome climb (&#x20ac;8).</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 1 &#x2014; 14:00</span><span data-en>Day 1 &#x2014; 14:00</span></p><p class="tl-title"><span data-it>Castel Sant&#x27;Angelo &amp; Lungotevere</span><span data-en>Castel Sant&#x27;Angelo &amp; Tiber Walk</span></p><p class="tl-desc"><span data-it>Il mausoleo di Adriano con vista su Roma. Passeggiata sul Lungotevere fino a Piazza Navona.</span><span data-en>Hadrian&#x27;s Mausoleum with views over Rome. Walk along the Tiber to Piazza Navona.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 1 &#x2014; 20:00</span><span data-en>Day 1 &#x2014; 20:00</span></p><p class="tl-title" onclick="openModal('trastevere')"><span data-it>Cena a Trastevere</span><span data-en>Dinner in Trastevere</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Vicoli medievali, trattorie storiche, atmosfera romantica.</span><span data-en>Medieval alleyways, historic trattorias, romantic atmosphere.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 2 &#x2014; 9:00</span><span data-en>Day 2 &#x2014; 9:00</span></p><p class="tl-title" onclick="openModal('colosseo')"><span data-it>Colosseo, Foro Romano &amp; Palatino</span><span data-en>Colosseum, Roman Forum &amp; Palatine</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Biglietto combinato valido 2 giorni. Vista panoramica su Roma dal colle Palatino.</span><span data-en>Combined ticket valid 2 days. Panoramic view over Rome from Palatine Hill.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 2 &#x2014; 14:00</span><span data-en>Day 2 &#x2014; 14:00</span></p><p class="tl-title"><span data-it>Fontana di Trevi, Pantheon &amp; Campo de&#x27; Fiori</span><span data-en>Trevi Fountain, Pantheon &amp; Campo de&#x27; Fiori</span></p><p class="tl-desc"><span data-it>Il cuore barocco di Roma. Finire con aperitivo a Campo de&#x27; Fiori al tramonto.</span><span data-en>The baroque heart of Rome. End with aperitivo at Campo de&#x27; Fiori at sunset.</span></p></div>
     </div></div>
     <div id="d3" class="itab-pane"><div class="timeline">
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 1</span><span data-en>Day 1</span></p><p class="tl-title"><span data-it>Roma Antica</span><span data-en>Ancient Rome</span></p><p class="tl-desc"><span data-it>Colosseo · Foro Romano · Palatino → pranzo a Testaccio → Circo Massimo → Bocca della Verità → cena a Trastevere.</span><span data-en>Colosseum · Roman Forum · Palatine → lunch in Testaccio → Circus Maximus → Bocca della Verità → dinner in Trastevere.</span></p></div>
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 2</span><span data-en>Day 2</span></p><p class="tl-title"><span data-it>Vaticano & Barocco</span><span data-en>Vatican & Baroque</span></p><p class="tl-desc"><span data-it>Musei Vaticani · Cappella Sistina · San Pietro · cupola → pranzo a Prati → Castel Sant'Angelo → Piazza Navona → Campo de' Fiori.</span><span data-en>Vatican Museums · Sistine Chapel · St. Peter's · dome → lunch in Prati → Castel Sant'Angelo → Piazza Navona → Campo de' Fiori.</span></p></div>
-      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 3</span><span data-en>Day 3</span></p><p class="tl-title" onclick="openModal('borghese')"><span data-it>Villa Borghese & Centro Storico</span><span data-en>Villa Borghese & Historic Centre</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Galleria Borghese (prenotare!) · passeggiata nel parco → Fontana di Trevi · Pantheon · gelateria Giolitti → aperitivo a Piazza del Popolo.</span><span data-en>Borghese Gallery (book ahead!) · park walk → Trevi Fountain · Pantheon · Giolitti gelato → aperitivo at Piazza del Popolo.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 1</span><span data-en>Day 1</span></p><p class="tl-title"><span data-it>Roma Antica</span><span data-en>Ancient Rome</span></p><p class="tl-desc"><span data-it>Colosseo &middot; Foro Romano &middot; Palatino &#x2192; pranzo a Testaccio &#x2192; Circo Massimo &#x2192; Bocca della Verit&#xe0; &#x2192; cena a Trastevere.</span><span data-en>Colosseum &middot; Roman Forum &middot; Palatine &#x2192; lunch in Testaccio &#x2192; Circus Maximus &#x2192; Bocca della Verit&#xe0; &#x2192; dinner in Trastevere.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 2</span><span data-en>Day 2</span></p><p class="tl-title"><span data-it>Vaticano &amp; Barocco</span><span data-en>Vatican &amp; Baroque</span></p><p class="tl-desc"><span data-it>Musei Vaticani &middot; Cappella Sistina &middot; San Pietro &middot; cupola &#x2192; pranzo a Prati &#x2192; Castel Sant&#x27;Angelo &#x2192; Piazza Navona &#x2192; Campo de&#x27; Fiori.</span><span data-en>Vatican Museums &middot; Sistine Chapel &middot; St. Peter&#x27;s &middot; dome &#x2192; lunch in Prati &#x2192; Castel Sant&#x27;Angelo &#x2192; Piazza Navona &#x2192; Campo de&#x27; Fiori.</span></p></div>
+      <div class="tl-item"><span class="tl-dot"></span><p class="tl-time"><span data-it>Giorno 3</span><span data-en>Day 3</span></p><p class="tl-title" onclick="openModal('borghese')"><span data-it>Villa Borghese &amp; Centro Storico</span><span data-en>Villa Borghese &amp; Historic Centre</span> <span class="tl-pop">info</span></p><p class="tl-desc"><span data-it>Galleria Borghese (prenotare!) &middot; passeggiata nel parco &#x2192; Fontana di Trevi &middot; Pantheon &middot; gelateria Giolitti &#x2192; aperitivo a Piazza del Popolo.</span><span data-en>Borghese Gallery (book ahead!) &middot; park walk &#x2192; Trevi Fountain &middot; Pantheon &middot; Giolitti gelato &#x2192; aperitivo at Piazza del Popolo.</span></p></div>
     </div></div>
-
     <div id="dcastelli" class="itab-pane">
-    <p class="page-intro"><span data-it>I Castelli Romani sono un insieme di pittoreschi paesi collinari a sud-est di Roma, nella zona dei Colli Albani. Famosi per il vino, le ville papali, le vedute mozzafiato e la cucina tipica — perfetti per una gita fuori porta o un weekend rilassante.</span><span data-en>The Castelli Romani are picturesque hilltop villages south-east of Rome in the Alban Hills. Famous for wine, papal villas, breathtaking views and local cuisine — perfect for a day trip or relaxing weekend.</span></p>
-
-    <p class="sub-h">🍷 Frascati <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— 20 min in auto</span><span data-en>— 20 min by car</span></span></p>
-    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.8rem"><span data-it>Passeggiando tra vicoli e piazze si respira un'atmosfera vivace, con enoteche, trattorie e cantine storiche. Famosa per il vino bianco e le ville rinascimentali.<br><br>
-    <strong>Da vedere:</strong> Villa Aldobrandini, il Duomo di San Pietro, le vie del centro.<br>
-    <strong>Da fare:</strong> Degustazione di Frascati DOC nelle cantine locali — ti consigliamo <em>Santè</em> o <em>Enoteca Molinari</em> nel centro.</span>
-    <span data-en>Strolling through alleys and squares you breathe a lively atmosphere, with wine bars, trattorias and historic cellars. Famous for white wine and Renaissance villas.<br><br>
-    <strong>See:</strong> Villa Aldobrandini, San Pietro Cathedral, town centre streets.<br>
-    <strong>Do:</strong> Frascati DOC wine tasting in local cellars — we recommend <em>Santè</em> or <em>Enoteca Molinari</em> in the centre.</span></p>
-
-    <p class="sub-h">🌊 Castel Gandolfo <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— 20 min in auto</span><span data-en>— 20 min by car</span></span></p>
-    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.8rem"><span data-it>Un gioiello vulcanico dei Castelli Romani. Il Lago Albano, all'interno del cratere di un antico vulcano, è famoso per le acque limpide e la vista spettacolare sulla residenza estiva papale.<br><br>
-    <strong>Cosa fare:</strong> Palazzo Pontificio e Giardini Barberini (tour guidati), centro storico con botteghe artigiane, noleggio canoe/kayak/SUP, balneazione agli stabilimenti come <em>La Perla del Lago</em>.<br>
-    <em>Curiosità: fa parte dell'associazione "I Borghi più belli d'Italia".</em></span>
-    <span data-en>A volcanic gem of the Castelli Romani. Lake Albano, inside an ancient volcanic crater, is famous for clear waters and spectacular views over the papal summer residence.<br><br>
-    <strong>What to do:</strong> Pontifical Palace & Barberini Gardens (guided tours), artisan shops in the historic centre, canoe/kayak/SUP hire, swimming at <em>La Perla del Lago</em>.<br>
-    <em>Fun fact: listed among "The most beautiful villages in Italy".</em></span></p>
-    <a href="https://maps.google.com/?q=Castel+Gandolfo+Roma" target="_blank" style="display:inline-block;margin-bottom:.8rem;font-size:.72rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Castel Gandolfo su Maps →</a>
-
-    <p class="sub-h">🍖 Ariccia <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— 25 min in auto</span><span data-en>— 25 min by car</span></span></p>
-    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.5rem"><span data-it>Capitale della porchetta! Da vedere Piazza di Corte e Palazzo Chigi (progettati dal Bernini). Da fare: pranzo in una tipica fraschetta con porchetta, pane e vino — e ottimi primi piatti romani.</span>
-    <span data-en>Porchetta capital! See the Piazza di Corte and Palazzo Chigi (designed by Bernini). Do: lunch at a typical fraschetta with porchetta, bread and wine — plus excellent Roman pasta dishes.</span></p>
-
-    <p class="sub-h">🏔️ Nemi <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— 30 min in auto</span><span data-en>— 30 min by car</span></span></p>
-    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.5rem"><span data-it>Piccolo borgo medievale affacciato sul suo lago vulcanico, romantico e suggestivo in ogni stagione. Botteghe, terrazze panoramiche con vista sul Lago di Nemi e il Museo delle Navi Romane (reperti delle imbarcazioni di Caligola).</span>
-    <span data-en>A small medieval village overlooking its volcanic lake, romantic and evocative in every season. Artisan shops, panoramic terraces overlooking Lake Nemi, and the Roman Ships Museum (artefacts from Caligula's boats).</span></p>
-    <a href="https://maps.google.com/?q=Nemi+Roma" target="_blank" style="display:inline-block;margin-bottom:.8rem;font-size:.72rem;color:var(--gold);text-decoration:none;font-weight:600">📍 Nemi su Maps →</a>
-
-    <p class="sub-h">⛰️ Rocca di Papa <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— 25 min in auto</span><span data-en>— 25 min by car</span></span></p>
-    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.8rem"><span data-it>Borgo in altura con panorami spettacolari. Santuario della Madonna del Tufo, Monte Cavo. Perfetto per passeggiate e trekking.</span>
-    <span data-en>Hilltop village with spectacular panoramas. Madonna del Tufo Sanctuary, Monte Cavo. Perfect for walks and trekking.</span></p>
-
-    <p class="sub-h">🏖️ <span data-it>Mare — Torvajanica</span><span data-en>Sea — Torvajanica</span> <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>— ~40 min in auto</span><span data-en>— ~40 min by car</span></span></p>
-    <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.5rem"><span data-it>Vi consigliamo Torvajanica: molto carina e pulita. Due lidi che consigliamo in particolare:</span><span data-en>We recommend Torvajanica: very pretty and clean. Two beaches we particularly recommend:</span></p>
-    <div class="rules-grid" style="margin-top:.4rem">
-      <div class="rule-item"><span class="rule-emoji">☀️</span><p class="rule-text"><strong>Sky Garden Luxury Beach</strong><br><span style="font-size:.72rem"><span data-it>Parcheggio privato ~60 posti, sdraio, lettini, bar, ristorante, docce calde, piscina per aperitivi al tramonto.</span><span data-en>Private parking ~60 spots, sun loungers, bar, restaurant, hot showers, pool for sunset aperitivos.</span></span></p></div>
-      <div class="rule-item"><span class="rule-emoji">🌊</span><p class="rule-text"><strong>Marine Village</strong><br><span style="font-size:.72rem"><span data-it>Molto bello anche questo. Sul lungomare ci sono molti altri lidi e spiagge attrezzate più semplici.</span><span data-en>Also very nice. Along the seafront there are many other simpler equipped beaches too.</span></span></p></div>
-    </div>
-    <div class="hbox"><p>🍕 <span data-it>Per mangiare: <strong>Vivarelli</strong> — bisteccheria/pizzeria eccezionale, pizza molto buona!</span><span data-en>For food: <strong>Vivarelli</strong> — exceptional steakhouse/pizzeria, great pizza!</span> <a href="https://share.google/GA4qbvtbMPmvGBKGB" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600"> Maps →</a></p></div>
+      <p class="page-intro"><span data-it>I Castelli Romani sono un insieme di pittoreschi paesi collinari a sud-est di Roma, nella zona dei Colli Albani. Famosi per il vino, le ville papali, le vedute mozzafiato e la cucina tipica &#x2014; perfetti per una gita fuori porta o un weekend rilassante.</span><span data-en>The Castelli Romani are picturesque hilltop villages south-east of Rome in the Alban Hills. Famous for wine, papal villas, breathtaking views and local cuisine &#x2014; perfect for a day trip or relaxing weekend.</span></p>
+      <p class="sub-h">&#x1F377; Frascati <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>&#x2014; 20 min in auto</span><span data-en>&#x2014; 20 min by car</span></span></p>
+      <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.8rem"><span data-it>Passeggiando tra vicoli e piazze si respira un&#x27;atmosfera vivace, con enoteche, trattorie e cantine storiche. Famosa per il vino bianco e le ville rinascimentali.<br><br><strong>Da vedere:</strong> Villa Aldobrandini, il Duomo di San Pietro, le vie del centro.<br><strong>Da fare:</strong> Degustazione di Frascati DOC nelle cantine locali &#x2014; ti consigliamo <em>Sant&#xe8;</em> o <em>Enoteca Molinari</em> nel centro.</span><span data-en>Strolling through alleys and squares you breathe a lively atmosphere, with wine bars, trattorias and historic cellars. Famous for white wine and Renaissance villas.<br><br><strong>See:</strong> Villa Aldobrandini, San Pietro Cathedral, town centre streets.<br><strong>Do:</strong> Frascati DOC wine tasting in local cellars &#x2014; we recommend <em>Sant&#xe8;</em> or <em>Enoteca Molinari</em> in the centre.</span></p>
+      <p class="sub-h">&#x1F30A; Castel Gandolfo <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>&#x2014; 20 min in auto</span><span data-en>&#x2014; 20 min by car</span></span></p>
+      <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.8rem"><span data-it>Un gioiello vulcanico dei Castelli Romani. Il Lago Albano, all&#x27;interno del cratere di un antico vulcano, &#xe8; famoso per le acque limpide e la vista spettacolare sulla residenza estiva papale.<br><br><strong>Cosa fare:</strong> Palazzo Pontificio e Giardini Barberini (tour guidati), centro storico con botteghe artigiane, noleggio canoe/kayak/SUP, balneazione agli stabilimenti come <em>La Perla del Lago</em>.<br><em>Curiosit&#xe0;: fa parte dell&#x27;associazione &#x22;I Borghi pi&#xf9; belli d&#x27;Italia&#x22;.</em></span><span data-en>A volcanic gem of the Castelli Romani. Lake Albano, inside an ancient volcanic crater, is famous for clear waters and spectacular views over the papal summer residence.<br><br><strong>What to do:</strong> Pontifical Palace &amp; Barberini Gardens (guided tours), artisan shops in the historic centre, canoe/kayak/SUP hire, swimming at <em>La Perla del Lago</em>.<br><em>Fun fact: listed among &#x22;The most beautiful villages in Italy&#x22;.</em></span></p>
+      <a href="https://maps.google.com/?q=Castel+Gandolfo+Roma" target="_blank" style="display:inline-block;margin-bottom:.8rem;font-size:.72rem;color:var(--gold);text-decoration:none;font-weight:600">&#x1F4CD; Castel Gandolfo su Maps &#x2192;</a>
+      <p class="sub-h">&#x1F356; Ariccia <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>&#x2014; 25 min in auto</span><span data-en>&#x2014; 25 min by car</span></span></p>
+      <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.5rem"><span data-it>Capitale della porchetta! Da vedere Piazza di Corte e Palazzo Chigi (progettati dal Bernini). Da fare: pranzo in una tipica fraschetta con porchetta, pane e vino &#x2014; e ottimi primi piatti romani.</span><span data-en>Porchetta capital! See the Piazza di Corte and Palazzo Chigi (designed by Bernini). Do: lunch at a typical fraschetta with porchetta, bread and wine &#x2014; plus excellent Roman pasta dishes.</span></p>
+      <p class="sub-h">&#x1F3D4;&#xFE0F; Nemi <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>&#x2014; 30 min in auto</span><span data-en>&#x2014; 30 min by car</span></span></p>
+      <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.5rem"><span data-it>Piccolo borgo medievale affacciato sul suo lago vulcanico, romantico e suggestivo in ogni stagione. Botteghe, terrazze panoramiche con vista sul Lago di Nemi e il Museo delle Navi Romane (reperti delle imbarcazioni di Caligola).</span><span data-en>A small medieval village overlooking its volcanic lake, romantic and evocative in every season. Artisan shops, panoramic terraces overlooking Lake Nemi, and the Roman Ships Museum (artefacts from Caligula&#x27;s boats).</span></p>
+      <a href="https://maps.google.com/?q=Nemi+Roma" target="_blank" style="display:inline-block;margin-bottom:.8rem;font-size:.72rem;color:var(--gold);text-decoration:none;font-weight:600">&#x1F4CD; Nemi su Maps &#x2192;</a>
+      <p class="sub-h">&#x26F0;&#xFE0F; Rocca di Papa <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>&#x2014; 25 min in auto</span><span data-en>&#x2014; 25 min by car</span></span></p>
+      <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.8rem"><span data-it>Borgo in altura con panorami spettacolari. Santuario della Madonna del Tufo, Monte Cavo. Perfetto per passeggiate e trekking.</span><span data-en>Hilltop village with spectacular panoramas. Madonna del Tufo Sanctuary, Monte Cavo. Perfect for walks and trekking.</span></p>
+      <p class="sub-h">&#x1F3D6;&#xFE0F; <span data-it>Mare &#x2014; Torvajanica</span><span data-en>Sea &#x2014; Torvajanica</span> <span style="font-size:.65rem;color:var(--muted);font-weight:400;letter-spacing:.05em"><span data-it>&#x2014; ~40 min in auto</span><span data-en>&#x2014; ~40 min by car</span></span></p>
+      <p style="font-size:.82rem;color:var(--muted);line-height:1.85;margin-bottom:.5rem"><span data-it>Vi consigliamo Torvajanica: molto carina e pulita. Due lidi che consigliamo in particolare:</span><span data-en>We recommend Torvajanica: very pretty and clean. Two beaches we particularly recommend:</span></p>
+      <div class="rules-grid" style="margin-top:.4rem">
+        <div class="rule-item"><span class="rule-emoji">&#x2600;&#xFE0F;</span><p class="rule-text"><strong>Sky Garden Luxury Beach</strong><br><span style="font-size:.72rem"><span data-it>Parcheggio privato ~60 posti, sdraio, lettini, bar, ristorante, docce calde, piscina per aperitivi al tramonto.</span><span data-en>Private parking ~60 spots, sun loungers, bar, restaurant, hot showers, pool for sunset aperitivos.</span></span></p></div>
+        <div class="rule-item"><span class="rule-emoji">&#x1F30A;</span><p class="rule-text"><strong>Marine Village</strong><br><span style="font-size:.72rem"><span data-it>Molto bello anche questo. Sul lungomare ci sono molti altri lidi e spiagge attrezzate pi&#xf9; semplici.</span><span data-en>Also very nice. Along the seafront there are many other simpler equipped beaches too.</span></span></p></div>
+      </div>
+      <div class="hbox"><p>&#x1F355; <span data-it>Per mangiare: <strong>Vivarelli</strong> &#x2014; bisteccheria/pizzeria eccezionale, pizza molto buona!</span><span data-en>For food: <strong>Vivarelli</strong> &#x2014; exceptional steakhouse/pizzeria, great pizza!</span> <a href="https://share.google/GA4qbvtbMPmvGBKGB" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600"> Maps &#x2192;</a></p></div>
     </div>
   </div>
 </div>
 
-<!-- ════════════ INFO CASA ════════════ -->
+<!-- INFO CASA -->
 <div class="view" id="view-casa">
   <div class="page-hero">
-    <div class="ph-icon">🔑</div>
+    <div class="ph-icon">&#x1F511;</div>
     <div>
       <p class="ph-tag"><span data-it>Info Pratiche</span><span data-en>Practical Info</span></p>
       <h1 class="ph-title" data-it>Info <span class="sc">Struttura</span></h1>
@@ -1169,87 +793,47 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   <div class="page-body">
     <div class="appliance-list">
       <div class="appliance-item">
-        <p class="appliance-name">🗝️ <span data-it>Istruzioni Chiavi</span><span data-en>Key Guide</span></p>
+        <p class="appliance-name">&#x1F5DD;&#xFE0F; <span data-it>Istruzioni Chiavi</span><span data-en>Key Guide</span></p>
         <p class="appliance-text">
-          <span data-it>
-            <strong>Card Blu</strong> — Porte principale e camera privata:<br>
-            1. Premere un tastino a caso<br>
-            2. Poggiare la card sul tastierino<br>
-            3. Girare la maniglia<br><br>
-            <strong>Tag Grigio</strong> — Cancello automatico:<br>
-            Poggiare al centro del tastierino posizionato di fianco al cancello per aprire.<br><br>
-            <strong>Chiave Classica</strong> — Cancello pedonale esterno.<br><br>
-            ⚠️ Non perdere chiavi o card/tag. Non lasciare le chiavi inserite nelle serrature.
-          </span>
-          <span data-en>
-            <strong>Blue Card</strong> — Main door and private room:<br>
-            1. Press any button<br>
-            2. Place the card on the keypad<br>
-            3. Turn the handle<br><br>
-            <strong>Grey Tag</strong> — Automatic gate:<br>
-            Place it in the centre of the keypad next to the gate to open it.<br><br>
-            <strong>Classic Key</strong> — Small pedestrian gate.<br><br>
-            ⚠️ Do not lose keys or card/tag. Do not leave keys in the locks.
-          </span>
+          <span data-it><strong>Card Blu</strong> &#x2014; Porte principale e camera privata:<br>1. Premere un tastino a caso<br>2. Poggiare la card sul tastierino<br>3. Girare la maniglia<br><br><strong>Tag Grigio</strong> &#x2014; Cancello automatico:<br>Poggiare al centro del tastierino posizionato di fianco al cancello per aprire.<br><br><strong>Chiave Classica</strong> &#x2014; Cancello pedonale esterno.<br><br>&#x26A0;&#xFE0F; Non perdere chiavi o card/tag. Non lasciare le chiavi inserite nelle serrature.</span>
+          <span data-en><strong>Blue Card</strong> &#x2014; Main door and private room:<br>1. Press any button<br>2. Place the card on the keypad<br>3. Turn the handle<br><br><strong>Grey Tag</strong> &#x2014; Automatic gate:<br>Place it in the centre of the keypad next to the gate to open it.<br><br><strong>Classic Key</strong> &#x2014; Small pedestrian gate.<br><br>&#x26A0;&#xFE0F; Do not lose keys or card/tag. Do not leave keys in the locks.</span>
         </p>
       </div>
       <div class="appliance-item">
-        <p class="appliance-name">❄️ <span data-it>Aria Condizionata</span><span data-en>Air Conditioning</span></p>
-        <p class="appliance-text"><span data-it>Telecomando sul comodino. ❄️ raffredda · ☀️ riscalda. 22–24°C consigliati. Spegnere uscendo.</span><span data-en>Remote on bedside table. ❄️ cools · ☀️ heats. 22–24°C recommended. Switch off when leaving.</span></p>
+        <p class="appliance-name">&#x2744;&#xFE0F; <span data-it>Aria Condizionata</span><span data-en>Air Conditioning</span></p>
+        <p class="appliance-text"><span data-it>Telecomando sul comodino. &#x2744;&#xFE0F; raffredda &middot; &#x2600;&#xFE0F; riscalda. 22&#x2013;24&#xb0;C consigliati. Spegnere uscendo.</span><span data-en>Remote on bedside table. &#x2744;&#xFE0F; cools &middot; &#x2600;&#xFE0F; heats. 22&#x2013;24&#xb0;C recommended. Switch off when leaving.</span></p>
       </div>
       <div class="appliance-item">
-        <p class="appliance-name">📺 TV</p>
+        <p class="appliance-name">&#x1F4FA; TV</p>
         <p class="appliance-text"><span data-it>Smart TV con YouTube, RaiPlay, Netflix (proprio account). HDMI disponibile.</span><span data-en>Smart TV with YouTube, RaiPlay, Netflix (your account). HDMI available.</span></p>
       </div>
       <div class="appliance-item">
-        <p class="appliance-name">🧺 <span data-it>Lavatrice & Asciugatrice</span><span data-en>Washer & Dryer</span></p>
+        <p class="appliance-name">&#x1F9FA; <span data-it>Lavatrice &amp; Asciugatrice</span><span data-en>Washer &amp; Dryer</span></p>
         <p class="appliance-text">
-          <span data-it>Su richiesta. <strong>1 capsula = 1 lavaggio — €2.00</strong>, consegnata dalla reception.<br>
-          <a href="tel:+393514246166" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">Richiedi alla reception →</a></span>
-          <span data-en>On request. <strong>1 capsule = 1 wash — €2.00</strong>, delivered by reception.<br>
-          <a href="tel:+393514246166" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">Request at reception →</a></span>
+          <span data-it>Su richiesta. <strong>1 capsula = 1 lavaggio &#x2014; &#x20ac;2.00</strong>, consegnata dalla reception.<br><a href="tel:+393514246166" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">Richiedi alla reception &#x2192;</a></span>
+          <span data-en>On request. <strong>1 capsule = 1 wash &#x2014; &#x20ac;2.00</strong>, delivered by reception.<br><a href="tel:+393514246166" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none">Request at reception &#x2192;</a></span>
         </p>
       </div>
       <div class="appliance-item">
-        <p class="appliance-name">🔒 <span data-it>Cassaforte</span><span data-en>Safe</span></p>
+        <p class="appliance-name">&#x1F512; <span data-it>Cassaforte</span><span data-en>Safe</span></p>
         <p class="appliance-text">
-          <span data-it>
-            <strong>Programmazione codice:</strong><br>
-            1. Aprire lo sportello e premere il pulsante di ripristino (tastino rosso dietro lo sportello batterie)<br>
-            2. Si sentiranno 2 segnali acustici e la spia si accenderà gialla<br>
-            3. Inserire il codice (3–8 cifre) e confermare con <strong>E</strong> entro 15 secondi<br>
-            4. 2 segnali acustici e la luce gialla si spegnerà<br><br>
-            <strong>Apertura:</strong><br>
-            1. Inserire il codice e premere <strong>E</strong><br>
-            2. Si accende la luce verde<br>
-            3. Ruotare la manopola entro 5 secondi in senso orario — altrimenti si richiude automaticamente
-          </span>
-          <span data-en>
-            <strong>Set code:</strong><br>
-            1. Open door and press reset button (red button behind battery cover)<br>
-            2. Two beeps and yellow light turns on<br>
-            3. Enter code (3–8 digits) and confirm with <strong>E</strong> within 15 seconds<br>
-            4. Two beeps and yellow light turns off<br><br>
-            <strong>Opening:</strong><br>
-            1. Enter code and press <strong>E</strong><br>
-            2. Green light turns on<br>
-            3. Turn handle clockwise within 5 seconds — otherwise it locks automatically
-          </span>
+          <span data-it><strong>Programmazione codice:</strong><br>1. Aprire lo sportello e premere il pulsante di ripristino (tastino rosso dietro lo sportello batterie)<br>2. Si sentiranno 2 segnali acustici e la spia si accender&#xe0; gialla<br>3. Inserire il codice (3&#x2013;8 cifre) e confermare con <strong>E</strong> entro 15 secondi<br>4. 2 segnali acustici e la luce gialla si spegner&#xe0;<br><br><strong>Apertura:</strong><br>1. Inserire il codice e premere <strong>E</strong><br>2. Si accende la luce verde<br>3. Ruotare la manopola entro 5 secondi in senso orario &#x2014; altrimenti si richiude automaticamente</span>
+          <span data-en><strong>Set code:</strong><br>1. Open door and press reset button (red button behind battery cover)<br>2. Two beeps and yellow light turns on<br>3. Enter code (3&#x2013;8 digits) and confirm with <strong>E</strong> within 15 seconds<br>4. Two beeps and yellow light turns off<br><br><strong>Opening:</strong><br>1. Enter code and press <strong>E</strong><br>2. Green light turns on<br>3. Turn handle clockwise within 5 seconds &#x2014; otherwise it locks automatically</span>
         </p>
       </div>
       <div class="appliance-item">
-        <p class="appliance-name">💡 <span data-it>Luci</span><span data-en>Lights</span></p>
-        <p class="appliance-text"><span data-it>Interruttori all'ingresso. Luci esterne off alle 23:00. Spegnere tutto in assenza.</span><span data-en>Switches at entrance. Outdoor lights off at 11 PM. Switch off when out.</span></p>
+        <p class="appliance-name">&#x1F4A1; <span data-it>Luci</span><span data-en>Lights</span></p>
+        <p class="appliance-text"><span data-it>Interruttori all&#x27;ingresso. Luci esterne off alle 23:00. Spegnere tutto in assenza.</span><span data-en>Switches at entrance. Outdoor lights off at 11 PM. Switch off when out.</span></p>
       </div>
     </div>
-    <div class="hbox"><p>🆘 <span data-it>Per qualsiasi necessità:</span><span data-en>For any need:</span> WhatsApp <a href="tel:+393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
+    <div class="hbox"><p>&#x1F198; <span data-it>Per qualsiasi necessit&#xe0;:</span><span data-en>For any need:</span> WhatsApp <a href="tel:+393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
   </div>
 </div>
 
-<!-- ════════════ WIFI ════════════ -->
+<!-- WIFI -->
 <div class="view" id="view-wifi">
   <div class="page-hero">
-    <div class="ph-icon">📶</div>
+    <div class="ph-icon">&#x1F4F6;</div>
     <div>
       <p class="ph-tag">Wi-Fi</p>
       <h1 class="ph-title" data-it><span class="sc">Wi-Fi</span> della Struttura</h1>
@@ -1258,17 +842,17 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </div>
   <div class="page-body">
     <div class="info-block">
-      <div class="info-item"><p class="info-lbl">Network</p><p class="info-val"><strong>Ospitib&bmiu</strong></p></div>
-      <div class="info-item"><p class="info-lbl">Password</p><p class="info-val"><strong>Miub&bciampino</strong></p></div>
+      <div class="info-item"><p class="info-lbl">Network</p><p class="info-val"><strong>Ospitib&amp;bmiu</strong></p></div>
+      <div class="info-item"><p class="info-lbl">Password</p><p class="info-val"><strong>Miub&amp;bciampino</strong></p></div>
     </div>
-    <div class="hbox" style="margin-top:1.5rem"><p>📶 <span data-it>Connessione disponibile in tutta la struttura. Per problemi di connessione contatta la reception.</span><span data-en>Connection available throughout the property. For connection issues contact reception.</span></p></div>
+    <div class="hbox" style="margin-top:1.5rem"><p>&#x1F4F6; <span data-it>Connessione disponibile in tutta la struttura. Per problemi di connessione contatta la reception.</span><span data-en>Connection available throughout the property. For connection issues contact reception.</span></p></div>
   </div>
 </div>
 
-<!-- ════════════ PRIMO ACCESSO ════════════ -->
+<!-- PRIMO ACCESSO -->
 <div class="view" id="view-primaccesso">
   <div class="page-hero">
-    <div class="ph-icon">🗝️</div>
+    <div class="ph-icon">&#x1F5DD;&#xFE0F;</div>
     <div>
       <p class="ph-tag"><span data-it>Benvenuti</span><span data-en>Welcome</span></p>
       <h1 class="ph-title" data-it>Istruzioni <span class="sc">Primo Accesso</span></h1>
@@ -1279,10 +863,10 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
   </div>
 </div>
 
-<!-- ════════════ EMERGENZE ════════════ -->
+<!-- EMERGENZE -->
 <div class="view" id="view-emergenze">
   <div class="page-hero">
-    <div class="ph-icon">🆘</div>
+    <div class="ph-icon">&#x1F198;</div>
     <div>
       <p class="ph-tag"><span data-it>Sicurezza</span><span data-en>Safety</span></p>
       <h1 class="ph-title" data-it>Numeri di <span class="sc">Emergenza</span></h1>
@@ -1290,30 +874,27 @@ div[data-en],p[data-en],h1[data-en],h2[data-en],h3[data-en],li[data-en]{display:
     </div>
   </div>
   <div class="page-body">
-    <p class="page-intro"><span data-it>In caso di necessità, questi sono i numeri da chiamare. Salvali sul telefono.</span><span data-en>In case of need, these are the numbers to call. Save them on your phone.</span></p>
+    <p class="page-intro"><span data-it>In caso di necessit&#xe0;, questi sono i numeri da chiamare. Salvali sul telefono.</span><span data-en>In case of need, these are the numbers to call. Save them on your phone.</span></p>
     <div class="emergency-grid">
-      <div class="emerg-card"><span class="emerg-icon">📞</span><div><p class="emerg-num">112</p><p class="emerg-label"><span data-it>Emergenze</span><span data-en>Emergency</span></p></div></div>
-      <div class="emerg-card"><span class="emerg-icon">🚑</span><div><p class="emerg-num">118</p><p class="emerg-label"><span data-it>Ambulanza</span><span data-en>Ambulance</span></p></div></div>
-      <div class="emerg-card"><span class="emerg-icon">🚒</span><div><p class="emerg-num">115</p><p class="emerg-label"><span data-it>Vigili del Fuoco</span><span data-en>Fire Brigade</span></p></div></div>
-      <div class="emerg-card"><span class="emerg-icon">👮</span><div><p class="emerg-num">113</p><p class="emerg-label"><span data-it>Polizia</span><span data-en>Police</span></p></div></div>
-      <div class="emerg-card"><span class="emerg-icon">🪖</span><div><p class="emerg-num">112</p><p class="emerg-label">Carabinieri</p></div></div>
-      <div class="emerg-card"><span class="emerg-icon">🏥</span><div><p class="emerg-num">116117</p><p class="emerg-label"><span data-it>Guardia Medica</span><span data-en>Medical Guard</span></p></div></div>
+      <div class="emerg-card"><span class="emerg-icon">&#x1F4DE;</span><div><p class="emerg-num">112</p><p class="emerg-label"><span data-it>Emergenze</span><span data-en>Emergency</span></p></div></div>
+      <div class="emerg-card"><span class="emerg-icon">&#x1F691;</span><div><p class="emerg-num">118</p><p class="emerg-label"><span data-it>Ambulanza</span><span data-en>Ambulance</span></p></div></div>
+      <div class="emerg-card"><span class="emerg-icon">&#x1F692;</span><div><p class="emerg-num">115</p><p class="emerg-label"><span data-it>Vigili del Fuoco</span><span data-en>Fire Brigade</span></p></div></div>
+      <div class="emerg-card"><span class="emerg-icon">&#x1F46E;</span><div><p class="emerg-num">113</p><p class="emerg-label"><span data-it>Polizia</span><span data-en>Police</span></p></div></div>
+      <div class="emerg-card"><span class="emerg-icon">&#x1FA96;</span><div><p class="emerg-num">112</p><p class="emerg-label">Carabinieri</p></div></div>
+      <div class="emerg-card"><span class="emerg-icon">&#x1F3E5;</span><div><p class="emerg-num">116117</p><p class="emerg-label"><span data-it>Guardia Medica</span><span data-en>Medical Guard</span></p></div></div>
     </div>
-    <div class="hbox" style="margin-top:1.5rem"><p>🏥 <span data-it>Pronto Soccorso: Ciampino (~2 km) · Frascati (~10 km)</span><span data-en>Nearest A&E: Frascati (~10 km) · Ciampino (~15 km)</span></p></div>
-    <div class="hbox"><p>📱 Host WhatsApp: <a href="tel:+393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
+    <div class="hbox" style="margin-top:1.5rem"><p>&#x1F3E5; <span data-it>Pronto Soccorso: Ciampino (~2 km) &middot; Frascati (~10 km)</span><span data-en>Nearest A&amp;E: Frascati (~10 km) &middot; Ciampino (~15 km)</span></p></div>
+    <div class="hbox"><p>&#x1F4F1; Host WhatsApp: <a href="tel:+393514246166" style="color:var(--gold);text-decoration:none;font-weight:600">+39 351 424 6166</a></p></div>
   </div>
 </div>
 
-<!-- ════════════════ JS ════════════════ -->
 <script>
 function toggleHostMenu(){
-  const m = document.getElementById('host-menu');
-  const open = m.style.display === 'flex';
-  m.style.display = open ? 'none' : 'flex';
-  document.body.style.overflow = open ? '' : 'hidden';
+  const m=document.getElementById('host-menu');
+  const open=m.style.display==='flex';
+  m.style.display=open?'none':'flex';
+  document.body.style.overflow=open?'':'hidden';
 }
-
-/* ── PAGES ── */
 const PAGES={
   villa:{it:'La Villa',en:'The Villa'},
   piscina:{it:'Piscina',en:'Pool'},
@@ -1326,42 +907,25 @@ const PAGES={
   primaccesso:{it:'Primo Accesso',en:'First Access'},
   emergenze:{it:'Emergenze',en:'Emergency'},
 };
-
 function showPage(id){
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-  document.querySelectorAll('.view').forEach(v => {
-    v.classList.remove('active');
-    v.style.display = 'none';
-  });
-  const target = document.getElementById('view-' + id);
-  if(!target) return;
-  target.style.display = 'block';
-  target.offsetHeight;
-  target.classList.add('active');
-  const lang = document.body.classList.contains('lang-en') ? 'en' : 'it';
-  const info = PAGES[id] || {};
-  document.getElementById('h-title').textContent = info[lang] || '';
-  document.getElementById('h-title').style.display = 'block';
-  document.getElementById('h-back').style.display = 'flex';
+  document.documentElement.scrollTop=0;document.body.scrollTop=0;
+  document.querySelectorAll('.view').forEach(v=>{v.classList.remove('active');v.style.display='none';});
+  const target=document.getElementById('view-'+id);if(!target)return;
+  target.style.display='block';target.offsetHeight;target.classList.add('active');
+  const lang=document.body.classList.contains('lang-en')?'en':'it';
+  const info=PAGES[id]||{};
+  document.getElementById('h-title').textContent=info[lang]||'';
+  document.getElementById('h-title').style.display='block';
+  document.getElementById('h-back').style.display='flex';
 }
-
 function goHome(){
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-  document.querySelectorAll('.view').forEach(v => {
-    v.classList.remove('active');
-    v.style.display = 'none';
-  });
-  const home = document.getElementById('view-home');
-  home.style.display = 'flex';
-  home.offsetHeight;
-  home.classList.add('active');
-  document.getElementById('h-title').style.display = 'none';
-  document.getElementById('h-back').style.display = 'none';
+  document.documentElement.scrollTop=0;document.body.scrollTop=0;
+  document.querySelectorAll('.view').forEach(v=>{v.classList.remove('active');v.style.display='none';});
+  const home=document.getElementById('view-home');
+  home.style.display='flex';home.offsetHeight;home.classList.add('active');
+  document.getElementById('h-title').style.display='none';
+  document.getElementById('h-back').style.display='none';
 }
-
-/* ── LANG ── */
 function setLang(l){
   document.body.className='lang-'+l;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('on',b.textContent===l.toUpperCase()));
@@ -1373,26 +937,17 @@ function setLang(l){
     document.getElementById('h-title').textContent=info[l]||'';
   }
 }
-
-/* ── ITINERARY TABS ── */
 function showItab(id,btn){
   const pb=btn.closest('.page-body');
   pb.querySelectorAll('.itab-pane').forEach(t=>t.classList.remove('on'));
   pb.querySelectorAll('.itab').forEach(b=>b.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
-  btn.classList.add('on');
+  document.getElementById(id).classList.add('on');btn.classList.add('on');
 }
-
-/* ── DELIVERY ACCORDION ── */
 function toggleDelivery(panelId,chevId){
-  const panel=document.getElementById(panelId);
-  const chev=document.getElementById(chevId);
+  const panel=document.getElementById(panelId);const chev=document.getElementById(chevId);
   const isOpen=panel.classList.contains('open');
-  panel.classList.toggle('open',!isOpen);
-  chev.classList.toggle('open',!isOpen);
+  panel.classList.toggle('open',!isOpen);chev.classList.toggle('open',!isOpen);
 }
-
-/* ── MODAL ── */
 const PLACES={
   colosseo:{tag:"Monumento · Roma",title:"Colosseo & Foro Romano",
     body_it:"<strong>Prenotazione obbligatoria</strong> su coopculture.it — senza biglietto fila 2–3h. Biglietto combinato con Foro Romano e Palatino, valido 2 giorni. Arrivare all'apertura (9:00).<br><br>⏱ ~2.5–3h · 📍 Metro B, Colosseo",
@@ -1403,33 +958,13 @@ const PLACES={
     body_en:"Includes Sistine Chapel, Raphael Rooms, Gallery of Maps. <strong>Book at least 5 days ahead.</strong> Afterwards, free Basilica entry — dome €8.<br><br>⏱ 3–4h · 📍 Metro A, Ottaviano",
     links:[{l:"museivaticani.va →",u:"https://www.museivaticani.va",p:true},{l:"Google Maps",u:"https://maps.google.com/?q=Vatican+Museums"}]},
   borghese:{tag:"Museo · Roma",title:"Galleria Borghese",
-    body_it:"Bernini, Caravaggio, Tiziano — originali. <strong>Prenotazione obbligatoria</strong>, accessi ogni 2h. Praticamente impossibile senza prenotazione.<br><br>⏱ 2h max · 📍 Bus 910 da Termini",
-    body_en:"Bernini, Caravaggio, Titian — originals. <strong>Booking mandatory</strong>, timed entry every 2h. Nearly impossible without booking.<br><br>⏱ 2h max · 📍 Bus 910 from Termini",
+    body_it:"Bernini, Caravaggio, Tiziano — originali. <strong>Prenotazione obbligatoria</strong>, accessi ogni 2h.<br><br>⏱ 2h max · 📍 Bus 910 da Termini",
+    body_en:"Bernini, Caravaggio, Titian — originals. <strong>Booking mandatory</strong>, timed entry every 2h.<br><br>⏱ 2h max · 📍 Bus 910 from Termini",
     links:[{l:"galleriaborghese.it →",u:"https://www.galleriaborghese.it",p:true},{l:"Google Maps",u:"https://maps.google.com/?q=Galleria+Borghese+Rome"}]},
-  castelgandolfo:{tag:"Borgo · Castelli Romani",title:"Castel Gandolfo",
-    body_it:"Borgo papale sul Lago Albano. Musei Vaticani aperti con prenotazione. Ottimi ristoranti sul Corso con vista lago.<br><br>🚗 ~20 min · 🅿️ Parcheggio bordo paese",
-    body_en:"Papal village on Lake Albano. Vatican Museums open with booking. Excellent lakeside restaurants on the main Corso.<br><br>🚗 ~20 min · 🅿️ Parking at village edge",
-    links:[{l:"museivaticani.va →",u:"https://www.museivaticani.va",p:true},{l:"Google Maps",u:"https://maps.google.com/?q=Castel+Gandolfo"}]},
-  frascati:{tag:"Borgo · Castelli Romani",title:"Frascati",
-    body_it:"Il più famoso dei Castelli. Vino Frascati DOC, Villa Aldobrandini, cantine Fontana Candida e Gotto d'Oro. Centro con portici settecenteschi.<br><br>🚗 ~15 min · Degustazioni su prenotazione",
-    body_en:"The most famous Castelli town. Frascati DOC wine, Villa Aldobrandini, cellars Fontana Candida and Gotto d'Oro. 18th-century arcaded centre.<br><br>🚗 ~15 min · Wine tastings on request",
-    links:[{l:"Google Maps",u:"https://maps.google.com/?q=Frascati+RM",p:true}]},
   ariccia:{tag:"Borgo · Castelli Romani",title:"Ariccia",
     body_it:"Patria della <strong>Porchetta IGP</strong>. Le fraschette: porchetta tagliata al momento, pane casereccio, vino sfuso. Palazzo Chigi e ponte monumentale.<br><br>🚌 ~25 min",
     body_en:"Home of <strong>IGP Porchetta</strong>. Fraschette taverns: freshly carved porchetta, rustic bread, local wine on tap. Chigi Palace and monumental bridge.<br><br>🚌 ~25 min",
     links:[{l:"Google Maps",u:"https://maps.google.com/?q=Ariccia+RM",p:true}]},
-  grottaferrata:{tag:"Borgo · Castelli Romani",title:"Grottaferrata",
-    body_it:"<strong>Abbazia Greca di San Nilo</strong> fondata nel 1004, ancora abitata da monaci. Vini tra i più raffinati dei Castelli.<br><br>🚗 ~25 min",
-    body_en:"<strong>Greek Abbey of San Nilo</strong> founded in 1004, still inhabited by monks. Among the finest wines of the Castelli.<br><br>🚗 ~25 min",
-    links:[{l:"Google Maps",u:"https://maps.google.com/?q=Grottaferrata+RM",p:true}]},
-  nemi:{tag:"Borgo · Castelli Romani",title:"Nemi",
-    body_it:"Il borgo più romantico dei Castelli su un lago vulcanico. <strong>Fragoline di bosco</strong> (giugno–agosto). Piccolo, autentico, da percorrere a piedi.<br><br>🚗 ~30 min",
-    body_en:"The most romantic Castelli village on a volcanic lake. <strong>Wild strawberries</strong> (June–August). Small, authentic, walkable in 30 minutes.<br><br>🚗 ~30 min",
-    links:[{l:"Google Maps",u:"https://maps.google.com/?q=Nemi+RM",p:true}]},
-  marino:{tag:"Borgo · Castelli Romani",title:"Marino",
-    body_it:"<strong>Sagra dell'Uva</strong> (prima domenica ottobre): fontane di vino. Vini bianchi Marino DOC eccellenti.<br><br>🚌 ~20 min",
-    body_en:"<strong>Grape Festival</strong> (first Sunday October): fountains of wine. Excellent Marino DOC white wines.<br><br>🚌 ~20 min",
-    links:[{l:"Google Maps",u:"https://maps.google.com/?q=Marino+RM",p:true}]},
   testaccio:{tag:"Quartiere · Roma",title:"Testaccio",
     body_it:"Quartiere più autentico di Roma. <strong>Mercato Testaccio</strong>: supplì, cacio e pepe, coda vaccinara. Ristoranti storici: Flavio al Velavevodetto, Da Remo.<br><br>📍 Metro B, Piramide",
     body_en:"Rome's most authentic neighbourhood. <strong>Testaccio Market</strong>: supplì, cacio e pepe, oxtail. Classics: Flavio al Velavevodetto, Da Remo for pizza.<br><br>📍 Metro B, Piramide",
@@ -1447,36 +982,22 @@ const PLACES={
     body_en:"<strong>Giolitti</strong> (near the Pantheon) · <strong>Fatamorgana</strong> (Trastevere, Prati, Monti) · <strong>Gelateria dei Gracchi</strong> (Prati, 2 min Vatican).<br><br>💡 Real artisan gelato has muted, natural colours.",
     links:[{l:"Giolitti Maps",u:"https://maps.google.com/?q=Giolitti+Roma",p:true},{l:"Fatamorgana",u:"https://maps.google.com/?q=Fatamorgana+Trastevere"}]},
 };
-
-/* ── CAMERA LIGHTBOX ── */
-const CAMERA_PHOTOS = {
-  marino:       [{src:'Screenshot 2026-04-27 alle 15.57.00.png',cap:'Camera Marino'},{src:'Screenshot 2026-04-27 alle 15.57.34.png',cap:'Camera Marino — bagno'}],
+const CAMERA_PHOTOS={
+  marino:[{src:'Screenshot 2026-04-27 alle 15.57.00.png',cap:'Camera Marino'},{src:'Screenshot 2026-04-27 alle 15.57.34.png',cap:'Camera Marino — bagno'}],
   castelgandolfo:[{src:'Screenshot 2026-04-27 alle 17.06.38.png',cap:'Camera Castel Gandolfo'},{src:'Screenshot 2026-04-27 alle 17.09.13.png',cap:'Vasca idromassaggio'}],
-  nemi:         [{src:'Screenshot 2026-04-27 alle 17.10.58.png',cap:'Camera Nemi'},{src:'Screenshot 2026-04-27 alle 17.12.04.png',cap:'Camera Nemi — balcone'}],
-  genzano:      [{src:'Screenshot 2026-04-27 alle 17.12.41.png',cap:'Camera Genzano'},{src:'Screenshot 2026-04-27 alle 17.16.47.png',cap:'Terrazzo'}],
-  ariccia:      [{src:'Screenshot 2026-04-27 alle 17.17.54.png',cap:'Camera Ariccia'},{src:'Screenshot 2026-04-27 alle 17.18.26.png',cap:'Camera Ariccia — terrazzo'}],
-  frascati:     [{src:'Screenshot 2026-04-27 alle 17.14.48.png',cap:'Camera Frascati'},{src:'Screenshot 2026-04-27 alle 17.16.47.png',cap:'Camera Frascati - terrazzo'}],
+  nemi:[{src:'Screenshot 2026-04-27 alle 17.10.58.png',cap:'Camera Nemi'},{src:'Screenshot 2026-04-27 alle 17.12.04.png',cap:'Camera Nemi — balcone'}],
+  genzano:[{src:'Screenshot 2026-04-27 alle 17.12.41.png',cap:'Camera Genzano'},{src:'Screenshot 2026-04-27 alle 17.16.47.png',cap:'Terrazzo'}],
+  ariccia:[{src:'Screenshot 2026-04-27 alle 17.17.54.png',cap:'Camera Ariccia'},{src:'Screenshot 2026-04-27 alle 17.18.26.png',cap:'Camera Ariccia — terrazzo'}],
+  frascati:[{src:'Screenshot 2026-04-27 alle 17.14.48.png',cap:'Camera Frascati'},{src:'Screenshot 2026-04-27 alle 17.16.47.png',cap:'Camera Frascati - terrazzo'}],
 };
 function openCameraLB(name){
-  const photos = CAMERA_PHOTOS[name];
-  if(!photos||!photos.length) return;
-  lbImages = photos;
-  lbIdx = 0;
-  updLB();
-  buildDots();
+  const photos=CAMERA_PHOTOS[name];if(!photos||!photos.length)return;
+  lbImages=photos;lbIdx=0;updLB();buildDots();
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow='hidden';
 }
-
-function openStoria(){
-  document.getElementById('storiaModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeStoria(){
-  document.getElementById('storiaModal').classList.remove('open');
-  document.body.style.overflow='';
-}
-
+function openStoria(){document.getElementById('storiaModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeStoria(){document.getElementById('storiaModal').classList.remove('open');document.body.style.overflow='';}
 function openModal(key){
   const lang=document.body.classList.contains('lang-en')?'en':'it';
   const p=PLACES[key];if(!p)return;
@@ -1490,29 +1011,13 @@ function openModal(key){
 }
 function closeModal(){document.getElementById('placeModal').classList.remove('open');document.body.style.overflow='';}
 document.getElementById('placeModal').addEventListener('click',e=>{if(e.target===document.getElementById('placeModal'))closeModal();});
-
-/* ── LIGHTBOX ── */
-let lbImages = [];
-let lbIdx = 0;
-
-function openLB(i, el) {
-  const container = el
-    ? (el.closest('.photo-strip') || el.closest('.photo-hero') || el.closest('.page-body'))
-    : (document.querySelector('.view.active .photo-strip') || document.querySelector('.view.active .photo-hero'));
-
-  if (container) {
-    lbImages = Array.from(container.querySelectorAll('img:not(.ic-bg)'))
-      .filter(img => img.src && !img.src.endsWith('#'))
-      .map(img => ({ src: img.src, cap: img.alt || '' }));
-  }
-
-  lbIdx = Math.min(i, lbImages.length - 1);
-  updLB();
-  buildDots();
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
+let lbImages=[],lbIdx=0;
+function openLB(i,el){
+  const container=el?(el.closest('.photo-strip')||el.closest('.photo-hero')||el.closest('.page-body')):(document.querySelector('.view.active .photo-strip')||document.querySelector('.view.active .photo-hero'));
+  if(container){lbImages=Array.from(container.querySelectorAll('img:not(.ic-bg)')).filter(img=>img.src&&!img.src.endsWith('#')).map(img=>({src:img.src,cap:img.alt||''}));}
+  lbIdx=Math.min(i,lbImages.length-1);updLB();buildDots();
+  document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';
 }
-
 function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
 function lbNav(d){lbIdx=(lbIdx+d+lbImages.length)%lbImages.length;updLB();}
 function updLB(){
@@ -1522,12 +1027,7 @@ function updLB(){
 }
 function buildDots(){
   const c=document.getElementById('lb-dots');c.innerHTML='';
-  lbImages.forEach((_,i)=>{
-    const d=document.createElement('span');
-    d.className='lb-dot'+(i===lbIdx?' on':'');
-    d.onclick=()=>{lbIdx=i;updLB();};
-    c.appendChild(d);
-  });
+  lbImages.forEach((_,i)=>{const d=document.createElement('span');d.className='lb-dot'+(i===lbIdx?' on':'');d.onclick=()=>{lbIdx=i;updLB();};c.appendChild(d);});
 }
 document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===document.getElementById('lightbox'))closeLB();});
 document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='ArrowRight')lbNav(1);if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='Escape')closeLB();});
