@@ -264,6 +264,20 @@ header{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;padding:0 1.1
 .logo-ring:hover::after{animation:none;opacity:0;}
 .lang-it .lang-en-text{display:none;}
 .lang-en .lang-it-text{display:none;}
+/* ph-title lingua: mostra solo quello corretto */
+.lang-it [data-en].ph-title{display:none;}
+.lang-en [data-it].ph-title{display:none;}
+.lang-es [data-en].ph-title{display:none;}
+.lang-fr [data-en].ph-title{display:none;}
+.lang-ru [data-en].ph-title{display:none;}
+.lang-zh [data-en].ph-title{display:none;}
+.lang-pt [data-en].ph-title{display:none;}
+.lang-de [data-en].ph-title{display:none;}
+/* default: mostra solo IT per le lingue non-EN */
+.lang-it [data-it].ph-title,.lang-es [data-it].ph-title,.lang-fr [data-it].ph-title,
+.lang-ru [data-it].ph-title,.lang-zh [data-it].ph-title,.lang-pt [data-it].ph-title,
+.lang-de [data-it].ph-title{display:block;}
+.lang-en [data-en].ph-title{display:block;}
 
 @media(max-width:560px){
   .photo-strip{grid-template-columns:1fr 1fr;grid-template-rows:130px 130px;}
@@ -467,10 +481,11 @@ header{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;padding:0 1.1
   </div>
   <div class="page-body">
     <!-- PATCH 3: photo placeholder instead of video -->
-<div style="width:100%;border-radius:6px;overflow:hidden;margin-bottom:1.8rem;">
-  <img src="Screenshot 2026-05-05 alle 15.42.41.png" alt="B&B Miù" 
-       style="width:100%;height:320px;object-fit:cover;display:block;">
-</div>
+    <div class="villa-photo-placeholder" id="villa-main-photo">
+      <span class="villa-photo-placeholder-icon">&#x1F4F7;</span>
+      <p class="villa-photo-placeholder-lbl"><span data-t="t16"></span></p>
+      <span class="villa-photo-placeholder-add">+ aggiungi foto</span>
+    </div>
     <p class="page-intro"><span data-t="t17"></span></p>
     <div class="info-block">
       <div class="info-item"><p class="info-lbl">Check-in</p><p class="info-val"><span data-t="t18"></span></p></div>
@@ -624,51 +639,59 @@ header{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;padding:0 1.1
   </div>
   <div class="page-body">
     <p class="sub-h">&#x1F68C; <span data-t="t69"></span></p>
+    <!-- Grid piccolo: bus/metro/treno -->
     <div class="transport-grid">
-      <!-- PATCH 1: Bus 515 destinazione Anagnina (non Tor Vergata) -->
       <div class="transport-card"><div class="transport-header"><span class="transport-icon">&#x1F68C;</span><span class="transport-name"><span data-t="t70"></span></span></div><p class="transport-detail"><strong><span data-t="t71"></span></strong> <span data-t="t72"></span></p><p class="transport-detail"><strong><span data-t="t73"></span></strong> <span data-t="t74"></span></p></div>
       <div class="transport-card"><div class="transport-header"><span class="transport-icon">&#x1F68C;</span><span class="transport-name"><span data-t="t75"></span></span></div><p class="transport-detail"><strong><span data-t="t76"></span></strong> <span data-t="t77"></span></p><p class="transport-detail"><strong><span data-t="t78"></span></strong> <span data-t="t79"></span></p></div>
       <div class="transport-card"><div class="transport-header"><span class="transport-icon">&#x1F686;</span><span class="transport-name"><span data-t="t80"></span></span></div><p class="transport-detail"><strong><span data-t="t81"></span></strong> Ciampino &middot; Acqua Acetosa (~5 min)</p><p class="transport-detail"><strong>Roma Termini:</strong> ~20 min</p><p class="transport-detail"><strong><span data-t="t82"></span></strong> &#x20ac;1.50</p></div>
       <div class="transport-card"><div class="transport-header"><span class="transport-icon">&#x1F687;</span><span class="transport-name">Metro Roma</span></div><p class="transport-detail"><strong>Anagnina &#x2192; Centro:</strong> Metro A ~25 min</p><p class="transport-detail"><strong>Termini &#x2192; Colosseo:</strong> Metro B, 2 <span data-t="t83"></span></p></div>
-      <!-- PATCH 5: Taxi card con tariffe transfer -->
-      <div class="transport-card" style="border:1.5px solid var(--gold);background:linear-gradient(135deg,rgba(200,134,10,.04),var(--ivory));">
-        <div class="transport-header">
-          <span class="transport-icon">&#x1F695;</span>
-          <span class="transport-name" style="color:var(--gold)"><span data-t="t64"></span></span>
+    </div>
+
+    <!-- Banner orizzontale Transfer Privato -->
+    <div style="margin-top:1.2rem;border-radius:10px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 6px 28px rgba(200,134,10,.13);">
+      <!-- Header banner -->
+      <div style="background:linear-gradient(135deg,var(--gold),#b87609);padding:.85rem 1.3rem;display:flex;align-items:center;gap:.7rem;">
+        <span style="font-size:1.6rem;">&#x1F695;</span>
+        <div>
+          <p style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#fff;font-weight:600;font-style:italic"><span data-t="t64"></span></p>
+          <p style="font-size:.7rem;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-top:.1rem">&#x1F4B0; <span data-t="t300"></span></p>
         </div>
-        <p class="transport-detail" style="font-size:.72rem;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem">&#x1F4B0; <span data-t="t300"></span></p>
-        <div class="transfer-legend" style="margin-bottom:.6rem;">
-          <div class="transfer-legend-item transfer-legend-night">&#x1F319; <span data-t="t301"></span></div>
-          <div class="transfer-legend-item transfer-legend-day">&#x2600;&#xFE0F; <span data-t="t302"></span></div>
-        </div>
-        <table class="transfer-table">
+        <a href="https://wa.me/393514246166" target="_blank" style="margin-left:auto;display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1rem;background:#25D366;color:#fff;border-radius:20px;font-size:.75rem;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0;">&#x1F4AC; <span data-t="t67"></span></a>
+      </div>
+      <!-- Corpo orizzontale: tabella + testo -->
+      <div style="background:var(--ivory);padding:1.1rem 1.3rem;display:flex;align-items:flex-start;gap:1.5rem;flex-wrap:wrap;">
+        <!-- Tabella prezzi -->
+        <table style="border-collapse:collapse;flex-shrink:0;min-width:280px;">
           <thead>
             <tr>
-              <th style="background:var(--stone);color:var(--muted);">Destinazione</th>
-              <th class="col-night" style="text-align:center;">Notte</th>
-              <th class="col-day" style="text-align:center;">Giorno</th>
+              <th id="th-dest" style="background:var(--stone);color:var(--muted);padding:.45rem .7rem;text-align:left;font-size:.66rem;font-weight:600;border-radius:4px 0 0 0;">Destinazione</th>
+              <th style="background:#2a2060;color:#fff;padding:.45rem .7rem;text-align:center;font-size:.66rem;font-weight:600;">&#x1F319; <span data-t="t301"></span></th>
+              <th style="background:var(--gold);color:#fff;padding:.45rem .7rem;text-align:center;font-size:.66rem;font-weight:600;border-radius:0 4px 0 0;">&#x2600;&#xFE0F; <span data-t="t302"></span></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>&#x2708;&#xFE0F; Ciampino (CIA)</td>
-              <td class="price price-night">&#x20ac;25</td>
-              <td class="price price-day">&#x20ac;20</td>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:.5rem .7rem;font-size:.82rem;">&#x2708;&#xFE0F; Ciampino (CIA)</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#2a2060;padding:.5rem .7rem;">&#x20ac;25</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--gold);padding:.5rem .7rem;">&#x20ac;20</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:.5rem .7rem;font-size:.82rem;">&#x2708;&#xFE0F; Fiumicino (FCO)</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#2a2060;padding:.5rem .7rem;">&#x20ac;60</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--gold);padding:.5rem .7rem;">&#x20ac;50</td>
             </tr>
             <tr>
-              <td>&#x2708;&#xFE0F; Fiumicino (FCO)</td>
-              <td class="price price-night">&#x20ac;60</td>
-              <td class="price price-day">&#x20ac;50</td>
-            </tr>
-            <tr>
-              <td>&#x1F686; Roma Termini</td>
-              <td class="price price-night">&#x20ac;50</td>
-              <td class="price price-day">&#x20ac;40</td>
+              <td style="padding:.5rem .7rem;font-size:.82rem;">&#x1F686; Roma Termini</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#2a2060;padding:.5rem .7rem;">&#x20ac;50</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--gold);padding:.5rem .7rem;">&#x20ac;40</td>
             </tr>
           </tbody>
         </table>
-        <p class="transport-detail" style="margin-top:.65rem;font-size:.72rem;color:var(--muted)"><span data-t="t65"></span></p>
-        <a href="https://wa.me/393514246166" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.55rem;padding:.45rem .9rem;background:#25D366;color:#fff;border-radius:20px;font-size:.72rem;font-weight:700;text-decoration:none;">&#x1F4AC; <span data-t="t67"></span></a>
+        <!-- Testo descrizione -->
+        <div style="flex:1;min-width:180px;display:flex;flex-direction:column;justify-content:center;gap:.5rem;padding:.2rem 0;">
+          <p style="font-size:.82rem;color:var(--muted);line-height:1.75;"><span data-t="t65"></span></p>
+          <p style="font-size:.75rem;color:var(--faint);font-style:italic;">&#x1F4CD; <span data-t="t66"></span></p>
+        </div>
       </div>
     </div>
     <p class="sub-h">&#x1F689; <span data-t="t85"></span></p>
@@ -707,10 +730,10 @@ header{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;padding:0 1.1
   <div class="page-body">
     <p class="sub-h">&#x1F4CD; <span data-t="t106"></span></p>
     <div class="card-grid">
-      <div class="card"><span class="card-ico">&#x1F35D;</span><p class="card-ttl"><span data-t="t107"></span></p><p class="card-txt"><span data-t="t108"></span></p><a class="card-cta" href="https://share.google/XQZKDW3v0aXHjC5VQ" target="_blank">Maps &#x2192;</a></div>
-      <div class="card"><span class="card-ico">&#x1F355;</span><p class="card-ttl">Il Limoncello dal 2002</p><p class="card-txt"><span data-t="t109"></span></p><a class="card-cta" href="https://share.google/i3RYAgfWK461qkrfC" target="_blank">Maps &#x2192;</a></div>
-      <div class="card"><span class="card-ico">&#x1F355;</span><p class="card-ttl">Alice Pizza</p><p class="card-txt"><span data-t="t110"></span></p><a class="card-cta" href="https://share.google/ryXXlTBLl1lt79Q0F" target="_blank">Maps &#x2192;</a></div>
-      <div class="card"><span class="card-ico">&#x1F969;</span><p class="card-ttl"><span data-t="t111"></span></p><p class="card-txt"><span data-t="t112"></span></p><a class="card-cta" href="https://share.google/M4MJdTZZy3bAdd8xf" target="_blank">Maps &#x2192;</a></div>
+      <a class="card" href="https://share.google/XQZKDW3v0aXHjC5VQ" target="_blank" style="text-decoration:none;display:block;"><span class="card-ico">&#x1F35D;</span><p class="card-ttl"><span data-t="t107"></span></p><p class="card-txt"><span data-t="t108"></span></p><span class="card-cta">Maps &#x2192;</span></a>
+      <a class="card" href="https://share.google/i3RYAgfWK461qkrfC" target="_blank" style="text-decoration:none;display:block;"><span class="card-ico">&#x1F355;</span><p class="card-ttl">Il Limoncello dal 2002</p><p class="card-txt"><span data-t="t109"></span></p><span class="card-cta">Maps &#x2192;</span></a>
+      <a class="card" href="https://share.google/ryXXlTBLl1lt79Q0F" target="_blank" style="text-decoration:none;display:block;"><span class="card-ico">&#x1F355;</span><p class="card-ttl">Alice Pizza</p><p class="card-txt"><span data-t="t110"></span></p><span class="card-cta">Maps &#x2192;</span></a>
+      <a class="card" href="https://share.google/M4MJdTZZy3bAdd8xf" target="_blank" style="text-decoration:none;display:block;"><span class="card-ico">&#x1F969;</span><p class="card-ttl"><span data-t="t111"></span></p><p class="card-txt"><span data-t="t112"></span></p><span class="card-cta">Maps &#x2192;</span></a>
     </div>
     <p class="sub-h">&#x1F3F0; <span data-t="t113"></span></p>
     <div class="card-grid">
@@ -1190,16 +1213,13 @@ function applyLang(l){
   }
   const sel=document.getElementById('lang-sel');
   if(sel&&sel.value!==l)sel.value=l;
-  // Aggiorna header tabella transfer con la lingua
-  const thDest=document.querySelector('.transfer-table thead th:first-child');
-  if(thDest){
-    const labels={'it':'Destinazione','en':'Destination','es':'Destino','fr':'Destination','ru':'Направление','zh':'目的地','pt':'Destino','de':'Ziel'};
-    thDest.textContent=labels[l]||labels['en'];
-  }
-  const thNight=document.querySelector('.transfer-table thead th.col-night');
-  const thDay=document.querySelector('.transfer-table thead th.col-day');
-  if(thNight&&T['t301'])thNight.textContent=T['t301'].replace(/&#x2013;/g,'–').replace(/&amp;/g,'&');
-  if(thDay&&T['t302'])thDay.textContent=T['t302'].replace(/&#x2013;/g,'–').replace(/&amp;/g,'&');
+  // Aggiorna ph-title: mostra solo quello corretto per la lingua
+  const isEN=(l==='en');
+  document.querySelectorAll('[data-it].ph-title').forEach(el=>el.style.display=isEN?'none':'block');
+  document.querySelectorAll('[data-en].ph-title').forEach(el=>el.style.display=isEN?'block':'none');
+  // Aggiorna intestazione tabella transfer
+  const thDest=document.getElementById('th-dest');
+  if(thDest){const d={'it':'Destinazione','en':'Destination','es':'Destino','fr':'Destination','ru':'Направление','zh':'目的地','pt':'Destino','de':'Ziel'};thDest.textContent=d[l]||d['en'];}
 }
 
 function setLang(l){applyLang(l);}
