@@ -280,6 +280,15 @@ header{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;padding:0 1.1
 .lang-en [data-en].ph-title{display:block;}
 
 @media(max-width:560px){
+  /* Transfer banner header: stack su mobile */
+  .transfer-banner-header{flex-wrap:wrap;gap:.5rem!important;}
+  .transfer-banner-header a{margin-left:0!important;width:100%!important;justify-content:center!important;}
+  /* Tabella transfer: font ancora più piccolo su mobile stretto */
+  .transfer-banner-table th{font-size:.55rem!important;padding:.35rem .25rem!important;}
+  .transfer-banner-table td{font-size:.72rem!important;padding:.4rem .25rem!important;}
+  .transfer-banner-table .price-cell{font-size:.9rem!important;}
+}
+@media(max-width:560px){
   .photo-strip{grid-template-columns:1fr 1fr;grid-template-rows:130px 130px;}
   .p-main{grid-column:1/3;grid-row:1;}
   .logo-ring{width:36vw;height:36vw;max-width:160px;max-height:160px;}
@@ -481,10 +490,11 @@ header{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;padding:0 1.1
   </div>
   <div class="page-body">
     <!-- PATCH 3: photo placeholder instead of video -->
-  <div style="width:100%;border-radius:6px;overflow:hidden;margin-bottom:1.8rem;">
-  <img src="Screenshot 2026-05-05 alle 15.42.41.png" alt="B&B Miù" 
-       style="width:100%;height:320px;object-fit:cover;display:block;">
-</div>
+    <div class="villa-photo-placeholder" id="villa-main-photo">
+      <span class="villa-photo-placeholder-icon">&#x1F4F7;</span>
+      <p class="villa-photo-placeholder-lbl"><span data-t="t16"></span></p>
+      <span class="villa-photo-placeholder-add">+ aggiungi foto</span>
+    </div>
     <p class="page-intro"><span data-t="t17"></span></p>
     <div class="info-block">
       <div class="info-item"><p class="info-lbl">Check-in</p><p class="info-val"><span data-t="t18"></span></p></div>
@@ -649,7 +659,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;padding:0 1.1
     <!-- Banner orizzontale Transfer Privato -->
     <div style="margin-top:1.2rem;border-radius:10px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 6px 28px rgba(200,134,10,.13);">
       <!-- Header banner -->
-      <div style="background:linear-gradient(135deg,var(--gold),#b87609);padding:.85rem 1.3rem;display:flex;align-items:center;gap:.7rem;">
+      <div style="background:linear-gradient(135deg,var(--gold),#b87609);padding:.85rem 1.3rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;">
         <span style="font-size:1.6rem;">&#x1F695;</span>
         <div>
           <p style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#fff;font-weight:600;font-style:italic"><span data-t="t64"></span></p>
@@ -657,37 +667,42 @@ header{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;padding:0 1.1
         </div>
         <a href="https://wa.me/393514246166" target="_blank" style="margin-left:auto;display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1rem;background:#25D366;color:#fff;border-radius:20px;font-size:.75rem;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0;">&#x1F4AC; <span data-t="t67"></span></a>
       </div>
-      <!-- Corpo orizzontale: tabella + testo -->
-      <div style="background:var(--ivory);padding:1.1rem 1.3rem;display:flex;align-items:flex-start;gap:1.5rem;flex-wrap:wrap;">
+      <!-- Corpo: tabella + testo, flex che su mobile diventa colonna -->
+      <div style="background:var(--ivory);padding:1rem;display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap;">
         <!-- Tabella prezzi -->
-        <table style="border-collapse:collapse;flex-shrink:0;min-width:280px;">
+        <table class="transfer-banner-table" style="border-collapse:collapse;width:100%;table-layout:fixed;">
+          <colgroup>
+            <col style="width:45%">
+            <col style="width:27.5%">
+            <col style="width:27.5%">
+          </colgroup>
           <thead>
             <tr>
-              <th id="th-dest" style="background:var(--stone);color:var(--muted);padding:.45rem .7rem;text-align:left;font-size:.66rem;font-weight:600;border-radius:4px 0 0 0;">Destinazione</th>
-              <th style="background:#2a2060;color:#fff;padding:.45rem .7rem;text-align:center;font-size:.66rem;font-weight:600;">&#x1F319; <span data-t="t301"></span></th>
-              <th style="background:var(--gold);color:#fff;padding:.45rem .7rem;text-align:center;font-size:.66rem;font-weight:600;border-radius:0 4px 0 0;">&#x2600;&#xFE0F; <span data-t="t302"></span></th>
+              <th id="th-dest" style="background:var(--stone);color:var(--muted);padding:.4rem .5rem;text-align:left;font-size:.62rem;font-weight:600;">Destinazione</th>
+              <th style="background:#2a2060;color:#fff;padding:.4rem .35rem;text-align:center;font-size:.6rem;font-weight:600;line-height:1.3;">&#x1F319; <span data-t="t301"></span></th>
+              <th style="background:var(--gold);color:#fff;padding:.4rem .35rem;text-align:center;font-size:.6rem;font-weight:600;line-height:1.3;">&#x2600;&#xFE0F; <span data-t="t302"></span></th>
             </tr>
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:.5rem .7rem;font-size:.82rem;">&#x2708;&#xFE0F; Ciampino (CIA)</td>
-              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#2a2060;padding:.5rem .7rem;">&#x20ac;25</td>
-              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--gold);padding:.5rem .7rem;">&#x20ac;20</td>
+              <td style="padding:.45rem .5rem;font-size:.78rem;">&#x2708;&#xFE0F; Ciampino</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#2a2060;padding:.45rem .3rem;">&#x20ac;25</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--gold);padding:.45rem .3rem;">&#x20ac;20</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:.5rem .7rem;font-size:.82rem;">&#x2708;&#xFE0F; Fiumicino (FCO)</td>
-              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#2a2060;padding:.5rem .7rem;">&#x20ac;60</td>
-              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--gold);padding:.5rem .7rem;">&#x20ac;50</td>
+              <td style="padding:.45rem .5rem;font-size:.78rem;">&#x2708;&#xFE0F; Fiumicino</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#2a2060;padding:.45rem .3rem;">&#x20ac;60</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--gold);padding:.45rem .3rem;">&#x20ac;50</td>
             </tr>
             <tr>
-              <td style="padding:.5rem .7rem;font-size:.82rem;">&#x1F686; Roma Termini</td>
-              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#2a2060;padding:.5rem .7rem;">&#x20ac;50</td>
-              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--gold);padding:.5rem .7rem;">&#x20ac;40</td>
+              <td style="padding:.45rem .5rem;font-size:.78rem;">&#x1F686; Termini</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#2a2060;padding:.45rem .3rem;">&#x20ac;50</td>
+              <td style="text-align:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--gold);padding:.45rem .3rem;">&#x20ac;40</td>
             </tr>
           </tbody>
         </table>
         <!-- Testo descrizione -->
-        <div style="flex:1;min-width:180px;display:flex;flex-direction:column;justify-content:center;gap:.5rem;padding:.2rem 0;">
+        <div style="flex:1;min-width:200px;display:flex;flex-direction:column;justify-content:center;gap:.5rem;padding:.2rem 0;">
           <p style="font-size:.82rem;color:var(--muted);line-height:1.75;"><span data-t="t65"></span></p>
           <p style="font-size:.75rem;color:var(--faint);font-style:italic;">&#x1F4CD; <span data-t="t66"></span></p>
         </div>
